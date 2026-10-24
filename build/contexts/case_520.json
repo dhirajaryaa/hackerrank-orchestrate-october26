@@ -1,0 +1,246 @@
+{
+ "case": {
+  "case_id": "case_520",
+  "audit_at": "2026-02-03T06:00:00Z",
+  "requested_at": "2026-01-06T06:00:00Z",
+  "reported_status": "NOT_STARTED",
+  "reported_at": "2026-01-09T06:00:00Z",
+  "email_supplied": "suzuki.daichi90@gmail.com",
+  "request_text": "Please process a permanent account-deletion request for this email address. Please include information linked through current or earlier account identifiers. Please let me know once the request has been reviewed."
+ },
+ "intent": {
+  "is_deletion": true,
+  "label": "deletion",
+  "matched_terms": [
+   "delet"
+  ],
+  "matched_negations": [],
+  "non_deletion_action": ""
+ },
+ "identity": {
+  "user_id": "user_518",
+  "email_supplied": "suzuki.daichi90@gmail.com",
+  "email_kind": "historical",
+  "matched_audit_ids": [
+   "audit_65"
+  ],
+  "name": "Daichi Suzuki",
+  "current": {
+   "user_id": "user_518",
+   "name": "Daichi Suzuki",
+   "email": "suzuki.daichi@gmail.com",
+   "phone": "+81 90 2773 3305",
+   "email_hash": "ed01c805bb0eebb48ea9a195a3816c768e5aa94a8e650ffe4469b34bee746d60"
+  },
+  "historical": {
+   "email": [
+    "suzuki.daichi90@gmail.com"
+   ],
+   "email_hash": [
+    "437adbd76c9c1cc0bcec823a9e44e48c817f64c43488cf740a069ed98fc1eb48"
+   ]
+  }
+ },
+ "state_at_audit": [
+  {
+   "system": "account_service",
+   "resource_id": "account_4979",
+   "category": "USER_PROFILE",
+   "record_type": "USER_PROFILE",
+   "state": "ABSENT",
+   "raw_state": "ABSENT",
+   "observed_at": "2026-02-03T05:52:39Z",
+   "evidence_id": "evidence_48",
+   "evidence_kind": "manifest",
+   "link_method": "link_key",
+   "identifiers": {},
+   "history": [
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-01-09T04:50:16Z",
+     "evidence_id": "activity_45",
+     "kind": "activity"
+    },
+    {
+     "state": "ABSENT",
+     "raw_state": "ABSENT",
+     "observed_at": "2026-02-03T05:52:39Z",
+     "evidence_id": "evidence_48",
+     "kind": "manifest"
+    }
+   ]
+  },
+  {
+   "system": "security_service",
+   "resource_id": "audit_record_9504",
+   "category": "SECURITY_AUDIT_LOG",
+   "record_type": "SECURITY_AUDIT_LOG",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-02-03T05:56:38Z",
+   "evidence_id": "evidence_48",
+   "evidence_kind": "manifest",
+   "link_method": "link_key",
+   "identifiers": {},
+   "history": [
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-02-03T05:56:38Z",
+     "evidence_id": "evidence_48",
+     "kind": "manifest"
+    }
+   ]
+  },
+  {
+   "system": "support_platform",
+   "resource_id": "support_9251",
+   "category": "SUPPORT_MESSAGE",
+   "record_type": "SUPPORT_MESSAGE",
+   "state": "IDENTIFIABLE",
+   "raw_state": "IDENTIFIABLE",
+   "observed_at": "2026-02-03T05:58:08Z",
+   "evidence_id": "evidence_48",
+   "evidence_kind": "manifest",
+   "link_method": "identifier",
+   "identifiers": {
+    "email": "suzuki.daichi90@gmail.com",
+    "detector": "direct_identifier"
+   },
+   "history": [
+    {
+     "state": "REDACTED",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-01-09T06:53:08Z",
+     "evidence_id": "activity_50",
+     "kind": "activity"
+    },
+    {
+     "state": "IDENTIFIABLE",
+     "raw_state": "IDENTIFIABLE",
+     "observed_at": "2026-02-03T05:58:08Z",
+     "evidence_id": "evidence_48",
+     "kind": "manifest"
+    }
+   ]
+  }
+ ],
+ "activity_claims": [
+  {
+   "activity_id": "activity_45",
+   "event_time": "2026-01-09T04:50:16Z",
+   "event_type": "DELETE_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "account_service",
+   "resource_id": "account_4979",
+   "reported_result": "FAILED",
+   "details": "Deletion worker submitted primary profile account_4979 to account_service."
+  },
+  {
+   "activity_id": "activity_50",
+   "event_time": "2026-01-09T06:53:08Z",
+   "event_type": "REDACT_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "support_platform",
+   "resource_id": "support_9251",
+   "reported_result": "FAILED",
+   "details": "Deletion worker received the final result for support_9251 from support_platform."
+  }
+ ],
+ "rules": [
+  {
+   "rule_id": "rule_01",
+   "data_category": "USER_PROFILE",
+   "condition": "Always",
+   "required_action": "DELETE"
+  },
+  {
+   "rule_id": "rule_05",
+   "data_category": "SUPPORT_MESSAGE",
+   "condition": "Conversation contains shared customer, agent, or order context that must be retained",
+   "required_action": "REDACT"
+  },
+  {
+   "rule_id": "rule_12",
+   "data_category": "SECURITY_AUDIT_LOG",
+   "condition": "Record is within the supplied retention period",
+   "required_action": "RETAIN"
+  }
+ ],
+ "evidence_batch": {
+  "evidence_ids": [
+   "activity_45",
+   "activity_50",
+   "evidence_48"
+  ],
+  "co_subjects": [
+   "user_511",
+   "user_512",
+   "user_513",
+   "user_514",
+   "user_515",
+   "user_516",
+   "user_517",
+   "user_519",
+   "user_520"
+  ],
+  "unattributed_resources": {
+   "evidence_48": [
+    "analytics_4804",
+    "analytics_7277"
+   ]
+  }
+ },
+ "excluded_after_audit": [],
+ "draft": {
+  "deletion_status": "INCOMPLETE",
+  "steps_json": [
+   {
+    "step_no": 1,
+    "phase": "FINDING",
+    "system_id": "support_platform",
+    "resource_id": "support_9251",
+    "operation": "REPORT_EXPOSED_PII",
+    "state": "PRESENT",
+    "evidence_id": "evidence_48"
+   },
+   {
+    "step_no": 2,
+    "phase": "REMEDIATION",
+    "system_id": "support_platform",
+    "resource_id": "support_9251",
+    "operation": "REDACT_RECORD",
+    "state": "REDACTED",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 3,
+    "phase": "VERIFICATION",
+    "system_id": "account_service",
+    "resource_id": "account_4979",
+    "operation": "VERIFY_RECORD_ABSENT",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 4,
+    "phase": "VERIFICATION",
+    "system_id": "security_service",
+    "resource_id": "audit_record_9504",
+    "operation": "VERIFY_RECORD_PRESENT",
+    "state": "PRESENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 5,
+    "phase": "VERIFICATION",
+    "system_id": "support_platform",
+    "resource_id": "support_9251",
+    "operation": "VERIFY_RECORD_REDACTED",
+    "state": "REDACTED",
+    "evidence_id": ""
+   }
+  ]
+ }
+}

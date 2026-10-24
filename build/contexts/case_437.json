@@ -1,0 +1,221 @@
+{
+ "case": {
+  "case_id": "case_437",
+  "audit_at": "2026-03-15T07:00:00Z",
+  "requested_at": "2026-02-18T07:00:00Z",
+  "reported_status": "PARTIALLY_COMPLETE",
+  "reported_at": "2026-02-19T07:00:00Z",
+  "email_supplied": "zofia-novak@gmail.com",
+  "request_text": "I am requesting deletion of the account registered to this email address. Please apply the request across the systems covered by your deletion policy. Please confirm when the review is complete."
+ },
+ "intent": {
+  "is_deletion": true,
+  "label": "deletion",
+  "matched_terms": [
+   "delet"
+  ],
+  "matched_negations": [],
+  "non_deletion_action": ""
+ },
+ "identity": {
+  "user_id": "user_435",
+  "email_supplied": "zofia-novak@gmail.com",
+  "email_kind": "current",
+  "matched_audit_ids": [],
+  "name": "Zofia Novak",
+  "current": {
+   "user_id": "user_435",
+   "name": "Zofia Novak",
+   "email": "zofia-novak@gmail.com",
+   "phone": "+48 530 927 757",
+   "email_hash": "05388aad688ef79b8b1ca9c7c156d1cbda09eea0d55455a2790557257d14a585"
+  },
+  "historical": {
+   "phone": [
+    "+48 765 328 958"
+   ]
+  }
+ },
+ "state_at_audit": [
+  {
+   "system": "account_service",
+   "resource_id": "account_022",
+   "category": "USER_PROFILE",
+   "record_type": "USER_PROFILE",
+   "state": "ABSENT",
+   "raw_state": "ABSENT",
+   "observed_at": "2026-03-15T07:00:00Z",
+   "evidence_id": "evidence_41",
+   "evidence_kind": "manifest",
+   "link_method": "link_key",
+   "identifiers": {
+    "subject_reference": "zofia-novak@gmail.com"
+   },
+   "history": [
+    {
+     "state": "UNCERTAIN",
+     "raw_state": "UNCERTAIN",
+     "observed_at": "2026-02-19T06:04:20Z",
+     "evidence_id": "activity_636",
+     "kind": "activity"
+    },
+    {
+     "state": "ABSENT",
+     "raw_state": "ABSENT",
+     "observed_at": "2026-03-15T07:00:00Z",
+     "evidence_id": "evidence_41",
+     "kind": "manifest"
+    }
+   ]
+  },
+  {
+   "system": "analytics_platform",
+   "resource_id": "analytics_6172",
+   "category": "ANALYTICS_PROFILE",
+   "record_type": "ANALYTICS_PROFILE",
+   "state": "ANONYMIZED",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-03-15T07:00:00Z",
+   "evidence_id": "evidence_41",
+   "evidence_kind": "manifest",
+   "link_method": "link_key",
+   "identifiers": {
+    "subject_reference": "zofia-novak@gmail.com"
+   },
+   "history": [
+    {
+     "state": "ANONYMIZED",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-02-19T07:47:12Z",
+     "evidence_id": "activity_639",
+     "kind": "activity"
+    },
+    {
+     "state": "ANONYMIZED",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-03-15T07:00:00Z",
+     "evidence_id": "evidence_41",
+     "kind": "manifest"
+    }
+   ]
+  },
+  {
+   "system": "security_service",
+   "resource_id": "audit_record_6846",
+   "category": "SECURITY_AUDIT_LOG",
+   "record_type": "SECURITY_AUDIT_LOG",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-03-15T07:00:00Z",
+   "evidence_id": "evidence_41",
+   "evidence_kind": "manifest",
+   "link_method": "explicit_ref",
+   "identifiers": {
+    "subject_reference": "user_435"
+   },
+   "history": [
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-03-15T07:00:00Z",
+     "evidence_id": "evidence_41",
+     "kind": "manifest"
+    }
+   ]
+  }
+ ],
+ "activity_claims": [
+  {
+   "activity_id": "activity_636",
+   "event_time": "2026-02-19T06:04:20Z",
+   "event_type": "DELETE_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "account_service",
+   "resource_id": "account_022",
+   "reported_result": "PARTIAL",
+   "details": "Deletion worker submitted primary profile account_022 to account_service."
+  },
+  {
+   "activity_id": "activity_639",
+   "event_time": "2026-02-19T07:47:12Z",
+   "event_type": "ANONYMIZE_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "analytics_platform",
+   "resource_id": "analytics_6172",
+   "reported_result": "FAILED",
+   "details": "Deletion worker received the final result for analytics_6172 from analytics_platform."
+  }
+ ],
+ "rules": [
+  {
+   "rule_id": "rule_01",
+   "data_category": "USER_PROFILE",
+   "condition": "Always",
+   "required_action": "DELETE"
+  },
+  {
+   "rule_id": "rule_07",
+   "data_category": "ANALYTICS_PROFILE",
+   "condition": "Record is still attributable to a user",
+   "required_action": "ANONYMIZE"
+  },
+  {
+   "rule_id": "rule_12",
+   "data_category": "SECURITY_AUDIT_LOG",
+   "condition": "Record is within the supplied retention period",
+   "required_action": "RETAIN"
+  }
+ ],
+ "evidence_batch": {
+  "evidence_ids": [
+   "activity_636",
+   "activity_639",
+   "evidence_41"
+  ],
+  "co_subjects": [
+   "user_431",
+   "user_432",
+   "user_433",
+   "user_434",
+   "user_436",
+   "user_437",
+   "user_438",
+   "user_439",
+   "user_440"
+  ],
+  "unattributed_resources": {}
+ },
+ "excluded_after_audit": [],
+ "draft": {
+  "deletion_status": "COMPLETE",
+  "steps_json": [
+   {
+    "step_no": 1,
+    "phase": "VERIFICATION",
+    "system_id": "account_service",
+    "resource_id": "account_022",
+    "operation": "VERIFY_RECORD_ABSENT",
+    "state": "ABSENT",
+    "evidence_id": "evidence_41"
+   },
+   {
+    "step_no": 2,
+    "phase": "VERIFICATION",
+    "system_id": "security_service",
+    "resource_id": "audit_record_6846",
+    "operation": "VERIFY_RECORD_PRESENT",
+    "state": "PRESENT",
+    "evidence_id": "evidence_41"
+   },
+   {
+    "step_no": 3,
+    "phase": "VERIFICATION",
+    "system_id": "analytics_platform",
+    "resource_id": "analytics_6172",
+    "operation": "VERIFY_RECORD_ANONYMIZED",
+    "state": "ANONYMIZED",
+    "evidence_id": "evidence_41"
+   }
+  ]
+ }
+}

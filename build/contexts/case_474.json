@@ -1,0 +1,260 @@
+{
+ "case": {
+  "case_id": "case_474",
+  "audit_at": "2026-02-23T10:00:00Z",
+  "requested_at": "2026-02-01T10:00:00Z",
+  "reported_status": "NOT_STARTED",
+  "reported_at": "2026-02-03T10:00:00Z",
+  "email_supplied": "claurent2497@gmail.com",
+  "request_text": "Je demande la suppression définitive du compte associé à cette adresse e-mail. Veuillez examiner les identifiants actuels et antérieurs conformément à votre procédure de confidentialité. Merci de confirmer le résultat une fois la vérification terminée."
+ },
+ "intent": {
+  "is_deletion": true,
+  "label": "deletion",
+  "matched_terms": [
+   "suppression"
+  ],
+  "matched_negations": [],
+  "non_deletion_action": ""
+ },
+ "identity": {
+  "user_id": "user_472",
+  "email_supplied": "claurent2497@gmail.com",
+  "email_kind": "current",
+  "matched_audit_ids": [],
+  "name": "Chloé Laurent",
+  "current": {
+   "user_id": "user_472",
+   "name": "Chloé Laurent",
+   "email": "claurent2497@gmail.com",
+   "phone": "+33 6 00 99 66 51",
+   "email_hash": "f7aa133f381574f66ad2ee89d86eea405916f8f5845a85df2b262a2ecf11a081"
+  },
+  "historical": {}
+ },
+ "state_at_audit": [
+  {
+   "system": "search_service",
+   "resource_id": "search_9925",
+   "category": "SEARCH_INDEX_ENTRY",
+   "record_type": "SEARCH_INDEX_ENTRY",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-02-23T10:00:00Z",
+   "evidence_id": "evidence_45",
+   "evidence_kind": "manifest",
+   "link_method": "identifier",
+   "identifiers": {
+    "document": {
+     "display_name": "Chloé Laurent",
+     "email": "claurent2497@gmail.com",
+     "customer_reference": "user_472"
+    }
+   },
+   "history": [
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-02-03T11:12:56Z",
+     "evidence_id": "activity_422",
+     "kind": "activity"
+    },
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-02-23T10:00:00Z",
+     "evidence_id": "evidence_45",
+     "kind": "manifest"
+    }
+   ]
+  },
+  {
+   "system": "security_service",
+   "resource_id": "audit_record_712",
+   "category": "SECURITY_AUDIT_LOG",
+   "record_type": "SECURITY_AUDIT_LOG",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-02-23T10:00:00Z",
+   "evidence_id": "evidence_45",
+   "evidence_kind": "manifest",
+   "link_method": "explicit_ref",
+   "identifiers": {
+    "subject_reference": "user_472"
+   },
+   "history": [
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-02-23T10:00:00Z",
+     "evidence_id": "evidence_45",
+     "kind": "manifest"
+    }
+   ]
+  },
+  {
+   "system": "support_platform",
+   "resource_id": "support_4509",
+   "category": "SUPPORT_MESSAGE",
+   "record_type": "SUPPORT_MESSAGE",
+   "state": "REDACTED",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-02-23T10:00:00Z",
+   "evidence_id": "evidence_45",
+   "evidence_kind": "manifest",
+   "link_method": "explicit_ref",
+   "identifiers": {
+    "subject_reference": "user_472"
+   },
+   "history": [
+    {
+     "state": "REDACTED",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-02-03T10:53:27Z",
+     "evidence_id": "activity_419",
+     "kind": "activity"
+    },
+    {
+     "state": "REDACTED",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-02-23T10:00:00Z",
+     "evidence_id": "evidence_45",
+     "kind": "manifest"
+    }
+   ]
+  }
+ ],
+ "activity_claims": [
+  {
+   "activity_id": "activity_419",
+   "event_time": "2026-02-03T10:53:27Z",
+   "event_type": "REDACT_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "support_platform",
+   "resource_id": "support_4509",
+   "reported_result": "FAILED",
+   "details": "Deletion worker received the final result for support_4509 from support_platform."
+  },
+  {
+   "activity_id": "activity_422",
+   "event_time": "2026-02-03T11:12:56Z",
+   "event_type": "DELETE_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "search_service",
+   "resource_id": "search_9925",
+   "reported_result": "FAILED",
+   "details": "Deletion worker received the final result for search_9925 from search_service."
+  }
+ ],
+ "rules": [
+  {
+   "rule_id": "rule_03",
+   "data_category": "SEARCH_INDEX_ENTRY",
+   "condition": "Always",
+   "required_action": "DELETE"
+  },
+  {
+   "rule_id": "rule_05",
+   "data_category": "SUPPORT_MESSAGE",
+   "condition": "Conversation contains shared customer, agent, or order context that must be retained",
+   "required_action": "REDACT"
+  },
+  {
+   "rule_id": "rule_12",
+   "data_category": "SECURITY_AUDIT_LOG",
+   "condition": "Record is within the supplied retention period",
+   "required_action": "RETAIN"
+  }
+ ],
+ "evidence_batch": {
+  "evidence_ids": [
+   "activity_419",
+   "activity_422",
+   "evidence_45"
+  ],
+  "co_subjects": [
+   "user_471",
+   "user_473",
+   "user_474",
+   "user_475",
+   "user_476",
+   "user_477",
+   "user_478",
+   "user_479",
+   "user_480",
+   "user_481",
+   "user_482",
+   "user_483",
+   "user_484",
+   "user_485",
+   "user_486",
+   "user_487",
+   "user_488",
+   "user_489",
+   "user_490"
+  ],
+  "unattributed_resources": {
+   "evidence_45": [
+    "search_5192",
+    "analytics_1794",
+    "analytics_5948",
+    "data_flow_8899",
+    "data_flow_2893",
+    "data_flow_173",
+    "data_flow_8519",
+    "support_4665"
+   ]
+  }
+ },
+ "excluded_after_audit": [],
+ "draft": {
+  "deletion_status": "INCOMPLETE",
+  "steps_json": [
+   {
+    "step_no": 1,
+    "phase": "FINDING",
+    "system_id": "search_service",
+    "resource_id": "search_9925",
+    "operation": "REPORT_REMAINING_RECORD",
+    "state": "PRESENT",
+    "evidence_id": "evidence_45"
+   },
+   {
+    "step_no": 2,
+    "phase": "REMEDIATION",
+    "system_id": "search_service",
+    "resource_id": "search_9925",
+    "operation": "DELETE_RECORD",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 3,
+    "phase": "VERIFICATION",
+    "system_id": "search_service",
+    "resource_id": "search_9925",
+    "operation": "VERIFY_RECORD_ABSENT",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 4,
+    "phase": "VERIFICATION",
+    "system_id": "security_service",
+    "resource_id": "audit_record_712",
+    "operation": "VERIFY_RECORD_PRESENT",
+    "state": "PRESENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 5,
+    "phase": "VERIFICATION",
+    "system_id": "support_platform",
+    "resource_id": "support_4509",
+    "operation": "VERIFY_RECORD_REDACTED",
+    "state": "REDACTED",
+    "evidence_id": ""
+   }
+  ]
+ }
+}

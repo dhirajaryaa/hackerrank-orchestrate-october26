@@ -1,0 +1,261 @@
+{
+ "case": {
+  "case_id": "case_273",
+  "audit_at": "2026-06-03T09:00:00Z",
+  "requested_at": "2026-05-13T09:00:00Z",
+  "reported_status": "NOT_STARTED",
+  "reported_at": "2026-05-15T09:00:00Z",
+  "email_supplied": "h.mori78@yahoo.com",
+  "request_text": "このメールアドレスに関連するアカウントの完全な削除を依頼します。 プライバシー手続きに従い、現在および過去の識別情報を確認してください。 確認が完了したら結果をお知らせください。"
+ },
+ "intent": {
+  "is_deletion": true,
+  "label": "deletion",
+  "matched_terms": [
+   "削除"
+  ],
+  "matched_negations": [],
+  "non_deletion_action": ""
+ },
+ "identity": {
+  "user_id": "user_271",
+  "email_supplied": "h.mori78@yahoo.com",
+  "email_kind": "current",
+  "matched_audit_ids": [],
+  "name": "Haruka Mori",
+  "current": {
+   "user_id": "user_271",
+   "name": "Haruka Mori",
+   "email": "h.mori78@yahoo.com",
+   "phone": "+81 90 9155 7228",
+   "email_hash": "449480d30333bf32b7913091503b81bf42eca32761ca3804d8ede2aabb681521"
+  },
+  "historical": {}
+ },
+ "state_at_audit": [
+  {
+   "system": "account_service",
+   "resource_id": "account_8689",
+   "category": "USER_PROFILE",
+   "record_type": "USER_PROFILE",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-06-03T07:22:52Z",
+   "evidence_id": "evidence_77",
+   "evidence_kind": "manifest",
+   "link_method": "identifier",
+   "identifiers": {
+    "profile": {
+     "email": "h.mori78@yahoo.com"
+    }
+   },
+   "history": [
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-05-15T08:10:42Z",
+     "evidence_id": "activity_1906",
+     "kind": "activity"
+    },
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-06-03T07:22:52Z",
+     "evidence_id": "evidence_77",
+     "kind": "manifest"
+    }
+   ]
+  },
+  {
+   "system": "search_service",
+   "resource_id": "search_5454",
+   "category": "SEARCH_INDEX_ENTRY",
+   "record_type": "SEARCH_INDEX_ENTRY",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-06-03T08:00:05Z",
+   "evidence_id": "evidence_77",
+   "evidence_kind": "manifest",
+   "link_method": "identifier",
+   "identifiers": {
+    "email": "h.mori78@yahoo.com"
+   },
+   "history": [
+    {
+     "state": "ABSENT",
+     "raw_state": "ABSENT",
+     "observed_at": "2026-05-15T10:08:04Z",
+     "evidence_id": "activity_1917",
+     "kind": "activity"
+    },
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-06-03T08:00:05Z",
+     "evidence_id": "evidence_77",
+     "kind": "manifest"
+    }
+   ]
+  }
+ ],
+ "activity_claims": [
+  {
+   "activity_id": "activity_1906",
+   "event_time": "2026-05-15T08:10:42Z",
+   "event_type": "DELETE_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "account_service",
+   "resource_id": "account_8689",
+   "reported_result": "FAILED",
+   "details": "Deletion worker submitted primary profile account_8689 to account_service."
+  },
+  {
+   "activity_id": "activity_1916",
+   "event_time": "2026-05-15T09:49:34Z",
+   "event_type": "SYNC_RECORD",
+   "source_system": "account_service",
+   "target_system": "account_replication_cluster",
+   "resource_id": "account_8689",
+   "reported_result": "SUCCESS",
+   "details": "Replication worker reported its final checkpoint for account_8689."
+  },
+  {
+   "activity_id": "activity_1917",
+   "event_time": "2026-05-15T10:08:04Z",
+   "event_type": "DELETE_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "search_service",
+   "resource_id": "search_5454",
+   "reported_result": "SUCCESS",
+   "details": "Deletion worker received the final result for search_5454 from search_service."
+  }
+ ],
+ "rules": [
+  {
+   "rule_id": "rule_01",
+   "data_category": "USER_PROFILE",
+   "condition": "Always",
+   "required_action": "DELETE"
+  },
+  {
+   "rule_id": "rule_03",
+   "data_category": "SEARCH_INDEX_ENTRY",
+   "condition": "Always",
+   "required_action": "DELETE"
+  }
+ ],
+ "evidence_batch": {
+  "evidence_ids": [
+   "activity_1906",
+   "activity_1916",
+   "activity_1917",
+   "evidence_77"
+  ],
+  "co_subjects": [
+   "user_272",
+   "user_273",
+   "user_274",
+   "user_275",
+   "user_276",
+   "user_277",
+   "user_278",
+   "user_279",
+   "user_280"
+  ],
+  "unattributed_resources": {
+   "evidence_77": [
+    "account_4853",
+    "account_6575",
+    "account_731",
+    "analytics_4051",
+    "analytics_5923",
+    "analytics_6191"
+   ]
+  }
+ },
+ "excluded_after_audit": [
+  {
+   "evidence_id": "evidence_26",
+   "system": "account_service",
+   "resource_id": "account_8689",
+   "state": "PRESENT",
+   "captured_at": "2026-06-05T12:00:00Z",
+   "observed_at": "2026-06-03T09:00:00Z"
+  },
+  {
+   "evidence_id": "evidence_26",
+   "system": "search_service",
+   "resource_id": "search_5454",
+   "state": "PRESENT",
+   "captured_at": "2026-06-05T12:00:00Z",
+   "observed_at": "2026-06-03T09:00:00Z"
+  },
+  {
+   "evidence_id": "evidence_26",
+   "system": "security_service",
+   "resource_id": "audit_record_3428",
+   "state": "PRESENT",
+   "captured_at": "2026-06-05T12:00:00Z",
+   "observed_at": "2026-06-03T09:00:00Z"
+  }
+ ],
+ "draft": {
+  "deletion_status": "INCOMPLETE",
+  "steps_json": [
+   {
+    "step_no": 1,
+    "phase": "FINDING",
+    "system_id": "account_service",
+    "resource_id": "account_8689",
+    "operation": "REPORT_REMAINING_RECORD",
+    "state": "PRESENT",
+    "evidence_id": "evidence_77"
+   },
+   {
+    "step_no": 2,
+    "phase": "FINDING",
+    "system_id": "search_service",
+    "resource_id": "search_5454",
+    "operation": "REPORT_REMAINING_RECORD",
+    "state": "PRESENT",
+    "evidence_id": "evidence_77"
+   },
+   {
+    "step_no": 3,
+    "phase": "REMEDIATION",
+    "system_id": "account_service",
+    "resource_id": "account_8689",
+    "operation": "DELETE_RECORD",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 4,
+    "phase": "REMEDIATION",
+    "system_id": "search_service",
+    "resource_id": "search_5454",
+    "operation": "DELETE_RECORD",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 5,
+    "phase": "VERIFICATION",
+    "system_id": "account_service",
+    "resource_id": "account_8689",
+    "operation": "VERIFY_RECORD_ABSENT",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 6,
+    "phase": "VERIFICATION",
+    "system_id": "search_service",
+    "resource_id": "search_5454",
+    "operation": "VERIFY_RECORD_ABSENT",
+    "state": "ABSENT",
+    "evidence_id": ""
+   }
+  ]
+ }
+}

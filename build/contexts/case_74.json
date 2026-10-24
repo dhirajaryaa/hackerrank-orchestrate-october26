@@ -1,0 +1,156 @@
+{
+ "case": {
+  "case_id": "case_74",
+  "audit_at": "2026-09-11T08:00:00Z",
+  "requested_at": "2026-08-20T08:00:00Z",
+  "reported_status": "PARTIALLY_COMPLETE",
+  "reported_at": "2026-08-21T08:00:00Z",
+  "email_supplied": "salma.mansour@gmail.com",
+  "request_text": "Please process a permanent account-deletion request for this email address. Please process this under the standard personal-data deletion procedure. Please send a confirmation after the process finishes."
+ },
+ "intent": {
+  "is_deletion": true,
+  "label": "deletion",
+  "matched_terms": [
+   "delet"
+  ],
+  "matched_negations": [],
+  "non_deletion_action": ""
+ },
+ "identity": {
+  "user_id": "user_72",
+  "email_supplied": "salma.mansour@gmail.com",
+  "email_kind": "current",
+  "matched_audit_ids": [],
+  "name": "Salma Mansour",
+  "current": {
+   "user_id": "user_72",
+   "name": "Salma Mansour",
+   "email": "salma.mansour@gmail.com",
+   "phone": "+971 50 579 9364",
+   "email_hash": "f8de08ac2adb79e272590a64382e246528d6547f1a9ce4299c6f0024d5f02f80"
+  },
+  "historical": {}
+ },
+ "state_at_audit": [
+  {
+   "system": "integration_service",
+   "resource_id": "data_flow_4595",
+   "category": "DATA_FLOW",
+   "record_type": "DATA_FLOW",
+   "state": "ACTIVE",
+   "raw_state": "ACTIVE",
+   "observed_at": "2026-09-11T05:44:07Z",
+   "evidence_id": "evidence_91",
+   "evidence_kind": "manifest",
+   "link_method": "identifier",
+   "identifiers": {
+    "customer_email": "salma.mansour@gmail.com"
+   },
+   "history": [
+    {
+     "state": "ACTIVE",
+     "raw_state": "ACTIVE",
+     "observed_at": "2026-08-21T08:59:07Z",
+     "evidence_id": "activity_3368",
+     "kind": "activity"
+    },
+    {
+     "state": "ACTIVE",
+     "raw_state": "ACTIVE",
+     "observed_at": "2026-09-11T05:44:07Z",
+     "evidence_id": "evidence_91",
+     "kind": "manifest"
+    }
+   ]
+  }
+ ],
+ "activity_claims": [
+  {
+   "activity_id": "activity_3368",
+   "event_time": "2026-08-21T08:59:07Z",
+   "event_type": "CHECK_DATA_FLOW",
+   "source_system": "deletion_worker",
+   "target_system": "integration_service",
+   "resource_id": "data_flow_4595",
+   "reported_result": "SUCCESS",
+   "details": "Connector status check confirmed that data flow data_flow_4595 remains enabled."
+  }
+ ],
+ "rules": [],
+ "evidence_batch": {
+  "evidence_ids": [
+   "activity_3368",
+   "evidence_91"
+  ],
+  "co_subjects": [
+   "user_71",
+   "user_73",
+   "user_74",
+   "user_75",
+   "user_76",
+   "user_77",
+   "user_78",
+   "user_79",
+   "user_80"
+  ],
+  "unattributed_resources": {
+   "evidence_91": [
+    "analytics_5059",
+    "analytics_2176",
+    "analytics_1161",
+    "analytics_5859"
+   ]
+  }
+ },
+ "excluded_after_audit": [
+  {
+   "evidence_id": "evidence_07",
+   "system": "integration_service",
+   "resource_id": "data_flow_4595",
+   "state": "ACTIVE",
+   "captured_at": "2026-09-13T08:00:00Z",
+   "observed_at": "2026-09-11T08:00:00Z"
+  },
+  {
+   "evidence_id": "evidence_07",
+   "system": "security_service",
+   "resource_id": "audit_record_7778",
+   "state": "PRESENT",
+   "captured_at": "2026-09-13T08:00:00Z",
+   "observed_at": "2026-09-11T08:00:00Z"
+  }
+ ],
+ "draft": {
+  "deletion_status": "INCOMPLETE",
+  "steps_json": [
+   {
+    "step_no": 1,
+    "phase": "FINDING",
+    "system_id": "integration_service",
+    "resource_id": "data_flow_4595",
+    "operation": "REPORT_ACTIVE_DATA_FLOW",
+    "state": "ACTIVE",
+    "evidence_id": "evidence_91"
+   },
+   {
+    "step_no": 2,
+    "phase": "REMEDIATION",
+    "system_id": "integration_service",
+    "resource_id": "data_flow_4595",
+    "operation": "DISABLE_DATA_FLOW",
+    "state": "DISABLED",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 3,
+    "phase": "VERIFICATION",
+    "system_id": "integration_service",
+    "resource_id": "data_flow_4595",
+    "operation": "VERIFY_DATA_FLOW_DISABLED",
+    "state": "DISABLED",
+    "evidence_id": ""
+   }
+  ]
+ }
+}

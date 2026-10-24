@@ -1,0 +1,128 @@
+{
+ "case": {
+  "case_id": "case_427",
+  "audit_at": "2026-03-20T08:00:00Z",
+  "requested_at": "2026-03-05T08:00:00Z",
+  "reported_status": "COMPLETE",
+  "reported_at": "2026-03-08T08:00:00Z",
+  "email_supplied": "ABENA.A30485@OUTLOOK.COM",
+  "request_text": "Please process a permanent account-deletion request for this email address. Please ensure the request is applied to the relevant account records. Please send a confirmation after the process finishes."
+ },
+ "intent": {
+  "is_deletion": true,
+  "label": "deletion",
+  "matched_terms": [
+   "delet"
+  ],
+  "matched_negations": [],
+  "non_deletion_action": ""
+ },
+ "identity": {
+  "user_id": "user_425",
+  "email_supplied": "ABENA.A30485@OUTLOOK.COM",
+  "email_kind": "historical",
+  "matched_audit_ids": [
+   "audit_105"
+  ],
+  "name": "Abena Agyeman",
+  "current": {
+   "user_id": "user_425",
+   "name": "Abena Agyeman",
+   "email": "abena.a304@outlook.com",
+   "phone": "+233 24 080 5214",
+   "email_hash": "23e79abe55484b645a5affcda7546ce408cd08b94f46a65bf1a724c1f9f712c6"
+  },
+  "historical": {
+   "email": [
+    "abena.a30485@outlook.com"
+   ],
+   "email_hash": [
+    "c4f5c73a4f0ad55c477ec57c71fe9f4c326bb6ec7b314a58250ddd8f4b9c0a01"
+   ]
+  }
+ },
+ "state_at_audit": [
+  {
+   "system": "security_service",
+   "resource_id": "audit_record_999",
+   "category": "SECURITY_AUDIT_LOG",
+   "record_type": "SECURITY_AUDIT_LOG",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-03-20T04:57:38Z",
+   "evidence_id": "evidence_68",
+   "evidence_kind": "manifest",
+   "link_method": "explicit_ref",
+   "identifiers": {
+    "subject_reference": "user_425"
+   },
+   "history": [
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-03-20T04:57:38Z",
+     "evidence_id": "evidence_68",
+     "kind": "manifest"
+    }
+   ]
+  }
+ ],
+ "activity_claims": [],
+ "rules": [
+  {
+   "rule_id": "rule_12",
+   "data_category": "SECURITY_AUDIT_LOG",
+   "condition": "Record is within the supplied retention period",
+   "required_action": "RETAIN"
+  }
+ ],
+ "evidence_batch": {
+  "evidence_ids": [
+   "evidence_68"
+  ],
+  "co_subjects": [
+   "user_421",
+   "user_422",
+   "user_423",
+   "user_424",
+   "user_426",
+   "user_427",
+   "user_428",
+   "user_429",
+   "user_430"
+  ],
+  "unattributed_resources": {
+   "evidence_68": [
+    "account_2696",
+    "account_8461",
+    "analytics_3845",
+    "analytics_6249",
+    "analytics_8091"
+   ]
+  }
+ },
+ "excluded_after_audit": [
+  {
+   "evidence_id": "evidence_40",
+   "system": "security_service",
+   "resource_id": "audit_record_999",
+   "state": "PRESENT",
+   "captured_at": "2026-03-22T08:00:00Z",
+   "observed_at": "2026-03-20T08:00:00Z"
+  }
+ ],
+ "draft": {
+  "deletion_status": "COMPLETE",
+  "steps_json": [
+   {
+    "step_no": 1,
+    "phase": "VERIFICATION",
+    "system_id": "security_service",
+    "resource_id": "audit_record_999",
+    "operation": "VERIFY_RECORD_PRESENT",
+    "state": "PRESENT",
+    "evidence_id": "evidence_68"
+   }
+  ]
+ }
+}

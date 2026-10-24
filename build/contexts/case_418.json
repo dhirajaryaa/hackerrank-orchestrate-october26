@@ -1,0 +1,305 @@
+{
+ "case": {
+  "case_id": "case_418",
+  "audit_at": "2026-03-25T09:00:00Z",
+  "requested_at": "2026-02-27T09:00:00Z",
+  "reported_status": "COMPLETE",
+  "reported_at": "2026-03-02T09:00:00Z",
+  "email_supplied": "silva.mariana@icloud.com",
+  "request_text": "I would like the account associated with this address to be erased. Please include records associated with the account under your privacy process. Please send a confirmation after the process finishes."
+ },
+ "intent": {
+  "is_deletion": true,
+  "label": "deletion",
+  "matched_terms": [
+   "eras"
+  ],
+  "matched_negations": [],
+  "non_deletion_action": ""
+ },
+ "identity": {
+  "user_id": "user_416",
+  "email_supplied": "silva.mariana@icloud.com",
+  "email_kind": "current",
+  "matched_audit_ids": [],
+  "name": "Mariana Silva",
+  "current": {
+   "user_id": "user_416",
+   "name": "Mariana Silva",
+   "email": "silva.mariana@icloud.com",
+   "phone": "+55 21 95590-5841",
+   "email_hash": "bbd633000d9231264b3faeac5e13a082d3f744f5f6939dca5dfcad5ff65efd44"
+  },
+  "historical": {}
+ },
+ "state_at_audit": [
+  {
+   "system": "account_service",
+   "resource_id": "account_9120",
+   "category": "USER_PROFILE",
+   "record_type": "USER_PROFILE",
+   "state": "ABSENT",
+   "raw_state": "ABSENT",
+   "observed_at": "2026-03-25T08:53:09Z",
+   "evidence_id": "evidence_39",
+   "evidence_kind": "manifest",
+   "link_method": "link_key",
+   "identifiers": {},
+   "history": [
+    {
+     "state": "ABSENT",
+     "raw_state": "ABSENT",
+     "observed_at": "2026-03-02T07:56:20Z",
+     "evidence_id": "activity_804",
+     "kind": "activity"
+    },
+    {
+     "state": "ABSENT",
+     "raw_state": "ABSENT",
+     "observed_at": "2026-03-25T08:53:09Z",
+     "evidence_id": "evidence_39",
+     "kind": "manifest"
+    }
+   ]
+  },
+  {
+   "system": "search_service",
+   "resource_id": "search_8686",
+   "category": "SEARCH_INDEX_ENTRY",
+   "record_type": "SEARCH_INDEX_ENTRY",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-03-25T08:53:15Z",
+   "evidence_id": "evidence_39",
+   "evidence_kind": "manifest",
+   "link_method": "link_key",
+   "identifiers": {},
+   "history": [
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-03-02T09:52:12Z",
+     "evidence_id": "activity_812",
+     "kind": "activity"
+    },
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-03-25T08:53:15Z",
+     "evidence_id": "evidence_39",
+     "kind": "manifest"
+    }
+   ]
+  },
+  {
+   "system": "security_service",
+   "resource_id": "audit_record_5493",
+   "category": "SECURITY_AUDIT_LOG",
+   "record_type": "SECURITY_AUDIT_LOG",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-03-25T08:56:52Z",
+   "evidence_id": "evidence_39",
+   "evidence_kind": "manifest",
+   "link_method": "link_key",
+   "identifiers": {},
+   "history": [
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-03-25T08:56:52Z",
+     "evidence_id": "evidence_39",
+     "kind": "manifest"
+    }
+   ]
+  },
+  {
+   "system": "support_platform",
+   "resource_id": "support_9464",
+   "category": "SUPPORT_MESSAGE",
+   "record_type": "SUPPORT_MESSAGE",
+   "state": "IDENTIFIABLE",
+   "raw_state": "IDENTIFIABLE",
+   "observed_at": "2026-03-25T08:51:23Z",
+   "evidence_id": "evidence_39",
+   "evidence_kind": "manifest",
+   "link_method": "identifier",
+   "identifiers": {
+    "email": "silva.mariana@icloud.com",
+    "detector": "direct_identifier"
+   },
+   "history": [
+    {
+     "state": "REDACTED",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-03-02T10:11:41Z",
+     "evidence_id": "activity_815",
+     "kind": "activity"
+    },
+    {
+     "state": "IDENTIFIABLE",
+     "raw_state": "IDENTIFIABLE",
+     "observed_at": "2026-03-25T08:51:23Z",
+     "evidence_id": "evidence_39",
+     "kind": "manifest"
+    }
+   ]
+  }
+ ],
+ "activity_claims": [
+  {
+   "activity_id": "activity_804",
+   "event_time": "2026-03-02T07:56:20Z",
+   "event_type": "DELETE_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "account_service",
+   "resource_id": "account_9120",
+   "reported_result": "SUCCESS",
+   "details": "Deletion worker submitted primary profile account_9120 to account_service."
+  },
+  {
+   "activity_id": "activity_812",
+   "event_time": "2026-03-02T09:52:12Z",
+   "event_type": "DELETE_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "search_service",
+   "resource_id": "search_8686",
+   "reported_result": "FAILED",
+   "details": "Deletion worker received the final result for search_8686 from search_service."
+  },
+  {
+   "activity_id": "activity_815",
+   "event_time": "2026-03-02T10:11:41Z",
+   "event_type": "REDACT_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "support_platform",
+   "resource_id": "support_9464",
+   "reported_result": "FAILED",
+   "details": "Deletion worker received the final result for support_9464 from support_platform."
+  }
+ ],
+ "rules": [
+  {
+   "rule_id": "rule_01",
+   "data_category": "USER_PROFILE",
+   "condition": "Always",
+   "required_action": "DELETE"
+  },
+  {
+   "rule_id": "rule_03",
+   "data_category": "SEARCH_INDEX_ENTRY",
+   "condition": "Always",
+   "required_action": "DELETE"
+  },
+  {
+   "rule_id": "rule_05",
+   "data_category": "SUPPORT_MESSAGE",
+   "condition": "Conversation contains shared customer, agent, or order context that must be retained",
+   "required_action": "REDACT"
+  },
+  {
+   "rule_id": "rule_12",
+   "data_category": "SECURITY_AUDIT_LOG",
+   "condition": "Record is within the supplied retention period",
+   "required_action": "RETAIN"
+  }
+ ],
+ "evidence_batch": {
+  "evidence_ids": [
+   "activity_804",
+   "activity_812",
+   "activity_815",
+   "evidence_39"
+  ],
+  "co_subjects": [
+   "user_411",
+   "user_412",
+   "user_413",
+   "user_414",
+   "user_415",
+   "user_417",
+   "user_418",
+   "user_419",
+   "user_420"
+  ],
+  "unattributed_resources": {}
+ },
+ "excluded_after_audit": [],
+ "draft": {
+  "deletion_status": "INCOMPLETE",
+  "steps_json": [
+   {
+    "step_no": 1,
+    "phase": "FINDING",
+    "system_id": "search_service",
+    "resource_id": "search_8686",
+    "operation": "REPORT_REMAINING_RECORD",
+    "state": "PRESENT",
+    "evidence_id": "evidence_39"
+   },
+   {
+    "step_no": 2,
+    "phase": "FINDING",
+    "system_id": "support_platform",
+    "resource_id": "support_9464",
+    "operation": "REPORT_EXPOSED_PII",
+    "state": "PRESENT",
+    "evidence_id": "evidence_39"
+   },
+   {
+    "step_no": 3,
+    "phase": "REMEDIATION",
+    "system_id": "search_service",
+    "resource_id": "search_8686",
+    "operation": "DELETE_RECORD",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 4,
+    "phase": "REMEDIATION",
+    "system_id": "support_platform",
+    "resource_id": "support_9464",
+    "operation": "REDACT_RECORD",
+    "state": "REDACTED",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 5,
+    "phase": "VERIFICATION",
+    "system_id": "account_service",
+    "resource_id": "account_9120",
+    "operation": "VERIFY_RECORD_ABSENT",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 6,
+    "phase": "VERIFICATION",
+    "system_id": "search_service",
+    "resource_id": "search_8686",
+    "operation": "VERIFY_RECORD_ABSENT",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 7,
+    "phase": "VERIFICATION",
+    "system_id": "security_service",
+    "resource_id": "audit_record_5493",
+    "operation": "VERIFY_RECORD_PRESENT",
+    "state": "PRESENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 8,
+    "phase": "VERIFICATION",
+    "system_id": "support_platform",
+    "resource_id": "support_9464",
+    "operation": "VERIFY_RECORD_REDACTED",
+    "state": "REDACTED",
+    "evidence_id": ""
+   }
+  ]
+ }
+}

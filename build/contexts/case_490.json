@@ -1,0 +1,300 @@
+{
+ "case": {
+  "case_id": "case_490",
+  "audit_at": "2026-02-18T09:00:00Z",
+  "requested_at": "2026-01-31T09:00:00Z",
+  "reported_status": "COMPLETE",
+  "reported_at": "2026-02-03T09:00:00Z",
+  "email_supplied": "saleh.mariam@icloud.com",
+  "request_text": "Please close my account and process the associated personal-data deletion. Please review the account data that is eligible for deletion or de-identification. A short confirmation when the process is complete is sufficient."
+ },
+ "intent": {
+  "is_deletion": true,
+  "label": "deletion",
+  "matched_terms": [
+   "close my account",
+   "delet"
+  ],
+  "matched_negations": [],
+  "non_deletion_action": ""
+ },
+ "identity": {
+  "user_id": "user_488",
+  "email_supplied": "saleh.mariam@icloud.com",
+  "email_kind": "current",
+  "matched_audit_ids": [],
+  "name": "Mariam Saleh",
+  "current": {
+   "user_id": "user_488",
+   "name": "Mariam Saleh",
+   "email": "saleh.mariam@icloud.com",
+   "phone": "+971 54 512 3916",
+   "email_hash": "67c1b10b34008b9937837b3342cbb7b06d6f364a187e9902a1b25f13c19234bf"
+  },
+  "historical": {}
+ },
+ "state_at_audit": [
+  {
+   "system": "account_service",
+   "resource_id": "account_4036",
+   "category": "USER_PROFILE",
+   "record_type": "USER_PROFILE",
+   "state": "ABSENT",
+   "raw_state": "ABSENT",
+   "observed_at": "2026-02-03T08:10:46Z",
+   "evidence_id": "activity_406",
+   "evidence_kind": "activity",
+   "link_method": "resource_alias",
+   "identifiers": {},
+   "history": [
+    {
+     "state": "ABSENT",
+     "raw_state": "ABSENT",
+     "observed_at": "2026-02-03T08:10:46Z",
+     "evidence_id": "activity_406",
+     "kind": "activity"
+    }
+   ]
+  },
+  {
+   "system": "search_service",
+   "resource_id": "search_9931",
+   "category": "SEARCH_INDEX_ENTRY",
+   "record_type": "SEARCH_INDEX_ENTRY",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-02-18T07:48:34Z",
+   "evidence_id": "evidence_64",
+   "evidence_kind": "manifest",
+   "link_method": "identifier",
+   "identifiers": {
+    "email": "saleh.mariam@icloud.com"
+   },
+   "history": [
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-02-03T09:50:38Z",
+     "evidence_id": "activity_413",
+     "kind": "activity"
+    },
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-02-18T07:48:34Z",
+     "evidence_id": "evidence_64",
+     "kind": "manifest"
+    }
+   ]
+  },
+  {
+   "system": "support_platform",
+   "resource_id": "support_4247",
+   "category": "SUPPORT_MESSAGE",
+   "record_type": "SUPPORT_MESSAGE",
+   "state": "IDENTIFIABLE",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-02-18T08:27:20Z",
+   "evidence_id": "evidence_64",
+   "evidence_kind": "manifest",
+   "link_method": "identifier",
+   "identifiers": {
+    "requester_email": "saleh.mariam@icloud.com"
+   },
+   "history": [
+    {
+     "state": "REDACTED",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-02-03T10:09:08Z",
+     "evidence_id": "activity_415",
+     "kind": "activity"
+    },
+    {
+     "state": "IDENTIFIABLE",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-02-18T08:27:20Z",
+     "evidence_id": "evidence_64",
+     "kind": "manifest"
+    }
+   ]
+  }
+ ],
+ "activity_claims": [
+  {
+   "activity_id": "activity_406",
+   "event_time": "2026-02-03T08:10:46Z",
+   "event_type": "DELETE_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "account_service",
+   "resource_id": "account_4036",
+   "reported_result": "SUCCESS",
+   "details": "Deletion worker submitted primary profile account_4036 to account_service."
+  },
+  {
+   "activity_id": "activity_413",
+   "event_time": "2026-02-03T09:50:38Z",
+   "event_type": "DELETE_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "search_service",
+   "resource_id": "search_9931",
+   "reported_result": "FAILED",
+   "details": "Deletion worker received the final result for search_9931 from search_service."
+  },
+  {
+   "activity_id": "activity_415",
+   "event_time": "2026-02-03T10:09:08Z",
+   "event_type": "REDACT_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "support_platform",
+   "resource_id": "support_4247",
+   "reported_result": "FAILED",
+   "details": "Deletion worker received the final result for support_4247 from support_platform."
+  }
+ ],
+ "rules": [
+  {
+   "rule_id": "rule_01",
+   "data_category": "USER_PROFILE",
+   "condition": "Always",
+   "required_action": "DELETE"
+  },
+  {
+   "rule_id": "rule_03",
+   "data_category": "SEARCH_INDEX_ENTRY",
+   "condition": "Always",
+   "required_action": "DELETE"
+  },
+  {
+   "rule_id": "rule_05",
+   "data_category": "SUPPORT_MESSAGE",
+   "condition": "Conversation contains shared customer, agent, or order context that must be retained",
+   "required_action": "REDACT"
+  }
+ ],
+ "evidence_batch": {
+  "evidence_ids": [
+   "activity_406",
+   "activity_413",
+   "activity_415",
+   "evidence_64"
+  ],
+  "co_subjects": [
+   "user_481",
+   "user_482",
+   "user_483",
+   "user_484",
+   "user_485",
+   "user_486",
+   "user_487",
+   "user_489",
+   "user_490"
+  ],
+  "unattributed_resources": {
+   "evidence_64": [
+    "analytics_5948"
+   ]
+  }
+ },
+ "excluded_after_audit": [
+  {
+   "evidence_id": "evidence_45",
+   "system": "backup_restore_service",
+   "resource_id": "account_4036",
+   "state": "ABSENT",
+   "captured_at": "2026-02-23T10:00:00Z",
+   "observed_at": "2026-02-18T09:00:00Z"
+  },
+  {
+   "evidence_id": "evidence_45",
+   "system": "backup_restore_service",
+   "resource_id": "audit_record_5868",
+   "state": "PRESENT",
+   "captured_at": "2026-02-23T10:00:00Z",
+   "observed_at": "2026-02-18T09:00:00Z"
+  },
+  {
+   "evidence_id": "evidence_45",
+   "system": "backup_restore_service",
+   "resource_id": "search_9931",
+   "state": "PRESENT",
+   "captured_at": "2026-02-23T10:00:00Z",
+   "observed_at": "2026-02-18T09:00:00Z"
+  },
+  {
+   "evidence_id": "evidence_45",
+   "system": "backup_restore_service",
+   "resource_id": "support_4247",
+   "state": "PRESENT",
+   "captured_at": "2026-02-23T10:00:00Z",
+   "observed_at": "2026-02-18T09:00:00Z"
+  }
+ ],
+ "draft": {
+  "deletion_status": "INCOMPLETE",
+  "steps_json": [
+   {
+    "step_no": 1,
+    "phase": "FINDING",
+    "system_id": "search_service",
+    "resource_id": "search_9931",
+    "operation": "REPORT_REMAINING_RECORD",
+    "state": "PRESENT",
+    "evidence_id": "evidence_64"
+   },
+   {
+    "step_no": 2,
+    "phase": "FINDING",
+    "system_id": "support_platform",
+    "resource_id": "support_4247",
+    "operation": "REPORT_EXPOSED_PII",
+    "state": "PRESENT",
+    "evidence_id": "evidence_64"
+   },
+   {
+    "step_no": 3,
+    "phase": "REMEDIATION",
+    "system_id": "search_service",
+    "resource_id": "search_9931",
+    "operation": "DELETE_RECORD",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 4,
+    "phase": "REMEDIATION",
+    "system_id": "support_platform",
+    "resource_id": "support_4247",
+    "operation": "REDACT_RECORD",
+    "state": "REDACTED",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 5,
+    "phase": "VERIFICATION",
+    "system_id": "account_service",
+    "resource_id": "account_4036",
+    "operation": "VERIFY_RECORD_ABSENT",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 6,
+    "phase": "VERIFICATION",
+    "system_id": "search_service",
+    "resource_id": "search_9931",
+    "operation": "VERIFY_RECORD_ABSENT",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 7,
+    "phase": "VERIFICATION",
+    "system_id": "support_platform",
+    "resource_id": "support_4247",
+    "operation": "VERIFY_RECORD_REDACTED",
+    "state": "REDACTED",
+    "evidence_id": ""
+   }
+  ]
+ }
+}

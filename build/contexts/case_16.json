@@ -1,0 +1,296 @@
+{
+ "case": {
+  "case_id": "case_16",
+  "audit_at": "2026-09-21T10:00:00Z",
+  "requested_at": "2026-08-29T10:00:00Z",
+  "reported_status": "NOT_STARTED",
+  "reported_at": "2026-09-01T10:00:00Z",
+  "email_supplied": "diya.k4436@outlook.com",
+  "request_text": "Please treat this message as a request for permanent account deletion. Please include information linked through current or earlier account identifiers. A short confirmation when the process is complete is sufficient."
+ },
+ "intent": {
+  "is_deletion": true,
+  "label": "deletion",
+  "matched_terms": [
+   "delet"
+  ],
+  "matched_negations": [],
+  "non_deletion_action": ""
+ },
+ "identity": {
+  "user_id": "user_53",
+  "email_supplied": "diya.k4436@outlook.com",
+  "email_kind": "current",
+  "matched_audit_ids": [],
+  "name": "Diya Kapoor",
+  "current": {
+   "user_id": "user_53",
+   "name": "Diya Kapoor",
+   "email": "diya.k4436@outlook.com",
+   "phone": "+91 96023 32879",
+   "email_hash": "1ecc0a4afc62297c78d36eb27b889e059bec83609e3177b8bbd42ea7648ad46e"
+  },
+  "historical": {}
+ },
+ "state_at_audit": [
+  {
+   "system": "account_service",
+   "resource_id": "account_994",
+   "category": "USER_PROFILE",
+   "record_type": "USER_PROFILE",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-09-21T10:00:00Z",
+   "evidence_id": "evidence_05",
+   "evidence_kind": "manifest",
+   "link_method": "explicit_ref",
+   "identifiers": {
+    "customer_reference": "user_53",
+    "full_name": "Diya Kapoor",
+    "email": "diya.k4436@outlook.com",
+    "phone": "+91 96023 32879"
+   },
+   "history": [
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-09-01T08:50:41Z",
+     "evidence_id": "activity_3571",
+     "kind": "activity"
+    },
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-09-21T10:00:00Z",
+     "evidence_id": "evidence_05",
+     "kind": "manifest"
+    }
+   ]
+  },
+  {
+   "system": "search_service",
+   "resource_id": "search_1007",
+   "category": "SEARCH_INDEX_ENTRY",
+   "record_type": "SEARCH_INDEX_ENTRY",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-09-21T10:00:00Z",
+   "evidence_id": "evidence_05",
+   "evidence_kind": "manifest",
+   "link_method": "identifier",
+   "identifiers": {
+    "document": {
+     "display_name": "Diya Kapoor",
+     "email": "diya.k4436@outlook.com",
+     "customer_reference": "user_53"
+    }
+   },
+   "history": [
+    {
+     "state": "ABSENT",
+     "raw_state": "ABSENT",
+     "observed_at": "2026-09-01T11:00:03Z",
+     "evidence_id": "activity_3580",
+     "kind": "activity"
+    },
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-09-21T10:00:00Z",
+     "evidence_id": "evidence_05",
+     "kind": "manifest"
+    },
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-09-21T10:00:00Z",
+     "evidence_id": "evidence_05",
+     "kind": "manifest"
+    }
+   ]
+  },
+  {
+   "system": "security_service",
+   "resource_id": "audit_record_9528",
+   "category": "SECURITY_AUDIT_LOG",
+   "record_type": "SECURITY_AUDIT_LOG",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-09-21T10:00:00Z",
+   "evidence_id": "evidence_05",
+   "evidence_kind": "manifest",
+   "link_method": "explicit_ref",
+   "identifiers": {
+    "subject_reference": "user_53"
+   },
+   "history": [
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-09-21T10:00:00Z",
+     "evidence_id": "evidence_05",
+     "kind": "manifest"
+    },
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-09-21T10:00:00Z",
+     "evidence_id": "evidence_05",
+     "kind": "manifest"
+    }
+   ]
+  }
+ ],
+ "activity_claims": [
+  {
+   "activity_id": "activity_3571",
+   "event_time": "2026-09-01T08:50:41Z",
+   "event_type": "DELETE_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "account_service",
+   "resource_id": "account_994",
+   "reported_result": "FAILED",
+   "details": "Deletion worker submitted primary profile account_994 to account_service."
+  },
+  {
+   "activity_id": "activity_3577",
+   "event_time": "2026-09-01T10:41:33Z",
+   "event_type": "SYNC_RECORD",
+   "source_system": "account_service",
+   "target_system": "account_replication_cluster",
+   "resource_id": "account_994",
+   "reported_result": "SUCCESS",
+   "details": "Replication worker reported its final checkpoint for account_994."
+  },
+  {
+   "activity_id": "activity_3580",
+   "event_time": "2026-09-01T11:00:03Z",
+   "event_type": "DELETE_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "search_service",
+   "resource_id": "search_1007",
+   "reported_result": "SUCCESS",
+   "details": "Deletion worker received the final result for search_1007 from search_service."
+  }
+ ],
+ "rules": [
+  {
+   "rule_id": "rule_01",
+   "data_category": "USER_PROFILE",
+   "condition": "Always",
+   "required_action": "DELETE"
+  },
+  {
+   "rule_id": "rule_03",
+   "data_category": "SEARCH_INDEX_ENTRY",
+   "condition": "Always",
+   "required_action": "DELETE"
+  },
+  {
+   "rule_id": "rule_12",
+   "data_category": "SECURITY_AUDIT_LOG",
+   "condition": "Record is within the supplied retention period",
+   "required_action": "RETAIN"
+  }
+ ],
+ "evidence_batch": {
+  "evidence_ids": [
+   "activity_3571",
+   "activity_3577",
+   "activity_3580",
+   "evidence_05"
+  ],
+  "co_subjects": [
+   "user_51",
+   "user_52",
+   "user_54",
+   "user_55",
+   "user_56",
+   "user_57",
+   "user_58",
+   "user_59",
+   "user_60"
+  ],
+  "unattributed_resources": {
+   "evidence_05": [
+    "analytics_2572",
+    "analytics_8858",
+    "analytics_9069",
+    "data_flow_108",
+    "data_flow_1368",
+    "data_flow_373",
+    "data_flow_4218",
+    "data_flow_5080"
+   ]
+  }
+ },
+ "excluded_after_audit": [],
+ "draft": {
+  "deletion_status": "INCOMPLETE",
+  "steps_json": [
+   {
+    "step_no": 1,
+    "phase": "FINDING",
+    "system_id": "account_service",
+    "resource_id": "account_994",
+    "operation": "REPORT_REMAINING_RECORD",
+    "state": "PRESENT",
+    "evidence_id": "evidence_05"
+   },
+   {
+    "step_no": 2,
+    "phase": "FINDING",
+    "system_id": "search_service",
+    "resource_id": "search_1007",
+    "operation": "REPORT_REMAINING_RECORD",
+    "state": "PRESENT",
+    "evidence_id": "evidence_05"
+   },
+   {
+    "step_no": 3,
+    "phase": "REMEDIATION",
+    "system_id": "account_service",
+    "resource_id": "account_994",
+    "operation": "DELETE_RECORD",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 4,
+    "phase": "REMEDIATION",
+    "system_id": "search_service",
+    "resource_id": "search_1007",
+    "operation": "DELETE_RECORD",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 5,
+    "phase": "VERIFICATION",
+    "system_id": "account_service",
+    "resource_id": "account_994",
+    "operation": "VERIFY_RECORD_ABSENT",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 6,
+    "phase": "VERIFICATION",
+    "system_id": "search_service",
+    "resource_id": "search_1007",
+    "operation": "VERIFY_RECORD_ABSENT",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 7,
+    "phase": "VERIFICATION",
+    "system_id": "security_service",
+    "resource_id": "audit_record_9528",
+    "operation": "VERIFY_RECORD_PRESENT",
+    "state": "PRESENT",
+    "evidence_id": ""
+   }
+  ]
+ }
+}

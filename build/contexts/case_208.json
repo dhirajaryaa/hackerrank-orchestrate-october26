@@ -1,0 +1,271 @@
+{
+ "case": {
+  "case_id": "case_208",
+  "audit_at": "2026-07-08T09:00:00Z",
+  "requested_at": "2026-06-22T09:00:00Z",
+  "reported_status": "PARTIALLY_COMPLETE",
+  "reported_at": "2026-06-25T09:00:00Z",
+  "email_supplied": "nakamura.sota@gmail.com",
+  "request_text": "Please process a permanent account-deletion request for this email address. Please review the account data that is eligible for deletion or de-identification. Please confirm the result after completing the required checks."
+ },
+ "intent": {
+  "is_deletion": true,
+  "label": "deletion",
+  "matched_terms": [
+   "delet"
+  ],
+  "matched_negations": [],
+  "non_deletion_action": ""
+ },
+ "identity": {
+  "user_id": "user_206",
+  "email_supplied": "nakamura.sota@gmail.com",
+  "email_kind": "current",
+  "matched_audit_ids": [],
+  "name": "Sota Nakamura",
+  "current": {
+   "user_id": "user_206",
+   "name": "Sota Nakamura",
+   "email": "nakamura.sota@gmail.com",
+   "phone": "+81 90 2756 1120",
+   "email_hash": "8fb39676bc7f2e29c92e355f40ab8c368661228ddb9e2e8fd56768532850b793"
+  },
+  "historical": {}
+ },
+ "state_at_audit": [
+  {
+   "system": "search_service",
+   "resource_id": "search_1118",
+   "category": "SEARCH_INDEX_ENTRY",
+   "record_type": "SEARCH_INDEX_ENTRY",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-07-08T09:00:00Z",
+   "evidence_id": "evidence_20",
+   "evidence_kind": "manifest",
+   "link_method": "identifier",
+   "identifiers": {
+    "document": {
+     "display_name": "Sota Nakamura",
+     "email": "nakamura.sota@gmail.com",
+     "customer_reference": "user_206"
+    }
+   },
+   "history": [
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-06-25T10:13:57Z",
+     "evidence_id": "activity_2519",
+     "kind": "activity"
+    },
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-07-08T09:00:00Z",
+     "evidence_id": "evidence_20",
+     "kind": "manifest"
+    },
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-07-08T09:00:00Z",
+     "evidence_id": "evidence_20",
+     "kind": "manifest"
+    }
+   ]
+  },
+  {
+   "system": "security_service",
+   "resource_id": "audit_record_2697",
+   "category": "SECURITY_AUDIT_LOG",
+   "record_type": "SECURITY_AUDIT_LOG",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-07-08T09:00:00Z",
+   "evidence_id": "evidence_20",
+   "evidence_kind": "manifest",
+   "link_method": "explicit_ref",
+   "identifiers": {
+    "subject_reference": "user_206"
+   },
+   "history": [
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-07-08T09:00:00Z",
+     "evidence_id": "evidence_20",
+     "kind": "manifest"
+    },
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-07-08T09:00:00Z",
+     "evidence_id": "evidence_20",
+     "kind": "manifest"
+    }
+   ]
+  },
+  {
+   "system": "support_platform",
+   "resource_id": "support_2134",
+   "category": "SUPPORT_MESSAGE",
+   "record_type": "SUPPORT_MESSAGE",
+   "state": "REDACTED",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-07-08T09:00:00Z",
+   "evidence_id": "evidence_20",
+   "evidence_kind": "manifest",
+   "link_method": "explicit_ref",
+   "identifiers": {
+    "subject_reference": "user_206"
+   },
+   "history": [
+    {
+     "state": "REDACTED",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-06-25T09:54:28Z",
+     "evidence_id": "activity_2518",
+     "kind": "activity"
+    },
+    {
+     "state": "REDACTED",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-07-08T09:00:00Z",
+     "evidence_id": "evidence_20",
+     "kind": "manifest"
+    },
+    {
+     "state": "REDACTED",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-07-08T09:00:00Z",
+     "evidence_id": "evidence_20",
+     "kind": "manifest"
+    }
+   ]
+  }
+ ],
+ "activity_claims": [
+  {
+   "activity_id": "activity_2518",
+   "event_time": "2026-06-25T09:54:28Z",
+   "event_type": "REDACT_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "support_platform",
+   "resource_id": "support_2134",
+   "reported_result": "FAILED",
+   "details": "Deletion worker received the final result for support_2134 from support_platform."
+  },
+  {
+   "activity_id": "activity_2519",
+   "event_time": "2026-06-25T10:13:57Z",
+   "event_type": "DELETE_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "search_service",
+   "resource_id": "search_1118",
+   "reported_result": "FAILED",
+   "details": "Deletion worker received the final result for search_1118 from search_service."
+  }
+ ],
+ "rules": [
+  {
+   "rule_id": "rule_03",
+   "data_category": "SEARCH_INDEX_ENTRY",
+   "condition": "Always",
+   "required_action": "DELETE"
+  },
+  {
+   "rule_id": "rule_05",
+   "data_category": "SUPPORT_MESSAGE",
+   "condition": "Conversation contains shared customer, agent, or order context that must be retained",
+   "required_action": "REDACT"
+  },
+  {
+   "rule_id": "rule_12",
+   "data_category": "SECURITY_AUDIT_LOG",
+   "condition": "Record is within the supplied retention period",
+   "required_action": "RETAIN"
+  }
+ ],
+ "evidence_batch": {
+  "evidence_ids": [
+   "activity_2518",
+   "activity_2519",
+   "evidence_20"
+  ],
+  "co_subjects": [
+   "user_201",
+   "user_202",
+   "user_203",
+   "user_204",
+   "user_205",
+   "user_207",
+   "user_208",
+   "user_209",
+   "user_210"
+  ],
+  "unattributed_resources": {
+   "evidence_20": [
+    "analytics_2463",
+    "analytics_9580",
+    "backup_6407",
+    "data_flow_3530",
+    "data_flow_5196",
+    "data_flow_5877",
+    "data_flow_8676",
+    "support_8903"
+   ]
+  }
+ },
+ "excluded_after_audit": [],
+ "draft": {
+  "deletion_status": "INCOMPLETE",
+  "steps_json": [
+   {
+    "step_no": 1,
+    "phase": "FINDING",
+    "system_id": "search_service",
+    "resource_id": "search_1118",
+    "operation": "REPORT_REMAINING_RECORD",
+    "state": "PRESENT",
+    "evidence_id": "evidence_20"
+   },
+   {
+    "step_no": 2,
+    "phase": "REMEDIATION",
+    "system_id": "search_service",
+    "resource_id": "search_1118",
+    "operation": "DELETE_RECORD",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 3,
+    "phase": "VERIFICATION",
+    "system_id": "search_service",
+    "resource_id": "search_1118",
+    "operation": "VERIFY_RECORD_ABSENT",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 4,
+    "phase": "VERIFICATION",
+    "system_id": "security_service",
+    "resource_id": "audit_record_2697",
+    "operation": "VERIFY_RECORD_PRESENT",
+    "state": "PRESENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 5,
+    "phase": "VERIFICATION",
+    "system_id": "support_platform",
+    "resource_id": "support_2134",
+    "operation": "VERIFY_RECORD_REDACTED",
+    "state": "REDACTED",
+    "evidence_id": ""
+   }
+  ]
+ }
+}

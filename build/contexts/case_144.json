@@ -1,0 +1,147 @@
+{
+ "case": {
+  "case_id": "case_144",
+  "audit_at": "2026-08-07T08:00:00Z",
+  "requested_at": "2026-07-26T08:00:00Z",
+  "reported_status": "COMPLETE",
+  "reported_at": "2026-07-28T08:00:00Z",
+  "email_supplied": "mkang9227@fastmail.com",
+  "request_text": "이 이메일 주소에 연결된 계정의 영구 삭제를 요청합니다. 개인정보 처리 절차에 따라 현재 및 이전 식별자를 검토해 주세요. 검토가 완료되면 결과를 확인해 주세요."
+ },
+ "intent": {
+  "is_deletion": true,
+  "label": "deletion",
+  "matched_terms": [
+   "삭제"
+  ],
+  "matched_negations": [],
+  "non_deletion_action": ""
+ },
+ "identity": {
+  "user_id": "user_142",
+  "email_supplied": "mkang9227@fastmail.com",
+  "email_kind": "current",
+  "matched_audit_ids": [],
+  "name": "Min-jun Kang",
+  "current": {
+   "user_id": "user_142",
+   "name": "Min-jun Kang",
+   "email": "mkang9227@fastmail.com",
+   "phone": "+82 10 5892 5953",
+   "email_hash": "8c10f450258a137f166b40c4e6bc9b8cd4fdf4db7afafae9eef9256e6cf98df8"
+  },
+  "historical": {}
+ },
+ "state_at_audit": [
+  {
+   "system": "export_service",
+   "resource_id": "export_7992",
+   "category": "USER_EXPORT",
+   "record_type": "USER_EXPORT",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-08-07T06:10:31Z",
+   "evidence_id": "evidence_86",
+   "evidence_kind": "manifest",
+   "link_method": "identifier",
+   "identifiers": {
+    "owner_email": "mkang9227@fastmail.com"
+   },
+   "history": [
+    {
+     "state": "UNCERTAIN",
+     "raw_state": "UNCERTAIN",
+     "observed_at": "2026-07-28T08:43:06Z",
+     "evidence_id": "activity_2990",
+     "kind": "activity"
+    },
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-08-07T06:10:31Z",
+     "evidence_id": "evidence_86",
+     "kind": "manifest"
+    }
+   ]
+  }
+ ],
+ "activity_claims": [
+  {
+   "activity_id": "activity_2990",
+   "event_time": "2026-07-28T08:43:06Z",
+   "event_type": "DELETE_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "export_service",
+   "resource_id": "export_7992",
+   "reported_result": "PARTIAL",
+   "details": "Deletion worker received the final result for export_7992 from export_service."
+  }
+ ],
+ "rules": [
+  {
+   "rule_id": "rule_09",
+   "data_category": "USER_EXPORT",
+   "condition": "Always",
+   "required_action": "DELETE"
+  }
+ ],
+ "evidence_batch": {
+  "evidence_ids": [
+   "activity_2990",
+   "evidence_86"
+  ],
+  "co_subjects": [
+   "user_141",
+   "user_143",
+   "user_144",
+   "user_145",
+   "user_146",
+   "user_147",
+   "user_148",
+   "user_149",
+   "user_150"
+  ],
+  "unattributed_resources": {
+   "evidence_86": [
+    "account_3897",
+    "account_874",
+    "account_8854",
+    "analytics_1626",
+    "analytics_7254"
+   ]
+  }
+ },
+ "excluded_after_audit": [],
+ "draft": {
+  "deletion_status": "INCOMPLETE",
+  "steps_json": [
+   {
+    "step_no": 1,
+    "phase": "FINDING",
+    "system_id": "export_service",
+    "resource_id": "export_7992",
+    "operation": "REPORT_REMAINING_RECORD",
+    "state": "PRESENT",
+    "evidence_id": "evidence_86"
+   },
+   {
+    "step_no": 2,
+    "phase": "REMEDIATION",
+    "system_id": "export_service",
+    "resource_id": "export_7992",
+    "operation": "DELETE_RECORD",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 3,
+    "phase": "VERIFICATION",
+    "system_id": "export_service",
+    "resource_id": "export_7992",
+    "operation": "VERIFY_RECORD_ABSENT",
+    "state": "ABSENT",
+    "evidence_id": ""
+   }
+  ]
+ }
+}

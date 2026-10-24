@@ -1,0 +1,119 @@
+{
+ "case": {
+  "case_id": "case_226",
+  "audit_at": "2026-06-28T07:00:00Z",
+  "requested_at": "2026-06-14T07:00:00Z",
+  "reported_status": "COMPLETE",
+  "reported_at": "2026-06-17T07:00:00Z",
+  "email_supplied": "wright.sophie@icloud.com",
+  "request_text": "I would like to submit a request to delete this account and its personal data. Please include information linked through current or earlier account identifiers. Please contact me if you need information to verify the request."
+ },
+ "intent": {
+  "is_deletion": true,
+  "label": "deletion",
+  "matched_terms": [
+   "delet"
+  ],
+  "matched_negations": [],
+  "non_deletion_action": ""
+ },
+ "identity": {
+  "user_id": "user_224",
+  "email_supplied": "wright.sophie@icloud.com",
+  "email_kind": "current",
+  "matched_audit_ids": [],
+  "name": "Sophie Wright",
+  "current": {
+   "user_id": "user_224",
+   "name": "Sophie Wright",
+   "email": "wright.sophie@icloud.com",
+   "phone": "+44 7700 900224",
+   "email_hash": "953969e2f9d0ccfcff46d86a0f01d7b4660cd9e20aa75040c1c75ef995fc32a0"
+  },
+  "historical": {}
+ },
+ "state_at_audit": [
+  {
+   "system": "security_service",
+   "resource_id": "audit_record_9964",
+   "category": "SECURITY_AUDIT_LOG",
+   "record_type": "SECURITY_AUDIT_LOG",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-06-28T05:52:58Z",
+   "evidence_id": "evidence_80",
+   "evidence_kind": "manifest",
+   "link_method": "explicit_ref",
+   "identifiers": {
+    "subject_reference": "user_224"
+   },
+   "history": [
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-06-28T05:52:58Z",
+     "evidence_id": "evidence_80",
+     "kind": "manifest"
+    }
+   ]
+  }
+ ],
+ "activity_claims": [],
+ "rules": [
+  {
+   "rule_id": "rule_12",
+   "data_category": "SECURITY_AUDIT_LOG",
+   "condition": "Record is within the supplied retention period",
+   "required_action": "RETAIN"
+  }
+ ],
+ "evidence_batch": {
+  "evidence_ids": [
+   "evidence_80"
+  ],
+  "co_subjects": [
+   "user_221",
+   "user_222",
+   "user_223",
+   "user_225",
+   "user_226",
+   "user_227",
+   "user_228",
+   "user_229",
+   "user_230"
+  ],
+  "unattributed_resources": {
+   "evidence_80": [
+    "account_392",
+    "account_669",
+    "analytics_1544",
+    "analytics_2501",
+    "analytics_8127"
+   ]
+  }
+ },
+ "excluded_after_audit": [
+  {
+   "evidence_id": "evidence_22",
+   "system": "security_service",
+   "resource_id": "audit_record_9964",
+   "state": "PRESENT",
+   "captured_at": "2026-06-30T07:00:00Z",
+   "observed_at": "2026-06-28T07:00:00Z"
+  }
+ ],
+ "draft": {
+  "deletion_status": "COMPLETE",
+  "steps_json": [
+   {
+    "step_no": 1,
+    "phase": "VERIFICATION",
+    "system_id": "security_service",
+    "resource_id": "audit_record_9964",
+    "operation": "VERIFY_RECORD_PRESENT",
+    "state": "PRESENT",
+    "evidence_id": "evidence_80"
+   }
+  ]
+ }
+}

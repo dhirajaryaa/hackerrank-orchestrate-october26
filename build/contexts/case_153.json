@@ -1,0 +1,302 @@
+{
+ "case": {
+  "case_id": "case_153",
+  "audit_at": "2026-08-02T07:00:00Z",
+  "requested_at": "2026-07-12T07:00:00Z",
+  "reported_status": "PARTIALLY_COMPLETE",
+  "reported_at": "2026-07-14T07:00:00Z",
+  "email_supplied": "a.adeyemi9897@yahoo.com",
+  "request_text": "I am requesting deletion of the account registered to this email address. Please review any identifiers connected to this account as part of the request. I would appreciate confirmation of the final outcome."
+ },
+ "intent": {
+  "is_deletion": true,
+  "label": "deletion",
+  "matched_terms": [
+   "delet"
+  ],
+  "matched_negations": [],
+  "non_deletion_action": ""
+ },
+ "identity": {
+  "user_id": "user_151",
+  "email_supplied": "a.adeyemi9897@yahoo.com",
+  "email_kind": "historical",
+  "matched_audit_ids": [
+   "audit_226"
+  ],
+  "name": "Amara Adeyemi",
+  "current": {
+   "user_id": "user_151",
+   "name": "Amara Adeyemi",
+   "email": "a.adeyemi98@yahoo.com",
+   "phone": "+234 803 226 3701",
+   "email_hash": "b2a981db1eaf8bf2255e1d87fdbdb10e87b208d7c2a496ede61ecd16ee7864a3"
+  },
+  "historical": {
+   "email": [
+    "a.adeyemi9897@yahoo.com"
+   ],
+   "email_hash": [
+    "ee261f0beabfa3b4b1ff2a55960a5f2ea260adfa56e96c6115a8985b0df3398c"
+   ]
+  }
+ },
+ "state_at_audit": [
+  {
+   "system": "account_service",
+   "resource_id": "account_8023",
+   "category": "USER_PROFILE",
+   "record_type": "USER_PROFILE",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-08-02T07:00:00Z",
+   "evidence_id": "evidence_15",
+   "evidence_kind": "manifest",
+   "link_method": "explicit_ref",
+   "identifiers": {
+    "customer_reference": "user_151",
+    "full_name": "Amara Adeyemi",
+    "email": "a.adeyemi9897@yahoo.com",
+    "phone": "+234 803 226 3701"
+   },
+   "history": [
+    {
+     "state": "UNCERTAIN",
+     "raw_state": "UNCERTAIN",
+     "observed_at": "2026-07-14T05:57:37Z",
+     "evidence_id": "activity_2810",
+     "kind": "activity"
+    },
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-08-02T07:00:00Z",
+     "evidence_id": "evidence_15",
+     "kind": "manifest"
+    }
+   ]
+  },
+  {
+   "system": "search_service",
+   "resource_id": "search_9831",
+   "category": "SEARCH_INDEX_ENTRY",
+   "record_type": "SEARCH_INDEX_ENTRY",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-08-02T07:00:00Z",
+   "evidence_id": "evidence_15",
+   "evidence_kind": "manifest",
+   "link_method": "identifier",
+   "identifiers": {
+    "document": {
+     "display_name": "Amara Adeyemi",
+     "email": "a.adeyemi9897@yahoo.com",
+     "customer_reference": "user_151"
+    }
+   },
+   "history": [
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-07-14T08:19:58Z",
+     "evidence_id": "activity_2816",
+     "kind": "activity"
+    },
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-08-02T07:00:00Z",
+     "evidence_id": "evidence_15",
+     "kind": "manifest"
+    },
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-08-02T07:00:00Z",
+     "evidence_id": "evidence_15",
+     "kind": "manifest"
+    }
+   ]
+  },
+  {
+   "system": "security_service",
+   "resource_id": "audit_record_5652",
+   "category": "SECURITY_AUDIT_LOG",
+   "record_type": "SECURITY_AUDIT_LOG",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-08-02T07:00:00Z",
+   "evidence_id": "evidence_15",
+   "evidence_kind": "manifest",
+   "link_method": "explicit_ref",
+   "identifiers": {
+    "subject_reference": "user_151"
+   },
+   "history": [
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-08-02T07:00:00Z",
+     "evidence_id": "evidence_15",
+     "kind": "manifest"
+    },
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-08-02T07:00:00Z",
+     "evidence_id": "evidence_15",
+     "kind": "manifest"
+    }
+   ]
+  }
+ ],
+ "activity_claims": [
+  {
+   "activity_id": "activity_2810",
+   "event_time": "2026-07-14T05:57:37Z",
+   "event_type": "DELETE_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "account_service",
+   "resource_id": "account_8023",
+   "reported_result": "PARTIAL",
+   "details": "Deletion worker submitted primary profile account_8023 to account_service."
+  },
+  {
+   "activity_id": "activity_2815",
+   "event_time": "2026-07-14T08:00:29Z",
+   "event_type": "SYNC_RECORD",
+   "source_system": "account_service",
+   "target_system": "account_replication_cluster",
+   "resource_id": "account_8023",
+   "reported_result": "PARTIAL",
+   "details": "Replication worker reported its final checkpoint for account_8023."
+  },
+  {
+   "activity_id": "activity_2816",
+   "event_time": "2026-07-14T08:19:58Z",
+   "event_type": "DELETE_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "search_service",
+   "resource_id": "search_9831",
+   "reported_result": "FAILED",
+   "details": "Deletion worker received the final result for search_9831 from search_service."
+  }
+ ],
+ "rules": [
+  {
+   "rule_id": "rule_01",
+   "data_category": "USER_PROFILE",
+   "condition": "Always",
+   "required_action": "DELETE"
+  },
+  {
+   "rule_id": "rule_03",
+   "data_category": "SEARCH_INDEX_ENTRY",
+   "condition": "Always",
+   "required_action": "DELETE"
+  },
+  {
+   "rule_id": "rule_12",
+   "data_category": "SECURITY_AUDIT_LOG",
+   "condition": "Record is within the supplied retention period",
+   "required_action": "RETAIN"
+  }
+ ],
+ "evidence_batch": {
+  "evidence_ids": [
+   "activity_2810",
+   "activity_2815",
+   "activity_2816",
+   "evidence_15"
+  ],
+  "co_subjects": [
+   "user_152",
+   "user_153",
+   "user_154",
+   "user_155",
+   "user_156",
+   "user_157",
+   "user_158",
+   "user_159",
+   "user_160"
+  ],
+  "unattributed_resources": {
+   "evidence_15": [
+    "analytics_7372",
+    "analytics_8425",
+    "backup_1214",
+    "data_flow_4305",
+    "data_flow_7704"
+   ]
+  }
+ },
+ "excluded_after_audit": [],
+ "draft": {
+  "deletion_status": "INCOMPLETE",
+  "steps_json": [
+   {
+    "step_no": 1,
+    "phase": "FINDING",
+    "system_id": "account_service",
+    "resource_id": "account_8023",
+    "operation": "REPORT_REMAINING_RECORD",
+    "state": "PRESENT",
+    "evidence_id": "evidence_15"
+   },
+   {
+    "step_no": 2,
+    "phase": "FINDING",
+    "system_id": "search_service",
+    "resource_id": "search_9831",
+    "operation": "REPORT_REMAINING_RECORD",
+    "state": "PRESENT",
+    "evidence_id": "evidence_15"
+   },
+   {
+    "step_no": 3,
+    "phase": "REMEDIATION",
+    "system_id": "account_service",
+    "resource_id": "account_8023",
+    "operation": "DELETE_RECORD",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 4,
+    "phase": "REMEDIATION",
+    "system_id": "search_service",
+    "resource_id": "search_9831",
+    "operation": "DELETE_RECORD",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 5,
+    "phase": "VERIFICATION",
+    "system_id": "account_service",
+    "resource_id": "account_8023",
+    "operation": "VERIFY_RECORD_ABSENT",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 6,
+    "phase": "VERIFICATION",
+    "system_id": "search_service",
+    "resource_id": "search_9831",
+    "operation": "VERIFY_RECORD_ABSENT",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 7,
+    "phase": "VERIFICATION",
+    "system_id": "security_service",
+    "resource_id": "audit_record_5652",
+    "operation": "VERIFY_RECORD_PRESENT",
+    "state": "PRESENT",
+    "evidence_id": ""
+   }
+  ]
+ }
+}

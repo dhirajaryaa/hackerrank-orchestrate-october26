@@ -1,0 +1,255 @@
+{
+ "case": {
+  "case_id": "case_115",
+  "audit_at": "2026-08-22T11:00:00Z",
+  "requested_at": "2026-07-30T11:00:00Z",
+  "reported_status": "COMPLETE",
+  "reported_at": "2026-08-02T11:00:00Z",
+  "email_supplied": "nana.b9576@outlook.com",
+  "request_text": "Please treat this message as a request for permanent account deletion. Please apply the request across the systems covered by your deletion policy. Please let me know once the request has been reviewed."
+ },
+ "intent": {
+  "is_deletion": true,
+  "label": "deletion",
+  "matched_terms": [
+   "delet"
+  ],
+  "matched_negations": [],
+  "non_deletion_action": ""
+ },
+ "identity": {
+  "user_id": "user_113",
+  "email_supplied": "nana.b9576@outlook.com",
+  "email_kind": "current",
+  "matched_audit_ids": [],
+  "name": "Nana Boateng",
+  "current": {
+   "user_id": "user_113",
+   "name": "Nana Boateng",
+   "email": "nana.b9576@outlook.com",
+   "phone": "+233 24 926 0668",
+   "email_hash": "1b8b810bf535e2d05a358efad6fb0c505e76677acf2c465f22e79eda67e23c86"
+  },
+  "historical": {}
+ },
+ "state_at_audit": [
+  {
+   "system": "account_service",
+   "resource_id": "account_1785",
+   "category": "USER_PROFILE",
+   "record_type": "USER_PROFILE",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-08-22T08:15:24Z",
+   "evidence_id": "evidence_88",
+   "evidence_kind": "manifest",
+   "link_method": "identifier",
+   "identifiers": {
+    "email": "nana.b9576@outlook.com"
+   },
+   "history": [
+    {
+     "state": "ABSENT",
+     "raw_state": "ABSENT",
+     "observed_at": "2026-08-02T10:12:04Z",
+     "evidence_id": "activity_3062",
+     "kind": "activity"
+    },
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-08-22T08:15:24Z",
+     "evidence_id": "evidence_88",
+     "kind": "manifest"
+    }
+   ]
+  },
+  {
+   "system": "search_service",
+   "resource_id": "search_4417",
+   "category": "SEARCH_INDEX_ENTRY",
+   "record_type": "SEARCH_INDEX_ENTRY",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-08-22T10:35:13Z",
+   "evidence_id": "evidence_88",
+   "evidence_kind": "manifest",
+   "link_method": "identifier",
+   "identifiers": {
+    "email": "nana.b9576@outlook.com"
+   },
+   "history": [
+    {
+     "state": "ABSENT",
+     "raw_state": "ABSENT",
+     "observed_at": "2026-08-02T12:06:25Z",
+     "evidence_id": "activity_3073",
+     "kind": "activity"
+    },
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-08-22T10:35:13Z",
+     "evidence_id": "evidence_88",
+     "kind": "manifest"
+    }
+   ]
+  }
+ ],
+ "activity_claims": [
+  {
+   "activity_id": "activity_3062",
+   "event_time": "2026-08-02T10:12:04Z",
+   "event_type": "DELETE_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "account_service",
+   "resource_id": "account_1785",
+   "reported_result": "SUCCESS",
+   "details": "Deletion worker submitted primary profile account_1785 to account_service."
+  },
+  {
+   "activity_id": "activity_3070",
+   "event_time": "2026-08-02T11:47:55Z",
+   "event_type": "SYNC_RECORD",
+   "source_system": "account_service",
+   "target_system": "account_replication_cluster",
+   "resource_id": "account_1785",
+   "reported_result": "SUCCESS",
+   "details": "Replication worker reported its final checkpoint for account_1785."
+  },
+  {
+   "activity_id": "activity_3073",
+   "event_time": "2026-08-02T12:06:25Z",
+   "event_type": "DELETE_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "search_service",
+   "resource_id": "search_4417",
+   "reported_result": "SUCCESS",
+   "details": "Deletion worker received the final result for search_4417 from search_service."
+  }
+ ],
+ "rules": [
+  {
+   "rule_id": "rule_01",
+   "data_category": "USER_PROFILE",
+   "condition": "Always",
+   "required_action": "DELETE"
+  },
+  {
+   "rule_id": "rule_03",
+   "data_category": "SEARCH_INDEX_ENTRY",
+   "condition": "Always",
+   "required_action": "DELETE"
+  }
+ ],
+ "evidence_batch": {
+  "evidence_ids": [
+   "activity_3062",
+   "activity_3070",
+   "activity_3073",
+   "evidence_88"
+  ],
+  "co_subjects": [
+   "user_111",
+   "user_112",
+   "user_114",
+   "user_115",
+   "user_116",
+   "user_117",
+   "user_118",
+   "user_119",
+   "user_120"
+  ],
+  "unattributed_resources": {
+   "evidence_88": [
+    "analytics_8698",
+    "analytics_4800"
+   ]
+  }
+ },
+ "excluded_after_audit": [
+  {
+   "evidence_id": "evidence_11",
+   "system": "account_service",
+   "resource_id": "account_1785",
+   "state": "PRESENT",
+   "captured_at": "2026-08-24T13:56:43Z",
+   "observed_at": "2026-08-22T10:51:17Z"
+  },
+  {
+   "evidence_id": "evidence_11",
+   "system": "security_service",
+   "resource_id": "audit_record_670",
+   "state": "PRESENT",
+   "captured_at": "2026-08-24T13:56:43Z",
+   "observed_at": "2026-08-22T10:52:01Z"
+  },
+  {
+   "evidence_id": "evidence_11",
+   "system": "search_service",
+   "resource_id": "search_4417",
+   "state": "PRESENT",
+   "captured_at": "2026-08-24T13:56:43Z",
+   "observed_at": "2026-08-22T10:57:41Z"
+  }
+ ],
+ "draft": {
+  "deletion_status": "INCOMPLETE",
+  "steps_json": [
+   {
+    "step_no": 1,
+    "phase": "FINDING",
+    "system_id": "account_service",
+    "resource_id": "account_1785",
+    "operation": "REPORT_REMAINING_RECORD",
+    "state": "PRESENT",
+    "evidence_id": "evidence_88"
+   },
+   {
+    "step_no": 2,
+    "phase": "FINDING",
+    "system_id": "search_service",
+    "resource_id": "search_4417",
+    "operation": "REPORT_REMAINING_RECORD",
+    "state": "PRESENT",
+    "evidence_id": "evidence_88"
+   },
+   {
+    "step_no": 3,
+    "phase": "REMEDIATION",
+    "system_id": "account_service",
+    "resource_id": "account_1785",
+    "operation": "DELETE_RECORD",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 4,
+    "phase": "REMEDIATION",
+    "system_id": "search_service",
+    "resource_id": "search_4417",
+    "operation": "DELETE_RECORD",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 5,
+    "phase": "VERIFICATION",
+    "system_id": "account_service",
+    "resource_id": "account_1785",
+    "operation": "VERIFY_RECORD_ABSENT",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 6,
+    "phase": "VERIFICATION",
+    "system_id": "search_service",
+    "resource_id": "search_4417",
+    "operation": "VERIFY_RECORD_ABSENT",
+    "state": "ABSENT",
+    "evidence_id": ""
+   }
+  ]
+ }
+}

@@ -1,0 +1,190 @@
+{
+ "case": {
+  "case_id": "case_467",
+  "audit_at": "2026-02-28T11:00:00Z",
+  "requested_at": "2026-02-13T11:00:00Z",
+  "reported_status": "PARTIALLY_COMPLETE",
+  "reported_at": "2026-02-14T11:00:00Z",
+  "email_supplied": "kabelo-zulu81@proton.me",
+  "request_text": "Please treat this message as a request for permanent account deletion. Please review the account data that is eligible for deletion or de-identification. Please let me know once the request has been reviewed."
+ },
+ "intent": {
+  "is_deletion": true,
+  "label": "deletion",
+  "matched_terms": [
+   "delet"
+  ],
+  "matched_negations": [],
+  "non_deletion_action": ""
+ },
+ "identity": {
+  "user_id": "user_465",
+  "email_supplied": "kabelo-zulu81@proton.me",
+  "email_kind": "historical",
+  "matched_audit_ids": [
+   "audit_86"
+  ],
+  "name": "Kabelo Zulu",
+  "current": {
+   "user_id": "user_465",
+   "name": "Kabelo Zulu",
+   "email": "kabelo-zulu@proton.me",
+   "phone": "+27 72 342 5752",
+   "email_hash": "bbb0c4d178705b1c9224807a5ca238d8168bcc65df71eafb89564b528d7dad2b"
+  },
+  "historical": {
+   "email": [
+    "kabelo-zulu81@proton.me"
+   ],
+   "email_hash": [
+    "3b6aa382aa04abef0238ff1add4a08597e67814eb2e8d20ffcc46ec06577acc5"
+   ]
+  }
+ },
+ "state_at_audit": [
+  {
+   "system": "account_service",
+   "resource_id": "account_2437",
+   "category": "USER_PROFILE",
+   "record_type": "USER_PROFILE",
+   "state": "ABSENT",
+   "raw_state": "ABSENT",
+   "observed_at": "2026-02-28T08:44:48Z",
+   "evidence_id": "evidence_65",
+   "evidence_kind": "manifest",
+   "link_method": "resource_alias",
+   "identifiers": {},
+   "history": [
+    {
+     "state": "UNCERTAIN",
+     "raw_state": "UNCERTAIN",
+     "observed_at": "2026-02-14T10:15:43Z",
+     "evidence_id": "activity_563",
+     "kind": "activity"
+    },
+    {
+     "state": "ABSENT",
+     "raw_state": "ABSENT",
+     "observed_at": "2026-02-28T08:44:48Z",
+     "evidence_id": "evidence_65",
+     "kind": "manifest"
+    }
+   ]
+  },
+  {
+   "system": "security_service",
+   "resource_id": "audit_record_8992",
+   "category": "SECURITY_AUDIT_LOG",
+   "record_type": "SECURITY_AUDIT_LOG",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-02-28T10:36:37Z",
+   "evidence_id": "evidence_65",
+   "evidence_kind": "manifest",
+   "link_method": "explicit_ref",
+   "identifiers": {
+    "subject_reference": "user_465"
+   },
+   "history": [
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-02-28T10:36:37Z",
+     "evidence_id": "evidence_65",
+     "kind": "manifest"
+    }
+   ]
+  }
+ ],
+ "activity_claims": [
+  {
+   "activity_id": "activity_563",
+   "event_time": "2026-02-14T10:15:43Z",
+   "event_type": "DELETE_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "account_service",
+   "resource_id": "account_2437",
+   "reported_result": "PARTIAL",
+   "details": "Deletion worker submitted primary profile account_2437 to account_service."
+  }
+ ],
+ "rules": [
+  {
+   "rule_id": "rule_01",
+   "data_category": "USER_PROFILE",
+   "condition": "Always",
+   "required_action": "DELETE"
+  },
+  {
+   "rule_id": "rule_12",
+   "data_category": "SECURITY_AUDIT_LOG",
+   "condition": "Record is within the supplied retention period",
+   "required_action": "RETAIN"
+  }
+ ],
+ "evidence_batch": {
+  "evidence_ids": [
+   "activity_563",
+   "evidence_65"
+  ],
+  "co_subjects": [
+   "user_461",
+   "user_462",
+   "user_463",
+   "user_464",
+   "user_466",
+   "user_467",
+   "user_468",
+   "user_469",
+   "user_470"
+  ],
+  "unattributed_resources": {
+   "evidence_65": [
+    "analytics_4066",
+    "analytics_689",
+    "analytics_8746"
+   ]
+  }
+ },
+ "excluded_after_audit": [
+  {
+   "evidence_id": "evidence_44",
+   "system": "security_service",
+   "resource_id": "audit_record_8992",
+   "state": "PRESENT",
+   "captured_at": "2026-03-02T10:59:23Z",
+   "observed_at": "2026-02-28T10:54:14Z"
+  },
+  {
+   "evidence_id": "evidence_44",
+   "system": "account_service",
+   "resource_id": "account_2437",
+   "state": "ABSENT",
+   "captured_at": "2026-03-02T10:59:23Z",
+   "observed_at": "2026-02-28T10:56:40Z"
+  }
+ ],
+ "draft": {
+  "deletion_status": "COMPLETE",
+  "steps_json": [
+   {
+    "step_no": 1,
+    "phase": "VERIFICATION",
+    "system_id": "account_service",
+    "resource_id": "account_2437",
+    "operation": "VERIFY_RECORD_ABSENT",
+    "state": "ABSENT",
+    "evidence_id": "evidence_65"
+   },
+   {
+    "step_no": 2,
+    "phase": "VERIFICATION",
+    "system_id": "security_service",
+    "resource_id": "audit_record_8992",
+    "operation": "VERIFY_RECORD_PRESENT",
+    "state": "PRESENT",
+    "evidence_id": "evidence_65"
+   }
+  ]
+ }
+}

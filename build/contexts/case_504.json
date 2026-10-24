@@ -1,0 +1,200 @@
+{
+ "case": {
+  "case_id": "case_504",
+  "audit_at": "2026-02-08T07:00:00Z",
+  "requested_at": "2026-01-27T07:00:00Z",
+  "reported_status": "PARTIALLY_COMPLETE",
+  "reported_at": "2026-01-29T07:00:00Z",
+  "email_supplied": "oeze0067@fastmail.com",
+  "request_text": "I would like to submit a request to delete this account and its personal data. Please review the account data that is eligible for deletion or de-identification. Please contact me if you need information to verify the request."
+ },
+ "intent": {
+  "is_deletion": true,
+  "label": "deletion",
+  "matched_terms": [
+   "delet"
+  ],
+  "matched_negations": [],
+  "non_deletion_action": ""
+ },
+ "identity": {
+  "user_id": "user_502",
+  "email_supplied": "oeze0067@fastmail.com",
+  "email_kind": "current",
+  "matched_audit_ids": [],
+  "name": "Obinna Eze",
+  "current": {
+   "user_id": "user_502",
+   "name": "Obinna Eze",
+   "email": "oeze0067@fastmail.com",
+   "phone": "+234 803 127 0461",
+   "email_hash": "cb86b5f1d23cad9999ef69d4ba25b7b1feddb18e0ee0a56e6e10fff146835e52"
+  },
+  "historical": {}
+ },
+ "state_at_audit": [
+  {
+   "system": "export_service",
+   "resource_id": "export_3120",
+   "category": "USER_EXPORT",
+   "record_type": "USER_EXPORT",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-02-08T07:00:00Z",
+   "evidence_id": "evidence_47",
+   "evidence_kind": "manifest",
+   "link_method": "identifier",
+   "identifiers": {
+    "owner_email": "oeze0067@fastmail.com"
+   },
+   "history": [
+    {
+     "state": "UNCERTAIN",
+     "raw_state": "UNCERTAIN",
+     "observed_at": "2026-01-29T07:56:23Z",
+     "evidence_id": "activity_340",
+     "kind": "activity"
+    },
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-02-08T07:00:00Z",
+     "evidence_id": "evidence_47",
+     "kind": "manifest"
+    },
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-02-08T07:00:00Z",
+     "evidence_id": "evidence_47",
+     "kind": "manifest"
+    }
+   ]
+  },
+  {
+   "system": "security_service",
+   "resource_id": "audit_record_3733",
+   "category": "SECURITY_AUDIT_LOG",
+   "record_type": "SECURITY_AUDIT_LOG",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-02-08T07:00:00Z",
+   "evidence_id": "evidence_47",
+   "evidence_kind": "manifest",
+   "link_method": "explicit_ref",
+   "identifiers": {
+    "subject_reference": "user_502"
+   },
+   "history": [
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-02-08T07:00:00Z",
+     "evidence_id": "evidence_47",
+     "kind": "manifest"
+    },
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-02-08T07:00:00Z",
+     "evidence_id": "evidence_47",
+     "kind": "manifest"
+    }
+   ]
+  }
+ ],
+ "activity_claims": [
+  {
+   "activity_id": "activity_340",
+   "event_time": "2026-01-29T07:56:23Z",
+   "event_type": "DELETE_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "export_service",
+   "resource_id": "export_3120",
+   "reported_result": "PARTIAL",
+   "details": "Deletion worker received the final result for export_3120 from export_service."
+  }
+ ],
+ "rules": [
+  {
+   "rule_id": "rule_09",
+   "data_category": "USER_EXPORT",
+   "condition": "Always",
+   "required_action": "DELETE"
+  },
+  {
+   "rule_id": "rule_12",
+   "data_category": "SECURITY_AUDIT_LOG",
+   "condition": "Record is within the supplied retention period",
+   "required_action": "RETAIN"
+  }
+ ],
+ "evidence_batch": {
+  "evidence_ids": [
+   "activity_340",
+   "evidence_47"
+  ],
+  "co_subjects": [
+   "user_501",
+   "user_503",
+   "user_504",
+   "user_505",
+   "user_506",
+   "user_507",
+   "user_508",
+   "user_509",
+   "user_510"
+  ],
+  "unattributed_resources": {
+   "evidence_47": [
+    "analytics_1558",
+    "backup_369",
+    "data_flow_5281",
+    "search_4725",
+    "support_2295"
+   ]
+  }
+ },
+ "excluded_after_audit": [],
+ "draft": {
+  "deletion_status": "INCOMPLETE",
+  "steps_json": [
+   {
+    "step_no": 1,
+    "phase": "FINDING",
+    "system_id": "export_service",
+    "resource_id": "export_3120",
+    "operation": "REPORT_REMAINING_RECORD",
+    "state": "PRESENT",
+    "evidence_id": "evidence_47"
+   },
+   {
+    "step_no": 2,
+    "phase": "REMEDIATION",
+    "system_id": "export_service",
+    "resource_id": "export_3120",
+    "operation": "DELETE_RECORD",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 3,
+    "phase": "VERIFICATION",
+    "system_id": "export_service",
+    "resource_id": "export_3120",
+    "operation": "VERIFY_RECORD_ABSENT",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 4,
+    "phase": "VERIFICATION",
+    "system_id": "security_service",
+    "resource_id": "audit_record_3733",
+    "operation": "VERIFY_RECORD_PRESENT",
+    "state": "PRESENT",
+    "evidence_id": ""
+   }
+  ]
+ }
+}

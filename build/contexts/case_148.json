@@ -1,0 +1,232 @@
+{
+ "case": {
+  "case_id": "case_148",
+  "audit_at": "2026-08-07T08:00:00Z",
+  "requested_at": "2026-07-22T08:00:00Z",
+  "reported_status": "PARTIALLY_COMPLETE",
+  "reported_at": "2026-07-25T08:00:00Z",
+  "email_supplied": "CARTER.AMELIA92@GMAIL.COM",
+  "request_text": "I am asking you to remove my account and the personal information linked to it. Please review the account data that is eligible for deletion or de-identification. Please send a confirmation after the process finishes."
+ },
+ "intent": {
+  "is_deletion": true,
+  "label": "deletion",
+  "matched_terms": [
+   "delet",
+   "remov"
+  ],
+  "matched_negations": [],
+  "non_deletion_action": ""
+ },
+ "identity": {
+  "user_id": "user_146",
+  "email_supplied": "CARTER.AMELIA92@GMAIL.COM",
+  "email_kind": "historical",
+  "matched_audit_ids": [
+   "audit_232"
+  ],
+  "name": "Amelia Carter",
+  "current": {
+   "user_id": "user_146",
+   "name": "Amelia Carter",
+   "email": "carter.amelia@gmail.com",
+   "phone": "+44 7700 900146",
+   "email_hash": "41d2a764b95cc6d4338a1a87ffdadacea2b51a0d3793c3a0ffd125f5dfdaf334"
+  },
+  "historical": {
+   "email": [
+    "carter.amelia92@gmail.com"
+   ],
+   "email_hash": [
+    "1a0f5a81c1dee63624bac89b8a0d6b94fe613445953360cf90ddd33632221318"
+   ]
+  }
+ },
+ "state_at_audit": [
+  {
+   "system": "search_service",
+   "resource_id": "search_7239",
+   "category": "SEARCH_INDEX_ENTRY",
+   "record_type": "SEARCH_INDEX_ENTRY",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-08-07T05:53:09Z",
+   "evidence_id": "evidence_86",
+   "evidence_kind": "manifest",
+   "link_method": "identifier",
+   "identifiers": {
+    "email": "CARTER.AMELIA92@GMAIL.COM"
+   },
+   "history": [
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-07-25T09:07:39Z",
+     "evidence_id": "activity_2954",
+     "kind": "activity"
+    },
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-08-07T05:53:09Z",
+     "evidence_id": "evidence_86",
+     "kind": "manifest"
+    }
+   ]
+  },
+  {
+   "system": "support_platform",
+   "resource_id": "support_5716",
+   "category": "SUPPORT_MESSAGE",
+   "record_type": "SUPPORT_MESSAGE",
+   "state": "IDENTIFIABLE",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-08-07T07:11:08Z",
+   "evidence_id": "evidence_86",
+   "evidence_kind": "manifest",
+   "link_method": "identifier",
+   "identifiers": {
+    "requester_email": "CARTER.AMELIA92@GMAIL.COM"
+   },
+   "history": [
+    {
+     "state": "REDACTED",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-07-25T08:48:10Z",
+     "evidence_id": "activity_2952",
+     "kind": "activity"
+    },
+    {
+     "state": "IDENTIFIABLE",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-08-07T07:11:08Z",
+     "evidence_id": "evidence_86",
+     "kind": "manifest"
+    }
+   ]
+  }
+ ],
+ "activity_claims": [
+  {
+   "activity_id": "activity_2952",
+   "event_time": "2026-07-25T08:48:10Z",
+   "event_type": "REDACT_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "support_platform",
+   "resource_id": "support_5716",
+   "reported_result": "FAILED",
+   "details": "Deletion worker received the final result for support_5716 from support_platform."
+  },
+  {
+   "activity_id": "activity_2954",
+   "event_time": "2026-07-25T09:07:39Z",
+   "event_type": "DELETE_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "search_service",
+   "resource_id": "search_7239",
+   "reported_result": "FAILED",
+   "details": "Deletion worker received the final result for search_7239 from search_service."
+  }
+ ],
+ "rules": [
+  {
+   "rule_id": "rule_03",
+   "data_category": "SEARCH_INDEX_ENTRY",
+   "condition": "Always",
+   "required_action": "DELETE"
+  },
+  {
+   "rule_id": "rule_05",
+   "data_category": "SUPPORT_MESSAGE",
+   "condition": "Conversation contains shared customer, agent, or order context that must be retained",
+   "required_action": "REDACT"
+  }
+ ],
+ "evidence_batch": {
+  "evidence_ids": [
+   "activity_2952",
+   "activity_2954",
+   "evidence_86"
+  ],
+  "co_subjects": [
+   "user_141",
+   "user_142",
+   "user_143",
+   "user_144",
+   "user_145",
+   "user_147",
+   "user_148",
+   "user_149",
+   "user_150"
+  ],
+  "unattributed_resources": {
+   "evidence_86": [
+    "account_3897",
+    "account_874",
+    "account_8854",
+    "analytics_1626",
+    "analytics_7254"
+   ]
+  }
+ },
+ "excluded_after_audit": [],
+ "draft": {
+  "deletion_status": "INCOMPLETE",
+  "steps_json": [
+   {
+    "step_no": 1,
+    "phase": "FINDING",
+    "system_id": "search_service",
+    "resource_id": "search_7239",
+    "operation": "REPORT_REMAINING_RECORD",
+    "state": "PRESENT",
+    "evidence_id": "evidence_86"
+   },
+   {
+    "step_no": 2,
+    "phase": "FINDING",
+    "system_id": "support_platform",
+    "resource_id": "support_5716",
+    "operation": "REPORT_EXPOSED_PII",
+    "state": "PRESENT",
+    "evidence_id": "evidence_86"
+   },
+   {
+    "step_no": 3,
+    "phase": "REMEDIATION",
+    "system_id": "search_service",
+    "resource_id": "search_7239",
+    "operation": "DELETE_RECORD",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 4,
+    "phase": "REMEDIATION",
+    "system_id": "support_platform",
+    "resource_id": "support_5716",
+    "operation": "REDACT_RECORD",
+    "state": "REDACTED",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 5,
+    "phase": "VERIFICATION",
+    "system_id": "search_service",
+    "resource_id": "search_7239",
+    "operation": "VERIFY_RECORD_ABSENT",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 6,
+    "phase": "VERIFICATION",
+    "system_id": "support_platform",
+    "resource_id": "support_5716",
+    "operation": "VERIFY_RECORD_REDACTED",
+    "state": "REDACTED",
+    "evidence_id": ""
+   }
+  ]
+ }
+}

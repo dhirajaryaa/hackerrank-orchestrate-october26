@@ -1,0 +1,148 @@
+{
+ "case": {
+  "case_id": "case_284",
+  "audit_at": "2026-05-29T08:00:00Z",
+  "requested_at": "2026-05-17T08:00:00Z",
+  "reported_status": "COMPLETE",
+  "reported_at": "2026-05-18T08:00:00Z",
+  "email_supplied": "kofi.appiah96@outlook.com",
+  "request_text": "Please close my account and process the associated personal-data deletion. Please include records associated with the account under your privacy process. Please confirm when the review is complete."
+ },
+ "intent": {
+  "is_deletion": true,
+  "label": "deletion",
+  "matched_terms": [
+   "close my account",
+   "delet"
+  ],
+  "matched_negations": [],
+  "non_deletion_action": ""
+ },
+ "identity": {
+  "user_id": "user_282",
+  "email_supplied": "kofi.appiah96@outlook.com",
+  "email_kind": "historical",
+  "matched_audit_ids": [
+   "audit_170"
+  ],
+  "name": "Kofi Appiah",
+  "current": {
+   "user_id": "user_282",
+   "name": "Kofi Appiah",
+   "email": "kofi.appiah@outlook.com",
+   "phone": "+233 24 734 6692",
+   "email_hash": "db9864e1fdb5cef9f33c25aa018ae9e017c0447dde217c5ee321377ce62dadf8"
+  },
+  "historical": {
+   "email": [
+    "kofi.appiah96@outlook.com"
+   ],
+   "email_hash": [
+    "b5d4717ca30cca101b072414b76ab16055a338dadc63f5eed1abb91029d1bb35"
+   ]
+  }
+ },
+ "state_at_audit": [
+  {
+   "system": "integration_service",
+   "resource_id": "data_flow_6953",
+   "category": "DATA_FLOW",
+   "record_type": "DATA_FLOW",
+   "state": "ACTIVE",
+   "raw_state": "ACTIVE",
+   "observed_at": "2026-05-29T06:46:09Z",
+   "evidence_id": "evidence_76",
+   "evidence_kind": "manifest",
+   "link_method": "identifier",
+   "identifiers": {
+    "customer_email": "kofi.appiah96@outlook.com"
+   },
+   "history": [
+    {
+     "state": "ACTIVE",
+     "raw_state": "ACTIVE",
+     "observed_at": "2026-05-18T08:57:57Z",
+     "evidence_id": "activity_1961",
+     "kind": "activity"
+    },
+    {
+     "state": "ACTIVE",
+     "raw_state": "ACTIVE",
+     "observed_at": "2026-05-29T06:46:09Z",
+     "evidence_id": "evidence_76",
+     "kind": "manifest"
+    }
+   ]
+  }
+ ],
+ "activity_claims": [
+  {
+   "activity_id": "activity_1961",
+   "event_time": "2026-05-18T08:57:57Z",
+   "event_type": "CHECK_DATA_FLOW",
+   "source_system": "deletion_worker",
+   "target_system": "integration_service",
+   "resource_id": "data_flow_6953",
+   "reported_result": "SUCCESS",
+   "details": "Connector status check confirmed that data flow data_flow_6953 remains enabled."
+  }
+ ],
+ "rules": [],
+ "evidence_batch": {
+  "evidence_ids": [
+   "activity_1961",
+   "evidence_76"
+  ],
+  "co_subjects": [
+   "user_281",
+   "user_283",
+   "user_284",
+   "user_285",
+   "user_286",
+   "user_287",
+   "user_288",
+   "user_289",
+   "user_290"
+  ],
+  "unattributed_resources": {
+   "evidence_76": [
+    "analytics_7283",
+    "analytics_2322",
+    "analytics_8408"
+   ]
+  }
+ },
+ "excluded_after_audit": [],
+ "draft": {
+  "deletion_status": "INCOMPLETE",
+  "steps_json": [
+   {
+    "step_no": 1,
+    "phase": "FINDING",
+    "system_id": "integration_service",
+    "resource_id": "data_flow_6953",
+    "operation": "REPORT_ACTIVE_DATA_FLOW",
+    "state": "ACTIVE",
+    "evidence_id": "evidence_76"
+   },
+   {
+    "step_no": 2,
+    "phase": "REMEDIATION",
+    "system_id": "integration_service",
+    "resource_id": "data_flow_6953",
+    "operation": "DISABLE_DATA_FLOW",
+    "state": "DISABLED",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 3,
+    "phase": "VERIFICATION",
+    "system_id": "integration_service",
+    "resource_id": "data_flow_6953",
+    "operation": "VERIFY_DATA_FLOW_DISABLED",
+    "state": "DISABLED",
+    "evidence_id": ""
+   }
+  ]
+ }
+}

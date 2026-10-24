@@ -1,0 +1,253 @@
+{
+ "case": {
+  "case_id": "case_57",
+  "audit_at": "2026-09-21T10:00:00Z",
+  "requested_at": "2026-08-27T10:00:00Z",
+  "reported_status": "COMPLETE",
+  "reported_at": "2026-08-29T10:00:00Z",
+  "email_supplied": "e.parker74@yahoo.com",
+  "request_text": "Please treat this message as a request for permanent account deletion. Please review any identifiers connected to this account as part of the request. Please confirm when the review is complete."
+ },
+ "intent": {
+  "is_deletion": true,
+  "label": "deletion",
+  "matched_terms": [
+   "delet"
+  ],
+  "matched_negations": [],
+  "non_deletion_action": ""
+ },
+ "identity": {
+  "user_id": "user_55",
+  "email_supplied": "e.parker74@yahoo.com",
+  "email_kind": "current",
+  "matched_audit_ids": [],
+  "name": "Ethan Parker",
+  "current": {
+   "user_id": "user_55",
+   "name": "Ethan Parker",
+   "email": "e.parker74@yahoo.com",
+   "phone": "+1 (617) 555-0155",
+   "email_hash": "f571e76c771751a5c5cd3dbea1633c4cd84ae463f73649b13d851a7be22fdac3"
+  },
+  "historical": {
+   "phone": [
+    "+1 (415) 555-0105"
+   ]
+  }
+ },
+ "state_at_audit": [
+  {
+   "system": "backup_service",
+   "resource_id": "backup_7711",
+   "category": "BACKUP_ARCHIVE",
+   "record_type": "BACKUP_ARCHIVE",
+   "state": "BLOCKED",
+   "raw_state": "BLOCKED",
+   "observed_at": "2026-09-21T10:00:00Z",
+   "evidence_id": "evidence_05",
+   "evidence_kind": "manifest",
+   "link_method": "explicit_ref",
+   "identifiers": {
+    "subject_reference": "user_55"
+   },
+   "history": [
+    {
+     "state": "BLOCKED",
+     "raw_state": "BLOCKED",
+     "observed_at": "2026-08-29T09:52:52Z",
+     "evidence_id": "activity_3509",
+     "kind": "activity"
+    },
+    {
+     "state": "BLOCKED",
+     "raw_state": "BLOCKED",
+     "observed_at": "2026-09-21T10:00:00Z",
+     "evidence_id": "evidence_05",
+     "kind": "manifest"
+    },
+    {
+     "state": "BLOCKED",
+     "raw_state": "BLOCKED",
+     "observed_at": "2026-09-21T10:00:00Z",
+     "evidence_id": "evidence_05",
+     "kind": "manifest"
+    }
+   ]
+  },
+  {
+   "system": "security_service",
+   "resource_id": "audit_record_7219",
+   "category": "SECURITY_AUDIT_LOG",
+   "record_type": "SECURITY_AUDIT_LOG",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-09-21T10:00:00Z",
+   "evidence_id": "evidence_05",
+   "evidence_kind": "manifest",
+   "link_method": "explicit_ref",
+   "identifiers": {
+    "subject_reference": "user_55"
+   },
+   "history": [
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-09-21T10:00:00Z",
+     "evidence_id": "evidence_05",
+     "kind": "manifest"
+    },
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-09-21T10:00:00Z",
+     "evidence_id": "evidence_05",
+     "kind": "manifest"
+    }
+   ]
+  },
+  {
+   "system": "support_platform",
+   "resource_id": "support_7479",
+   "category": "SUPPORT_MESSAGE",
+   "record_type": "SUPPORT_MESSAGE",
+   "state": "REDACTED",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-09-21T10:00:00Z",
+   "evidence_id": "evidence_05",
+   "evidence_kind": "manifest",
+   "link_method": "explicit_ref",
+   "identifiers": {
+    "subject_reference": "user_55"
+   },
+   "history": [
+    {
+     "state": "REDACTED",
+     "raw_state": "REDACTED",
+     "observed_at": "2026-08-29T09:38:53Z",
+     "evidence_id": "activity_3506",
+     "kind": "activity"
+    },
+    {
+     "state": "REDACTED",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-09-21T10:00:00Z",
+     "evidence_id": "evidence_05",
+     "kind": "manifest"
+    },
+    {
+     "state": "REDACTED",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-09-21T10:00:00Z",
+     "evidence_id": "evidence_05",
+     "kind": "manifest"
+    }
+   ]
+  }
+ ],
+ "activity_claims": [
+  {
+   "activity_id": "activity_3506",
+   "event_time": "2026-08-29T09:38:53Z",
+   "event_type": "REDACT_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "support_platform",
+   "resource_id": "support_7479",
+   "reported_result": "SUCCESS",
+   "details": "Policy action completed for support_7479."
+  },
+  {
+   "activity_id": "activity_3509",
+   "event_time": "2026-08-29T09:52:52Z",
+   "event_type": "BLOCK_RESTORE",
+   "source_system": "deletion_worker",
+   "target_system": "backup_service",
+   "resource_id": "backup_7711",
+   "reported_result": "SUCCESS",
+   "details": "Policy action completed for backup_7711."
+  }
+ ],
+ "rules": [
+  {
+   "rule_id": "rule_05",
+   "data_category": "SUPPORT_MESSAGE",
+   "condition": "Conversation contains shared customer, agent, or order context that must be retained",
+   "required_action": "REDACT"
+  },
+  {
+   "rule_id": "rule_12",
+   "data_category": "SECURITY_AUDIT_LOG",
+   "condition": "Record is within the supplied retention period",
+   "required_action": "RETAIN"
+  },
+  {
+   "rule_id": "rule_14",
+   "data_category": "BACKUP_ARCHIVE",
+   "condition": "Restore access can be blocked",
+   "required_action": "RETAIN"
+  }
+ ],
+ "evidence_batch": {
+  "evidence_ids": [
+   "activity_3506",
+   "activity_3509",
+   "evidence_05"
+  ],
+  "co_subjects": [
+   "user_51",
+   "user_52",
+   "user_53",
+   "user_54",
+   "user_56",
+   "user_57",
+   "user_58",
+   "user_59",
+   "user_60"
+  ],
+  "unattributed_resources": {
+   "evidence_05": [
+    "analytics_2572",
+    "analytics_8858",
+    "analytics_9069",
+    "data_flow_108",
+    "data_flow_1368",
+    "data_flow_373",
+    "data_flow_4218",
+    "data_flow_5080"
+   ]
+  }
+ },
+ "excluded_after_audit": [],
+ "draft": {
+  "deletion_status": "COMPLETE",
+  "steps_json": [
+   {
+    "step_no": 1,
+    "phase": "VERIFICATION",
+    "system_id": "security_service",
+    "resource_id": "audit_record_7219",
+    "operation": "VERIFY_RECORD_PRESENT",
+    "state": "PRESENT",
+    "evidence_id": "evidence_05"
+   },
+   {
+    "step_no": 2,
+    "phase": "VERIFICATION",
+    "system_id": "support_platform",
+    "resource_id": "support_7479",
+    "operation": "VERIFY_RECORD_REDACTED",
+    "state": "REDACTED",
+    "evidence_id": "evidence_05"
+   },
+   {
+    "step_no": 3,
+    "phase": "VERIFICATION",
+    "system_id": "backup_service",
+    "resource_id": "backup_7711",
+    "operation": "VERIFY_RESTORE_BLOCKED",
+    "state": "BLOCKED",
+    "evidence_id": "evidence_05"
+   }
+  ]
+ }
+}

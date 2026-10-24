@@ -1,0 +1,125 @@
+{
+ "case": {
+  "case_id": "case_304",
+  "audit_at": "2026-05-19T06:00:00Z",
+  "requested_at": "2026-05-07T06:00:00Z",
+  "reported_status": "PARTIALLY_COMPLETE",
+  "reported_at": "2026-05-10T06:00:00Z",
+  "email_supplied": "walker.charlotte@gmail.com",
+  "request_text": "I am asking you to remove my account and the personal information linked to it. Please ensure the request is applied to the relevant account records. Let me know when the request has been completed."
+ },
+ "intent": {
+  "is_deletion": true,
+  "label": "deletion",
+  "matched_terms": [
+   "remov"
+  ],
+  "matched_negations": [],
+  "non_deletion_action": ""
+ },
+ "identity": {
+  "user_id": "user_302",
+  "email_supplied": "walker.charlotte@gmail.com",
+  "email_kind": "current",
+  "matched_audit_ids": [],
+  "name": "Charlotte Walker",
+  "current": {
+   "user_id": "user_302",
+   "name": "Charlotte Walker",
+   "email": "walker.charlotte@gmail.com",
+   "phone": "+44 7700 900302",
+   "email_hash": "a60efa094a22f64e9b2d5e76d3fcd46956ba89e9cc7f2bb29867d47c355c457c"
+  },
+  "historical": {}
+ },
+ "state_at_audit": [
+  {
+   "system": "security_service",
+   "resource_id": "audit_record_4759",
+   "category": "SECURITY_AUDIT_LOG",
+   "record_type": "SECURITY_AUDIT_LOG",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-05-19T06:00:00Z",
+   "evidence_id": "evidence_29",
+   "evidence_kind": "manifest",
+   "link_method": "explicit_ref",
+   "identifiers": {
+    "subject_reference": "user_302"
+   },
+   "history": [
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-05-19T06:00:00Z",
+     "evidence_id": "evidence_29",
+     "kind": "manifest"
+    },
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-05-19T06:00:00Z",
+     "evidence_id": "evidence_29",
+     "kind": "manifest"
+    },
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-05-19T06:00:00Z",
+     "evidence_id": "evidence_29",
+     "kind": "manifest"
+    }
+   ]
+  }
+ ],
+ "activity_claims": [],
+ "rules": [
+  {
+   "rule_id": "rule_12",
+   "data_category": "SECURITY_AUDIT_LOG",
+   "condition": "Record is within the supplied retention period",
+   "required_action": "RETAIN"
+  }
+ ],
+ "evidence_batch": {
+  "evidence_ids": [
+   "evidence_29"
+  ],
+  "co_subjects": [
+   "user_301",
+   "user_303",
+   "user_304",
+   "user_305",
+   "user_306",
+   "user_307",
+   "user_308",
+   "user_309",
+   "user_310"
+  ],
+  "unattributed_resources": {
+   "evidence_29": [
+    "analytics_096",
+    "analytics_3678",
+    "backup_4935",
+    "data_flow_8933",
+    "search_6505",
+    "support_4952"
+   ]
+  }
+ },
+ "excluded_after_audit": [],
+ "draft": {
+  "deletion_status": "COMPLETE",
+  "steps_json": [
+   {
+    "step_no": 1,
+    "phase": "VERIFICATION",
+    "system_id": "security_service",
+    "resource_id": "audit_record_4759",
+    "operation": "VERIFY_RECORD_PRESENT",
+    "state": "PRESENT",
+    "evidence_id": "evidence_29"
+   }
+  ]
+ }
+}

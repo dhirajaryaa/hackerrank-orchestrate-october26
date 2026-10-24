@@ -1,0 +1,57 @@
+{
+ "case": {
+  "case_id": "case_264",
+  "audit_at": "2026-06-08T10:00:00Z",
+  "requested_at": "2026-05-27T10:00:00Z",
+  "reported_status": "NOT_STARTED",
+  "reported_at": "2026-05-29T10:00:00Z",
+  "email_supplied": "mrios950798@fastmail.com",
+  "request_text": "Solicito la eliminación permanente de la cuenta asociada a este correo. Revisen los identificadores actuales y anteriores según su política de privacidad. Por favor, confirmen el resultado cuando termine la revisión."
+ },
+ "intent": {
+  "is_deletion": true,
+  "label": "deletion",
+  "matched_terms": [
+   "elimina"
+  ],
+  "matched_negations": [],
+  "non_deletion_action": ""
+ },
+ "identity": {
+  "user_id": "user_262",
+  "email_supplied": "mrios950798@fastmail.com",
+  "email_kind": "historical",
+  "matched_audit_ids": [
+   "audit_182"
+  ],
+  "name": "Mateo Ríos",
+  "current": {
+   "user_id": "user_262",
+   "name": "Mateo Ríos",
+   "email": "mrios9507@fastmail.com",
+   "phone": "+34 720 474 294",
+   "email_hash": "b1e7764ddba7d80bb6f46c537ad5d9d42df27e19ea74ea3466d8f52c1c5c7888"
+  },
+  "historical": {
+   "email": [
+    "mrios950798@fastmail.com"
+   ],
+   "email_hash": [
+    "21adc4efb2afb62529f60acf94873852fe7044684b092bfeb6204facae92acc2"
+   ]
+  }
+ },
+ "state_at_audit": [],
+ "activity_claims": [],
+ "rules": [],
+ "evidence_batch": {
+  "evidence_ids": [],
+  "co_subjects": [],
+  "unattributed_resources": {}
+ },
+ "excluded_after_audit": [],
+ "draft": {
+  "deletion_status": "COMPLETE",
+  "steps_json": []
+ }
+}

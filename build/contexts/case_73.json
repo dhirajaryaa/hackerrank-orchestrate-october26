@@ -1,0 +1,174 @@
+{
+ "case": {
+  "case_id": "case_73",
+  "audit_at": "2026-09-11T08:00:00Z",
+  "requested_at": "2026-08-21T08:00:00Z",
+  "reported_status": "COMPLETE",
+  "reported_at": "2026-08-24T08:00:00Z",
+  "email_supplied": "ana.k6978@zoho.com",
+  "request_text": "Please permanently delete the account associated with this email address. Please apply the correct treatment to records covered by the request. Please confirm when the review is complete."
+ },
+ "intent": {
+  "is_deletion": true,
+  "label": "deletion",
+  "matched_terms": [
+   "delet"
+  ],
+  "matched_negations": [],
+  "non_deletion_action": ""
+ },
+ "identity": {
+  "user_id": "user_71",
+  "email_supplied": "ana.k6978@zoho.com",
+  "email_kind": "current",
+  "matched_audit_ids": [],
+  "name": "Ana Kowalski",
+  "current": {
+   "user_id": "user_71",
+   "name": "Ana Kowalski",
+   "email": "ana.k6978@zoho.com",
+   "phone": "+48 572 027 769",
+   "email_hash": "610d46e321a3c56b74d24553d3c8699379e47d52d811e0d491a01b31482f0b33"
+  },
+  "historical": {}
+ },
+ "state_at_audit": [
+  {
+   "system": "account_service",
+   "resource_id": "account_6070",
+   "category": "USER_PROFILE",
+   "record_type": "USER_PROFILE",
+   "state": "ABSENT",
+   "raw_state": "ABSENT",
+   "observed_at": "2026-09-11T06:55:19Z",
+   "evidence_id": "evidence_91",
+   "evidence_kind": "manifest",
+   "link_method": "link_key",
+   "identifiers": {},
+   "history": [
+    {
+     "state": "ABSENT",
+     "raw_state": "ABSENT",
+     "observed_at": "2026-08-24T07:09:58Z",
+     "evidence_id": "activity_3419",
+     "kind": "activity"
+    },
+    {
+     "state": "ABSENT",
+     "raw_state": "ABSENT",
+     "observed_at": "2026-09-11T06:55:19Z",
+     "evidence_id": "evidence_91",
+     "kind": "manifest"
+    }
+   ]
+  },
+  {
+   "system": "security_service",
+   "resource_id": "audit_record_5710",
+   "category": "SECURITY_AUDIT_LOG",
+   "record_type": "SECURITY_AUDIT_LOG",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-09-11T07:28:48Z",
+   "evidence_id": "evidence_91",
+   "evidence_kind": "manifest",
+   "link_method": "explicit_ref",
+   "identifiers": {
+    "subject_reference": "user_71"
+   },
+   "history": [
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-09-11T07:28:48Z",
+     "evidence_id": "evidence_91",
+     "kind": "manifest"
+    }
+   ]
+  }
+ ],
+ "activity_claims": [
+  {
+   "activity_id": "activity_3419",
+   "event_time": "2026-08-24T07:09:58Z",
+   "event_type": "DELETE_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "account_service",
+   "resource_id": "account_6070",
+   "reported_result": "SUCCESS",
+   "details": "Deletion worker submitted primary profile account_6070 to account_service."
+  }
+ ],
+ "rules": [
+  {
+   "rule_id": "rule_01",
+   "data_category": "USER_PROFILE",
+   "condition": "Always",
+   "required_action": "DELETE"
+  },
+  {
+   "rule_id": "rule_12",
+   "data_category": "SECURITY_AUDIT_LOG",
+   "condition": "Record is within the supplied retention period",
+   "required_action": "RETAIN"
+  }
+ ],
+ "evidence_batch": {
+  "evidence_ids": [
+   "activity_3419",
+   "evidence_91"
+  ],
+  "co_subjects": [
+   "user_72",
+   "user_73",
+   "user_74",
+   "user_75",
+   "user_76",
+   "user_77",
+   "user_78",
+   "user_79",
+   "user_80"
+  ],
+  "unattributed_resources": {
+   "evidence_91": [
+    "analytics_5059",
+    "analytics_2176",
+    "analytics_1161",
+    "analytics_5859"
+   ]
+  }
+ },
+ "excluded_after_audit": [
+  {
+   "evidence_id": "evidence_07",
+   "system": "security_service",
+   "resource_id": "audit_record_5710",
+   "state": "PRESENT",
+   "captured_at": "2026-09-13T08:00:00Z",
+   "observed_at": "2026-09-11T08:00:00Z"
+  }
+ ],
+ "draft": {
+  "deletion_status": "COMPLETE",
+  "steps_json": [
+   {
+    "step_no": 1,
+    "phase": "VERIFICATION",
+    "system_id": "account_service",
+    "resource_id": "account_6070",
+    "operation": "VERIFY_RECORD_ABSENT",
+    "state": "ABSENT",
+    "evidence_id": "evidence_91"
+   },
+   {
+    "step_no": 2,
+    "phase": "VERIFICATION",
+    "system_id": "security_service",
+    "resource_id": "audit_record_5710",
+    "operation": "VERIFY_RECORD_PRESENT",
+    "state": "PRESENT",
+    "evidence_id": "evidence_91"
+   }
+  ]
+ }
+}

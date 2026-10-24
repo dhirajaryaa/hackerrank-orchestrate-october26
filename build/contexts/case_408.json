@@ -1,0 +1,127 @@
+{
+ "case": {
+  "case_id": "case_408",
+  "audit_at": "2026-03-30T10:00:00Z",
+  "requested_at": "2026-03-14T10:00:00Z",
+  "reported_status": "COMPLETE",
+  "reported_at": "2026-03-16T10:00:00Z",
+  "email_supplied": "abennett9843@fastmail.com",
+  "request_text": "Please treat this message as a request for permanent account deletion. Please review the account data that is eligible for deletion or de-identification. Please let me know once the request has been reviewed."
+ },
+ "intent": {
+  "is_deletion": true,
+  "label": "deletion",
+  "matched_terms": [
+   "delet"
+  ],
+  "matched_negations": [],
+  "non_deletion_action": ""
+ },
+ "identity": {
+  "user_id": "user_406",
+  "email_supplied": "abennett9843@fastmail.com",
+  "email_kind": "current",
+  "matched_audit_ids": [],
+  "name": "Amelia Bennett",
+  "current": {
+   "user_id": "user_406",
+   "name": "Amelia Bennett",
+   "email": "abennett9843@fastmail.com",
+   "phone": "+44 7700 900406",
+   "email_hash": "c42470c9a9017f19ddd82f6b3519d55da856b72312ffd8dbeb8ed5c4724f3559"
+  },
+  "historical": {}
+ },
+ "state_at_audit": [
+  {
+   "system": "security_service",
+   "resource_id": "audit_record_4216",
+   "category": "SECURITY_AUDIT_LOG",
+   "record_type": "SECURITY_AUDIT_LOG",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-03-30T10:00:00Z",
+   "evidence_id": "evidence_38",
+   "evidence_kind": "manifest",
+   "link_method": "explicit_ref",
+   "identifiers": {
+    "subject_reference": "user_406"
+   },
+   "history": [
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-03-30T10:00:00Z",
+     "evidence_id": "evidence_38",
+     "kind": "manifest"
+    },
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-03-30T10:00:00Z",
+     "evidence_id": "evidence_38",
+     "kind": "manifest"
+    },
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-03-30T10:00:00Z",
+     "evidence_id": "evidence_38",
+     "kind": "manifest"
+    }
+   ]
+  }
+ ],
+ "activity_claims": [],
+ "rules": [
+  {
+   "rule_id": "rule_12",
+   "data_category": "SECURITY_AUDIT_LOG",
+   "condition": "Record is within the supplied retention period",
+   "required_action": "RETAIN"
+  }
+ ],
+ "evidence_batch": {
+  "evidence_ids": [
+   "evidence_38"
+  ],
+  "co_subjects": [
+   "user_401",
+   "user_402",
+   "user_403",
+   "user_404",
+   "user_405",
+   "user_407",
+   "user_408",
+   "user_409",
+   "user_410"
+  ],
+  "unattributed_resources": {
+   "evidence_38": [
+    "analytics_298",
+    "analytics_542",
+    "analytics_7090",
+    "analytics_8973",
+    "data_flow_8093",
+    "data_flow_8300",
+    "search_5582",
+    "support_3802"
+   ]
+  }
+ },
+ "excluded_after_audit": [],
+ "draft": {
+  "deletion_status": "COMPLETE",
+  "steps_json": [
+   {
+    "step_no": 1,
+    "phase": "VERIFICATION",
+    "system_id": "security_service",
+    "resource_id": "audit_record_4216",
+    "operation": "VERIFY_RECORD_PRESENT",
+    "state": "PRESENT",
+    "evidence_id": "evidence_38"
+   }
+  ]
+ }
+}

@@ -1,0 +1,113 @@
+{
+ "case": {
+  "case_id": "case_343",
+  "audit_at": "2026-04-29T09:00:00Z",
+  "requested_at": "2026-04-18T09:00:00Z",
+  "reported_status": "COMPLETE",
+  "reported_at": "2026-04-21T09:00:00Z",
+  "email_supplied": "liam.s5108@outlook.com",
+  "request_text": "Please treat this message as a request for permanent account deletion. Please ensure the request is applied to the relevant account records. Please confirm the result after completing the required checks."
+ },
+ "intent": {
+  "is_deletion": true,
+  "label": "deletion",
+  "matched_terms": [
+   "delet"
+  ],
+  "matched_negations": [],
+  "non_deletion_action": ""
+ },
+ "identity": {
+  "user_id": "user_341",
+  "email_supplied": "liam.s5108@outlook.com",
+  "email_kind": "current",
+  "matched_audit_ids": [],
+  "name": "Liam Sullivan",
+  "current": {
+   "user_id": "user_341",
+   "name": "Liam Sullivan",
+   "email": "liam.s5108@outlook.com",
+   "phone": "+1 (646) 555-0141",
+   "email_hash": "8f6928e3250f6288cd860508f9db51870cde16cbc228f330cce20994ad68a251"
+  },
+  "historical": {}
+ },
+ "state_at_audit": [
+  {
+   "system": "security_service",
+   "resource_id": "audit_record_9233",
+   "category": "SECURITY_AUDIT_LOG",
+   "record_type": "SECURITY_AUDIT_LOG",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-04-29T08:01:21Z",
+   "evidence_id": "evidence_71",
+   "evidence_kind": "manifest",
+   "link_method": "explicit_ref",
+   "identifiers": {
+    "subject_reference": "user_341"
+   },
+   "history": [
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-04-29T08:01:21Z",
+     "evidence_id": "evidence_71",
+     "kind": "manifest"
+    }
+   ]
+  }
+ ],
+ "activity_claims": [],
+ "rules": [
+  {
+   "rule_id": "rule_12",
+   "data_category": "SECURITY_AUDIT_LOG",
+   "condition": "Record is within the supplied retention period",
+   "required_action": "RETAIN"
+  }
+ ],
+ "evidence_batch": {
+  "evidence_ids": [
+   "evidence_71"
+  ],
+  "co_subjects": [
+   "user_342",
+   "user_343",
+   "user_344",
+   "user_345",
+   "user_346",
+   "user_347",
+   "user_348",
+   "user_349",
+   "user_350"
+  ],
+  "unattributed_resources": {
+   "evidence_71": [
+    "account_1949",
+    "account_5059",
+    "account_5214",
+    "account_8834",
+    "analytics_1072",
+    "analytics_3990",
+    "analytics_4751",
+    "analytics_7102"
+   ]
+  }
+ },
+ "excluded_after_audit": [],
+ "draft": {
+  "deletion_status": "COMPLETE",
+  "steps_json": [
+   {
+    "step_no": 1,
+    "phase": "VERIFICATION",
+    "system_id": "security_service",
+    "resource_id": "audit_record_9233",
+    "operation": "VERIFY_RECORD_PRESENT",
+    "state": "PRESENT",
+    "evidence_id": "evidence_71"
+   }
+  ]
+ }
+}

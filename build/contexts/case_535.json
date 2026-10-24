@@ -1,0 +1,57 @@
+{
+ "case": {
+  "case_id": "case_535",
+  "audit_at": "2026-09-29T12:00:00Z",
+  "requested_at": "2026-09-06T12:00:00Z",
+  "reported_status": "NOT_STARTED",
+  "reported_at": "2026-09-09T12:00:00Z",
+  "email_supplied": "gabriel.l5556@outlook.com",
+  "request_text": "I'd like to download my account information in a portable format. Please keep the account as it is."
+ },
+ "intent": {
+  "is_deletion": false,
+  "label": "not_deletion",
+  "matched_terms": [],
+  "matched_negations": [
+   "keep the account as it is"
+  ],
+  "non_deletion_action": ""
+ },
+ "identity": {
+  "user_id": "user_533",
+  "email_supplied": "gabriel.l5556@outlook.com",
+  "email_kind": "current",
+  "matched_audit_ids": [],
+  "name": "Gabriel Lima",
+  "current": {
+   "user_id": "user_533",
+   "name": "Gabriel Lima",
+   "email": "gabriel.l5556@outlook.com",
+   "phone": "+55 51 92293-7952",
+   "email_hash": "1fd65eaa523ab37172167d09cacc277eb669286d85374fe0427953205435b019"
+  },
+  "historical": {}
+ },
+ "state_at_audit": [],
+ "activity_claims": [],
+ "rules": [],
+ "evidence_batch": {
+  "evidence_ids": [],
+  "co_subjects": [],
+  "unattributed_resources": {}
+ },
+ "excluded_after_audit": [
+  {
+   "evidence_id": "evidence_50",
+   "system": "security_service",
+   "resource_id": "audit_record_6742",
+   "state": "PRESENT",
+   "captured_at": "2026-10-01T12:00:00Z",
+   "observed_at": "2026-10-01T12:00:00Z"
+  }
+ ],
+ "draft": {
+  "deletion_status": "NOT_APPLICABLE",
+  "steps_json": []
+ }
+}

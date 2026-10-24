@@ -1,0 +1,229 @@
+{
+ "case": {
+  "case_id": "case_498",
+  "audit_at": "2026-02-13T08:00:00Z",
+  "requested_at": "2026-01-18T08:00:00Z",
+  "reported_status": "PARTIALLY_COMPLETE",
+  "reported_at": "2026-01-20T08:00:00Z",
+  "email_supplied": "valvarez255390@gmail.com",
+  "request_text": "Solicito la eliminación permanente de la cuenta asociada a este correo. Revisen los identificadores actuales y anteriores según su política de privacidad. Por favor, confirmen el resultado cuando termine la revisión."
+ },
+ "intent": {
+  "is_deletion": true,
+  "label": "deletion",
+  "matched_terms": [
+   "elimina"
+  ],
+  "matched_negations": [],
+  "non_deletion_action": ""
+ },
+ "identity": {
+  "user_id": "user_496",
+  "email_supplied": "valvarez255390@gmail.com",
+  "email_kind": "historical",
+  "matched_audit_ids": [
+   "audit_74"
+  ],
+  "name": "Valeria Alvarez",
+  "current": {
+   "user_id": "user_496",
+   "name": "Valeria Alvarez",
+   "email": "valvarez2553@gmail.com",
+   "phone": "+34 671 091 769",
+   "email_hash": "757cc224a3ebd5e252d4c3fb685c7bd7c114aefc5198275b0e21938f9a0f7598"
+  },
+  "historical": {
+   "email": [
+    "valvarez255390@gmail.com"
+   ],
+   "email_hash": [
+    "052e2ac0a26c2ba5d5d8590f78391596f8483b966320f379f1de9c64ffa4d031"
+   ]
+  }
+ },
+ "state_at_audit": [
+  {
+   "system": "search_service",
+   "resource_id": "search_6093",
+   "category": "SEARCH_INDEX_ENTRY",
+   "record_type": "SEARCH_INDEX_ENTRY",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-02-13T05:13:03Z",
+   "evidence_id": "evidence_63",
+   "evidence_kind": "manifest",
+   "link_method": "identifier",
+   "identifiers": {
+    "email": "valvarez255390@gmail.com"
+   },
+   "history": [
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-01-20T09:38:16Z",
+     "evidence_id": "activity_236",
+     "kind": "activity"
+    },
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-02-13T05:13:03Z",
+     "evidence_id": "evidence_63",
+     "kind": "manifest"
+    }
+   ]
+  },
+  {
+   "system": "support_platform",
+   "resource_id": "support_9075",
+   "category": "SUPPORT_MESSAGE",
+   "record_type": "SUPPORT_MESSAGE",
+   "state": "IDENTIFIABLE",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-02-13T06:47:50Z",
+   "evidence_id": "evidence_63",
+   "evidence_kind": "manifest",
+   "link_method": "identifier",
+   "identifiers": {
+    "requester_email": "valvarez255390@gmail.com"
+   },
+   "history": [
+    {
+     "state": "REDACTED",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-01-20T09:19:46Z",
+     "evidence_id": "activity_235",
+     "kind": "activity"
+    },
+    {
+     "state": "IDENTIFIABLE",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-02-13T06:47:50Z",
+     "evidence_id": "evidence_63",
+     "kind": "manifest"
+    }
+   ]
+  }
+ ],
+ "activity_claims": [
+  {
+   "activity_id": "activity_235",
+   "event_time": "2026-01-20T09:19:46Z",
+   "event_type": "REDACT_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "support_platform",
+   "resource_id": "support_9075",
+   "reported_result": "FAILED",
+   "details": "Deletion worker received the final result for support_9075 from support_platform."
+  },
+  {
+   "activity_id": "activity_236",
+   "event_time": "2026-01-20T09:38:16Z",
+   "event_type": "DELETE_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "search_service",
+   "resource_id": "search_6093",
+   "reported_result": "FAILED",
+   "details": "Deletion worker received the final result for search_6093 from search_service."
+  }
+ ],
+ "rules": [
+  {
+   "rule_id": "rule_03",
+   "data_category": "SEARCH_INDEX_ENTRY",
+   "condition": "Always",
+   "required_action": "DELETE"
+  },
+  {
+   "rule_id": "rule_05",
+   "data_category": "SUPPORT_MESSAGE",
+   "condition": "Conversation contains shared customer, agent, or order context that must be retained",
+   "required_action": "REDACT"
+  }
+ ],
+ "evidence_batch": {
+  "evidence_ids": [
+   "activity_235",
+   "activity_236",
+   "evidence_63"
+  ],
+  "co_subjects": [
+   "user_491",
+   "user_492",
+   "user_493",
+   "user_494",
+   "user_495",
+   "user_497",
+   "user_498",
+   "user_499",
+   "user_500"
+  ],
+  "unattributed_resources": {
+   "evidence_63": [
+    "analytics_5443",
+    "analytics_5893",
+    "analytics_6565"
+   ]
+  }
+ },
+ "excluded_after_audit": [],
+ "draft": {
+  "deletion_status": "INCOMPLETE",
+  "steps_json": [
+   {
+    "step_no": 1,
+    "phase": "FINDING",
+    "system_id": "search_service",
+    "resource_id": "search_6093",
+    "operation": "REPORT_REMAINING_RECORD",
+    "state": "PRESENT",
+    "evidence_id": "evidence_63"
+   },
+   {
+    "step_no": 2,
+    "phase": "FINDING",
+    "system_id": "support_platform",
+    "resource_id": "support_9075",
+    "operation": "REPORT_EXPOSED_PII",
+    "state": "PRESENT",
+    "evidence_id": "evidence_63"
+   },
+   {
+    "step_no": 3,
+    "phase": "REMEDIATION",
+    "system_id": "search_service",
+    "resource_id": "search_6093",
+    "operation": "DELETE_RECORD",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 4,
+    "phase": "REMEDIATION",
+    "system_id": "support_platform",
+    "resource_id": "support_9075",
+    "operation": "REDACT_RECORD",
+    "state": "REDACTED",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 5,
+    "phase": "VERIFICATION",
+    "system_id": "search_service",
+    "resource_id": "search_6093",
+    "operation": "VERIFY_RECORD_ABSENT",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 6,
+    "phase": "VERIFICATION",
+    "system_id": "support_platform",
+    "resource_id": "support_9075",
+    "operation": "VERIFY_RECORD_REDACTED",
+    "state": "REDACTED",
+    "evidence_id": ""
+   }
+  ]
+ }
+}

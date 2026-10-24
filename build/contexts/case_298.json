@@ -1,0 +1,230 @@
+{
+ "case": {
+  "case_id": "case_298",
+  "audit_at": "2026-05-24T07:00:00Z",
+  "requested_at": "2026-04-28T07:00:00Z",
+  "reported_status": "COMPLETE",
+  "reported_at": "2026-05-01T07:00:00Z",
+  "email_supplied": "nkosi.sipho88@icloud.com",
+  "request_text": "I would like the account associated with this address to be erased. Please include information linked through current or earlier account identifiers. Let me know when the request has been completed."
+ },
+ "intent": {
+  "is_deletion": true,
+  "label": "deletion",
+  "matched_terms": [
+   "eras"
+  ],
+  "matched_negations": [],
+  "non_deletion_action": ""
+ },
+ "identity": {
+  "user_id": "user_296",
+  "email_supplied": "nkosi.sipho88@icloud.com",
+  "email_kind": "historical",
+  "matched_audit_ids": [
+   "audit_164"
+  ],
+  "name": "Sipho Nkosi",
+  "current": {
+   "user_id": "user_296",
+   "name": "Sipho Nkosi",
+   "email": "nkosi.sipho@icloud.com",
+   "phone": "+27 72 249 8493",
+   "email_hash": "8c75ef02f3a009405ff56543dd300b9590db7736dbe2df1eed0f7467e1345ca9"
+  },
+  "historical": {
+   "email": [
+    "nkosi.sipho88@icloud.com"
+   ],
+   "email_hash": [
+    "6eac6ff1cad6eaefb8a28d29d1e86161ddc524312481da46657fdcc0ecd7c4b7"
+   ]
+  }
+ },
+ "state_at_audit": [
+  {
+   "system": "search_service",
+   "resource_id": "search_6282",
+   "category": "SEARCH_INDEX_ENTRY",
+   "record_type": "SEARCH_INDEX_ENTRY",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-05-24T05:53:05Z",
+   "evidence_id": "evidence_75",
+   "evidence_kind": "manifest",
+   "link_method": "identifier",
+   "identifiers": {
+    "email": "nkosi.sipho88@icloud.com"
+   },
+   "history": [
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-05-01T07:40:39Z",
+     "evidence_id": "activity_1679",
+     "kind": "activity"
+    },
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-05-24T05:53:05Z",
+     "evidence_id": "evidence_75",
+     "kind": "manifest"
+    }
+   ]
+  },
+  {
+   "system": "support_platform",
+   "resource_id": "support_643",
+   "category": "SUPPORT_MESSAGE",
+   "record_type": "SUPPORT_MESSAGE",
+   "state": "IDENTIFIABLE",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-05-24T05:02:42Z",
+   "evidence_id": "evidence_75",
+   "evidence_kind": "manifest",
+   "link_method": "identifier",
+   "identifiers": {
+    "requester_email": "nkosi.sipho88@icloud.com"
+   },
+   "history": [
+    {
+     "state": "REDACTED",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-05-01T07:59:09Z",
+     "evidence_id": "activity_1681",
+     "kind": "activity"
+    },
+    {
+     "state": "IDENTIFIABLE",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-05-24T05:02:42Z",
+     "evidence_id": "evidence_75",
+     "kind": "manifest"
+    }
+   ]
+  }
+ ],
+ "activity_claims": [
+  {
+   "activity_id": "activity_1679",
+   "event_time": "2026-05-01T07:40:39Z",
+   "event_type": "DELETE_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "search_service",
+   "resource_id": "search_6282",
+   "reported_result": "FAILED",
+   "details": "Deletion worker received the final result for search_6282 from search_service."
+  },
+  {
+   "activity_id": "activity_1681",
+   "event_time": "2026-05-01T07:59:09Z",
+   "event_type": "REDACT_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "support_platform",
+   "resource_id": "support_643",
+   "reported_result": "FAILED",
+   "details": "Deletion worker received the final result for support_643 from support_platform."
+  }
+ ],
+ "rules": [
+  {
+   "rule_id": "rule_03",
+   "data_category": "SEARCH_INDEX_ENTRY",
+   "condition": "Always",
+   "required_action": "DELETE"
+  },
+  {
+   "rule_id": "rule_05",
+   "data_category": "SUPPORT_MESSAGE",
+   "condition": "Conversation contains shared customer, agent, or order context that must be retained",
+   "required_action": "REDACT"
+  }
+ ],
+ "evidence_batch": {
+  "evidence_ids": [
+   "activity_1679",
+   "activity_1681",
+   "evidence_75"
+  ],
+  "co_subjects": [
+   "user_291",
+   "user_292",
+   "user_293",
+   "user_294",
+   "user_295",
+   "user_297",
+   "user_298",
+   "user_299",
+   "user_300"
+  ],
+  "unattributed_resources": {
+   "evidence_75": [
+    "analytics_061",
+    "analytics_1733",
+    "analytics_7164",
+    "analytics_7575"
+   ]
+  }
+ },
+ "excluded_after_audit": [],
+ "draft": {
+  "deletion_status": "INCOMPLETE",
+  "steps_json": [
+   {
+    "step_no": 1,
+    "phase": "FINDING",
+    "system_id": "search_service",
+    "resource_id": "search_6282",
+    "operation": "REPORT_REMAINING_RECORD",
+    "state": "PRESENT",
+    "evidence_id": "evidence_75"
+   },
+   {
+    "step_no": 2,
+    "phase": "FINDING",
+    "system_id": "support_platform",
+    "resource_id": "support_643",
+    "operation": "REPORT_EXPOSED_PII",
+    "state": "PRESENT",
+    "evidence_id": "evidence_75"
+   },
+   {
+    "step_no": 3,
+    "phase": "REMEDIATION",
+    "system_id": "search_service",
+    "resource_id": "search_6282",
+    "operation": "DELETE_RECORD",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 4,
+    "phase": "REMEDIATION",
+    "system_id": "support_platform",
+    "resource_id": "support_643",
+    "operation": "REDACT_RECORD",
+    "state": "REDACTED",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 5,
+    "phase": "VERIFICATION",
+    "system_id": "search_service",
+    "resource_id": "search_6282",
+    "operation": "VERIFY_RECORD_ABSENT",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 6,
+    "phase": "VERIFICATION",
+    "system_id": "support_platform",
+    "resource_id": "support_643",
+    "operation": "VERIFY_RECORD_REDACTED",
+    "state": "REDACTED",
+    "evidence_id": ""
+   }
+  ]
+ }
+}

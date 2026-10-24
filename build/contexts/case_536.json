@@ -1,0 +1,57 @@
+{
+ "case": {
+  "case_id": "case_536",
+  "audit_at": "2026-09-28T12:00:00Z",
+  "requested_at": "2026-09-04T12:00:00Z",
+  "reported_status": "NOT_STARTED",
+  "reported_at": "2026-09-05T12:00:00Z",
+  "email_supplied": "aditi.mehta@outlook.com",
+  "request_text": "I can't access my profile and need help resetting the login. Do not close the account."
+ },
+ "intent": {
+  "is_deletion": false,
+  "label": "not_deletion",
+  "matched_terms": [],
+  "matched_negations": [
+   "do not close the account"
+  ],
+  "non_deletion_action": ""
+ },
+ "identity": {
+  "user_id": "user_534",
+  "email_supplied": "aditi.mehta@outlook.com",
+  "email_kind": "current",
+  "matched_audit_ids": [],
+  "name": "Aditi Mehta",
+  "current": {
+   "user_id": "user_534",
+   "name": "Aditi Mehta",
+   "email": "aditi.mehta@outlook.com",
+   "phone": "+91 98886 03254",
+   "email_hash": "85886349e9c9e2728cb33cc0e086d77ec755c2ac7aeb53b34e7ad9212df4e5fa"
+  },
+  "historical": {}
+ },
+ "state_at_audit": [],
+ "activity_claims": [],
+ "rules": [],
+ "evidence_batch": {
+  "evidence_ids": [],
+  "co_subjects": [],
+  "unattributed_resources": {}
+ },
+ "excluded_after_audit": [
+  {
+   "evidence_id": "evidence_50",
+   "system": "security_service",
+   "resource_id": "audit_record_5623",
+   "state": "PRESENT",
+   "captured_at": "2026-10-01T12:00:00Z",
+   "observed_at": "2026-10-01T12:00:00Z"
+  }
+ ],
+ "draft": {
+  "deletion_status": "NOT_APPLICABLE",
+  "steps_json": []
+ }
+}

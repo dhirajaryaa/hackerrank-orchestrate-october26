@@ -1,0 +1,126 @@
+{
+ "case": {
+  "case_id": "case_159",
+  "audit_at": "2026-08-02T07:00:00Z",
+  "requested_at": "2026-07-06T07:00:00Z",
+  "reported_status": "PARTIALLY_COMPLETE",
+  "reported_at": "2026-07-08T07:00:00Z",
+  "email_supplied": "a.basu1281@gmail.com",
+  "request_text": "I would like the account associated with this address to be erased. Please review any identifiers connected to this account as part of the request. Let me know when the request has been completed."
+ },
+ "intent": {
+  "is_deletion": true,
+  "label": "deletion",
+  "matched_terms": [
+   "eras"
+  ],
+  "matched_negations": [],
+  "non_deletion_action": ""
+ },
+ "identity": {
+  "user_id": "user_157",
+  "email_supplied": "a.basu1281@gmail.com",
+  "email_kind": "historical",
+  "matched_audit_ids": [
+   "audit_230"
+  ],
+  "name": "Ananya Basu",
+  "current": {
+   "user_id": "user_157",
+   "name": "Ananya Basu",
+   "email": "a.basu12@gmail.com",
+   "phone": "+91 94863 59898",
+   "email_hash": "e5d9db2558b93eaf5fc1731b4d7b1e21bc76e6c82e90633fd8675db1ccd1bc28"
+  },
+  "historical": {
+   "email": [
+    "a.basu1281@gmail.com"
+   ],
+   "email_hash": [
+    "d0ae25a96189696f76034675ef540308002b68d1cbd2ca9402609392a9275ec8"
+   ]
+  }
+ },
+ "state_at_audit": [
+  {
+   "system": "security_service",
+   "resource_id": "audit_record_8742",
+   "category": "SECURITY_AUDIT_LOG",
+   "record_type": "SECURITY_AUDIT_LOG",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-08-02T07:00:00Z",
+   "evidence_id": "evidence_15",
+   "evidence_kind": "manifest",
+   "link_method": "explicit_ref",
+   "identifiers": {
+    "subject_reference": "user_157"
+   },
+   "history": [
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-08-02T07:00:00Z",
+     "evidence_id": "evidence_15",
+     "kind": "manifest"
+    },
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-08-02T07:00:00Z",
+     "evidence_id": "evidence_15",
+     "kind": "manifest"
+    }
+   ]
+  }
+ ],
+ "activity_claims": [],
+ "rules": [
+  {
+   "rule_id": "rule_12",
+   "data_category": "SECURITY_AUDIT_LOG",
+   "condition": "Record is within the supplied retention period",
+   "required_action": "RETAIN"
+  }
+ ],
+ "evidence_batch": {
+  "evidence_ids": [
+   "evidence_15"
+  ],
+  "co_subjects": [
+   "user_151",
+   "user_152",
+   "user_153",
+   "user_154",
+   "user_155",
+   "user_156",
+   "user_158",
+   "user_159",
+   "user_160"
+  ],
+  "unattributed_resources": {
+   "evidence_15": [
+    "analytics_7372",
+    "analytics_8425",
+    "backup_1214",
+    "data_flow_4305",
+    "data_flow_7704"
+   ]
+  }
+ },
+ "excluded_after_audit": [],
+ "draft": {
+  "deletion_status": "COMPLETE",
+  "steps_json": [
+   {
+    "step_no": 1,
+    "phase": "VERIFICATION",
+    "system_id": "security_service",
+    "resource_id": "audit_record_8742",
+    "operation": "VERIFY_RECORD_PRESENT",
+    "state": "PRESENT",
+    "evidence_id": "evidence_15"
+   }
+  ]
+ }
+}

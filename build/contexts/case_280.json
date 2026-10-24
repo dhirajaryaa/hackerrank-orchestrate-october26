@@ -1,0 +1,165 @@
+{
+ "case": {
+  "case_id": "case_280",
+  "audit_at": "2026-06-03T09:00:00Z",
+  "requested_at": "2026-05-06T09:00:00Z",
+  "reported_status": "COMPLETE",
+  "reported_at": "2026-05-09T09:00:00Z",
+  "email_supplied": "nielsen.ingrid@gmail.com",
+  "request_text": "I am requesting deletion of the account registered to this email address. Please follow the applicable retention and deletion requirements for the account. Please contact me if you need information to verify the request."
+ },
+ "intent": {
+  "is_deletion": true,
+  "label": "deletion",
+  "matched_terms": [
+   "delet"
+  ],
+  "matched_negations": [],
+  "non_deletion_action": ""
+ },
+ "identity": {
+  "user_id": "user_278",
+  "email_supplied": "nielsen.ingrid@gmail.com",
+  "email_kind": "current",
+  "matched_audit_ids": [],
+  "name": "Ingrid Nielsen",
+  "current": {
+   "user_id": "user_278",
+   "name": "Ingrid Nielsen",
+   "email": "nielsen.ingrid@gmail.com",
+   "phone": "+46 70 293 12 40",
+   "email_hash": "fc0c3c89882906ef7b01f4eca6d7161442dd633fbc0d9f7a84243c0dd1efbe82"
+  },
+  "historical": {}
+ },
+ "state_at_audit": [
+  {
+   "system": "support_platform",
+   "resource_id": "support_7073",
+   "category": "SUPPORT_MESSAGE",
+   "record_type": "SUPPORT_MESSAGE",
+   "state": "IDENTIFIABLE",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-06-03T07:43:50Z",
+   "evidence_id": "evidence_77",
+   "evidence_kind": "manifest",
+   "link_method": "identifier",
+   "identifiers": {
+    "requester_email": "nielsen.ingrid@gmail.com"
+   },
+   "history": [
+    {
+     "state": "REDACTED",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-05-09T09:52:24Z",
+     "evidence_id": "activity_1805",
+     "kind": "activity"
+    },
+    {
+     "state": "IDENTIFIABLE",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-06-03T07:43:50Z",
+     "evidence_id": "evidence_77",
+     "kind": "manifest"
+    }
+   ]
+  }
+ ],
+ "activity_claims": [
+  {
+   "activity_id": "activity_1805",
+   "event_time": "2026-05-09T09:52:24Z",
+   "event_type": "REDACT_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "support_platform",
+   "resource_id": "support_7073",
+   "reported_result": "FAILED",
+   "details": "Deletion worker received the final result for support_7073 from support_platform."
+  }
+ ],
+ "rules": [
+  {
+   "rule_id": "rule_05",
+   "data_category": "SUPPORT_MESSAGE",
+   "condition": "Conversation contains shared customer, agent, or order context that must be retained",
+   "required_action": "REDACT"
+  }
+ ],
+ "evidence_batch": {
+  "evidence_ids": [
+   "activity_1805",
+   "evidence_77"
+  ],
+  "co_subjects": [
+   "user_271",
+   "user_272",
+   "user_273",
+   "user_274",
+   "user_275",
+   "user_276",
+   "user_277",
+   "user_279",
+   "user_280"
+  ],
+  "unattributed_resources": {
+   "evidence_77": [
+    "account_4853",
+    "account_6575",
+    "account_731",
+    "analytics_4051",
+    "analytics_5923",
+    "analytics_6191"
+   ]
+  }
+ },
+ "excluded_after_audit": [
+  {
+   "evidence_id": "evidence_26",
+   "system": "security_service",
+   "resource_id": "audit_record_1518",
+   "state": "PRESENT",
+   "captured_at": "2026-06-05T12:00:00Z",
+   "observed_at": "2026-06-03T09:00:00Z"
+  },
+  {
+   "evidence_id": "evidence_26",
+   "system": "support_platform",
+   "resource_id": "support_7073",
+   "state": "PRESENT",
+   "captured_at": "2026-06-05T12:00:00Z",
+   "observed_at": "2026-06-03T09:00:00Z"
+  }
+ ],
+ "draft": {
+  "deletion_status": "INCOMPLETE",
+  "steps_json": [
+   {
+    "step_no": 1,
+    "phase": "FINDING",
+    "system_id": "support_platform",
+    "resource_id": "support_7073",
+    "operation": "REPORT_EXPOSED_PII",
+    "state": "PRESENT",
+    "evidence_id": "evidence_77"
+   },
+   {
+    "step_no": 2,
+    "phase": "REMEDIATION",
+    "system_id": "support_platform",
+    "resource_id": "support_7073",
+    "operation": "REDACT_RECORD",
+    "state": "REDACTED",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 3,
+    "phase": "VERIFICATION",
+    "system_id": "support_platform",
+    "resource_id": "support_7073",
+    "operation": "VERIFY_RECORD_REDACTED",
+    "state": "REDACTED",
+    "evidence_id": ""
+   }
+  ]
+ }
+}

@@ -1,0 +1,107 @@
+{
+ "case": {
+  "case_id": "case_448",
+  "audit_at": "2026-03-10T06:00:00Z",
+  "requested_at": "2026-02-22T06:00:00Z",
+  "reported_status": "COMPLETE",
+  "reported_at": "2026-02-25T06:00:00Z",
+  "email_supplied": "fontaine.manon@gmail.com",
+  "request_text": "I am requesting deletion of the account registered to this email address. Please ensure the request is applied to the relevant account records. A short confirmation when the process is complete is sufficient."
+ },
+ "intent": {
+  "is_deletion": true,
+  "label": "deletion",
+  "matched_terms": [
+   "delet"
+  ],
+  "matched_negations": [],
+  "non_deletion_action": ""
+ },
+ "identity": {
+  "user_id": "user_446",
+  "email_supplied": "fontaine.manon@gmail.com",
+  "email_kind": "current",
+  "matched_audit_ids": [],
+  "name": "Manon Fontaine",
+  "current": {
+   "user_id": "user_446",
+   "name": "Manon Fontaine",
+   "email": "fontaine.manon@gmail.com",
+   "phone": "+33 6 08 73 37 79",
+   "email_hash": "aeb0c4ffb46a6aecfbdddf46725b037ed2d6508f00b02e900892028bbc7d1828"
+  },
+  "historical": {}
+ },
+ "state_at_audit": [
+  {
+   "system": "security_service",
+   "resource_id": "audit_record_753",
+   "category": "SECURITY_AUDIT_LOG",
+   "record_type": "SECURITY_AUDIT_LOG",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-03-10T03:09:28Z",
+   "evidence_id": "evidence_66",
+   "evidence_kind": "manifest",
+   "link_method": "explicit_ref",
+   "identifiers": {
+    "subject_reference": "user_446"
+   },
+   "history": [
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-03-10T03:09:28Z",
+     "evidence_id": "evidence_66",
+     "kind": "manifest"
+    }
+   ]
+  }
+ ],
+ "activity_claims": [],
+ "rules": [
+  {
+   "rule_id": "rule_12",
+   "data_category": "SECURITY_AUDIT_LOG",
+   "condition": "Record is within the supplied retention period",
+   "required_action": "RETAIN"
+  }
+ ],
+ "evidence_batch": {
+  "evidence_ids": [
+   "evidence_66"
+  ],
+  "co_subjects": [
+   "user_441",
+   "user_442",
+   "user_443",
+   "user_444",
+   "user_445",
+   "user_447",
+   "user_448",
+   "user_449",
+   "user_450"
+  ],
+  "unattributed_resources": {
+   "evidence_66": [
+    "analytics_4031",
+    "analytics_7270"
+   ]
+  }
+ },
+ "excluded_after_audit": [],
+ "draft": {
+  "deletion_status": "COMPLETE",
+  "steps_json": [
+   {
+    "step_no": 1,
+    "phase": "VERIFICATION",
+    "system_id": "security_service",
+    "resource_id": "audit_record_753",
+    "operation": "VERIFY_RECORD_PRESENT",
+    "state": "PRESENT",
+    "evidence_id": "evidence_66"
+   }
+  ]
+ }
+}

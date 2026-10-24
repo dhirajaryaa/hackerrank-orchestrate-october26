@@ -1,0 +1,208 @@
+{
+ "case": {
+  "case_id": "case_435",
+  "audit_at": "2026-03-15T07:00:00Z",
+  "requested_at": "2026-02-20T07:00:00Z",
+  "reported_status": "COMPLETE",
+  "reported_at": "2026-02-22T07:00:00Z",
+  "email_supplied": "l.bernard56@gmail.com",
+  "request_text": "Je demande la suppression définitive du compte associé à cette adresse e-mail. Veuillez examiner les identifiants actuels et antérieurs conformément à votre procédure de confidentialité. Merci de confirmer le résultat une fois la vérification terminée."
+ },
+ "intent": {
+  "is_deletion": true,
+  "label": "deletion",
+  "matched_terms": [
+   "suppression"
+  ],
+  "matched_negations": [],
+  "non_deletion_action": ""
+ },
+ "identity": {
+  "user_id": "user_433",
+  "email_supplied": "l.bernard56@gmail.com",
+  "email_kind": "current",
+  "matched_audit_ids": [],
+  "name": "Louis Bernard",
+  "current": {
+   "user_id": "user_433",
+   "name": "Louis Bernard",
+   "email": "l.bernard56@gmail.com",
+   "phone": "+33 6 01 24 69 07",
+   "email_hash": "4ed7135521935a8c529dec1590a3be025182b73acff605e3be54e419a78e15b9"
+  },
+  "historical": {}
+ },
+ "state_at_audit": [
+  {
+   "system": "account_service",
+   "resource_id": "account_9194",
+   "category": "USER_PROFILE",
+   "record_type": "USER_PROFILE",
+   "state": "ABSENT",
+   "raw_state": "ABSENT",
+   "observed_at": "2026-03-15T07:00:00Z",
+   "evidence_id": "evidence_41",
+   "evidence_kind": "manifest",
+   "link_method": "link_key",
+   "identifiers": {
+    "subject_reference": "l.bernard56@gmail.com"
+   },
+   "history": [
+    {
+     "state": "ABSENT",
+     "raw_state": "ABSENT",
+     "observed_at": "2026-02-22T05:55:18Z",
+     "evidence_id": "activity_682",
+     "kind": "activity"
+    },
+    {
+     "state": "ABSENT",
+     "raw_state": "ABSENT",
+     "observed_at": "2026-03-15T07:00:00Z",
+     "evidence_id": "evidence_41",
+     "kind": "manifest"
+    }
+   ]
+  },
+  {
+   "system": "backup_service",
+   "resource_id": "backup_5237",
+   "category": "BACKUP_ARCHIVE",
+   "record_type": "BACKUP_ARCHIVE",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-03-15T07:00:00Z",
+   "evidence_id": "evidence_41",
+   "evidence_kind": "manifest",
+   "link_method": "link_key",
+   "identifiers": {
+    "subject_reference": "l.bernard56@gmail.com"
+   },
+   "history": [
+    {
+     "state": "ACTIVE",
+     "raw_state": "ACTIVE",
+     "observed_at": "2026-02-22T07:56:10Z",
+     "evidence_id": "activity_695",
+     "kind": "activity"
+    },
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-03-15T07:00:00Z",
+     "evidence_id": "evidence_41",
+     "kind": "manifest"
+    }
+   ]
+  },
+  {
+   "system": "security_service",
+   "resource_id": "audit_record_9695",
+   "category": "SECURITY_AUDIT_LOG",
+   "record_type": "SECURITY_AUDIT_LOG",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-03-15T07:00:00Z",
+   "evidence_id": "evidence_41",
+   "evidence_kind": "manifest",
+   "link_method": "explicit_ref",
+   "identifiers": {
+    "subject_reference": "user_433"
+   },
+   "history": [
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-03-15T07:00:00Z",
+     "evidence_id": "evidence_41",
+     "kind": "manifest"
+    }
+   ]
+  }
+ ],
+ "activity_claims": [
+  {
+   "activity_id": "activity_682",
+   "event_time": "2026-02-22T05:55:18Z",
+   "event_type": "DELETE_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "account_service",
+   "resource_id": "account_9194",
+   "reported_result": "SUCCESS",
+   "details": "Deletion worker submitted primary profile account_9194 to account_service."
+  },
+  {
+   "activity_id": "activity_695",
+   "event_time": "2026-02-22T07:56:10Z",
+   "event_type": "CHECK_RESTORE_ACCESS",
+   "source_system": "deletion_worker",
+   "target_system": "backup_service",
+   "resource_id": "backup_5237",
+   "reported_result": "SUCCESS",
+   "details": "Restore-access check confirmed that archive backup_5237 can still be restored."
+  }
+ ],
+ "rules": [
+  {
+   "rule_id": "rule_01",
+   "data_category": "USER_PROFILE",
+   "condition": "Always",
+   "required_action": "DELETE"
+  },
+  {
+   "rule_id": "rule_12",
+   "data_category": "SECURITY_AUDIT_LOG",
+   "condition": "Record is within the supplied retention period",
+   "required_action": "RETAIN"
+  },
+  {
+   "rule_id": "rule_14",
+   "data_category": "BACKUP_ARCHIVE",
+   "condition": "Restore access can be blocked",
+   "required_action": "RETAIN"
+  }
+ ],
+ "evidence_batch": {
+  "evidence_ids": [
+   "activity_682",
+   "activity_695",
+   "evidence_41"
+  ],
+  "co_subjects": [
+   "user_431",
+   "user_432",
+   "user_434",
+   "user_435",
+   "user_436",
+   "user_437",
+   "user_438",
+   "user_439",
+   "user_440"
+  ],
+  "unattributed_resources": {}
+ },
+ "excluded_after_audit": [],
+ "draft": {
+  "deletion_status": "INCOMPLETE",
+  "steps_json": [
+   {
+    "step_no": 1,
+    "phase": "VERIFICATION",
+    "system_id": "account_service",
+    "resource_id": "account_9194",
+    "operation": "VERIFY_RECORD_ABSENT",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 2,
+    "phase": "VERIFICATION",
+    "system_id": "security_service",
+    "resource_id": "audit_record_9695",
+    "operation": "VERIFY_RECORD_PRESENT",
+    "state": "PRESENT",
+    "evidence_id": ""
+   }
+  ]
+ }
+}

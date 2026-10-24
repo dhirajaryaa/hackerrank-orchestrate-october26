@@ -1,0 +1,57 @@
+{
+ "case": {
+  "case_id": "case_540",
+  "audit_at": "2026-09-24T12:00:00Z",
+  "requested_at": "2026-08-27T12:00:00Z",
+  "reported_status": "NOT_STARTED",
+  "reported_at": "2026-08-29T12:00:00Z",
+  "email_supplied": "ieriksen5151@fastmail.com",
+  "request_text": "I need a copy of last year's invoices for my records. Please leave my profile and purchase history in place."
+ },
+ "intent": {
+  "is_deletion": false,
+  "label": "not_deletion",
+  "matched_terms": [],
+  "matched_negations": [
+   "leave my profile and purchase history in place"
+  ],
+  "non_deletion_action": ""
+ },
+ "identity": {
+  "user_id": "user_538",
+  "email_supplied": "ieriksen5151@fastmail.com",
+  "email_kind": "current",
+  "matched_audit_ids": [],
+  "name": "Ingrid Eriksen",
+  "current": {
+   "user_id": "user_538",
+   "name": "Ingrid Eriksen",
+   "email": "ieriksen5151@fastmail.com",
+   "phone": "+46 70 571 37 96",
+   "email_hash": "53d9214cb336cd2831fcdea17e2322d398d60ddd0ee504e016987949e5774fd0"
+  },
+  "historical": {}
+ },
+ "state_at_audit": [],
+ "activity_claims": [],
+ "rules": [],
+ "evidence_batch": {
+  "evidence_ids": [],
+  "co_subjects": [],
+  "unattributed_resources": {}
+ },
+ "excluded_after_audit": [
+  {
+   "evidence_id": "evidence_50",
+   "system": "security_service",
+   "resource_id": "audit_record_7894",
+   "state": "PRESENT",
+   "captured_at": "2026-10-01T12:00:00Z",
+   "observed_at": "2026-10-01T12:00:00Z"
+  }
+ ],
+ "draft": {
+  "deletion_status": "NOT_APPLICABLE",
+  "steps_json": []
+ }
+}

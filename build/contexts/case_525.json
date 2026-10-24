@@ -1,0 +1,186 @@
+{
+ "case": {
+  "case_id": "case_525",
+  "audit_at": "2026-01-29T12:00:00Z",
+  "requested_at": "2026-01-16T12:00:00Z",
+  "reported_status": "COMPLETE",
+  "reported_at": "2026-01-18T12:00:00Z",
+  "email_supplied": "o.walker6695@yahoo.com",
+  "request_text": "Please erase the account linked to this email address. Please include information linked through current or earlier account identifiers. A short confirmation when the process is complete is sufficient."
+ },
+ "intent": {
+  "is_deletion": true,
+  "label": "deletion",
+  "matched_terms": [
+   "eras"
+  ],
+  "matched_negations": [],
+  "non_deletion_action": ""
+ },
+ "identity": {
+  "user_id": "user_523",
+  "email_supplied": "o.walker6695@yahoo.com",
+  "email_kind": "historical",
+  "matched_audit_ids": [
+   "audit_59"
+  ],
+  "name": "Oliver Walker",
+  "current": {
+   "user_id": "user_523",
+   "name": "Oliver Walker",
+   "email": "o.walker66@yahoo.com",
+   "phone": "+1 (646) 555-0123",
+   "email_hash": "9c40bdbab4944a7f0e06bb210e8990ff340ee998813b17e432000a70f5dfe554"
+  },
+  "historical": {
+   "email": [
+    "o.walker6695@yahoo.com"
+   ],
+   "email_hash": [
+    "6570536e0f14e7262d2b39a7d7968f30a4f7ee35f260591a95a3a54c313363a8"
+   ]
+  }
+ },
+ "state_at_audit": [
+  {
+   "system": "account_service",
+   "resource_id": "account_4974",
+   "category": "USER_PROFILE",
+   "record_type": "USER_PROFILE",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-01-29T09:56:58Z",
+   "evidence_id": "evidence_62",
+   "evidence_kind": "manifest",
+   "link_method": "identifier",
+   "identifiers": {
+    "profile": {
+     "email": "o.walker6695@yahoo.com"
+    }
+   },
+   "history": [
+    {
+     "state": "ABSENT",
+     "raw_state": "ABSENT",
+     "observed_at": "2026-01-18T10:57:37Z",
+     "evidence_id": "activity_197",
+     "kind": "activity"
+    },
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-01-29T09:56:58Z",
+     "evidence_id": "evidence_62",
+     "kind": "manifest"
+    }
+   ]
+  }
+ ],
+ "activity_claims": [
+  {
+   "activity_id": "activity_197",
+   "event_time": "2026-01-18T10:57:37Z",
+   "event_type": "DELETE_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "account_service",
+   "resource_id": "account_4974",
+   "reported_result": "SUCCESS",
+   "details": "Deletion worker submitted primary profile account_4974 to account_service."
+  },
+  {
+   "activity_id": "activity_201",
+   "event_time": "2026-01-18T12:42:29Z",
+   "event_type": "SYNC_RECORD",
+   "source_system": "account_service",
+   "target_system": "account_replication_cluster",
+   "resource_id": "account_4974",
+   "reported_result": "PARTIAL",
+   "details": "Replication worker reported its final checkpoint for account_4974."
+  }
+ ],
+ "rules": [
+  {
+   "rule_id": "rule_01",
+   "data_category": "USER_PROFILE",
+   "condition": "Always",
+   "required_action": "DELETE"
+  }
+ ],
+ "evidence_batch": {
+  "evidence_ids": [
+   "activity_197",
+   "activity_201",
+   "evidence_62"
+  ],
+  "co_subjects": [
+   "user_521",
+   "user_522",
+   "user_524",
+   "user_525",
+   "user_526",
+   "user_527",
+   "user_528",
+   "user_529",
+   "user_530"
+  ],
+  "unattributed_resources": {
+   "evidence_62": [
+    "account_470",
+    "account_6169",
+    "account_704",
+    "analytics_3744",
+    "analytics_893"
+   ]
+  }
+ },
+ "excluded_after_audit": [
+  {
+   "evidence_id": "evidence_49",
+   "system": "account_service",
+   "resource_id": "account_4974",
+   "state": "PRESENT",
+   "captured_at": "2026-01-31T15:00:00Z",
+   "observed_at": "2026-01-29T12:00:00Z"
+  },
+  {
+   "evidence_id": "evidence_49",
+   "system": "security_service",
+   "resource_id": "audit_record_3803",
+   "state": "PRESENT",
+   "captured_at": "2026-01-31T15:00:00Z",
+   "observed_at": "2026-01-29T12:00:00Z"
+  }
+ ],
+ "draft": {
+  "deletion_status": "INCOMPLETE",
+  "steps_json": [
+   {
+    "step_no": 1,
+    "phase": "FINDING",
+    "system_id": "account_service",
+    "resource_id": "account_4974",
+    "operation": "REPORT_REMAINING_RECORD",
+    "state": "PRESENT",
+    "evidence_id": "evidence_62"
+   },
+   {
+    "step_no": 2,
+    "phase": "REMEDIATION",
+    "system_id": "account_service",
+    "resource_id": "account_4974",
+    "operation": "DELETE_RECORD",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 3,
+    "phase": "VERIFICATION",
+    "system_id": "account_service",
+    "resource_id": "account_4974",
+    "operation": "VERIFY_RECORD_ABSENT",
+    "state": "ABSENT",
+    "evidence_id": ""
+   }
+  ]
+ }
+}

@@ -1,0 +1,208 @@
+{
+ "case": {
+  "case_id": "case_301",
+  "audit_at": "2026-05-24T07:00:00Z",
+  "requested_at": "2026-04-25T07:00:00Z",
+  "reported_status": "COMPLETE",
+  "reported_at": "2026-04-28T07:00:00Z",
+  "email_supplied": "lucas.o2510@zoho.com",
+  "request_text": "I would like the account associated with this address to be erased. Please review any identifiers connected to this account as part of the request. Please contact me if you need information to verify the request."
+ },
+ "intent": {
+  "is_deletion": true,
+  "label": "deletion",
+  "matched_terms": [
+   "eras"
+  ],
+  "matched_negations": [],
+  "non_deletion_action": ""
+ },
+ "identity": {
+  "user_id": "user_299",
+  "email_supplied": "lucas.o2510@zoho.com",
+  "email_kind": "current",
+  "matched_audit_ids": [],
+  "name": "Lucas Oliveira",
+  "current": {
+   "user_id": "user_299",
+   "name": "Lucas Oliveira",
+   "email": "lucas.o2510@zoho.com",
+   "phone": "+55 51 94937-2854",
+   "email_hash": "c6de710bd27cbf364e2da0e0b91e547f221c0a41ac7d58d197baed80ab10ca27"
+  },
+  "historical": {}
+ },
+ "state_at_audit": [
+  {
+   "system": "integration_service",
+   "resource_id": "data_flow_4521",
+   "category": "DATA_FLOW",
+   "record_type": "DATA_FLOW",
+   "state": "ACTIVE",
+   "raw_state": "ACTIVE",
+   "observed_at": "2026-05-24T04:05:20Z",
+   "evidence_id": "evidence_75",
+   "evidence_kind": "manifest",
+   "link_method": "identifier",
+   "identifiers": {
+    "customer_email": "lucas.o2510@zoho.com"
+   },
+   "history": [
+    {
+     "state": "ACTIVE",
+     "raw_state": "ACTIVE",
+     "observed_at": "2026-05-24T04:05:20Z",
+     "evidence_id": "evidence_75",
+     "kind": "manifest"
+    }
+   ]
+  },
+  {
+   "system": "search_service",
+   "resource_id": "search_5268",
+   "category": "SEARCH_INDEX_ENTRY",
+   "record_type": "SEARCH_INDEX_ENTRY",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-05-24T04:34:46Z",
+   "evidence_id": "evidence_75",
+   "evidence_kind": "manifest",
+   "link_method": "identifier",
+   "identifiers": {
+    "email": "lucas.o2510@zoho.com"
+   },
+   "history": [
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-04-28T07:57:56Z",
+     "evidence_id": "activity_1630",
+     "kind": "activity"
+    },
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-05-24T04:34:46Z",
+     "evidence_id": "evidence_75",
+     "kind": "manifest"
+    }
+   ]
+  }
+ ],
+ "activity_claims": [
+  {
+   "activity_id": "activity_1628",
+   "event_time": "2026-04-28T07:38:27Z",
+   "event_type": "SYNC_RECORD",
+   "source_system": "integration_service",
+   "target_system": "search_service",
+   "resource_id": "data_flow_4521",
+   "reported_result": "SUCCESS",
+   "details": "Active connector repopulated downstream resource search_5268."
+  },
+  {
+   "activity_id": "activity_1630",
+   "event_time": "2026-04-28T07:57:56Z",
+   "event_type": "DELETE_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "search_service",
+   "resource_id": "search_5268",
+   "reported_result": "FAILED",
+   "details": "Deletion worker received the final result for search_5268 from search_service."
+  }
+ ],
+ "rules": [
+  {
+   "rule_id": "rule_03",
+   "data_category": "SEARCH_INDEX_ENTRY",
+   "condition": "Always",
+   "required_action": "DELETE"
+  }
+ ],
+ "evidence_batch": {
+  "evidence_ids": [
+   "activity_1628",
+   "activity_1630",
+   "evidence_75"
+  ],
+  "co_subjects": [
+   "user_291",
+   "user_292",
+   "user_293",
+   "user_294",
+   "user_295",
+   "user_296",
+   "user_297",
+   "user_298",
+   "user_300"
+  ],
+  "unattributed_resources": {
+   "evidence_75": [
+    "analytics_061",
+    "analytics_1733",
+    "analytics_7164",
+    "analytics_7575"
+   ]
+  }
+ },
+ "excluded_after_audit": [],
+ "draft": {
+  "deletion_status": "INCOMPLETE",
+  "steps_json": [
+   {
+    "step_no": 1,
+    "phase": "FINDING",
+    "system_id": "search_service",
+    "resource_id": "search_5268",
+    "operation": "REPORT_REMAINING_RECORD",
+    "state": "PRESENT",
+    "evidence_id": "evidence_75"
+   },
+   {
+    "step_no": 2,
+    "phase": "FINDING",
+    "system_id": "integration_service",
+    "resource_id": "data_flow_4521",
+    "operation": "REPORT_ACTIVE_DATA_FLOW",
+    "state": "ACTIVE",
+    "evidence_id": "evidence_75"
+   },
+   {
+    "step_no": 3,
+    "phase": "REMEDIATION",
+    "system_id": "integration_service",
+    "resource_id": "data_flow_4521",
+    "operation": "DISABLE_DATA_FLOW",
+    "state": "DISABLED",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 4,
+    "phase": "REMEDIATION",
+    "system_id": "search_service",
+    "resource_id": "search_5268",
+    "operation": "DELETE_RECORD",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 5,
+    "phase": "VERIFICATION",
+    "system_id": "search_service",
+    "resource_id": "search_5268",
+    "operation": "VERIFY_RECORD_ABSENT",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 6,
+    "phase": "VERIFICATION",
+    "system_id": "integration_service",
+    "resource_id": "data_flow_4521",
+    "operation": "VERIFY_DATA_FLOW_DISABLED",
+    "state": "DISABLED",
+    "evidence_id": ""
+   }
+  ]
+ }
+}

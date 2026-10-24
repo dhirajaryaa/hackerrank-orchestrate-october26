@@ -1,0 +1,203 @@
+{
+ "case": {
+  "case_id": "case_268",
+  "audit_at": "2026-06-08T10:00:00Z",
+  "requested_at": "2026-05-23T10:00:00Z",
+  "reported_status": "COMPLETE",
+  "reported_at": "2026-05-26T10:00:00Z",
+  "email_supplied": "dvorak.nadia@gmail.com",
+  "request_text": "I am asking you to remove my account and the personal information linked to it. Please process this under the standard personal-data deletion procedure. Let me know when the request has been completed."
+ },
+ "intent": {
+  "is_deletion": true,
+  "label": "deletion",
+  "matched_terms": [
+   "delet",
+   "remov"
+  ],
+  "matched_negations": [],
+  "non_deletion_action": ""
+ },
+ "identity": {
+  "user_id": "user_266",
+  "email_supplied": "dvorak.nadia@gmail.com",
+  "email_kind": "current",
+  "matched_audit_ids": [],
+  "name": "Nadia Dvořák",
+  "current": {
+   "user_id": "user_266",
+   "name": "Nadia Dvořák",
+   "email": "dvorak.nadia@gmail.com",
+   "phone": "+48 694 191 368",
+   "email_hash": "f08dcbc04c8890b77894a1c7d776af6c4dd6e175efc83abec7b7a7acc9b78fd9"
+  },
+  "historical": {}
+ },
+ "state_at_audit": [
+  {
+   "system": "security_service",
+   "resource_id": "audit_record_4636",
+   "category": "SECURITY_AUDIT_LOG",
+   "record_type": "SECURITY_AUDIT_LOG",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-06-08T09:54:19Z",
+   "evidence_id": "evidence_25",
+   "evidence_kind": "manifest",
+   "link_method": "link_key",
+   "identifiers": {},
+   "history": [
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-06-08T09:54:19Z",
+     "evidence_id": "evidence_25",
+     "kind": "manifest"
+    }
+   ]
+  },
+  {
+   "system": "support_platform",
+   "resource_id": "support_8215",
+   "category": "SUPPORT_MESSAGE",
+   "record_type": "SUPPORT_MESSAGE",
+   "state": "IDENTIFIABLE",
+   "raw_state": "IDENTIFIABLE",
+   "observed_at": "2026-06-08T09:55:05Z",
+   "evidence_id": "evidence_25",
+   "evidence_kind": "manifest",
+   "link_method": "identifier",
+   "identifiers": {
+    "email": "dvorak.nadia@gmail.com",
+    "detector": "direct_identifier"
+   },
+   "history": [
+    {
+     "state": "REDACTED",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-05-26T11:00:46Z",
+     "evidence_id": "activity_2076",
+     "kind": "activity"
+    },
+    {
+     "state": "IDENTIFIABLE",
+     "raw_state": "IDENTIFIABLE",
+     "observed_at": "2026-06-08T09:55:05Z",
+     "evidence_id": "evidence_25",
+     "kind": "manifest"
+    }
+   ]
+  }
+ ],
+ "activity_claims": [
+  {
+   "activity_id": "activity_2076",
+   "event_time": "2026-05-26T11:00:46Z",
+   "event_type": "REDACT_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "support_platform",
+   "resource_id": "support_8215",
+   "reported_result": "FAILED",
+   "details": "Deletion worker received the final result for support_8215 from support_platform."
+  }
+ ],
+ "rules": [
+  {
+   "rule_id": "rule_05",
+   "data_category": "SUPPORT_MESSAGE",
+   "condition": "Conversation contains shared customer, agent, or order context that must be retained",
+   "required_action": "REDACT"
+  },
+  {
+   "rule_id": "rule_12",
+   "data_category": "SECURITY_AUDIT_LOG",
+   "condition": "Record is within the supplied retention period",
+   "required_action": "RETAIN"
+  }
+ ],
+ "evidence_batch": {
+  "evidence_ids": [
+   "activity_2076",
+   "evidence_25"
+  ],
+  "co_subjects": [
+   "user_261",
+   "user_264",
+   "user_267",
+   "user_268"
+  ],
+  "unattributed_resources": {
+   "evidence_25": [
+    "search_021",
+    "data_flow_2010",
+    "account_4331",
+    "account_7107",
+    "account_8384",
+    "account_7699",
+    "audit_record_6378",
+    "audit_record_6621",
+    "search_9020",
+    "search_1390",
+    "search_8935",
+    "account_9179",
+    "search_3000",
+    "account_5015",
+    "account_4226",
+    "account_1057",
+    "data_flow_8612",
+    "audit_record_1857",
+    "audit_record_6711",
+    "account_106",
+    "account_8316",
+    "audit_record_4534",
+    "search_3875",
+    "audit_record_4646",
+    "analytics_3793",
+    "audit_record_2546",
+    "analytics_1851"
+   ]
+  }
+ },
+ "excluded_after_audit": [],
+ "draft": {
+  "deletion_status": "INCOMPLETE",
+  "steps_json": [
+   {
+    "step_no": 1,
+    "phase": "FINDING",
+    "system_id": "support_platform",
+    "resource_id": "support_8215",
+    "operation": "REPORT_EXPOSED_PII",
+    "state": "PRESENT",
+    "evidence_id": "evidence_25"
+   },
+   {
+    "step_no": 2,
+    "phase": "REMEDIATION",
+    "system_id": "support_platform",
+    "resource_id": "support_8215",
+    "operation": "REDACT_RECORD",
+    "state": "REDACTED",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 3,
+    "phase": "VERIFICATION",
+    "system_id": "security_service",
+    "resource_id": "audit_record_4636",
+    "operation": "VERIFY_RECORD_PRESENT",
+    "state": "PRESENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 4,
+    "phase": "VERIFICATION",
+    "system_id": "support_platform",
+    "resource_id": "support_8215",
+    "operation": "VERIFY_RECORD_REDACTED",
+    "state": "REDACTED",
+    "evidence_id": ""
+   }
+  ]
+ }
+}

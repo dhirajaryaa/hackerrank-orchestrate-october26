@@ -1,0 +1,125 @@
+{
+ "case": {
+  "case_id": "case_25",
+  "audit_at": "2026-09-15T12:00:00Z",
+  "requested_at": "2026-08-31T12:00:00Z",
+  "reported_status": "NOT_STARTED",
+  "reported_at": "2026-09-02T12:00:00Z",
+  "email_supplied": "s.yoon04@gmail.com",
+  "request_text": "The privacy page still says my request failed. Please inspect the actual systems and tell me whether the account and identifiable analytics data have already been removed."
+ },
+ "intent": {
+  "is_deletion": true,
+  "label": "deletion",
+  "matched_terms": [
+   "remov"
+  ],
+  "matched_negations": [],
+  "non_deletion_action": ""
+ },
+ "identity": {
+  "user_id": "user_25",
+  "email_supplied": "s.yoon04@gmail.com",
+  "email_kind": "current",
+  "matched_audit_ids": [],
+  "name": "Soo-jin Yoon",
+  "current": {
+   "user_id": "user_25",
+   "name": "Soo-jin Yoon",
+   "email": "s.yoon04@gmail.com",
+   "phone": "+82 10 0616 2075",
+   "email_hash": "52a8f91b84187990ccf1541e03bbbb440a2ad015384a9e0e35c5613f2d3a3785"
+  },
+  "historical": {
+   "phone": [
+    "+82 10 6662 4968"
+   ]
+  }
+ },
+ "state_at_audit": [
+  {
+   "system": "security_service",
+   "resource_id": "audit_record_451",
+   "category": "SECURITY_AUDIT_LOG",
+   "record_type": "SECURITY_AUDIT_LOG",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-09-15T10:07:33Z",
+   "evidence_id": "evidence_92",
+   "evidence_kind": "manifest",
+   "link_method": "explicit_ref",
+   "identifiers": {
+    "subject_reference": "user_25"
+   },
+   "history": [
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-09-15T10:07:33Z",
+     "evidence_id": "evidence_92",
+     "kind": "manifest"
+    }
+   ]
+  }
+ ],
+ "activity_claims": [],
+ "rules": [
+  {
+   "rule_id": "rule_12",
+   "data_category": "SECURITY_AUDIT_LOG",
+   "condition": "Record is within the supplied retention period",
+   "required_action": "RETAIN"
+  }
+ ],
+ "evidence_batch": {
+  "evidence_ids": [
+   "evidence_92"
+  ],
+  "co_subjects": [
+   "user_21",
+   "user_23",
+   "user_24",
+   "user_26",
+   "user_27",
+   "user_28",
+   "user_29",
+   "user_30"
+  ],
+  "unattributed_resources": {
+   "evidence_92": [
+    "account_3136",
+    "account_5482",
+    "account_6440",
+    "analytics_1895",
+    "analytics_4566",
+    "analytics_4574",
+    "analytics_5335",
+    "analytics_6077"
+   ]
+  }
+ },
+ "excluded_after_audit": [
+  {
+   "evidence_id": "evidence_02",
+   "system": "security_service",
+   "resource_id": "audit_record_451",
+   "state": "PRESENT",
+   "captured_at": "2026-09-17T12:00:00Z",
+   "observed_at": "2026-09-15T12:00:00Z"
+  }
+ ],
+ "draft": {
+  "deletion_status": "COMPLETE",
+  "steps_json": [
+   {
+    "step_no": 1,
+    "phase": "VERIFICATION",
+    "system_id": "security_service",
+    "resource_id": "audit_record_451",
+    "operation": "VERIFY_RECORD_PRESENT",
+    "state": "PRESENT",
+    "evidence_id": "evidence_92"
+   }
+  ]
+ }
+}

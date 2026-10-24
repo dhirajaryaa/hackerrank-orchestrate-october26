@@ -1,0 +1,222 @@
+{
+ "case": {
+  "case_id": "case_198",
+  "audit_at": "2026-07-13T10:00:00Z",
+  "requested_at": "2026-06-17T10:00:00Z",
+  "reported_status": "NOT_STARTED",
+  "reported_at": "2026-06-19T10:00:00Z",
+  "email_supplied": "ijain6853@gmail.com",
+  "request_text": "I am asking you to remove my account and the personal information linked to it. Please handle any copies that fall within the scope of the deletion request. Please send a confirmation after the process finishes."
+ },
+ "intent": {
+  "is_deletion": true,
+  "label": "deletion",
+  "matched_terms": [
+   "delet",
+   "remov"
+  ],
+  "matched_negations": [],
+  "non_deletion_action": ""
+ },
+ "identity": {
+  "user_id": "user_196",
+  "email_supplied": "ijain6853@gmail.com",
+  "email_kind": "current",
+  "matched_audit_ids": [],
+  "name": "Ishaan Jain",
+  "current": {
+   "user_id": "user_196",
+   "name": "Ishaan Jain",
+   "email": "ijain6853@gmail.com",
+   "phone": "+91 99220 90656",
+   "email_hash": "3192a8360760403e8854c38f0fa8ef54cc693835ebab94be3270de741c44ea36"
+  },
+  "historical": {}
+ },
+ "state_at_audit": [
+  {
+   "system": "search_service",
+   "resource_id": "search_1414",
+   "category": "SEARCH_INDEX_ENTRY",
+   "record_type": "SEARCH_INDEX_ENTRY",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-07-13T09:10:03Z",
+   "evidence_id": "evidence_82",
+   "evidence_kind": "manifest",
+   "link_method": "identifier",
+   "identifiers": {
+    "email": "ijain6853@gmail.com"
+   },
+   "history": [
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-06-19T11:12:50Z",
+     "evidence_id": "activity_2436",
+     "kind": "activity"
+    },
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-07-13T09:10:03Z",
+     "evidence_id": "evidence_82",
+     "kind": "manifest"
+    }
+   ]
+  },
+  {
+   "system": "support_platform",
+   "resource_id": "support_6131",
+   "category": "SUPPORT_MESSAGE",
+   "record_type": "SUPPORT_MESSAGE",
+   "state": "IDENTIFIABLE",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-07-13T09:13:20Z",
+   "evidence_id": "evidence_82",
+   "evidence_kind": "manifest",
+   "link_method": "identifier",
+   "identifiers": {
+    "requester_email": "ijain6853@gmail.com"
+   },
+   "history": [
+    {
+     "state": "REDACTED",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-06-19T10:53:21Z",
+     "evidence_id": "activity_2433",
+     "kind": "activity"
+    },
+    {
+     "state": "IDENTIFIABLE",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-07-13T09:13:20Z",
+     "evidence_id": "evidence_82",
+     "kind": "manifest"
+    }
+   ]
+  }
+ ],
+ "activity_claims": [
+  {
+   "activity_id": "activity_2433",
+   "event_time": "2026-06-19T10:53:21Z",
+   "event_type": "REDACT_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "support_platform",
+   "resource_id": "support_6131",
+   "reported_result": "FAILED",
+   "details": "Deletion worker received the final result for support_6131 from support_platform."
+  },
+  {
+   "activity_id": "activity_2436",
+   "event_time": "2026-06-19T11:12:50Z",
+   "event_type": "DELETE_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "search_service",
+   "resource_id": "search_1414",
+   "reported_result": "FAILED",
+   "details": "Deletion worker received the final result for search_1414 from search_service."
+  }
+ ],
+ "rules": [
+  {
+   "rule_id": "rule_03",
+   "data_category": "SEARCH_INDEX_ENTRY",
+   "condition": "Always",
+   "required_action": "DELETE"
+  },
+  {
+   "rule_id": "rule_05",
+   "data_category": "SUPPORT_MESSAGE",
+   "condition": "Conversation contains shared customer, agent, or order context that must be retained",
+   "required_action": "REDACT"
+  }
+ ],
+ "evidence_batch": {
+  "evidence_ids": [
+   "activity_2433",
+   "activity_2436",
+   "evidence_82"
+  ],
+  "co_subjects": [
+   "user_191",
+   "user_192",
+   "user_193",
+   "user_194",
+   "user_195",
+   "user_197",
+   "user_198",
+   "user_199",
+   "user_200"
+  ],
+  "unattributed_resources": {
+   "evidence_82": [
+    "analytics_5166",
+    "analytics_3454",
+    "analytics_8037",
+    "analytics_349"
+   ]
+  }
+ },
+ "excluded_after_audit": [],
+ "draft": {
+  "deletion_status": "INCOMPLETE",
+  "steps_json": [
+   {
+    "step_no": 1,
+    "phase": "FINDING",
+    "system_id": "search_service",
+    "resource_id": "search_1414",
+    "operation": "REPORT_REMAINING_RECORD",
+    "state": "PRESENT",
+    "evidence_id": "evidence_82"
+   },
+   {
+    "step_no": 2,
+    "phase": "FINDING",
+    "system_id": "support_platform",
+    "resource_id": "support_6131",
+    "operation": "REPORT_EXPOSED_PII",
+    "state": "PRESENT",
+    "evidence_id": "evidence_82"
+   },
+   {
+    "step_no": 3,
+    "phase": "REMEDIATION",
+    "system_id": "search_service",
+    "resource_id": "search_1414",
+    "operation": "DELETE_RECORD",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 4,
+    "phase": "REMEDIATION",
+    "system_id": "support_platform",
+    "resource_id": "support_6131",
+    "operation": "REDACT_RECORD",
+    "state": "REDACTED",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 5,
+    "phase": "VERIFICATION",
+    "system_id": "search_service",
+    "resource_id": "search_1414",
+    "operation": "VERIFY_RECORD_ABSENT",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 6,
+    "phase": "VERIFICATION",
+    "system_id": "support_platform",
+    "resource_id": "support_6131",
+    "operation": "VERIFY_RECORD_REDACTED",
+    "state": "REDACTED",
+    "evidence_id": ""
+   }
+  ]
+ }
+}

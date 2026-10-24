@@ -1,0 +1,292 @@
+{
+ "case": {
+  "case_id": "case_436",
+  "audit_at": "2026-03-15T07:00:00Z",
+  "requested_at": "2026-02-19T07:00:00Z",
+  "reported_status": "NOT_STARTED",
+  "reported_at": "2026-02-22T07:00:00Z",
+  "email_supplied": "lindberg.freja@gmail.com",
+  "request_text": "Please treat this message as a request for permanent account deletion. Please ensure the request is applied to the relevant account records. Let me know when the request has been completed."
+ },
+ "intent": {
+  "is_deletion": true,
+  "label": "deletion",
+  "matched_terms": [
+   "delet"
+  ],
+  "matched_negations": [],
+  "non_deletion_action": ""
+ },
+ "identity": {
+  "user_id": "user_434",
+  "email_supplied": "lindberg.freja@gmail.com",
+  "email_kind": "current",
+  "matched_audit_ids": [],
+  "name": "Freja Lindberg",
+  "current": {
+   "user_id": "user_434",
+   "name": "Freja Lindberg",
+   "email": "lindberg.freja@gmail.com",
+   "phone": "+46 70 002 65 97",
+   "email_hash": "9e24912c7439db14357d40bef3d70a020ba771b107b3b626a8c9f203288ea0d9"
+  },
+  "historical": {}
+ },
+ "state_at_audit": [
+  {
+   "system": "account_service",
+   "resource_id": "account_3078",
+   "category": "USER_PROFILE",
+   "record_type": "USER_PROFILE",
+   "state": "ABSENT",
+   "raw_state": "ABSENT",
+   "observed_at": "2026-03-15T07:00:00Z",
+   "evidence_id": "evidence_41",
+   "evidence_kind": "manifest",
+   "link_method": "link_key",
+   "identifiers": {
+    "subject_reference": "lindberg.freja@gmail.com"
+   },
+   "history": [
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-02-22T06:15:34Z",
+     "evidence_id": "activity_684",
+     "kind": "activity"
+    },
+    {
+     "state": "ABSENT",
+     "raw_state": "ABSENT",
+     "observed_at": "2026-03-15T07:00:00Z",
+     "evidence_id": "evidence_41",
+     "kind": "manifest"
+    }
+   ]
+  },
+  {
+   "system": "search_service",
+   "resource_id": "search_6599",
+   "category": "SEARCH_INDEX_ENTRY",
+   "record_type": "SEARCH_INDEX_ENTRY",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-03-15T07:00:00Z",
+   "evidence_id": "evidence_41",
+   "evidence_kind": "manifest",
+   "link_method": "link_key",
+   "identifiers": {
+    "subject_reference": "lindberg.freja@gmail.com"
+   },
+   "history": [
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-02-22T07:59:55Z",
+     "evidence_id": "activity_696",
+     "kind": "activity"
+    },
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-03-15T07:00:00Z",
+     "evidence_id": "evidence_41",
+     "kind": "manifest"
+    }
+   ]
+  },
+  {
+   "system": "security_service",
+   "resource_id": "audit_record_2748",
+   "category": "SECURITY_AUDIT_LOG",
+   "record_type": "SECURITY_AUDIT_LOG",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-03-15T07:00:00Z",
+   "evidence_id": "evidence_41",
+   "evidence_kind": "manifest",
+   "link_method": "explicit_ref",
+   "identifiers": {
+    "subject_reference": "user_434"
+   },
+   "history": [
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-03-15T07:00:00Z",
+     "evidence_id": "evidence_41",
+     "kind": "manifest"
+    }
+   ]
+  },
+  {
+   "system": "support_platform",
+   "resource_id": "support_165",
+   "category": "SUPPORT_MESSAGE",
+   "record_type": "SUPPORT_MESSAGE",
+   "state": "REDACTED",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-03-15T07:00:00Z",
+   "evidence_id": "evidence_41",
+   "evidence_kind": "manifest",
+   "link_method": "link_key",
+   "identifiers": {
+    "subject_reference": "lindberg.freja@gmail.com"
+   },
+   "history": [
+    {
+     "state": "REDACTED",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-02-22T07:40:26Z",
+     "evidence_id": "activity_692",
+     "kind": "activity"
+    },
+    {
+     "state": "REDACTED",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-03-15T07:00:00Z",
+     "evidence_id": "evidence_41",
+     "kind": "manifest"
+    }
+   ]
+  }
+ ],
+ "activity_claims": [
+  {
+   "activity_id": "activity_684",
+   "event_time": "2026-02-22T06:15:34Z",
+   "event_type": "DELETE_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "account_service",
+   "resource_id": "account_3078",
+   "reported_result": "FAILED",
+   "details": "Deletion worker submitted primary profile account_3078 to account_service."
+  },
+  {
+   "activity_id": "activity_692",
+   "event_time": "2026-02-22T07:40:26Z",
+   "event_type": "REDACT_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "support_platform",
+   "resource_id": "support_165",
+   "reported_result": "FAILED",
+   "details": "Deletion worker received the final result for support_165 from support_platform."
+  },
+  {
+   "activity_id": "activity_696",
+   "event_time": "2026-02-22T07:59:55Z",
+   "event_type": "DELETE_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "search_service",
+   "resource_id": "search_6599",
+   "reported_result": "FAILED",
+   "details": "Deletion worker received the final result for search_6599 from search_service."
+  }
+ ],
+ "rules": [
+  {
+   "rule_id": "rule_01",
+   "data_category": "USER_PROFILE",
+   "condition": "Always",
+   "required_action": "DELETE"
+  },
+  {
+   "rule_id": "rule_03",
+   "data_category": "SEARCH_INDEX_ENTRY",
+   "condition": "Always",
+   "required_action": "DELETE"
+  },
+  {
+   "rule_id": "rule_05",
+   "data_category": "SUPPORT_MESSAGE",
+   "condition": "Conversation contains shared customer, agent, or order context that must be retained",
+   "required_action": "REDACT"
+  },
+  {
+   "rule_id": "rule_12",
+   "data_category": "SECURITY_AUDIT_LOG",
+   "condition": "Record is within the supplied retention period",
+   "required_action": "RETAIN"
+  }
+ ],
+ "evidence_batch": {
+  "evidence_ids": [
+   "activity_684",
+   "activity_692",
+   "activity_696",
+   "evidence_41"
+  ],
+  "co_subjects": [
+   "user_431",
+   "user_432",
+   "user_433",
+   "user_435",
+   "user_436",
+   "user_437",
+   "user_438",
+   "user_439",
+   "user_440"
+  ],
+  "unattributed_resources": {}
+ },
+ "excluded_after_audit": [],
+ "draft": {
+  "deletion_status": "INCOMPLETE",
+  "steps_json": [
+   {
+    "step_no": 1,
+    "phase": "FINDING",
+    "system_id": "search_service",
+    "resource_id": "search_6599",
+    "operation": "REPORT_REMAINING_RECORD",
+    "state": "PRESENT",
+    "evidence_id": "evidence_41"
+   },
+   {
+    "step_no": 2,
+    "phase": "REMEDIATION",
+    "system_id": "search_service",
+    "resource_id": "search_6599",
+    "operation": "DELETE_RECORD",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 3,
+    "phase": "VERIFICATION",
+    "system_id": "account_service",
+    "resource_id": "account_3078",
+    "operation": "VERIFY_RECORD_ABSENT",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 4,
+    "phase": "VERIFICATION",
+    "system_id": "search_service",
+    "resource_id": "search_6599",
+    "operation": "VERIFY_RECORD_ABSENT",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 5,
+    "phase": "VERIFICATION",
+    "system_id": "security_service",
+    "resource_id": "audit_record_2748",
+    "operation": "VERIFY_RECORD_PRESENT",
+    "state": "PRESENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 6,
+    "phase": "VERIFICATION",
+    "system_id": "support_platform",
+    "resource_id": "support_165",
+    "operation": "VERIFY_RECORD_REDACTED",
+    "state": "REDACTED",
+    "evidence_id": ""
+   }
+  ]
+ }
+}

@@ -1,0 +1,213 @@
+{
+ "case": {
+  "case_id": "case_20",
+  "audit_at": "2026-09-26T11:00:00Z",
+  "requested_at": "2026-09-08T11:00:00Z",
+  "reported_status": "NOT_STARTED",
+  "reported_at": "2026-09-09T11:00:00Z",
+  "email_supplied": "akosua.gyasi@gmail.com",
+  "request_text": "Please treat this message as a request for permanent account deletion. Please check the records connected to the account before confirming completion. Please send a confirmation after the process finishes."
+ },
+ "intent": {
+  "is_deletion": true,
+  "label": "deletion",
+  "matched_terms": [
+   "delet"
+  ],
+  "matched_negations": [],
+  "non_deletion_action": ""
+ },
+ "identity": {
+  "user_id": "user_48",
+  "email_supplied": "akosua.gyasi@gmail.com",
+  "email_kind": "current",
+  "matched_audit_ids": [],
+  "name": "Akosua Gyasi",
+  "current": {
+   "user_id": "user_48",
+   "name": "Akosua Gyasi",
+   "email": "akosua.gyasi@gmail.com",
+   "phone": "+233 24 014 4504",
+   "email_hash": "fe822c22457cb0bf2c7b96098b2756bff294e939c93a5eb55b3c6438be0245ad"
+  },
+  "historical": {}
+ },
+ "state_at_audit": [
+  {
+   "system": "integration_service",
+   "resource_id": "data_flow_1770",
+   "category": "DATA_FLOW",
+   "record_type": "DATA_FLOW",
+   "state": "ACTIVE",
+   "raw_state": "ACTIVE",
+   "observed_at": "2026-09-26T09:52:54Z",
+   "evidence_id": "evidence_94",
+   "evidence_kind": "manifest",
+   "link_method": "identifier",
+   "identifiers": {
+    "customer_email": "akosua.gyasi@gmail.com"
+   },
+   "history": [
+    {
+     "state": "ACTIVE",
+     "raw_state": "ACTIVE",
+     "observed_at": "2026-09-09T11:52:47Z",
+     "evidence_id": "activity_3745",
+     "kind": "activity"
+    },
+    {
+     "state": "ACTIVE",
+     "raw_state": "ACTIVE",
+     "observed_at": "2026-09-26T09:52:54Z",
+     "evidence_id": "evidence_94",
+     "kind": "manifest"
+    }
+   ]
+  },
+  {
+   "system": "search_service",
+   "resource_id": "search_4262",
+   "category": "SEARCH_INDEX_ENTRY",
+   "record_type": "SEARCH_INDEX_ENTRY",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-09-26T07:57:13Z",
+   "evidence_id": "evidence_94",
+   "evidence_kind": "manifest",
+   "link_method": "identifier",
+   "identifiers": {
+    "email": "akosua.gyasi@gmail.com"
+   },
+   "history": [
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-09-09T12:11:17Z",
+     "evidence_id": "activity_3750",
+     "kind": "activity"
+    },
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-09-26T07:57:13Z",
+     "evidence_id": "evidence_94",
+     "kind": "manifest"
+    }
+   ]
+  }
+ ],
+ "activity_claims": [
+  {
+   "activity_id": "activity_3745",
+   "event_time": "2026-09-09T11:52:47Z",
+   "event_type": "CHECK_DATA_FLOW",
+   "source_system": "deletion_worker",
+   "target_system": "integration_service",
+   "resource_id": "data_flow_1770",
+   "reported_result": "SUCCESS",
+   "details": "Connector status check confirmed that data flow data_flow_1770 remains enabled."
+  },
+  {
+   "activity_id": "activity_3750",
+   "event_time": "2026-09-09T12:11:17Z",
+   "event_type": "DELETE_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "search_service",
+   "resource_id": "search_4262",
+   "reported_result": "FAILED",
+   "details": "Deletion worker received the final result for search_4262 from search_service."
+  }
+ ],
+ "rules": [
+  {
+   "rule_id": "rule_03",
+   "data_category": "SEARCH_INDEX_ENTRY",
+   "condition": "Always",
+   "required_action": "DELETE"
+  }
+ ],
+ "evidence_batch": {
+  "evidence_ids": [
+   "activity_3745",
+   "activity_3750",
+   "evidence_94"
+  ],
+  "co_subjects": [
+   "user_41",
+   "user_42",
+   "user_43",
+   "user_45",
+   "user_46",
+   "user_47",
+   "user_49",
+   "user_50"
+  ],
+  "unattributed_resources": {
+   "evidence_94": [
+    "analytics_5589",
+    "analytics_9406",
+    "analytics_2265"
+   ]
+  }
+ },
+ "excluded_after_audit": [],
+ "draft": {
+  "deletion_status": "INCOMPLETE",
+  "steps_json": [
+   {
+    "step_no": 1,
+    "phase": "FINDING",
+    "system_id": "search_service",
+    "resource_id": "search_4262",
+    "operation": "REPORT_REMAINING_RECORD",
+    "state": "PRESENT",
+    "evidence_id": "evidence_94"
+   },
+   {
+    "step_no": 2,
+    "phase": "FINDING",
+    "system_id": "integration_service",
+    "resource_id": "data_flow_1770",
+    "operation": "REPORT_ACTIVE_DATA_FLOW",
+    "state": "ACTIVE",
+    "evidence_id": "evidence_94"
+   },
+   {
+    "step_no": 3,
+    "phase": "REMEDIATION",
+    "system_id": "integration_service",
+    "resource_id": "data_flow_1770",
+    "operation": "DISABLE_DATA_FLOW",
+    "state": "DISABLED",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 4,
+    "phase": "REMEDIATION",
+    "system_id": "search_service",
+    "resource_id": "search_4262",
+    "operation": "DELETE_RECORD",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 5,
+    "phase": "VERIFICATION",
+    "system_id": "search_service",
+    "resource_id": "search_4262",
+    "operation": "VERIFY_RECORD_ABSENT",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 6,
+    "phase": "VERIFICATION",
+    "system_id": "integration_service",
+    "resource_id": "data_flow_1770",
+    "operation": "VERIFY_DATA_FLOW_DISABLED",
+    "state": "DISABLED",
+    "evidence_id": ""
+   }
+  ]
+ }
+}

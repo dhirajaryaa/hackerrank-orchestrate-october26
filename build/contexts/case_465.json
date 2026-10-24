@@ -1,0 +1,268 @@
+{
+ "case": {
+  "case_id": "case_465",
+  "audit_at": "2026-02-28T11:00:00Z",
+  "requested_at": "2026-02-15T11:00:00Z",
+  "reported_status": "PARTIALLY_COMPLETE",
+  "reported_at": "2026-02-17T11:00:00Z",
+  "email_supplied": "n.ogunleye2679@yahoo.com",
+  "request_text": "I am asking you to remove my account and the personal information linked to it. Please process this under the standard personal-data deletion procedure. Let me know when the request has been completed."
+ },
+ "intent": {
+  "is_deletion": true,
+  "label": "deletion",
+  "matched_terms": [
+   "delet",
+   "remov"
+  ],
+  "matched_negations": [],
+  "non_deletion_action": ""
+ },
+ "identity": {
+  "user_id": "user_463",
+  "email_supplied": "n.ogunleye2679@yahoo.com",
+  "email_kind": "historical",
+  "matched_audit_ids": [
+   "audit_84"
+  ],
+  "name": "Nneka Ogunleye",
+  "current": {
+   "user_id": "user_463",
+   "name": "Nneka Ogunleye",
+   "email": "n.ogunleye26@yahoo.com",
+   "phone": "+234 803 372 1182",
+   "email_hash": "4c3385ec8338cb8e1fad64004ffbc1b148d6e9f5ad4e184fb528d466efde72b2"
+  },
+  "historical": {
+   "email": [
+    "n.ogunleye2679@yahoo.com"
+   ],
+   "email_hash": [
+    "25e77dd8e6cfbfddea2ca75d2e7ab5fdaef66772692ed1009532c421f3933b54"
+   ]
+  }
+ },
+ "state_at_audit": [
+  {
+   "system": "account_service",
+   "resource_id": "account_3653",
+   "category": "USER_PROFILE",
+   "record_type": "USER_PROFILE",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-02-28T08:01:15Z",
+   "evidence_id": "evidence_65",
+   "evidence_kind": "manifest",
+   "link_method": "identifier",
+   "identifiers": {
+    "profile": {
+     "email": "n.ogunleye2679@yahoo.com"
+    }
+   },
+   "history": [
+    {
+     "state": "UNCERTAIN",
+     "raw_state": "UNCERTAIN",
+     "observed_at": "2026-02-17T10:06:41Z",
+     "evidence_id": "activity_604",
+     "kind": "activity"
+    },
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-02-28T08:01:15Z",
+     "evidence_id": "evidence_65",
+     "kind": "manifest"
+    }
+   ]
+  },
+  {
+   "system": "search_service",
+   "resource_id": "search_728",
+   "category": "SEARCH_INDEX_ENTRY",
+   "record_type": "SEARCH_INDEX_ENTRY",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-02-28T10:17:35Z",
+   "evidence_id": "evidence_65",
+   "evidence_kind": "manifest",
+   "link_method": "identifier",
+   "identifiers": {
+    "email": "n.ogunleye2679@yahoo.com"
+   },
+   "history": [
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-02-17T12:18:03Z",
+     "evidence_id": "activity_613",
+     "kind": "activity"
+    },
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-02-28T10:17:35Z",
+     "evidence_id": "evidence_65",
+     "kind": "manifest"
+    }
+   ]
+  }
+ ],
+ "activity_claims": [
+  {
+   "activity_id": "activity_604",
+   "event_time": "2026-02-17T10:06:41Z",
+   "event_type": "DELETE_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "account_service",
+   "resource_id": "account_3653",
+   "reported_result": "PARTIAL",
+   "details": "Deletion worker submitted primary profile account_3653 to account_service."
+  },
+  {
+   "activity_id": "activity_612",
+   "event_time": "2026-02-17T11:59:33Z",
+   "event_type": "SYNC_RECORD",
+   "source_system": "account_service",
+   "target_system": "account_replication_cluster",
+   "resource_id": "account_3653",
+   "reported_result": "PARTIAL",
+   "details": "Replication worker reported its final checkpoint for account_3653."
+  },
+  {
+   "activity_id": "activity_613",
+   "event_time": "2026-02-17T12:18:03Z",
+   "event_type": "DELETE_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "search_service",
+   "resource_id": "search_728",
+   "reported_result": "FAILED",
+   "details": "Deletion worker received the final result for search_728 from search_service."
+  }
+ ],
+ "rules": [
+  {
+   "rule_id": "rule_01",
+   "data_category": "USER_PROFILE",
+   "condition": "Always",
+   "required_action": "DELETE"
+  },
+  {
+   "rule_id": "rule_03",
+   "data_category": "SEARCH_INDEX_ENTRY",
+   "condition": "Always",
+   "required_action": "DELETE"
+  }
+ ],
+ "evidence_batch": {
+  "evidence_ids": [
+   "activity_604",
+   "activity_612",
+   "activity_613",
+   "evidence_65"
+  ],
+  "co_subjects": [
+   "user_461",
+   "user_462",
+   "user_464",
+   "user_465",
+   "user_466",
+   "user_467",
+   "user_468",
+   "user_469",
+   "user_470"
+  ],
+  "unattributed_resources": {
+   "evidence_65": [
+    "analytics_4066",
+    "analytics_689",
+    "analytics_8746"
+   ]
+  }
+ },
+ "excluded_after_audit": [
+  {
+   "evidence_id": "evidence_44",
+   "system": "search_service",
+   "resource_id": "search_728",
+   "state": "PRESENT",
+   "captured_at": "2026-03-02T10:59:23Z",
+   "observed_at": "2026-02-28T10:51:37Z"
+  },
+  {
+   "evidence_id": "evidence_44",
+   "system": "account_service",
+   "resource_id": "account_3653",
+   "state": "PRESENT",
+   "captured_at": "2026-03-02T10:59:23Z",
+   "observed_at": "2026-02-28T10:54:29Z"
+  },
+  {
+   "evidence_id": "evidence_44",
+   "system": "security_service",
+   "resource_id": "audit_record_7099",
+   "state": "PRESENT",
+   "captured_at": "2026-03-02T10:59:23Z",
+   "observed_at": "2026-02-28T10:57:56Z"
+  }
+ ],
+ "draft": {
+  "deletion_status": "INCOMPLETE",
+  "steps_json": [
+   {
+    "step_no": 1,
+    "phase": "FINDING",
+    "system_id": "account_service",
+    "resource_id": "account_3653",
+    "operation": "REPORT_REMAINING_RECORD",
+    "state": "PRESENT",
+    "evidence_id": "evidence_65"
+   },
+   {
+    "step_no": 2,
+    "phase": "FINDING",
+    "system_id": "search_service",
+    "resource_id": "search_728",
+    "operation": "REPORT_REMAINING_RECORD",
+    "state": "PRESENT",
+    "evidence_id": "evidence_65"
+   },
+   {
+    "step_no": 3,
+    "phase": "REMEDIATION",
+    "system_id": "account_service",
+    "resource_id": "account_3653",
+    "operation": "DELETE_RECORD",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 4,
+    "phase": "REMEDIATION",
+    "system_id": "search_service",
+    "resource_id": "search_728",
+    "operation": "DELETE_RECORD",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 5,
+    "phase": "VERIFICATION",
+    "system_id": "account_service",
+    "resource_id": "account_3653",
+    "operation": "VERIFY_RECORD_ABSENT",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 6,
+    "phase": "VERIFICATION",
+    "system_id": "search_service",
+    "resource_id": "search_728",
+    "operation": "VERIFY_RECORD_ABSENT",
+    "state": "ABSENT",
+    "evidence_id": ""
+   }
+  ]
+ }
+}

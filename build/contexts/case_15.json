@@ -1,0 +1,239 @@
+{
+ "case": {
+  "case_id": "case_15",
+  "audit_at": "2026-09-15T12:00:00Z",
+  "requested_at": "2026-08-21T12:00:00Z",
+  "reported_status": "COMPLETE",
+  "reported_at": "2026-08-22T12:00:00Z",
+  "email_supplied": "lucia-torres@gmail.com",
+  "request_text": "I disconnected my account last week, but one of the integrations still seems active. Close the account completely and make sure it can no longer send my data to other systems."
+ },
+ "intent": {
+  "is_deletion": true,
+  "label": "deletion",
+  "matched_terms": [
+   "close the account"
+  ],
+  "matched_negations": [],
+  "non_deletion_action": ""
+ },
+ "identity": {
+  "user_id": "user_15",
+  "email_supplied": "lucia-torres@gmail.com",
+  "email_kind": "current",
+  "matched_audit_ids": [],
+  "name": "Lucía Torres",
+  "current": {
+   "user_id": "user_15",
+   "name": "Lucía Torres",
+   "email": "lucia-torres@gmail.com",
+   "phone": "+34 715 351 235",
+   "email_hash": "3a998570469df6b3cf40bb58e9b2a55e4890cded9f801df993ed6584f990826c"
+  },
+  "historical": {
+   "phone": [
+    "+34 728 875 900"
+   ]
+  }
+ },
+ "state_at_audit": [
+  {
+   "system": "account_service",
+   "resource_id": "account_4745",
+   "category": "USER_PROFILE",
+   "record_type": "USER_PROFILE",
+   "state": "ABSENT",
+   "raw_state": "ABSENT",
+   "observed_at": "2026-09-15T11:51:20Z",
+   "evidence_id": "evidence_01",
+   "evidence_kind": "manifest",
+   "link_method": "link_key",
+   "identifiers": {},
+   "history": [
+    {
+     "state": "ABSENT",
+     "raw_state": "ABSENT",
+     "observed_at": "2026-08-22T11:05:18Z",
+     "evidence_id": "activity_3382",
+     "kind": "activity"
+    },
+    {
+     "state": "ABSENT",
+     "raw_state": "ABSENT",
+     "observed_at": "2026-09-15T11:51:20Z",
+     "evidence_id": "evidence_01",
+     "kind": "manifest"
+    }
+   ]
+  },
+  {
+   "system": "integration_service",
+   "resource_id": "data_flow_9846",
+   "category": "DATA_FLOW",
+   "record_type": "DATA_FLOW",
+   "state": "ACTIVE",
+   "raw_state": "ACTIVE",
+   "observed_at": "2026-09-15T11:58:11Z",
+   "evidence_id": "evidence_01",
+   "evidence_kind": "manifest",
+   "link_method": "link_key",
+   "identifiers": {},
+   "history": [
+    {
+     "state": "REFERENCED",
+     "raw_state": "REFERENCED",
+     "observed_at": "2026-08-07T08:00:00Z",
+     "evidence_id": "evidence_14",
+     "kind": "manifest"
+    },
+    {
+     "state": "ACTIVE",
+     "raw_state": "ACTIVE",
+     "observed_at": "2026-08-22T12:51:10Z",
+     "evidence_id": "activity_3386",
+     "kind": "activity"
+    },
+    {
+     "state": "ACTIVE",
+     "raw_state": "ACTIVE",
+     "observed_at": "2026-09-15T11:58:11Z",
+     "evidence_id": "evidence_01",
+     "kind": "manifest"
+    }
+   ]
+  },
+  {
+   "system": "security_service",
+   "resource_id": "audit_record_1596",
+   "category": "SECURITY_AUDIT_LOG",
+   "record_type": "SECURITY_AUDIT_LOG",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-09-15T11:59:37Z",
+   "evidence_id": "evidence_01",
+   "evidence_kind": "manifest",
+   "link_method": "link_key",
+   "identifiers": {},
+   "history": [
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-09-15T11:59:37Z",
+     "evidence_id": "evidence_01",
+     "kind": "manifest"
+    }
+   ]
+  }
+ ],
+ "activity_claims": [
+  {
+   "activity_id": "activity_3382",
+   "event_time": "2026-08-22T11:05:18Z",
+   "event_type": "DELETE_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "account_service",
+   "resource_id": "account_4745",
+   "reported_result": "SUCCESS",
+   "details": "Deletion worker submitted primary profile account_4745 to account_service."
+  },
+  {
+   "activity_id": "activity_3386",
+   "event_time": "2026-08-22T12:51:10Z",
+   "event_type": "CHECK_DATA_FLOW",
+   "source_system": "deletion_worker",
+   "target_system": "integration_service",
+   "resource_id": "data_flow_9846",
+   "reported_result": "SUCCESS",
+   "details": "Connector status check confirmed that data flow data_flow_9846 remains enabled."
+  }
+ ],
+ "rules": [
+  {
+   "rule_id": "rule_01",
+   "data_category": "USER_PROFILE",
+   "condition": "Always",
+   "required_action": "DELETE"
+  },
+  {
+   "rule_id": "rule_12",
+   "data_category": "SECURITY_AUDIT_LOG",
+   "condition": "Record is within the supplied retention period",
+   "required_action": "RETAIN"
+  }
+ ],
+ "evidence_batch": {
+  "evidence_ids": [
+   "activity_3382",
+   "activity_3386",
+   "evidence_01",
+   "evidence_14"
+  ],
+  "co_subjects": [
+   "user_11",
+   "user_12",
+   "user_13",
+   "user_14",
+   "user_16",
+   "user_17",
+   "user_18",
+   "user_19",
+   "user_20"
+  ],
+  "unattributed_resources": {
+   "evidence_01": [
+    "search_1874"
+   ]
+  }
+ },
+ "excluded_after_audit": [],
+ "draft": {
+  "deletion_status": "INCOMPLETE",
+  "steps_json": [
+   {
+    "step_no": 1,
+    "phase": "FINDING",
+    "system_id": "integration_service",
+    "resource_id": "data_flow_9846",
+    "operation": "REPORT_ACTIVE_DATA_FLOW",
+    "state": "ACTIVE",
+    "evidence_id": "evidence_01"
+   },
+   {
+    "step_no": 2,
+    "phase": "REMEDIATION",
+    "system_id": "integration_service",
+    "resource_id": "data_flow_9846",
+    "operation": "DISABLE_DATA_FLOW",
+    "state": "DISABLED",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 3,
+    "phase": "VERIFICATION",
+    "system_id": "account_service",
+    "resource_id": "account_4745",
+    "operation": "VERIFY_RECORD_ABSENT",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 4,
+    "phase": "VERIFICATION",
+    "system_id": "security_service",
+    "resource_id": "audit_record_1596",
+    "operation": "VERIFY_RECORD_PRESENT",
+    "state": "PRESENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 5,
+    "phase": "VERIFICATION",
+    "system_id": "integration_service",
+    "resource_id": "data_flow_9846",
+    "operation": "VERIFY_DATA_FLOW_DISABLED",
+    "state": "DISABLED",
+    "evidence_id": ""
+   }
+  ]
+ }
+}

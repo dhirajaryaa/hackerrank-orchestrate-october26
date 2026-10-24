@@ -1,0 +1,172 @@
+{
+ "case": {
+  "case_id": "case_547",
+  "audit_at": "2026-09-20T12:00:00Z",
+  "requested_at": "2026-09-03T12:00:00Z",
+  "reported_status": "NOT_STARTED",
+  "reported_at": "2026-09-05T12:00:00Z",
+  "email_supplied": "a.patel22@yahoo.com",
+  "request_text": "Please permanently delete the account associated with this email address. Please process this under the standard personal-data deletion procedure. Please let me know once the request has been reviewed."
+ },
+ "intent": {
+  "is_deletion": true,
+  "label": "deletion",
+  "matched_terms": [
+   "delet"
+  ],
+  "matched_negations": [],
+  "non_deletion_action": ""
+ },
+ "identity": {
+  "user_id": "user_547",
+  "email_supplied": "a.patel22@yahoo.com",
+  "email_kind": "current",
+  "matched_audit_ids": [],
+  "name": "Ananya Patel",
+  "current": {
+   "user_id": "user_547",
+   "name": "Ananya Patel",
+   "email": "a.patel22@yahoo.com",
+   "phone": "+91 90004 47450",
+   "email_hash": "0a2dc8163cec749b62977904aca1d8e380cafa3ce71631625d135108de661263"
+  },
+  "historical": {}
+ },
+ "state_at_audit": [
+  {
+   "system": "identity_service",
+   "resource_id": "tombstone_8774",
+   "category": "ACCOUNT_TOMBSTONE",
+   "record_type": "ACCOUNT_TOMBSTONE",
+   "state": "REDACTED",
+   "raw_state": "REDACTED",
+   "observed_at": "2026-09-20T12:00:00Z",
+   "evidence_id": "evidence_52",
+   "evidence_kind": "manifest",
+   "link_method": "explicit_ref",
+   "identifiers": {
+    "subject_reference": "user_547"
+   },
+   "history": [
+    {
+     "state": "REDACTED",
+     "raw_state": "REDACTED",
+     "observed_at": "2026-09-05T11:31:17Z",
+     "evidence_id": "activity_3664",
+     "kind": "activity"
+    },
+    {
+     "state": "REDACTED",
+     "raw_state": "REDACTED",
+     "observed_at": "2026-09-20T12:00:00Z",
+     "evidence_id": "evidence_52",
+     "kind": "manifest"
+    },
+    {
+     "state": "REDACTED",
+     "raw_state": "REDACTED",
+     "observed_at": "2026-09-20T12:00:00Z",
+     "evidence_id": "evidence_52",
+     "kind": "manifest"
+    }
+   ]
+  },
+  {
+   "system": "security_service",
+   "resource_id": "audit_record_7352",
+   "category": "SECURITY_AUDIT_LOG",
+   "record_type": "SECURITY_AUDIT_LOG",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-09-20T12:00:00Z",
+   "evidence_id": "evidence_52",
+   "evidence_kind": "manifest",
+   "link_method": "explicit_ref",
+   "identifiers": {
+    "subject_reference": "user_547"
+   },
+   "history": [
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-09-20T12:00:00Z",
+     "evidence_id": "evidence_52",
+     "kind": "manifest"
+    },
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-09-20T12:00:00Z",
+     "evidence_id": "evidence_52",
+     "kind": "manifest"
+    }
+   ]
+  }
+ ],
+ "activity_claims": [
+  {
+   "activity_id": "activity_3664",
+   "event_time": "2026-09-05T11:31:17Z",
+   "event_type": "REDACT_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "identity_service",
+   "resource_id": "tombstone_8774",
+   "reported_result": "SUCCESS",
+   "details": "Policy action completed for tombstone_8774."
+  }
+ ],
+ "rules": [
+  {
+   "rule_id": "rule_12",
+   "data_category": "SECURITY_AUDIT_LOG",
+   "condition": "Record is within the supplied retention period",
+   "required_action": "RETAIN"
+  },
+  {
+   "rule_id": "rule_15",
+   "data_category": "ACCOUNT_TOMBSTONE",
+   "condition": "Account is deleted and only a stable internal user_id is needed to preserve references to retained records",
+   "required_action": "REDACT"
+  }
+ ],
+ "evidence_batch": {
+  "evidence_ids": [
+   "activity_3664",
+   "evidence_52"
+  ],
+  "co_subjects": [
+   "user_543",
+   "user_544",
+   "user_545",
+   "user_546",
+   "user_548",
+   "user_549",
+   "user_550"
+  ],
+  "unattributed_resources": {}
+ },
+ "excluded_after_audit": [],
+ "draft": {
+  "deletion_status": "COMPLETE",
+  "steps_json": [
+   {
+    "step_no": 1,
+    "phase": "VERIFICATION",
+    "system_id": "security_service",
+    "resource_id": "audit_record_7352",
+    "operation": "VERIFY_RECORD_PRESENT",
+    "state": "PRESENT",
+    "evidence_id": "evidence_52"
+   },
+   {
+    "step_no": 2,
+    "phase": "VERIFICATION",
+    "system_id": "identity_service",
+    "resource_id": "tombstone_8774",
+    "operation": "VERIFY_RECORD_REDACTED",
+    "state": "REDACTED",
+    "evidence_id": "evidence_52"
+   }
+  ]
+ }
+}

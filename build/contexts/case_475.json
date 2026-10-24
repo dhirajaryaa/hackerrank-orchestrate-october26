@@ -1,0 +1,214 @@
+{
+ "case": {
+  "case_id": "case_475",
+  "audit_at": "2026-02-23T10:00:00Z",
+  "requested_at": "2026-01-31T10:00:00Z",
+  "reported_status": "COMPLETE",
+  "reported_at": "2026-02-03T10:00:00Z",
+  "email_supplied": "nils.j416@outlook.com",
+  "request_text": "Please erase the account linked to this email address. Please process this under the standard personal-data deletion procedure. Please send a confirmation after the process finishes."
+ },
+ "intent": {
+  "is_deletion": true,
+  "label": "deletion",
+  "matched_terms": [
+   "delet",
+   "eras"
+  ],
+  "matched_negations": [],
+  "non_deletion_action": ""
+ },
+ "identity": {
+  "user_id": "user_473",
+  "email_supplied": "nils.j416@outlook.com",
+  "email_kind": "current",
+  "matched_audit_ids": [],
+  "name": "Nils Johansson",
+  "current": {
+   "user_id": "user_473",
+   "name": "Nils Johansson",
+   "email": "nils.j416@outlook.com",
+   "phone": "+46 70 314 10 65",
+   "email_hash": "839f75e7615d1c781bc69434c49414f86237a66a5b723f6332787df34b529bdf"
+  },
+  "historical": {}
+ },
+ "state_at_audit": [
+  {
+   "system": "account_service",
+   "resource_id": "account_3205",
+   "category": "USER_PROFILE",
+   "record_type": "USER_PROFILE",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-02-23T10:00:00Z",
+   "evidence_id": "evidence_45",
+   "evidence_kind": "manifest",
+   "link_method": "explicit_ref",
+   "identifiers": {
+    "customer_reference": "user_473",
+    "full_name": "Nils Johansson",
+    "email": "nils.j416@outlook.com",
+    "phone": "+46 70 314 10 65"
+   },
+   "history": [
+    {
+     "state": "ABSENT",
+     "raw_state": "ABSENT",
+     "observed_at": "2026-02-03T08:49:21Z",
+     "evidence_id": "activity_407",
+     "kind": "activity"
+    },
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-02-23T10:00:00Z",
+     "evidence_id": "evidence_45",
+     "kind": "manifest"
+    }
+   ]
+  },
+  {
+   "system": "security_service",
+   "resource_id": "audit_record_5667",
+   "category": "SECURITY_AUDIT_LOG",
+   "record_type": "SECURITY_AUDIT_LOG",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-02-23T10:00:00Z",
+   "evidence_id": "evidence_45",
+   "evidence_kind": "manifest",
+   "link_method": "explicit_ref",
+   "identifiers": {
+    "subject_reference": "user_473"
+   },
+   "history": [
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-02-23T10:00:00Z",
+     "evidence_id": "evidence_45",
+     "kind": "manifest"
+    }
+   ]
+  }
+ ],
+ "activity_claims": [
+  {
+   "activity_id": "activity_407",
+   "event_time": "2026-02-03T08:49:21Z",
+   "event_type": "DELETE_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "account_service",
+   "resource_id": "account_3205",
+   "reported_result": "SUCCESS",
+   "details": "Deletion worker submitted primary profile account_3205 to account_service."
+  },
+  {
+   "activity_id": "activity_420",
+   "event_time": "2026-02-03T11:00:13Z",
+   "event_type": "SYNC_RECORD",
+   "source_system": "account_service",
+   "target_system": "account_replication_cluster",
+   "resource_id": "account_3205",
+   "reported_result": "SUCCESS",
+   "details": "Replication worker reported its final checkpoint for account_3205."
+  }
+ ],
+ "rules": [
+  {
+   "rule_id": "rule_01",
+   "data_category": "USER_PROFILE",
+   "condition": "Always",
+   "required_action": "DELETE"
+  },
+  {
+   "rule_id": "rule_12",
+   "data_category": "SECURITY_AUDIT_LOG",
+   "condition": "Record is within the supplied retention period",
+   "required_action": "RETAIN"
+  }
+ ],
+ "evidence_batch": {
+  "evidence_ids": [
+   "activity_407",
+   "activity_420",
+   "evidence_45"
+  ],
+  "co_subjects": [
+   "user_471",
+   "user_472",
+   "user_474",
+   "user_475",
+   "user_476",
+   "user_477",
+   "user_478",
+   "user_479",
+   "user_480",
+   "user_481",
+   "user_482",
+   "user_483",
+   "user_484",
+   "user_485",
+   "user_486",
+   "user_487",
+   "user_488",
+   "user_489",
+   "user_490"
+  ],
+  "unattributed_resources": {
+   "evidence_45": [
+    "search_5192",
+    "analytics_1794",
+    "analytics_5948",
+    "data_flow_8899",
+    "data_flow_2893",
+    "data_flow_173",
+    "data_flow_8519",
+    "support_4665"
+   ]
+  }
+ },
+ "excluded_after_audit": [],
+ "draft": {
+  "deletion_status": "INCOMPLETE",
+  "steps_json": [
+   {
+    "step_no": 1,
+    "phase": "FINDING",
+    "system_id": "account_service",
+    "resource_id": "account_3205",
+    "operation": "REPORT_REMAINING_RECORD",
+    "state": "PRESENT",
+    "evidence_id": "evidence_45"
+   },
+   {
+    "step_no": 2,
+    "phase": "REMEDIATION",
+    "system_id": "account_service",
+    "resource_id": "account_3205",
+    "operation": "DELETE_RECORD",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 3,
+    "phase": "VERIFICATION",
+    "system_id": "account_service",
+    "resource_id": "account_3205",
+    "operation": "VERIFY_RECORD_ABSENT",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 4,
+    "phase": "VERIFICATION",
+    "system_id": "security_service",
+    "resource_id": "audit_record_5667",
+    "operation": "VERIFY_RECORD_PRESENT",
+    "state": "PRESENT",
+    "evidence_id": ""
+   }
+  ]
+ }
+}

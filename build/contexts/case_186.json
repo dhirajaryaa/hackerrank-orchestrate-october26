@@ -1,0 +1,216 @@
+{
+ "case": {
+  "case_id": "case_186",
+  "audit_at": "2026-07-18T11:00:00Z",
+  "requested_at": "2026-07-04T11:00:00Z",
+  "reported_status": "NOT_STARTED",
+  "reported_at": "2026-07-06T11:00:00Z",
+  "email_supplied": "egarcia1825@gmail.com",
+  "request_text": "Solicito la eliminación permanente de la cuenta asociada a este correo. Revisen los identificadores actuales y anteriores según su política de privacidad. Por favor, confirmen el resultado cuando termine la revisión."
+ },
+ "intent": {
+  "is_deletion": true,
+  "label": "deletion",
+  "matched_terms": [
+   "elimina"
+  ],
+  "matched_negations": [],
+  "non_deletion_action": ""
+ },
+ "identity": {
+  "user_id": "user_184",
+  "email_supplied": "egarcia1825@gmail.com",
+  "email_kind": "current",
+  "matched_audit_ids": [],
+  "name": "Elena García",
+  "current": {
+   "user_id": "user_184",
+   "name": "Elena García",
+   "email": "egarcia1825@gmail.com",
+   "phone": "+34 643 412 674",
+   "email_hash": "18f5d68ce12fdaaed8ba1dd04e7d4633103da2ddf71cedd511e07b4fb82e8992"
+  },
+  "historical": {}
+ },
+ "state_at_audit": [
+  {
+   "system": "integration_service",
+   "resource_id": "data_flow_7428",
+   "category": "DATA_FLOW",
+   "record_type": "DATA_FLOW",
+   "state": "ACTIVE",
+   "raw_state": "ACTIVE",
+   "observed_at": "2026-07-18T09:57:31Z",
+   "evidence_id": "evidence_83",
+   "evidence_kind": "manifest",
+   "link_method": "identifier",
+   "identifiers": {
+    "customer_email": "egarcia1825@gmail.com"
+   },
+   "history": [
+    {
+     "state": "ACTIVE",
+     "raw_state": "ACTIVE",
+     "observed_at": "2026-07-06T11:38:13Z",
+     "evidence_id": "activity_2692",
+     "kind": "activity"
+    },
+    {
+     "state": "ACTIVE",
+     "raw_state": "ACTIVE",
+     "observed_at": "2026-07-18T09:57:31Z",
+     "evidence_id": "evidence_83",
+     "kind": "manifest"
+    }
+   ]
+  },
+  {
+   "system": "search_service",
+   "resource_id": "search_4062",
+   "category": "SEARCH_INDEX_ENTRY",
+   "record_type": "SEARCH_INDEX_ENTRY",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-07-18T08:22:10Z",
+   "evidence_id": "evidence_83",
+   "evidence_kind": "manifest",
+   "link_method": "identifier",
+   "identifiers": {
+    "email": "egarcia1825@gmail.com"
+   },
+   "history": [
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-07-06T11:57:42Z",
+     "evidence_id": "activity_2695",
+     "kind": "activity"
+    },
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-07-18T08:22:10Z",
+     "evidence_id": "evidence_83",
+     "kind": "manifest"
+    }
+   ]
+  }
+ ],
+ "activity_claims": [
+  {
+   "activity_id": "activity_2692",
+   "event_time": "2026-07-06T11:38:13Z",
+   "event_type": "CHECK_DATA_FLOW",
+   "source_system": "deletion_worker",
+   "target_system": "integration_service",
+   "resource_id": "data_flow_7428",
+   "reported_result": "SUCCESS",
+   "details": "Connector status check confirmed that data flow data_flow_7428 remains enabled."
+  },
+  {
+   "activity_id": "activity_2695",
+   "event_time": "2026-07-06T11:57:42Z",
+   "event_type": "DELETE_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "search_service",
+   "resource_id": "search_4062",
+   "reported_result": "FAILED",
+   "details": "Deletion worker received the final result for search_4062 from search_service."
+  }
+ ],
+ "rules": [
+  {
+   "rule_id": "rule_03",
+   "data_category": "SEARCH_INDEX_ENTRY",
+   "condition": "Always",
+   "required_action": "DELETE"
+  }
+ ],
+ "evidence_batch": {
+  "evidence_ids": [
+   "activity_2692",
+   "activity_2695",
+   "evidence_83"
+  ],
+  "co_subjects": [
+   "user_181",
+   "user_182",
+   "user_183",
+   "user_185",
+   "user_186",
+   "user_187",
+   "user_188",
+   "user_189",
+   "user_190"
+  ],
+  "unattributed_resources": {
+   "evidence_83": [
+    "account_4854",
+    "account_7063",
+    "account_9317",
+    "analytics_5614",
+    "analytics_8767"
+   ]
+  }
+ },
+ "excluded_after_audit": [],
+ "draft": {
+  "deletion_status": "INCOMPLETE",
+  "steps_json": [
+   {
+    "step_no": 1,
+    "phase": "FINDING",
+    "system_id": "search_service",
+    "resource_id": "search_4062",
+    "operation": "REPORT_REMAINING_RECORD",
+    "state": "PRESENT",
+    "evidence_id": "evidence_83"
+   },
+   {
+    "step_no": 2,
+    "phase": "FINDING",
+    "system_id": "integration_service",
+    "resource_id": "data_flow_7428",
+    "operation": "REPORT_ACTIVE_DATA_FLOW",
+    "state": "ACTIVE",
+    "evidence_id": "evidence_83"
+   },
+   {
+    "step_no": 3,
+    "phase": "REMEDIATION",
+    "system_id": "integration_service",
+    "resource_id": "data_flow_7428",
+    "operation": "DISABLE_DATA_FLOW",
+    "state": "DISABLED",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 4,
+    "phase": "REMEDIATION",
+    "system_id": "search_service",
+    "resource_id": "search_4062",
+    "operation": "DELETE_RECORD",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 5,
+    "phase": "VERIFICATION",
+    "system_id": "search_service",
+    "resource_id": "search_4062",
+    "operation": "VERIFY_RECORD_ABSENT",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 6,
+    "phase": "VERIFICATION",
+    "system_id": "integration_service",
+    "resource_id": "data_flow_7428",
+    "operation": "VERIFY_DATA_FLOW_DISABLED",
+    "state": "DISABLED",
+    "evidence_id": ""
+   }
+  ]
+ }
+}

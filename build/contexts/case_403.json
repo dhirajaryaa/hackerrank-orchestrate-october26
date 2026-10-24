@@ -1,0 +1,127 @@
+{
+ "case": {
+  "case_id": "case_403",
+  "audit_at": "2026-03-30T10:00:00Z",
+  "requested_at": "2026-03-19T10:00:00Z",
+  "reported_status": "COMPLETE",
+  "reported_at": "2026-03-22T10:00:00Z",
+  "email_supplied": "haruka.w248@outlook.com",
+  "request_text": "Please treat this message as a request for permanent account deletion. Please follow the applicable retention and deletion requirements for the account. A short confirmation when the process is complete is sufficient."
+ },
+ "intent": {
+  "is_deletion": true,
+  "label": "deletion",
+  "matched_terms": [
+   "delet"
+  ],
+  "matched_negations": [],
+  "non_deletion_action": ""
+ },
+ "identity": {
+  "user_id": "user_401",
+  "email_supplied": "haruka.w248@outlook.com",
+  "email_kind": "current",
+  "matched_audit_ids": [],
+  "name": "Haruka Watanabe",
+  "current": {
+   "user_id": "user_401",
+   "name": "Haruka Watanabe",
+   "email": "haruka.w248@outlook.com",
+   "phone": "+81 90 7519 8309",
+   "email_hash": "2dd78336f3a4b6d968b748c52ea7288b977204d64cefa53f97421226f9016e22"
+  },
+  "historical": {}
+ },
+ "state_at_audit": [
+  {
+   "system": "security_service",
+   "resource_id": "audit_record_4733",
+   "category": "SECURITY_AUDIT_LOG",
+   "record_type": "SECURITY_AUDIT_LOG",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-03-30T10:00:00Z",
+   "evidence_id": "evidence_38",
+   "evidence_kind": "manifest",
+   "link_method": "explicit_ref",
+   "identifiers": {
+    "subject_reference": "user_401"
+   },
+   "history": [
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-03-30T10:00:00Z",
+     "evidence_id": "evidence_38",
+     "kind": "manifest"
+    },
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-03-30T10:00:00Z",
+     "evidence_id": "evidence_38",
+     "kind": "manifest"
+    },
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-03-30T10:00:00Z",
+     "evidence_id": "evidence_38",
+     "kind": "manifest"
+    }
+   ]
+  }
+ ],
+ "activity_claims": [],
+ "rules": [
+  {
+   "rule_id": "rule_12",
+   "data_category": "SECURITY_AUDIT_LOG",
+   "condition": "Record is within the supplied retention period",
+   "required_action": "RETAIN"
+  }
+ ],
+ "evidence_batch": {
+  "evidence_ids": [
+   "evidence_38"
+  ],
+  "co_subjects": [
+   "user_402",
+   "user_403",
+   "user_404",
+   "user_405",
+   "user_406",
+   "user_407",
+   "user_408",
+   "user_409",
+   "user_410"
+  ],
+  "unattributed_resources": {
+   "evidence_38": [
+    "analytics_298",
+    "analytics_542",
+    "analytics_7090",
+    "analytics_8973",
+    "data_flow_8093",
+    "data_flow_8300",
+    "search_5582",
+    "support_3802"
+   ]
+  }
+ },
+ "excluded_after_audit": [],
+ "draft": {
+  "deletion_status": "COMPLETE",
+  "steps_json": [
+   {
+    "step_no": 1,
+    "phase": "VERIFICATION",
+    "system_id": "security_service",
+    "resource_id": "audit_record_4733",
+    "operation": "VERIFY_RECORD_PRESENT",
+    "state": "PRESENT",
+    "evidence_id": "evidence_38"
+   }
+  ]
+ }
+}

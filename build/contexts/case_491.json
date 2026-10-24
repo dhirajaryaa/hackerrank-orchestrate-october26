@@ -1,0 +1,187 @@
+{
+ "case": {
+  "case_id": "case_491",
+  "audit_at": "2026-02-18T09:00:00Z",
+  "requested_at": "2026-01-30T09:00:00Z",
+  "reported_status": "COMPLETE",
+  "reported_at": "2026-01-31T09:00:00Z",
+  "email_supplied": "chioma-oladipo@proton.me",
+  "request_text": "Please treat this message as a request for permanent account deletion. Please review any identifiers connected to this account as part of the request. A short confirmation when the process is complete is sufficient."
+ },
+ "intent": {
+  "is_deletion": true,
+  "label": "deletion",
+  "matched_terms": [
+   "delet"
+  ],
+  "matched_negations": [],
+  "non_deletion_action": ""
+ },
+ "identity": {
+  "user_id": "user_489",
+  "email_supplied": "chioma-oladipo@proton.me",
+  "email_kind": "current",
+  "matched_audit_ids": [],
+  "name": "Chioma Oladipo",
+  "current": {
+   "user_id": "user_489",
+   "name": "Chioma Oladipo",
+   "email": "chioma-oladipo@proton.me",
+   "phone": "+234 803 408 9448",
+   "email_hash": "f565f5e9ff2159e379a3fddf4fff819ac29105589a1a3a536ee7eda44ebb7a42"
+  },
+  "historical": {}
+ },
+ "state_at_audit": [
+  {
+   "system": "account_service",
+   "resource_id": "account_7455",
+   "category": "USER_PROFILE",
+   "record_type": "USER_PROFILE",
+   "state": "ABSENT",
+   "raw_state": "ABSENT",
+   "observed_at": "2026-02-18T07:28:11Z",
+   "evidence_id": "evidence_64",
+   "evidence_kind": "manifest",
+   "link_method": "link_key",
+   "identifiers": {},
+   "history": [
+    {
+     "state": "ABSENT",
+     "raw_state": "ABSENT",
+     "observed_at": "2026-01-31T07:59:32Z",
+     "evidence_id": "activity_369",
+     "kind": "activity"
+    },
+    {
+     "state": "ABSENT",
+     "raw_state": "ABSENT",
+     "observed_at": "2026-02-18T07:28:11Z",
+     "evidence_id": "evidence_64",
+     "kind": "manifest"
+    }
+   ]
+  },
+  {
+   "system": "security_service",
+   "resource_id": "audit_record_7073",
+   "category": "SECURITY_AUDIT_LOG",
+   "record_type": "SECURITY_AUDIT_LOG",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-02-18T07:57:31Z",
+   "evidence_id": "evidence_64",
+   "evidence_kind": "manifest",
+   "link_method": "explicit_ref",
+   "identifiers": {
+    "subject_reference": "user_489"
+   },
+   "history": [
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-02-18T07:57:31Z",
+     "evidence_id": "evidence_64",
+     "kind": "manifest"
+    }
+   ]
+  }
+ ],
+ "activity_claims": [
+  {
+   "activity_id": "activity_369",
+   "event_time": "2026-01-31T07:59:32Z",
+   "event_type": "DELETE_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "account_service",
+   "resource_id": "account_7455",
+   "reported_result": "SUCCESS",
+   "details": "Deletion worker submitted primary profile account_7455 to account_service."
+  }
+ ],
+ "rules": [
+  {
+   "rule_id": "rule_01",
+   "data_category": "USER_PROFILE",
+   "condition": "Always",
+   "required_action": "DELETE"
+  },
+  {
+   "rule_id": "rule_12",
+   "data_category": "SECURITY_AUDIT_LOG",
+   "condition": "Record is within the supplied retention period",
+   "required_action": "RETAIN"
+  }
+ ],
+ "evidence_batch": {
+  "evidence_ids": [
+   "activity_369",
+   "evidence_64"
+  ],
+  "co_subjects": [
+   "user_481",
+   "user_482",
+   "user_483",
+   "user_484",
+   "user_485",
+   "user_486",
+   "user_487",
+   "user_488",
+   "user_490"
+  ],
+  "unattributed_resources": {
+   "evidence_64": [
+    "analytics_5948"
+   ]
+  }
+ },
+ "excluded_after_audit": [
+  {
+   "evidence_id": "evidence_45",
+   "system": "backup_restore_service",
+   "resource_id": "account_7455",
+   "state": "ABSENT",
+   "captured_at": "2026-02-23T10:00:00Z",
+   "observed_at": "2026-02-18T09:00:00Z"
+  },
+  {
+   "evidence_id": "evidence_45",
+   "system": "backup_restore_service",
+   "resource_id": "audit_record_7073",
+   "state": "PRESENT",
+   "captured_at": "2026-02-23T10:00:00Z",
+   "observed_at": "2026-02-18T09:00:00Z"
+  },
+  {
+   "evidence_id": "evidence_45",
+   "system": "backup_restore_service",
+   "resource_id": "search_8910",
+   "state": "PRESENT",
+   "captured_at": "2026-02-23T10:00:00Z",
+   "observed_at": "2026-02-20T12:00:00Z"
+  }
+ ],
+ "draft": {
+  "deletion_status": "COMPLETE",
+  "steps_json": [
+   {
+    "step_no": 1,
+    "phase": "VERIFICATION",
+    "system_id": "account_service",
+    "resource_id": "account_7455",
+    "operation": "VERIFY_RECORD_ABSENT",
+    "state": "ABSENT",
+    "evidence_id": "evidence_64"
+   },
+   {
+    "step_no": 2,
+    "phase": "VERIFICATION",
+    "system_id": "security_service",
+    "resource_id": "audit_record_7073",
+    "operation": "VERIFY_RECORD_PRESENT",
+    "state": "PRESENT",
+    "evidence_id": "evidence_64"
+   }
+  ]
+ }
+}

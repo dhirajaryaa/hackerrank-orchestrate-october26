@@ -1,0 +1,121 @@
+{
+ "case": {
+  "case_id": "case_162",
+  "audit_at": "2026-08-02T07:00:00Z",
+  "requested_at": "2026-07-23T07:00:00Z",
+  "reported_status": "NOT_STARTED",
+  "reported_at": "2026-07-25T07:00:00Z",
+  "email_supplied": "cmercier1769@gmail.com",
+  "request_text": "Je demande la suppression définitive du compte associé à cette adresse e-mail. Veuillez examiner les identifiants actuels et antérieurs conformément à votre procédure de confidentialité. Merci de confirmer le résultat une fois la vérification terminée."
+ },
+ "intent": {
+  "is_deletion": true,
+  "label": "deletion",
+  "matched_terms": [
+   "suppression"
+  ],
+  "matched_negations": [],
+  "non_deletion_action": ""
+ },
+ "identity": {
+  "user_id": "user_160",
+  "email_supplied": "cmercier1769@gmail.com",
+  "email_kind": "current",
+  "matched_audit_ids": [],
+  "name": "Camille Mercier",
+  "current": {
+   "user_id": "user_160",
+   "name": "Camille Mercier",
+   "email": "cmercier1769@gmail.com",
+   "phone": "+33 6 69 34 42 56",
+   "email_hash": "09ac440830074fa4959cf5d1e12261ce0745ac77da3ce60ea59490517a6d9e9b"
+  },
+  "historical": {
+   "phone": [
+    "+33 6 90 58 29 67"
+   ]
+  }
+ },
+ "state_at_audit": [
+  {
+   "system": "security_service",
+   "resource_id": "audit_record_6362",
+   "category": "SECURITY_AUDIT_LOG",
+   "record_type": "SECURITY_AUDIT_LOG",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-08-02T07:00:00Z",
+   "evidence_id": "evidence_15",
+   "evidence_kind": "manifest",
+   "link_method": "explicit_ref",
+   "identifiers": {
+    "subject_reference": "user_160"
+   },
+   "history": [
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-08-02T07:00:00Z",
+     "evidence_id": "evidence_15",
+     "kind": "manifest"
+    },
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-08-02T07:00:00Z",
+     "evidence_id": "evidence_15",
+     "kind": "manifest"
+    }
+   ]
+  }
+ ],
+ "activity_claims": [],
+ "rules": [
+  {
+   "rule_id": "rule_12",
+   "data_category": "SECURITY_AUDIT_LOG",
+   "condition": "Record is within the supplied retention period",
+   "required_action": "RETAIN"
+  }
+ ],
+ "evidence_batch": {
+  "evidence_ids": [
+   "evidence_15"
+  ],
+  "co_subjects": [
+   "user_151",
+   "user_152",
+   "user_153",
+   "user_154",
+   "user_155",
+   "user_156",
+   "user_157",
+   "user_158",
+   "user_159"
+  ],
+  "unattributed_resources": {
+   "evidence_15": [
+    "analytics_7372",
+    "analytics_8425",
+    "backup_1214",
+    "data_flow_4305",
+    "data_flow_7704"
+   ]
+  }
+ },
+ "excluded_after_audit": [],
+ "draft": {
+  "deletion_status": "COMPLETE",
+  "steps_json": [
+   {
+    "step_no": 1,
+    "phase": "VERIFICATION",
+    "system_id": "security_service",
+    "resource_id": "audit_record_6362",
+    "operation": "VERIFY_RECORD_PRESENT",
+    "state": "PRESENT",
+    "evidence_id": "evidence_15"
+   }
+  ]
+ }
+}

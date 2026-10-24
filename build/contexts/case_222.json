@@ -1,0 +1,306 @@
+{
+ "case": {
+  "case_id": "case_222",
+  "audit_at": "2026-07-03T08:00:00Z",
+  "requested_at": "2026-06-23T08:00:00Z",
+  "reported_status": "COMPLETE",
+  "reported_at": "2026-06-25T08:00:00Z",
+  "email_supplied": "dchoi6909@gmail.com",
+  "request_text": "이 이메일 주소에 연결된 계정의 영구 삭제를 요청합니다. 개인정보 처리 절차에 따라 현재 및 이전 식별자를 검토해 주세요. 검토가 완료되면 결과를 확인해 주세요."
+ },
+ "intent": {
+  "is_deletion": true,
+  "label": "deletion",
+  "matched_terms": [
+   "삭제"
+  ],
+  "matched_negations": [],
+  "non_deletion_action": ""
+ },
+ "identity": {
+  "user_id": "user_220",
+  "email_supplied": "dchoi6909@gmail.com",
+  "email_kind": "current",
+  "matched_audit_ids": [],
+  "name": "Do-yun Choi",
+  "current": {
+   "user_id": "user_220",
+   "name": "Do-yun Choi",
+   "email": "dchoi6909@gmail.com",
+   "phone": "+82 10 6151 7330",
+   "email_hash": "fbc98b0f56e53053c276beb1fd4a3e2cfe2e3a659180c3c4d466779d98378a9d"
+  },
+  "historical": {
+   "phone": [
+    "+82 10 9430 4887"
+   ]
+  }
+ },
+ "state_at_audit": [
+  {
+   "system": "account_service",
+   "resource_id": "account_7237",
+   "category": "USER_PROFILE",
+   "record_type": "USER_PROFILE",
+   "state": "ABSENT",
+   "raw_state": "ABSENT",
+   "observed_at": "2026-06-25T07:13:16Z",
+   "evidence_id": "activity_2505",
+   "evidence_kind": "activity",
+   "link_method": "resource_alias",
+   "identifiers": {},
+   "history": [
+    {
+     "state": "ABSENT",
+     "raw_state": "ABSENT",
+     "observed_at": "2026-06-25T07:13:16Z",
+     "evidence_id": "activity_2505",
+     "kind": "activity"
+    }
+   ]
+  },
+  {
+   "system": "search_service",
+   "resource_id": "search_6405",
+   "category": "SEARCH_INDEX_ENTRY",
+   "record_type": "SEARCH_INDEX_ENTRY",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-07-03T07:10:11Z",
+   "evidence_id": "evidence_81",
+   "evidence_kind": "manifest",
+   "link_method": "identifier",
+   "identifiers": {
+    "email": "dchoi6909@gmail.com"
+   },
+   "history": [
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-06-25T09:19:37Z",
+     "evidence_id": "activity_2515",
+     "kind": "activity"
+    },
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-07-03T07:10:11Z",
+     "evidence_id": "evidence_81",
+     "kind": "manifest"
+    }
+   ]
+  },
+  {
+   "system": "support_platform",
+   "resource_id": "support_111",
+   "category": "SUPPORT_MESSAGE",
+   "record_type": "SUPPORT_MESSAGE",
+   "state": "IDENTIFIABLE",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-07-03T06:52:40Z",
+   "evidence_id": "evidence_81",
+   "evidence_kind": "manifest",
+   "link_method": "identifier",
+   "identifiers": {
+    "requester_email": "dchoi6909@gmail.com"
+   },
+   "history": [
+    {
+     "state": "REDACTED",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-06-25T09:00:08Z",
+     "evidence_id": "activity_2514",
+     "kind": "activity"
+    },
+    {
+     "state": "IDENTIFIABLE",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-07-03T06:52:40Z",
+     "evidence_id": "evidence_81",
+     "kind": "manifest"
+    }
+   ]
+  }
+ ],
+ "activity_claims": [
+  {
+   "activity_id": "activity_2505",
+   "event_time": "2026-06-25T07:13:16Z",
+   "event_type": "DELETE_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "account_service",
+   "resource_id": "account_7237",
+   "reported_result": "SUCCESS",
+   "details": "Deletion worker submitted primary profile account_7237 to account_service."
+  },
+  {
+   "activity_id": "activity_2514",
+   "event_time": "2026-06-25T09:00:08Z",
+   "event_type": "REDACT_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "support_platform",
+   "resource_id": "support_111",
+   "reported_result": "FAILED",
+   "details": "Deletion worker received the final result for support_111 from support_platform."
+  },
+  {
+   "activity_id": "activity_2515",
+   "event_time": "2026-06-25T09:19:37Z",
+   "event_type": "DELETE_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "search_service",
+   "resource_id": "search_6405",
+   "reported_result": "FAILED",
+   "details": "Deletion worker received the final result for search_6405 from search_service."
+  }
+ ],
+ "rules": [
+  {
+   "rule_id": "rule_01",
+   "data_category": "USER_PROFILE",
+   "condition": "Always",
+   "required_action": "DELETE"
+  },
+  {
+   "rule_id": "rule_03",
+   "data_category": "SEARCH_INDEX_ENTRY",
+   "condition": "Always",
+   "required_action": "DELETE"
+  },
+  {
+   "rule_id": "rule_05",
+   "data_category": "SUPPORT_MESSAGE",
+   "condition": "Conversation contains shared customer, agent, or order context that must be retained",
+   "required_action": "REDACT"
+  }
+ ],
+ "evidence_batch": {
+  "evidence_ids": [
+   "activity_2505",
+   "activity_2514",
+   "activity_2515",
+   "evidence_81"
+  ],
+  "co_subjects": [
+   "user_211",
+   "user_212",
+   "user_213",
+   "user_214",
+   "user_215",
+   "user_216",
+   "user_217",
+   "user_218",
+   "user_219"
+  ],
+  "unattributed_resources": {
+   "evidence_81": [
+    "analytics_2504",
+    "analytics_257",
+    "analytics_4460",
+    "analytics_7004"
+   ]
+  }
+ },
+ "excluded_after_audit": [
+  {
+   "evidence_id": "evidence_21",
+   "system": "support_platform",
+   "resource_id": "support_111",
+   "state": "IDENTIFIABLE",
+   "captured_at": "2026-07-05T07:54:27Z",
+   "observed_at": "2026-07-03T07:55:58Z"
+  },
+  {
+   "evidence_id": "evidence_21",
+   "system": "security_service",
+   "resource_id": "audit_record_7211",
+   "state": "PRESENT",
+   "captured_at": "2026-07-05T07:54:27Z",
+   "observed_at": "2026-07-03T07:56:59Z"
+  },
+  {
+   "evidence_id": "evidence_21",
+   "system": "search_service",
+   "resource_id": "search_6405",
+   "state": "PRESENT",
+   "captured_at": "2026-07-05T07:54:27Z",
+   "observed_at": "2026-07-03T07:57:29Z"
+  },
+  {
+   "evidence_id": "evidence_21",
+   "system": "account_service",
+   "resource_id": "account_7237",
+   "state": "ABSENT",
+   "captured_at": "2026-07-05T07:54:27Z",
+   "observed_at": "2026-07-03T07:58:33Z"
+  }
+ ],
+ "draft": {
+  "deletion_status": "INCOMPLETE",
+  "steps_json": [
+   {
+    "step_no": 1,
+    "phase": "FINDING",
+    "system_id": "search_service",
+    "resource_id": "search_6405",
+    "operation": "REPORT_REMAINING_RECORD",
+    "state": "PRESENT",
+    "evidence_id": "evidence_81"
+   },
+   {
+    "step_no": 2,
+    "phase": "FINDING",
+    "system_id": "support_platform",
+    "resource_id": "support_111",
+    "operation": "REPORT_EXPOSED_PII",
+    "state": "PRESENT",
+    "evidence_id": "evidence_81"
+   },
+   {
+    "step_no": 3,
+    "phase": "REMEDIATION",
+    "system_id": "search_service",
+    "resource_id": "search_6405",
+    "operation": "DELETE_RECORD",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 4,
+    "phase": "REMEDIATION",
+    "system_id": "support_platform",
+    "resource_id": "support_111",
+    "operation": "REDACT_RECORD",
+    "state": "REDACTED",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 5,
+    "phase": "VERIFICATION",
+    "system_id": "account_service",
+    "resource_id": "account_7237",
+    "operation": "VERIFY_RECORD_ABSENT",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 6,
+    "phase": "VERIFICATION",
+    "system_id": "search_service",
+    "resource_id": "search_6405",
+    "operation": "VERIFY_RECORD_ABSENT",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 7,
+    "phase": "VERIFICATION",
+    "system_id": "support_platform",
+    "resource_id": "support_111",
+    "operation": "VERIFY_RECORD_REDACTED",
+    "state": "REDACTED",
+    "evidence_id": ""
+   }
+  ]
+ }
+}

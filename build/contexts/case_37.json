@@ -1,0 +1,314 @@
+{
+ "case": {
+  "case_id": "case_37",
+  "audit_at": "2026-10-01T12:00:00Z",
+  "requested_at": "2026-09-06T12:00:00Z",
+  "reported_status": "COMPLETE",
+  "reported_at": "2026-09-09T12:00:00Z",
+  "email_supplied": "abena.o189491@zoho.com",
+  "request_text": "I want to close this account and have its associated personal data deleted. Please apply the request across the systems covered by your deletion policy. Please let me know once the request has been reviewed."
+ },
+ "intent": {
+  "is_deletion": true,
+  "label": "deletion",
+  "matched_terms": [
+   "close this account",
+   "delet"
+  ],
+  "matched_negations": [],
+  "non_deletion_action": ""
+ },
+ "identity": {
+  "user_id": "user_35",
+  "email_supplied": "abena.o189491@zoho.com",
+  "email_kind": "historical",
+  "matched_audit_ids": [
+   "audit_179"
+  ],
+  "name": "Abena Owusu",
+  "current": {
+   "user_id": "user_35",
+   "name": "Abena Owusu",
+   "email": "abena.o1894@zoho.com",
+   "phone": "+233 24 430 7755",
+   "email_hash": "7fa9a566c262b3c56a5db3df134c780d4bb4c98382823f2b908f8926cfc1eff6"
+  },
+  "historical": {
+   "email": [
+    "abena.o189491@zoho.com",
+    "abena.o189466@zoho.com"
+   ],
+   "email_hash": [
+    "6de35c99fa09cca3e0a9f478d562eceb3213b79dfc3e6890da2a325801957188",
+    "98787fbbd3d0942a9e9529f4576536ec16dee6b9752735036e2c4543cabe0657"
+   ]
+  }
+ },
+ "state_at_audit": [
+  {
+   "system": "account_service",
+   "resource_id": "account_5193",
+   "category": "USER_PROFILE",
+   "record_type": "USER_PROFILE",
+   "state": "ABSENT",
+   "raw_state": "ABSENT",
+   "observed_at": "2026-10-01T12:00:00Z",
+   "evidence_id": "evidence_03",
+   "evidence_kind": "manifest",
+   "link_method": "identifier",
+   "identifiers": {
+    "email": "abena.o189491@zoho.com"
+   },
+   "history": [
+    {
+     "state": "ABSENT",
+     "raw_state": "ABSENT",
+     "observed_at": "2026-09-09T11:02:59Z",
+     "evidence_id": "activity_3740",
+     "kind": "activity"
+    },
+    {
+     "state": "ABSENT",
+     "raw_state": "ABSENT",
+     "observed_at": "2026-10-01T12:00:00Z",
+     "evidence_id": "evidence_03",
+     "kind": "manifest"
+    }
+   ]
+  },
+  {
+   "system": "integration_service",
+   "resource_id": "data_flow_2528",
+   "category": "DATA_FLOW",
+   "record_type": "DATA_FLOW",
+   "state": "ACTIVE",
+   "raw_state": "ACTIVE",
+   "observed_at": "2026-10-01T12:00:00Z",
+   "evidence_id": "evidence_03",
+   "evidence_kind": "manifest",
+   "link_method": "identifier",
+   "identifiers": {
+    "email": "abena.o189491@zoho.com"
+   },
+   "history": [
+    {
+     "state": "ACTIVE",
+     "raw_state": "ACTIVE",
+     "observed_at": "2026-10-01T12:00:00Z",
+     "evidence_id": "evidence_03",
+     "kind": "manifest"
+    }
+   ]
+  },
+  {
+   "system": "search_service",
+   "resource_id": "search_1934",
+   "category": "SEARCH_INDEX_ENTRY",
+   "record_type": "SEARCH_INDEX_ENTRY",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-10-01T12:00:00Z",
+   "evidence_id": "evidence_03",
+   "evidence_kind": "manifest",
+   "link_method": "identifier",
+   "identifiers": {
+    "email": "abena.o189491@zoho.com"
+   },
+   "history": [
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-09-09T13:12:21Z",
+     "evidence_id": "activity_3758",
+     "kind": "activity"
+    },
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-10-01T12:00:00Z",
+     "evidence_id": "evidence_03",
+     "kind": "manifest"
+    }
+   ]
+  },
+  {
+   "system": "security_service",
+   "resource_id": "audit_record_2019",
+   "category": "SECURITY_AUDIT_LOG",
+   "record_type": "SECURITY_AUDIT_LOG",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-10-01T12:00:00Z",
+   "evidence_id": "evidence_03",
+   "evidence_kind": "manifest",
+   "link_method": "explicit_ref",
+   "identifiers": {
+    "subject_reference": "user_35"
+   },
+   "history": [
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-10-01T12:00:00Z",
+     "evidence_id": "evidence_03",
+     "kind": "manifest"
+    }
+   ]
+  }
+ ],
+ "activity_claims": [
+  {
+   "activity_id": "activity_3740",
+   "event_time": "2026-09-09T11:02:59Z",
+   "event_type": "DELETE_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "account_service",
+   "resource_id": "account_5193",
+   "reported_result": "SUCCESS",
+   "details": "Deletion worker submitted primary profile account_5193 to account_service."
+  },
+  {
+   "activity_id": "activity_3755",
+   "event_time": "2026-09-09T12:53:51Z",
+   "event_type": "SYNC_RECORD",
+   "source_system": "integration_service",
+   "target_system": "search_service",
+   "resource_id": "data_flow_2528",
+   "reported_result": "SUCCESS",
+   "details": "Active connector repopulated downstream resource search_1934."
+  },
+  {
+   "activity_id": "activity_3758",
+   "event_time": "2026-09-09T13:12:21Z",
+   "event_type": "DELETE_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "search_service",
+   "resource_id": "search_1934",
+   "reported_result": "FAILED",
+   "details": "Deletion worker received the final result for search_1934 from search_service."
+  }
+ ],
+ "rules": [
+  {
+   "rule_id": "rule_01",
+   "data_category": "USER_PROFILE",
+   "condition": "Always",
+   "required_action": "DELETE"
+  },
+  {
+   "rule_id": "rule_03",
+   "data_category": "SEARCH_INDEX_ENTRY",
+   "condition": "Always",
+   "required_action": "DELETE"
+  },
+  {
+   "rule_id": "rule_12",
+   "data_category": "SECURITY_AUDIT_LOG",
+   "condition": "Record is within the supplied retention period",
+   "required_action": "RETAIN"
+  }
+ ],
+ "evidence_batch": {
+  "evidence_ids": [
+   "activity_3740",
+   "activity_3755",
+   "activity_3758",
+   "evidence_03"
+  ],
+  "co_subjects": [
+   "user_31",
+   "user_32",
+   "user_33",
+   "user_34",
+   "user_36",
+   "user_37",
+   "user_38",
+   "user_39",
+   "user_40"
+  ],
+  "unattributed_resources": {
+   "evidence_03": [
+    "analytics_6830",
+    "analytics_9447"
+   ]
+  }
+ },
+ "excluded_after_audit": [],
+ "draft": {
+  "deletion_status": "INCOMPLETE",
+  "steps_json": [
+   {
+    "step_no": 1,
+    "phase": "FINDING",
+    "system_id": "search_service",
+    "resource_id": "search_1934",
+    "operation": "REPORT_REMAINING_RECORD",
+    "state": "PRESENT",
+    "evidence_id": "evidence_03"
+   },
+   {
+    "step_no": 2,
+    "phase": "FINDING",
+    "system_id": "integration_service",
+    "resource_id": "data_flow_2528",
+    "operation": "REPORT_ACTIVE_DATA_FLOW",
+    "state": "ACTIVE",
+    "evidence_id": "evidence_03"
+   },
+   {
+    "step_no": 3,
+    "phase": "REMEDIATION",
+    "system_id": "integration_service",
+    "resource_id": "data_flow_2528",
+    "operation": "DISABLE_DATA_FLOW",
+    "state": "DISABLED",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 4,
+    "phase": "REMEDIATION",
+    "system_id": "search_service",
+    "resource_id": "search_1934",
+    "operation": "DELETE_RECORD",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 5,
+    "phase": "VERIFICATION",
+    "system_id": "account_service",
+    "resource_id": "account_5193",
+    "operation": "VERIFY_RECORD_ABSENT",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 6,
+    "phase": "VERIFICATION",
+    "system_id": "search_service",
+    "resource_id": "search_1934",
+    "operation": "VERIFY_RECORD_ABSENT",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 7,
+    "phase": "VERIFICATION",
+    "system_id": "security_service",
+    "resource_id": "audit_record_2019",
+    "operation": "VERIFY_RECORD_PRESENT",
+    "state": "PRESENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 8,
+    "phase": "VERIFICATION",
+    "system_id": "integration_service",
+    "resource_id": "data_flow_2528",
+    "operation": "VERIFY_DATA_FLOW_DISABLED",
+    "state": "DISABLED",
+    "evidence_id": ""
+   }
+  ]
+ }
+}

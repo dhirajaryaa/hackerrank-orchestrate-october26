@@ -1,0 +1,165 @@
+{
+ "case": {
+  "case_id": "case_195",
+  "audit_at": "2026-07-13T10:00:00Z",
+  "requested_at": "2026-06-20T10:00:00Z",
+  "reported_status": "COMPLETE",
+  "reported_at": "2026-06-22T10:00:00Z",
+  "email_supplied": "a.sato96@gmail.com",
+  "request_text": "このメールアドレスに関連するアカウントの完全な削除を依頼します。 プライバシー手続きに従い、現在および過去の識別情報を確認してください。 確認が完了したら結果をお知らせください。"
+ },
+ "intent": {
+  "is_deletion": true,
+  "label": "deletion",
+  "matched_terms": [
+   "削除"
+  ],
+  "matched_negations": [],
+  "non_deletion_action": ""
+ },
+ "identity": {
+  "user_id": "user_193",
+  "email_supplied": "a.sato96@gmail.com",
+  "email_kind": "current",
+  "matched_audit_ids": [],
+  "name": "Aoi Sato",
+  "current": {
+   "user_id": "user_193",
+   "name": "Aoi Sato",
+   "email": "a.sato96@gmail.com",
+   "phone": "+81 90 1431 2131",
+   "email_hash": "ae6cbe8efe741d19c7fd5aa8478023e93b3014630172491c47b692ea0d1bd617"
+  },
+  "historical": {}
+ },
+ "state_at_audit": [
+  {
+   "system": "account_service",
+   "resource_id": "account_4320",
+   "category": "USER_PROFILE",
+   "record_type": "USER_PROFILE",
+   "state": "ABSENT",
+   "raw_state": "ABSENT",
+   "observed_at": "2026-07-13T06:53:09Z",
+   "evidence_id": "evidence_82",
+   "evidence_kind": "manifest",
+   "link_method": "link_key",
+   "identifiers": {},
+   "history": [
+    {
+     "state": "ABSENT",
+     "raw_state": "ABSENT",
+     "observed_at": "2026-06-22T09:00:11Z",
+     "evidence_id": "activity_2473",
+     "kind": "activity"
+    },
+    {
+     "state": "ABSENT",
+     "raw_state": "ABSENT",
+     "observed_at": "2026-07-13T06:53:09Z",
+     "evidence_id": "evidence_82",
+     "kind": "manifest"
+    }
+   ]
+  },
+  {
+   "system": "security_service",
+   "resource_id": "audit_record_1524",
+   "category": "SECURITY_AUDIT_LOG",
+   "record_type": "SECURITY_AUDIT_LOG",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-07-13T07:05:05Z",
+   "evidence_id": "evidence_82",
+   "evidence_kind": "manifest",
+   "link_method": "explicit_ref",
+   "identifiers": {
+    "subject_reference": "user_193"
+   },
+   "history": [
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-07-13T07:05:05Z",
+     "evidence_id": "evidence_82",
+     "kind": "manifest"
+    }
+   ]
+  }
+ ],
+ "activity_claims": [
+  {
+   "activity_id": "activity_2473",
+   "event_time": "2026-06-22T09:00:11Z",
+   "event_type": "DELETE_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "account_service",
+   "resource_id": "account_4320",
+   "reported_result": "SUCCESS",
+   "details": "Deletion worker submitted primary profile account_4320 to account_service."
+  }
+ ],
+ "rules": [
+  {
+   "rule_id": "rule_01",
+   "data_category": "USER_PROFILE",
+   "condition": "Always",
+   "required_action": "DELETE"
+  },
+  {
+   "rule_id": "rule_12",
+   "data_category": "SECURITY_AUDIT_LOG",
+   "condition": "Record is within the supplied retention period",
+   "required_action": "RETAIN"
+  }
+ ],
+ "evidence_batch": {
+  "evidence_ids": [
+   "activity_2473",
+   "evidence_82"
+  ],
+  "co_subjects": [
+   "user_191",
+   "user_192",
+   "user_194",
+   "user_195",
+   "user_196",
+   "user_197",
+   "user_198",
+   "user_199",
+   "user_200"
+  ],
+  "unattributed_resources": {
+   "evidence_82": [
+    "analytics_5166",
+    "analytics_3454",
+    "analytics_8037",
+    "analytics_349"
+   ]
+  }
+ },
+ "excluded_after_audit": [],
+ "draft": {
+  "deletion_status": "COMPLETE",
+  "steps_json": [
+   {
+    "step_no": 1,
+    "phase": "VERIFICATION",
+    "system_id": "account_service",
+    "resource_id": "account_4320",
+    "operation": "VERIFY_RECORD_ABSENT",
+    "state": "ABSENT",
+    "evidence_id": "evidence_82"
+   },
+   {
+    "step_no": 2,
+    "phase": "VERIFICATION",
+    "system_id": "security_service",
+    "resource_id": "audit_record_1524",
+    "operation": "VERIFY_RECORD_PRESENT",
+    "state": "PRESENT",
+    "evidence_id": "evidence_82"
+   }
+  ]
+ }
+}

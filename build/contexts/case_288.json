@@ -1,0 +1,154 @@
+{
+ "case": {
+  "case_id": "case_288",
+  "audit_at": "2026-05-29T08:00:00Z",
+  "requested_at": "2026-05-13T08:00:00Z",
+  "reported_status": "NOT_STARTED",
+  "reported_at": "2026-05-15T08:00:00Z",
+  "email_supplied": "mrodrigues956378@fastmail.com",
+  "request_text": "Solicito a exclusão permanente da conta associada a este e-mail. Verifiquem os identificadores atuais e anteriores conforme o processo de privacidade. Por favor, confirmem o resultado quando a análise terminar."
+ },
+ "intent": {
+  "is_deletion": true,
+  "label": "deletion",
+  "matched_terms": [
+   "exclusão"
+  ],
+  "matched_negations": [],
+  "non_deletion_action": ""
+ },
+ "identity": {
+  "user_id": "user_286",
+  "email_supplied": "mrodrigues956378@fastmail.com",
+  "email_kind": "historical",
+  "matched_audit_ids": [
+   "audit_172"
+  ],
+  "name": "Mariana Rodrigues",
+  "current": {
+   "user_id": "user_286",
+   "name": "Mariana Rodrigues",
+   "email": "mrodrigues9563@fastmail.com",
+   "phone": "+55 41 94015-2754",
+   "email_hash": "269961334d53cf2e12380de98d9ccc70035e782cb164eb2e0deb1d4d70b1a9f6"
+  },
+  "historical": {
+   "email": [
+    "mrodrigues956378@fastmail.com"
+   ],
+   "email_hash": [
+    "41b9d56f025767260dcf20efd8ef2bbfed75e9008e238411cf3e90937fddf554"
+   ]
+  }
+ },
+ "state_at_audit": [
+  {
+   "system": "export_service",
+   "resource_id": "export_7906",
+   "category": "USER_EXPORT",
+   "record_type": "USER_EXPORT",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-05-29T05:49:15Z",
+   "evidence_id": "evidence_76",
+   "evidence_kind": "manifest",
+   "link_method": "identifier",
+   "identifiers": {
+    "owner_email": "mrodrigues956378@fastmail.com"
+   },
+   "history": [
+    {
+     "state": "UNCERTAIN",
+     "raw_state": "UNCERTAIN",
+     "observed_at": "2026-05-15T08:39:31Z",
+     "evidence_id": "activity_1909",
+     "kind": "activity"
+    },
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-05-29T05:49:15Z",
+     "evidence_id": "evidence_76",
+     "kind": "manifest"
+    }
+   ]
+  }
+ ],
+ "activity_claims": [
+  {
+   "activity_id": "activity_1909",
+   "event_time": "2026-05-15T08:39:31Z",
+   "event_type": "DELETE_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "export_service",
+   "resource_id": "export_7906",
+   "reported_result": "PARTIAL",
+   "details": "Deletion worker received the final result for export_7906 from export_service."
+  }
+ ],
+ "rules": [
+  {
+   "rule_id": "rule_09",
+   "data_category": "USER_EXPORT",
+   "condition": "Always",
+   "required_action": "DELETE"
+  }
+ ],
+ "evidence_batch": {
+  "evidence_ids": [
+   "activity_1909",
+   "evidence_76"
+  ],
+  "co_subjects": [
+   "user_281",
+   "user_282",
+   "user_283",
+   "user_284",
+   "user_285",
+   "user_287",
+   "user_288",
+   "user_289",
+   "user_290"
+  ],
+  "unattributed_resources": {
+   "evidence_76": [
+    "analytics_7283",
+    "analytics_2322",
+    "analytics_8408"
+   ]
+  }
+ },
+ "excluded_after_audit": [],
+ "draft": {
+  "deletion_status": "INCOMPLETE",
+  "steps_json": [
+   {
+    "step_no": 1,
+    "phase": "FINDING",
+    "system_id": "export_service",
+    "resource_id": "export_7906",
+    "operation": "REPORT_REMAINING_RECORD",
+    "state": "PRESENT",
+    "evidence_id": "evidence_76"
+   },
+   {
+    "step_no": 2,
+    "phase": "REMEDIATION",
+    "system_id": "export_service",
+    "resource_id": "export_7906",
+    "operation": "DELETE_RECORD",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 3,
+    "phase": "VERIFICATION",
+    "system_id": "export_service",
+    "resource_id": "export_7906",
+    "operation": "VERIFY_RECORD_ABSENT",
+    "state": "ABSENT",
+    "evidence_id": ""
+   }
+  ]
+ }
+}

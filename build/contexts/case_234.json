@@ -1,0 +1,301 @@
+{
+ "case": {
+  "case_id": "case_234",
+  "audit_at": "2026-06-23T06:00:00Z",
+  "requested_at": "2026-06-01T06:00:00Z",
+  "reported_status": "COMPLETE",
+  "reported_at": "2026-06-03T06:00:00Z",
+  "email_supplied": "kmori1937@gmail.com",
+  "request_text": "このメールアドレスに関連するアカウントの完全な削除を依頼します。 プライバシー手続きに従い、現在および過去の識別情報を確認してください。 確認が完了したら結果をお知らせください。"
+ },
+ "intent": {
+  "is_deletion": true,
+  "label": "deletion",
+  "matched_terms": [
+   "削除"
+  ],
+  "matched_negations": [],
+  "non_deletion_action": ""
+ },
+ "identity": {
+  "user_id": "user_232",
+  "email_supplied": "kmori1937@gmail.com",
+  "email_kind": "current",
+  "matched_audit_ids": [],
+  "name": "Kenta Mori",
+  "current": {
+   "user_id": "user_232",
+   "name": "Kenta Mori",
+   "email": "kmori1937@gmail.com",
+   "phone": "+81 90 4012 0527",
+   "email_hash": "ef5e37a3372903b082413d80c1f179f18dd85069329ad441ed3f59aabc14932b"
+  },
+  "historical": {}
+ },
+ "state_at_audit": [
+  {
+   "system": "account_service",
+   "resource_id": "account_2614",
+   "category": "USER_PROFILE",
+   "record_type": "USER_PROFILE",
+   "state": "ABSENT",
+   "raw_state": "ABSENT",
+   "observed_at": "2026-06-03T05:05:25Z",
+   "evidence_id": "activity_2184",
+   "evidence_kind": "activity",
+   "link_method": "resource_alias",
+   "identifiers": {},
+   "history": [
+    {
+     "state": "ABSENT",
+     "raw_state": "ABSENT",
+     "observed_at": "2026-06-03T05:05:25Z",
+     "evidence_id": "activity_2184",
+     "kind": "activity"
+    }
+   ]
+  },
+  {
+   "system": "search_service",
+   "resource_id": "search_2615",
+   "category": "SEARCH_INDEX_ENTRY",
+   "record_type": "SEARCH_INDEX_ENTRY",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-06-23T04:42:25Z",
+   "evidence_id": "evidence_79",
+   "evidence_kind": "manifest",
+   "link_method": "identifier",
+   "identifiers": {
+    "email": "kmori1937@gmail.com"
+   },
+   "history": [
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-06-03T07:11:46Z",
+     "evidence_id": "activity_2194",
+     "kind": "activity"
+    },
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-06-23T04:42:25Z",
+     "evidence_id": "evidence_79",
+     "kind": "manifest"
+    }
+   ]
+  },
+  {
+   "system": "support_platform",
+   "resource_id": "support_1254",
+   "category": "SUPPORT_MESSAGE",
+   "record_type": "SUPPORT_MESSAGE",
+   "state": "IDENTIFIABLE",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-06-23T05:12:38Z",
+   "evidence_id": "evidence_79",
+   "evidence_kind": "manifest",
+   "link_method": "identifier",
+   "identifiers": {
+    "requester_email": "kmori1937@gmail.com"
+   },
+   "history": [
+    {
+     "state": "REDACTED",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-06-03T06:52:17Z",
+     "evidence_id": "activity_2193",
+     "kind": "activity"
+    },
+    {
+     "state": "IDENTIFIABLE",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-06-23T05:12:38Z",
+     "evidence_id": "evidence_79",
+     "kind": "manifest"
+    }
+   ]
+  }
+ ],
+ "activity_claims": [
+  {
+   "activity_id": "activity_2184",
+   "event_time": "2026-06-03T05:05:25Z",
+   "event_type": "DELETE_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "account_service",
+   "resource_id": "account_2614",
+   "reported_result": "SUCCESS",
+   "details": "Deletion worker submitted primary profile account_2614 to account_service."
+  },
+  {
+   "activity_id": "activity_2193",
+   "event_time": "2026-06-03T06:52:17Z",
+   "event_type": "REDACT_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "support_platform",
+   "resource_id": "support_1254",
+   "reported_result": "FAILED",
+   "details": "Deletion worker received the final result for support_1254 from support_platform."
+  },
+  {
+   "activity_id": "activity_2194",
+   "event_time": "2026-06-03T07:11:46Z",
+   "event_type": "DELETE_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "search_service",
+   "resource_id": "search_2615",
+   "reported_result": "FAILED",
+   "details": "Deletion worker received the final result for search_2615 from search_service."
+  }
+ ],
+ "rules": [
+  {
+   "rule_id": "rule_01",
+   "data_category": "USER_PROFILE",
+   "condition": "Always",
+   "required_action": "DELETE"
+  },
+  {
+   "rule_id": "rule_03",
+   "data_category": "SEARCH_INDEX_ENTRY",
+   "condition": "Always",
+   "required_action": "DELETE"
+  },
+  {
+   "rule_id": "rule_05",
+   "data_category": "SUPPORT_MESSAGE",
+   "condition": "Conversation contains shared customer, agent, or order context that must be retained",
+   "required_action": "REDACT"
+  }
+ ],
+ "evidence_batch": {
+  "evidence_ids": [
+   "activity_2184",
+   "activity_2193",
+   "activity_2194",
+   "evidence_79"
+  ],
+  "co_subjects": [
+   "user_231",
+   "user_233",
+   "user_234",
+   "user_235",
+   "user_236",
+   "user_237",
+   "user_238",
+   "user_239",
+   "user_240"
+  ],
+  "unattributed_resources": {
+   "evidence_79": [
+    "analytics_1964",
+    "analytics_6723",
+    "analytics_8565"
+   ]
+  }
+ },
+ "excluded_after_audit": [
+  {
+   "evidence_id": "evidence_22",
+   "system": "privacy_treatment_service",
+   "resource_id": "account_2614",
+   "state": "ABSENT",
+   "captured_at": "2026-06-30T07:00:00Z",
+   "observed_at": "2026-06-23T06:00:00Z"
+  },
+  {
+   "evidence_id": "evidence_22",
+   "system": "privacy_treatment_service",
+   "resource_id": "audit_record_4438",
+   "state": "PRESENT",
+   "captured_at": "2026-06-30T07:00:00Z",
+   "observed_at": "2026-06-23T06:00:00Z"
+  },
+  {
+   "evidence_id": "evidence_22",
+   "system": "privacy_treatment_service",
+   "resource_id": "search_2615",
+   "state": "PRESENT",
+   "captured_at": "2026-06-30T07:00:00Z",
+   "observed_at": "2026-06-23T06:00:00Z"
+  },
+  {
+   "evidence_id": "evidence_22",
+   "system": "privacy_treatment_service",
+   "resource_id": "support_1254",
+   "state": "PRESENT",
+   "captured_at": "2026-06-30T07:00:00Z",
+   "observed_at": "2026-06-23T06:00:00Z"
+  }
+ ],
+ "draft": {
+  "deletion_status": "INCOMPLETE",
+  "steps_json": [
+   {
+    "step_no": 1,
+    "phase": "FINDING",
+    "system_id": "search_service",
+    "resource_id": "search_2615",
+    "operation": "REPORT_REMAINING_RECORD",
+    "state": "PRESENT",
+    "evidence_id": "evidence_79"
+   },
+   {
+    "step_no": 2,
+    "phase": "FINDING",
+    "system_id": "support_platform",
+    "resource_id": "support_1254",
+    "operation": "REPORT_EXPOSED_PII",
+    "state": "PRESENT",
+    "evidence_id": "evidence_79"
+   },
+   {
+    "step_no": 3,
+    "phase": "REMEDIATION",
+    "system_id": "search_service",
+    "resource_id": "search_2615",
+    "operation": "DELETE_RECORD",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 4,
+    "phase": "REMEDIATION",
+    "system_id": "support_platform",
+    "resource_id": "support_1254",
+    "operation": "REDACT_RECORD",
+    "state": "REDACTED",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 5,
+    "phase": "VERIFICATION",
+    "system_id": "account_service",
+    "resource_id": "account_2614",
+    "operation": "VERIFY_RECORD_ABSENT",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 6,
+    "phase": "VERIFICATION",
+    "system_id": "search_service",
+    "resource_id": "search_2615",
+    "operation": "VERIFY_RECORD_ABSENT",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 7,
+    "phase": "VERIFICATION",
+    "system_id": "support_platform",
+    "resource_id": "support_1254",
+    "operation": "VERIFY_RECORD_REDACTED",
+    "state": "REDACTED",
+    "evidence_id": ""
+   }
+  ]
+ }
+}

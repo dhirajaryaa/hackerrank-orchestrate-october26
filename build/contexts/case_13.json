@@ -1,0 +1,316 @@
+{
+ "case": {
+  "case_id": "case_13",
+  "audit_at": "2026-10-01T12:00:00Z",
+  "requested_at": "2026-09-08T12:00:00Z",
+  "reported_status": "NOT_STARTED",
+  "reported_at": "2026-09-09T12:00:00Z",
+  "email_supplied": "noor-khalil@proton.me",
+  "request_text": "Please close my account and process the associated personal-data deletion. Please check the records connected to the account before confirming completion. Please contact me if you need information to verify the request."
+ },
+ "intent": {
+  "is_deletion": true,
+  "label": "deletion",
+  "matched_terms": [
+   "close my account",
+   "delet"
+  ],
+  "matched_negations": [],
+  "non_deletion_action": ""
+ },
+ "identity": {
+  "user_id": "user_33",
+  "email_supplied": "noor-khalil@proton.me",
+  "email_kind": "current",
+  "matched_audit_ids": [],
+  "name": "Noor Khalil",
+  "current": {
+   "user_id": "user_33",
+   "name": "Noor Khalil",
+   "email": "noor-khalil@proton.me",
+   "phone": "+971 54 271 5338",
+   "email_hash": "d0a2e5544c329cf0a0fd3bffcb8551c9beaf04e1c65c44f7d87635dfffc9af89"
+  },
+  "historical": {}
+ },
+ "state_at_audit": [
+  {
+   "system": "account_service",
+   "resource_id": "account_9335",
+   "category": "USER_PROFILE",
+   "record_type": "USER_PROFILE",
+   "state": "ABSENT",
+   "raw_state": "ABSENT",
+   "observed_at": "2026-10-01T12:00:00Z",
+   "evidence_id": "evidence_03",
+   "evidence_kind": "manifest",
+   "link_method": "identifier",
+   "identifiers": {
+    "email": "noor-khalil@proton.me"
+   },
+   "history": [
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-09-09T10:53:28Z",
+     "evidence_id": "activity_3739",
+     "kind": "activity"
+    },
+    {
+     "state": "ABSENT",
+     "raw_state": "ABSENT",
+     "observed_at": "2026-10-01T12:00:00Z",
+     "evidence_id": "evidence_03",
+     "kind": "manifest"
+    }
+   ]
+  },
+  {
+   "system": "search_service",
+   "resource_id": "search_1308",
+   "category": "SEARCH_INDEX_ENTRY",
+   "record_type": "SEARCH_INDEX_ENTRY",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-10-01T12:00:00Z",
+   "evidence_id": "evidence_03",
+   "evidence_kind": "manifest",
+   "link_method": "identifier",
+   "identifiers": {
+    "email": "noor-khalil@proton.me"
+   },
+   "history": [
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-09-09T12:58:49Z",
+     "evidence_id": "activity_3756",
+     "kind": "activity"
+    },
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-10-01T12:00:00Z",
+     "evidence_id": "evidence_03",
+     "kind": "manifest"
+    }
+   ]
+  },
+  {
+   "system": "security_service",
+   "resource_id": "audit_record_4816",
+   "category": "SECURITY_AUDIT_LOG",
+   "record_type": "SECURITY_AUDIT_LOG",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-10-01T12:00:00Z",
+   "evidence_id": "evidence_03",
+   "evidence_kind": "manifest",
+   "link_method": "explicit_ref",
+   "identifiers": {
+    "subject_reference": "user_33"
+   },
+   "history": [
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-10-01T12:00:00Z",
+     "evidence_id": "evidence_03",
+     "kind": "manifest"
+    }
+   ]
+  },
+  {
+   "system": "support_platform",
+   "resource_id": "support_4218",
+   "category": "SUPPORT_ATTACHMENT",
+   "record_type": "SUPPORT_ATTACHMENT",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-10-01T12:00:00Z",
+   "evidence_id": "evidence_03",
+   "evidence_kind": "manifest",
+   "link_method": "identifier",
+   "identifiers": {
+    "email": "noor-khalil@proton.me"
+   },
+   "history": [
+    {
+     "state": "REDACTED",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-09-09T12:39:20Z",
+     "evidence_id": "activity_3752",
+     "kind": "activity"
+    },
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-10-01T12:00:00Z",
+     "evidence_id": "evidence_03",
+     "kind": "manifest"
+    }
+   ]
+  }
+ ],
+ "activity_claims": [
+  {
+   "activity_id": "activity_3739",
+   "event_time": "2026-09-09T10:53:28Z",
+   "event_type": "DELETE_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "account_service",
+   "resource_id": "account_9335",
+   "reported_result": "FAILED",
+   "details": "Deletion worker submitted primary profile account_9335 to account_service."
+  },
+  {
+   "activity_id": "activity_3752",
+   "event_time": "2026-09-09T12:39:20Z",
+   "event_type": "DELETE_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "support_platform",
+   "resource_id": "support_4218",
+   "reported_result": "FAILED",
+   "details": "Deletion worker received the final result for support_4218 from support_platform."
+  },
+  {
+   "activity_id": "activity_3756",
+   "event_time": "2026-09-09T12:58:49Z",
+   "event_type": "DELETE_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "search_service",
+   "resource_id": "search_1308",
+   "reported_result": "FAILED",
+   "details": "Deletion worker received the final result for search_1308 from search_service."
+  }
+ ],
+ "rules": [
+  {
+   "rule_id": "rule_01",
+   "data_category": "USER_PROFILE",
+   "condition": "Always",
+   "required_action": "DELETE"
+  },
+  {
+   "rule_id": "rule_03",
+   "data_category": "SEARCH_INDEX_ENTRY",
+   "condition": "Always",
+   "required_action": "DELETE"
+  },
+  {
+   "rule_id": "rule_06",
+   "data_category": "SUPPORT_ATTACHMENT",
+   "condition": "Attachment belongs only to the deletion subject",
+   "required_action": "DELETE"
+  },
+  {
+   "rule_id": "rule_12",
+   "data_category": "SECURITY_AUDIT_LOG",
+   "condition": "Record is within the supplied retention period",
+   "required_action": "RETAIN"
+  }
+ ],
+ "evidence_batch": {
+  "evidence_ids": [
+   "activity_3739",
+   "activity_3752",
+   "activity_3756",
+   "evidence_03"
+  ],
+  "co_subjects": [
+   "user_31",
+   "user_32",
+   "user_34",
+   "user_35",
+   "user_36",
+   "user_37",
+   "user_38",
+   "user_39",
+   "user_40"
+  ],
+  "unattributed_resources": {
+   "evidence_03": [
+    "analytics_6830",
+    "analytics_9447"
+   ]
+  }
+ },
+ "excluded_after_audit": [],
+ "draft": {
+  "deletion_status": "INCOMPLETE",
+  "steps_json": [
+   {
+    "step_no": 1,
+    "phase": "FINDING",
+    "system_id": "search_service",
+    "resource_id": "search_1308",
+    "operation": "REPORT_REMAINING_RECORD",
+    "state": "PRESENT",
+    "evidence_id": "evidence_03"
+   },
+   {
+    "step_no": 2,
+    "phase": "FINDING",
+    "system_id": "support_platform",
+    "resource_id": "support_4218",
+    "operation": "REPORT_REMAINING_RECORD",
+    "state": "PRESENT",
+    "evidence_id": "evidence_03"
+   },
+   {
+    "step_no": 3,
+    "phase": "REMEDIATION",
+    "system_id": "search_service",
+    "resource_id": "search_1308",
+    "operation": "DELETE_RECORD",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 4,
+    "phase": "REMEDIATION",
+    "system_id": "support_platform",
+    "resource_id": "support_4218",
+    "operation": "DELETE_RECORD",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 5,
+    "phase": "VERIFICATION",
+    "system_id": "account_service",
+    "resource_id": "account_9335",
+    "operation": "VERIFY_RECORD_ABSENT",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 6,
+    "phase": "VERIFICATION",
+    "system_id": "search_service",
+    "resource_id": "search_1308",
+    "operation": "VERIFY_RECORD_ABSENT",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 7,
+    "phase": "VERIFICATION",
+    "system_id": "support_platform",
+    "resource_id": "support_4218",
+    "operation": "VERIFY_RECORD_ABSENT",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 8,
+    "phase": "VERIFICATION",
+    "system_id": "security_service",
+    "resource_id": "audit_record_4816",
+    "operation": "VERIFY_RECORD_PRESENT",
+    "state": "PRESENT",
+    "evidence_id": ""
+   }
+  ]
+ }
+}

@@ -1,0 +1,287 @@
+{
+ "case": {
+  "case_id": "case_320",
+  "audit_at": "2026-05-14T12:00:00Z",
+  "requested_at": "2026-04-16T12:00:00Z",
+  "reported_status": "PARTIALLY_COMPLETE",
+  "reported_at": "2026-04-17T12:00:00Z",
+  "email_supplied": "andrei.horvat@outlook.com",
+  "request_text": "Please process a permanent account-deletion request for this email address. Please apply the correct treatment to records covered by the request. Let me know when the request has been completed."
+ },
+ "intent": {
+  "is_deletion": true,
+  "label": "deletion",
+  "matched_terms": [
+   "delet"
+  ],
+  "matched_negations": [],
+  "non_deletion_action": ""
+ },
+ "identity": {
+  "user_id": "user_318",
+  "email_supplied": "andrei.horvat@outlook.com",
+  "email_kind": "current",
+  "matched_audit_ids": [],
+  "name": "Andrei Horvat",
+  "current": {
+   "user_id": "user_318",
+   "name": "Andrei Horvat",
+   "email": "andrei.horvat@outlook.com",
+   "phone": "+48 624 523 024",
+   "email_hash": "ad897887382d3abfb8af78f4be86ac12a7d9fb046ddd150078a7eb221f8e46a1"
+  },
+  "historical": {}
+ },
+ "state_at_audit": [
+  {
+   "system": "account_service",
+   "resource_id": "account_9178",
+   "category": "USER_PROFILE",
+   "record_type": "USER_PROFILE",
+   "state": "UNCERTAIN",
+   "raw_state": "UNCERTAIN",
+   "observed_at": "2026-04-17T10:49:06Z",
+   "evidence_id": "activity_1477",
+   "evidence_kind": "activity",
+   "link_method": "resource_alias",
+   "identifiers": {},
+   "history": [
+    {
+     "state": "UNCERTAIN",
+     "raw_state": "UNCERTAIN",
+     "observed_at": "2026-04-17T10:49:06Z",
+     "evidence_id": "activity_1477",
+     "kind": "activity"
+    }
+   ]
+  },
+  {
+   "system": "integration_service",
+   "resource_id": "data_flow_8828",
+   "category": "DATA_FLOW",
+   "record_type": "DATA_FLOW",
+   "state": "ACTIVE",
+   "raw_state": "ACTIVE",
+   "observed_at": "2026-05-14T09:44:28Z",
+   "evidence_id": "evidence_74",
+   "evidence_kind": "manifest",
+   "link_method": "identifier",
+   "identifiers": {
+    "customer_email": "andrei.horvat@outlook.com"
+   },
+   "history": [
+    {
+     "state": "ACTIVE",
+     "raw_state": "ACTIVE",
+     "observed_at": "2026-04-17T12:56:57Z",
+     "evidence_id": "activity_1480",
+     "kind": "activity"
+    },
+    {
+     "state": "ACTIVE",
+     "raw_state": "ACTIVE",
+     "observed_at": "2026-05-14T09:44:28Z",
+     "evidence_id": "evidence_74",
+     "kind": "manifest"
+    }
+   ]
+  },
+  {
+   "system": "search_service",
+   "resource_id": "search_2256",
+   "category": "SEARCH_INDEX_ENTRY",
+   "record_type": "SEARCH_INDEX_ENTRY",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-05-14T09:58:02Z",
+   "evidence_id": "evidence_74",
+   "evidence_kind": "manifest",
+   "link_method": "identifier",
+   "identifiers": {
+    "email": "andrei.horvat@outlook.com"
+   },
+   "history": [
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-04-17T13:15:27Z",
+     "evidence_id": "activity_1482",
+     "kind": "activity"
+    },
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-05-14T09:58:02Z",
+     "evidence_id": "evidence_74",
+     "kind": "manifest"
+    }
+   ]
+  }
+ ],
+ "activity_claims": [
+  {
+   "activity_id": "activity_1477",
+   "event_time": "2026-04-17T10:49:06Z",
+   "event_type": "DELETE_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "account_service",
+   "resource_id": "account_9178",
+   "reported_result": "PARTIAL",
+   "details": "Deletion worker submitted primary profile account_9178 to account_service."
+  },
+  {
+   "activity_id": "activity_1480",
+   "event_time": "2026-04-17T12:56:57Z",
+   "event_type": "CHECK_DATA_FLOW",
+   "source_system": "deletion_worker",
+   "target_system": "integration_service",
+   "resource_id": "data_flow_8828",
+   "reported_result": "SUCCESS",
+   "details": "Connector status check confirmed that data flow data_flow_8828 remains enabled."
+  },
+  {
+   "activity_id": "activity_1482",
+   "event_time": "2026-04-17T13:15:27Z",
+   "event_type": "DELETE_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "search_service",
+   "resource_id": "search_2256",
+   "reported_result": "FAILED",
+   "details": "Deletion worker received the final result for search_2256 from search_service."
+  }
+ ],
+ "rules": [
+  {
+   "rule_id": "rule_01",
+   "data_category": "USER_PROFILE",
+   "condition": "Always",
+   "required_action": "DELETE"
+  },
+  {
+   "rule_id": "rule_03",
+   "data_category": "SEARCH_INDEX_ENTRY",
+   "condition": "Always",
+   "required_action": "DELETE"
+  }
+ ],
+ "evidence_batch": {
+  "evidence_ids": [
+   "activity_1477",
+   "activity_1480",
+   "activity_1482",
+   "evidence_74"
+  ],
+  "co_subjects": [
+   "user_311",
+   "user_312",
+   "user_313",
+   "user_314",
+   "user_315",
+   "user_316",
+   "user_317",
+   "user_319",
+   "user_320"
+  ],
+  "unattributed_resources": {
+   "evidence_74": [
+    "analytics_2601",
+    "analytics_4229",
+    "analytics_5532",
+    "analytics_6099"
+   ]
+  }
+ },
+ "excluded_after_audit": [
+  {
+   "evidence_id": "evidence_30",
+   "system": "account_service",
+   "resource_id": "account_9178",
+   "state": "ABSENT",
+   "captured_at": "2026-05-16T11:58:25Z",
+   "observed_at": "2026-05-14T11:52:56Z"
+  },
+  {
+   "evidence_id": "evidence_30",
+   "system": "search_service",
+   "resource_id": "search_2256",
+   "state": "PRESENT",
+   "captured_at": "2026-05-16T11:58:25Z",
+   "observed_at": "2026-05-14T11:53:37Z"
+  },
+  {
+   "evidence_id": "evidence_30",
+   "system": "integration_service",
+   "resource_id": "data_flow_8828",
+   "state": "ACTIVE",
+   "captured_at": "2026-05-16T11:58:25Z",
+   "observed_at": "2026-05-14T11:55:29Z"
+  },
+  {
+   "evidence_id": "evidence_30",
+   "system": "security_service",
+   "resource_id": "audit_record_1409",
+   "state": "PRESENT",
+   "captured_at": "2026-05-16T11:58:25Z",
+   "observed_at": "2026-05-14T11:57:43Z"
+  }
+ ],
+ "draft": {
+  "deletion_status": "INCOMPLETE",
+  "steps_json": [
+   {
+    "step_no": 1,
+    "phase": "FINDING",
+    "system_id": "search_service",
+    "resource_id": "search_2256",
+    "operation": "REPORT_REMAINING_RECORD",
+    "state": "PRESENT",
+    "evidence_id": "evidence_74"
+   },
+   {
+    "step_no": 2,
+    "phase": "FINDING",
+    "system_id": "integration_service",
+    "resource_id": "data_flow_8828",
+    "operation": "REPORT_ACTIVE_DATA_FLOW",
+    "state": "ACTIVE",
+    "evidence_id": "evidence_74"
+   },
+   {
+    "step_no": 3,
+    "phase": "REMEDIATION",
+    "system_id": "integration_service",
+    "resource_id": "data_flow_8828",
+    "operation": "DISABLE_DATA_FLOW",
+    "state": "DISABLED",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 4,
+    "phase": "REMEDIATION",
+    "system_id": "search_service",
+    "resource_id": "search_2256",
+    "operation": "DELETE_RECORD",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 5,
+    "phase": "VERIFICATION",
+    "system_id": "search_service",
+    "resource_id": "search_2256",
+    "operation": "VERIFY_RECORD_ABSENT",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 6,
+    "phase": "VERIFICATION",
+    "system_id": "integration_service",
+    "resource_id": "data_flow_8828",
+    "operation": "VERIFY_DATA_FLOW_DISABLED",
+    "state": "DISABLED",
+    "evidence_id": ""
+   }
+  ]
+ }
+}

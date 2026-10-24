@@ -1,0 +1,221 @@
+{
+ "case": {
+  "case_id": "case_300",
+  "audit_at": "2026-05-24T07:00:00Z",
+  "requested_at": "2026-04-26T07:00:00Z",
+  "reported_status": "COMPLETE",
+  "reported_at": "2026-04-28T07:00:00Z",
+  "email_supplied": "jpark4591@fastmail.com",
+  "request_text": "이 이메일 주소에 연결된 계정의 영구 삭제를 요청합니다. 개인정보 처리 절차에 따라 현재 및 이전 식별자를 검토해 주세요. 검토가 완료되면 결과를 확인해 주세요."
+ },
+ "intent": {
+  "is_deletion": true,
+  "label": "deletion",
+  "matched_terms": [
+   "삭제"
+  ],
+  "matched_negations": [],
+  "non_deletion_action": ""
+ },
+ "identity": {
+  "user_id": "user_298",
+  "email_supplied": "jpark4591@fastmail.com",
+  "email_kind": "current",
+  "matched_audit_ids": [],
+  "name": "Ji-hoon Park",
+  "current": {
+   "user_id": "user_298",
+   "name": "Ji-hoon Park",
+   "email": "jpark4591@fastmail.com",
+   "phone": "+82 10 5863 7465",
+   "email_hash": "fe59b5c94bd44b91074e005f5828893a5f19910f2855699af8a3a51d9c7aea15"
+  },
+  "historical": {}
+ },
+ "state_at_audit": [
+  {
+   "system": "export_service",
+   "resource_id": "export_6623",
+   "category": "USER_EXPORT",
+   "record_type": "USER_EXPORT",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-05-24T05:21:40Z",
+   "evidence_id": "evidence_75",
+   "evidence_kind": "manifest",
+   "link_method": "identifier",
+   "identifiers": {
+    "owner_email": "jpark4591@fastmail.com"
+   },
+   "history": [
+    {
+     "state": "UNCERTAIN",
+     "raw_state": "UNCERTAIN",
+     "observed_at": "2026-04-28T07:54:41Z",
+     "evidence_id": "activity_1629",
+     "kind": "activity"
+    },
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-05-24T05:21:40Z",
+     "evidence_id": "evidence_75",
+     "kind": "manifest"
+    }
+   ]
+  },
+  {
+   "system": "search_service",
+   "resource_id": "search_4299",
+   "category": "SEARCH_INDEX_ENTRY",
+   "record_type": "SEARCH_INDEX_ENTRY",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-05-24T03:53:35Z",
+   "evidence_id": "evidence_75",
+   "evidence_kind": "manifest",
+   "link_method": "identifier",
+   "identifiers": {
+    "email": "jpark4591@fastmail.com"
+   },
+   "history": [
+    {
+     "state": "UNCERTAIN",
+     "raw_state": "UNCERTAIN",
+     "observed_at": "2026-04-28T08:13:11Z",
+     "evidence_id": "activity_1631",
+     "kind": "activity"
+    },
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-05-24T03:53:35Z",
+     "evidence_id": "evidence_75",
+     "kind": "manifest"
+    }
+   ]
+  }
+ ],
+ "activity_claims": [
+  {
+   "activity_id": "activity_1629",
+   "event_time": "2026-04-28T07:54:41Z",
+   "event_type": "DELETE_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "export_service",
+   "resource_id": "export_6623",
+   "reported_result": "PARTIAL",
+   "details": "Deletion worker received the final result for export_6623 from export_service."
+  },
+  {
+   "activity_id": "activity_1631",
+   "event_time": "2026-04-28T08:13:11Z",
+   "event_type": "DELETE_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "search_service",
+   "resource_id": "search_4299",
+   "reported_result": "PARTIAL",
+   "details": "Deletion worker received the final result for search_4299 from search_service."
+  }
+ ],
+ "rules": [
+  {
+   "rule_id": "rule_03",
+   "data_category": "SEARCH_INDEX_ENTRY",
+   "condition": "Always",
+   "required_action": "DELETE"
+  },
+  {
+   "rule_id": "rule_09",
+   "data_category": "USER_EXPORT",
+   "condition": "Always",
+   "required_action": "DELETE"
+  }
+ ],
+ "evidence_batch": {
+  "evidence_ids": [
+   "activity_1629",
+   "activity_1631",
+   "evidence_75"
+  ],
+  "co_subjects": [
+   "user_291",
+   "user_292",
+   "user_293",
+   "user_294",
+   "user_295",
+   "user_296",
+   "user_297",
+   "user_299",
+   "user_300"
+  ],
+  "unattributed_resources": {
+   "evidence_75": [
+    "analytics_061",
+    "analytics_1733",
+    "analytics_7164",
+    "analytics_7575"
+   ]
+  }
+ },
+ "excluded_after_audit": [],
+ "draft": {
+  "deletion_status": "INCOMPLETE",
+  "steps_json": [
+   {
+    "step_no": 1,
+    "phase": "FINDING",
+    "system_id": "export_service",
+    "resource_id": "export_6623",
+    "operation": "REPORT_REMAINING_RECORD",
+    "state": "PRESENT",
+    "evidence_id": "evidence_75"
+   },
+   {
+    "step_no": 2,
+    "phase": "FINDING",
+    "system_id": "search_service",
+    "resource_id": "search_4299",
+    "operation": "REPORT_REMAINING_RECORD",
+    "state": "PRESENT",
+    "evidence_id": "evidence_75"
+   },
+   {
+    "step_no": 3,
+    "phase": "REMEDIATION",
+    "system_id": "export_service",
+    "resource_id": "export_6623",
+    "operation": "DELETE_RECORD",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 4,
+    "phase": "REMEDIATION",
+    "system_id": "search_service",
+    "resource_id": "search_4299",
+    "operation": "DELETE_RECORD",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 5,
+    "phase": "VERIFICATION",
+    "system_id": "export_service",
+    "resource_id": "export_6623",
+    "operation": "VERIFY_RECORD_ABSENT",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 6,
+    "phase": "VERIFICATION",
+    "system_id": "search_service",
+    "resource_id": "search_4299",
+    "operation": "VERIFY_RECORD_ABSENT",
+    "state": "ABSENT",
+    "evidence_id": ""
+   }
+  ]
+ }
+}

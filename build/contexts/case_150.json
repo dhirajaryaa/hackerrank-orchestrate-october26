@@ -1,0 +1,110 @@
+{
+ "case": {
+  "case_id": "case_150",
+  "audit_at": "2026-08-07T08:00:00Z",
+  "requested_at": "2026-07-20T08:00:00Z",
+  "reported_status": "NOT_STARTED",
+  "reported_at": "2026-07-22T08:00:00Z",
+  "email_supplied": "iandersson6741@gmail.com",
+  "request_text": "I would like the account associated with this address to be erased. Please include information linked through current or earlier account identifiers. Please send a confirmation after the process finishes."
+ },
+ "intent": {
+  "is_deletion": true,
+  "label": "deletion",
+  "matched_terms": [
+   "eras"
+  ],
+  "matched_negations": [],
+  "non_deletion_action": ""
+ },
+ "identity": {
+  "user_id": "user_148",
+  "email_supplied": "iandersson6741@gmail.com",
+  "email_kind": "current",
+  "matched_audit_ids": [],
+  "name": "Ingrid Andersson",
+  "current": {
+   "user_id": "user_148",
+   "name": "Ingrid Andersson",
+   "email": "iandersson6741@gmail.com",
+   "phone": "+46 70 758 20 31",
+   "email_hash": "7427fe54da7783080b45ff25b7c3129b9eb5dd1b8fe2ba0785180b4885126dea"
+  },
+  "historical": {}
+ },
+ "state_at_audit": [
+  {
+   "system": "security_service",
+   "resource_id": "audit_record_1584",
+   "category": "SECURITY_AUDIT_LOG",
+   "record_type": "SECURITY_AUDIT_LOG",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-08-07T07:19:45Z",
+   "evidence_id": "evidence_86",
+   "evidence_kind": "manifest",
+   "link_method": "explicit_ref",
+   "identifiers": {
+    "subject_reference": "user_148"
+   },
+   "history": [
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-08-07T07:19:45Z",
+     "evidence_id": "evidence_86",
+     "kind": "manifest"
+    }
+   ]
+  }
+ ],
+ "activity_claims": [],
+ "rules": [
+  {
+   "rule_id": "rule_12",
+   "data_category": "SECURITY_AUDIT_LOG",
+   "condition": "Record is within the supplied retention period",
+   "required_action": "RETAIN"
+  }
+ ],
+ "evidence_batch": {
+  "evidence_ids": [
+   "evidence_86"
+  ],
+  "co_subjects": [
+   "user_141",
+   "user_142",
+   "user_143",
+   "user_144",
+   "user_145",
+   "user_146",
+   "user_147",
+   "user_149",
+   "user_150"
+  ],
+  "unattributed_resources": {
+   "evidence_86": [
+    "account_3897",
+    "account_874",
+    "account_8854",
+    "analytics_1626",
+    "analytics_7254"
+   ]
+  }
+ },
+ "excluded_after_audit": [],
+ "draft": {
+  "deletion_status": "COMPLETE",
+  "steps_json": [
+   {
+    "step_no": 1,
+    "phase": "VERIFICATION",
+    "system_id": "security_service",
+    "resource_id": "audit_record_1584",
+    "operation": "VERIFY_RECORD_PRESENT",
+    "state": "PRESENT",
+    "evidence_id": "evidence_86"
+   }
+  ]
+ }
+}

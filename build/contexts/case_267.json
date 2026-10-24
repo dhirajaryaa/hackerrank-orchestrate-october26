@@ -1,0 +1,52 @@
+{
+ "case": {
+  "case_id": "case_267",
+  "audit_at": "2026-06-08T10:00:00Z",
+  "requested_at": "2026-05-24T10:00:00Z",
+  "reported_status": "COMPLETE",
+  "reported_at": "2026-05-26T10:00:00Z",
+  "email_supplied": "j.nystrom64@gmail.com",
+  "request_text": "I am asking you to remove my account and the personal information linked to it. Please review any identifiers connected to this account as part of the request. Let me know when the request has been completed."
+ },
+ "intent": {
+  "is_deletion": true,
+  "label": "deletion",
+  "matched_terms": [
+   "remov"
+  ],
+  "matched_negations": [],
+  "non_deletion_action": ""
+ },
+ "identity": {
+  "user_id": "user_265",
+  "email_supplied": "j.nystrom64@gmail.com",
+  "email_kind": "current",
+  "matched_audit_ids": [],
+  "name": "Jonas Nyström",
+  "current": {
+   "user_id": "user_265",
+   "name": "Jonas Nyström",
+   "email": "j.nystrom64@gmail.com",
+   "phone": "+46 70 864 85 96",
+   "email_hash": "10269c360846968776cb23a89d96e2b92b7557cfcbca50e6912b1ca57264b6e2"
+  },
+  "historical": {
+   "phone": [
+    "+46 70 146 34 42"
+   ]
+  }
+ },
+ "state_at_audit": [],
+ "activity_claims": [],
+ "rules": [],
+ "evidence_batch": {
+  "evidence_ids": [],
+  "co_subjects": [],
+  "unattributed_resources": {}
+ },
+ "excluded_after_audit": [],
+ "draft": {
+  "deletion_status": "COMPLETE",
+  "steps_json": []
+ }
+}

@@ -1,0 +1,128 @@
+{
+ "case": {
+  "case_id": "case_409",
+  "audit_at": "2026-03-30T10:00:00Z",
+  "requested_at": "2026-03-13T10:00:00Z",
+  "reported_status": "COMPLETE",
+  "reported_at": "2026-03-16T10:00:00Z",
+  "email_supplied": "leonie.d7762@zoho.com",
+  "request_text": "Please close my account and process the associated personal-data deletion. Please follow the applicable retention and deletion requirements for the account. I would appreciate confirmation of the final outcome."
+ },
+ "intent": {
+  "is_deletion": true,
+  "label": "deletion",
+  "matched_terms": [
+   "close my account",
+   "delet"
+  ],
+  "matched_negations": [],
+  "non_deletion_action": ""
+ },
+ "identity": {
+  "user_id": "user_407",
+  "email_supplied": "leonie.d7762@zoho.com",
+  "email_kind": "current",
+  "matched_audit_ids": [],
+  "name": "Léonie Dubois",
+  "current": {
+   "user_id": "user_407",
+   "name": "Léonie Dubois",
+   "email": "leonie.d7762@zoho.com",
+   "phone": "+33 6 76 77 59 85",
+   "email_hash": "4d0121f462a1e1f6e5fc299c5764e501d51865e1d125461acca46a4b625937cf"
+  },
+  "historical": {}
+ },
+ "state_at_audit": [
+  {
+   "system": "security_service",
+   "resource_id": "audit_record_2559",
+   "category": "SECURITY_AUDIT_LOG",
+   "record_type": "SECURITY_AUDIT_LOG",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-03-30T10:00:00Z",
+   "evidence_id": "evidence_38",
+   "evidence_kind": "manifest",
+   "link_method": "explicit_ref",
+   "identifiers": {
+    "subject_reference": "user_407"
+   },
+   "history": [
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-03-30T10:00:00Z",
+     "evidence_id": "evidence_38",
+     "kind": "manifest"
+    },
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-03-30T10:00:00Z",
+     "evidence_id": "evidence_38",
+     "kind": "manifest"
+    },
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-03-30T10:00:00Z",
+     "evidence_id": "evidence_38",
+     "kind": "manifest"
+    }
+   ]
+  }
+ ],
+ "activity_claims": [],
+ "rules": [
+  {
+   "rule_id": "rule_12",
+   "data_category": "SECURITY_AUDIT_LOG",
+   "condition": "Record is within the supplied retention period",
+   "required_action": "RETAIN"
+  }
+ ],
+ "evidence_batch": {
+  "evidence_ids": [
+   "evidence_38"
+  ],
+  "co_subjects": [
+   "user_401",
+   "user_402",
+   "user_403",
+   "user_404",
+   "user_405",
+   "user_406",
+   "user_408",
+   "user_409",
+   "user_410"
+  ],
+  "unattributed_resources": {
+   "evidence_38": [
+    "analytics_298",
+    "analytics_542",
+    "analytics_7090",
+    "analytics_8973",
+    "data_flow_8093",
+    "data_flow_8300",
+    "search_5582",
+    "support_3802"
+   ]
+  }
+ },
+ "excluded_after_audit": [],
+ "draft": {
+  "deletion_status": "COMPLETE",
+  "steps_json": [
+   {
+    "step_no": 1,
+    "phase": "VERIFICATION",
+    "system_id": "security_service",
+    "resource_id": "audit_record_2559",
+    "operation": "VERIFY_RECORD_PRESENT",
+    "state": "PRESENT",
+    "evidence_id": "evidence_38"
+   }
+  ]
+ }
+}

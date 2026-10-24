@@ -1,0 +1,138 @@
+{
+ "case": {
+  "case_id": "case_08",
+  "audit_at": "2026-09-14T16:10:00Z",
+  "requested_at": "2026-08-29T20:03:00Z",
+  "reported_status": "PARTIALLY_COMPLETE",
+  "reported_at": "2026-08-31T13:44:00Z",
+  "email_supplied": "gabriel.costa@proton.me",
+  "request_text": "I closed my account, but an old “download your data” link still works. Please delete that export file as well."
+ },
+ "intent": {
+  "is_deletion": true,
+  "label": "deletion",
+  "matched_terms": [
+   "closed my account",
+   "delet"
+  ],
+  "matched_negations": [],
+  "non_deletion_action": ""
+ },
+ "identity": {
+  "user_id": "user_08",
+  "email_supplied": "gabriel.costa@proton.me",
+  "email_kind": "current",
+  "matched_audit_ids": [],
+  "name": "Gabriel Costa",
+  "current": {
+   "user_id": "user_08",
+   "name": "Gabriel Costa",
+   "email": "gabriel.costa@proton.me",
+   "phone": "+55 11 97284-3165",
+   "email_hash": "1301193d061e1845f5b6a27dbe60e896845339b5315c3a61b57d7e7636f78617"
+  },
+  "historical": {}
+ },
+ "state_at_audit": [
+  {
+   "system": "export_service",
+   "resource_id": "export_001",
+   "category": "USER_EXPORT",
+   "record_type": "USER_EXPORT",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-09-14T15:40:00Z",
+   "evidence_id": "evidence_59",
+   "evidence_kind": "manifest",
+   "link_method": "identifier",
+   "identifiers": {
+    "owner_email": "gabriel.costa@proton.me"
+   },
+   "history": [
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-08-31T13:49:22Z",
+     "evidence_id": "activity_3555",
+     "kind": "activity"
+    },
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-09-14T15:40:00Z",
+     "evidence_id": "evidence_59",
+     "kind": "manifest"
+    }
+   ]
+  }
+ ],
+ "activity_claims": [
+  {
+   "activity_id": "activity_3555",
+   "event_time": "2026-08-31T13:49:22Z",
+   "event_type": "DELETE_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "export_service",
+   "resource_id": "export_001",
+   "reported_result": "FAILED",
+   "details": "Deletion worker stopped after the target system returned an error. Target resource: export_001."
+  }
+ ],
+ "rules": [
+  {
+   "rule_id": "rule_09",
+   "data_category": "USER_EXPORT",
+   "condition": "Always",
+   "required_action": "DELETE"
+  }
+ ],
+ "evidence_batch": {
+  "evidence_ids": [
+   "activity_3555",
+   "evidence_27",
+   "evidence_59"
+  ],
+  "co_subjects": [
+   "user_12",
+   "user_17",
+   "user_21",
+   "user_24",
+   "user_29",
+   "user_843"
+  ],
+  "unattributed_resources": {}
+ },
+ "excluded_after_audit": [],
+ "draft": {
+  "deletion_status": "INCOMPLETE",
+  "steps_json": [
+   {
+    "step_no": 1,
+    "phase": "FINDING",
+    "system_id": "export_service",
+    "resource_id": "export_001",
+    "operation": "REPORT_REMAINING_RECORD",
+    "state": "PRESENT",
+    "evidence_id": "evidence_59"
+   },
+   {
+    "step_no": 2,
+    "phase": "REMEDIATION",
+    "system_id": "export_service",
+    "resource_id": "export_001",
+    "operation": "DELETE_RECORD",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 3,
+    "phase": "VERIFICATION",
+    "system_id": "export_service",
+    "resource_id": "export_001",
+    "operation": "VERIFY_RECORD_ABSENT",
+    "state": "ABSENT",
+    "evidence_id": ""
+   }
+  ]
+ }
+}

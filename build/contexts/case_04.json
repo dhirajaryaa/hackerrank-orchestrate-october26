@@ -1,0 +1,49 @@
+{
+ "case": {
+  "case_id": "case_04",
+  "audit_at": "2026-09-07T10:20:00Z",
+  "requested_at": "2026-08-25T12:32:00Z",
+  "reported_status": "COMPLETE",
+  "reported_at": "2026-08-27T08:54:00Z",
+  "email_supplied": "thandiwe.n@gmail.com",
+  "request_text": "I’m deleting my account. You can keep anonymous statistics, but nothing in analytics should still point back to me."
+ },
+ "intent": {
+  "is_deletion": true,
+  "label": "deletion",
+  "matched_terms": [
+   "delet",
+   "nothing in analytics should still point back to me"
+  ],
+  "matched_negations": [],
+  "non_deletion_action": ""
+ },
+ "identity": {
+  "user_id": "user_04",
+  "email_supplied": "thandiwe.n@gmail.com",
+  "email_kind": "current",
+  "matched_audit_ids": [],
+  "name": "Thandiwe Ndlovu",
+  "current": {
+   "user_id": "user_04",
+   "name": "Thandiwe Ndlovu",
+   "email": "thandiwe.n@gmail.com",
+   "phone": "+27 71 684 5928",
+   "email_hash": "f730ef60615bde7a8f5ee21138637b4e9d4094855fbb02da6afcdba9c076281f"
+  },
+  "historical": {}
+ },
+ "state_at_audit": [],
+ "activity_claims": [],
+ "rules": [],
+ "evidence_batch": {
+  "evidence_ids": [],
+  "co_subjects": [],
+  "unattributed_resources": {}
+ },
+ "excluded_after_audit": [],
+ "draft": {
+  "deletion_status": "COMPLETE",
+  "steps_json": []
+ }
+}

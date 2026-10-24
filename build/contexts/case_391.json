@@ -1,0 +1,136 @@
+{
+ "case": {
+  "case_id": "case_391",
+  "audit_at": "2026-04-09T12:00:00Z",
+  "requested_at": "2026-03-21T12:00:00Z",
+  "reported_status": "COMPLETE",
+  "reported_at": "2026-03-24T12:00:00Z",
+  "email_supplied": "yuna.y5220@outlook.com",
+  "request_text": "I want to close this account and have its associated personal data deleted. Please include records associated with the account under your privacy process. Please confirm when the review is complete."
+ },
+ "intent": {
+  "is_deletion": true,
+  "label": "deletion",
+  "matched_terms": [
+   "close this account",
+   "delet"
+  ],
+  "matched_negations": [],
+  "non_deletion_action": ""
+ },
+ "identity": {
+  "user_id": "user_389",
+  "email_supplied": "yuna.y5220@outlook.com",
+  "email_kind": "current",
+  "matched_audit_ids": [],
+  "name": "Yu-na Yoon",
+  "current": {
+   "user_id": "user_389",
+   "name": "Yu-na Yoon",
+   "email": "yuna.y5220@outlook.com",
+   "phone": "+82 10 2073 8575",
+   "email_hash": "99b9b109e7bd69ef138339e429516324ce89a5f76c517e40f9c044dc32a9801d"
+  },
+  "historical": {}
+ },
+ "state_at_audit": [
+  {
+   "system": "security_service",
+   "resource_id": "audit_record_5007",
+   "category": "SECURITY_AUDIT_LOG",
+   "record_type": "SECURITY_AUDIT_LOG",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-04-09T12:00:00Z",
+   "evidence_id": "evidence_36",
+   "evidence_kind": "manifest",
+   "link_method": "explicit_ref",
+   "identifiers": {
+    "subject_reference": "user_389"
+   },
+   "history": [
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-04-09T12:00:00Z",
+     "evidence_id": "evidence_36",
+     "kind": "manifest"
+    }
+   ]
+  }
+ ],
+ "activity_claims": [],
+ "rules": [
+  {
+   "rule_id": "rule_12",
+   "data_category": "SECURITY_AUDIT_LOG",
+   "condition": "Record is within the supplied retention period",
+   "required_action": "RETAIN"
+  }
+ ],
+ "evidence_batch": {
+  "evidence_ids": [
+   "evidence_36"
+  ],
+  "co_subjects": [
+   "user_381",
+   "user_382",
+   "user_383",
+   "user_384",
+   "user_385",
+   "user_386",
+   "user_387",
+   "user_388",
+   "user_390"
+  ],
+  "unattributed_resources": {
+   "evidence_36": [
+    "account_7618",
+    "search_9606",
+    "account_1718",
+    "account_3206",
+    "account_3978",
+    "account_4441",
+    "account_4446",
+    "account_4844",
+    "account_5043",
+    "account_807",
+    "account_8186",
+    "analytics_2784",
+    "analytics_4328",
+    "analytics_4420",
+    "analytics_448",
+    "analytics_5354",
+    "analytics_9702",
+    "backup_1668",
+    "export_9989",
+    "data_flow_3250",
+    "data_flow_3913",
+    "data_flow_7623",
+    "search_182",
+    "search_2794",
+    "search_3355",
+    "search_3630",
+    "search_7562",
+    "search_9470",
+    "support_1693",
+    "support_8378"
+   ]
+  }
+ },
+ "excluded_after_audit": [],
+ "draft": {
+  "deletion_status": "COMPLETE",
+  "steps_json": [
+   {
+    "step_no": 1,
+    "phase": "VERIFICATION",
+    "system_id": "security_service",
+    "resource_id": "audit_record_5007",
+    "operation": "VERIFY_RECORD_PRESENT",
+    "state": "PRESENT",
+    "evidence_id": "evidence_36"
+   }
+  ]
+ }
+}

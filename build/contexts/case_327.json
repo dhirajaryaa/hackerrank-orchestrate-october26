@@ -1,0 +1,186 @@
+{
+ "case": {
+  "case_id": "case_327",
+  "audit_at": "2026-05-09T11:00:00Z",
+  "requested_at": "2026-04-24T11:00:00Z",
+  "reported_status": "COMPLETE",
+  "reported_at": "2026-04-26T11:00:00Z",
+  "email_supplied": "R.COSTA04@GMAIL.COM",
+  "request_text": "Solicito a exclusão permanente da conta associada a este e-mail. Verifiquem os identificadores atuais e anteriores conforme o processo de privacidade. Por favor, confirmem o resultado quando a análise terminar."
+ },
+ "intent": {
+  "is_deletion": true,
+  "label": "deletion",
+  "matched_terms": [
+   "exclusão"
+  ],
+  "matched_negations": [],
+  "non_deletion_action": ""
+ },
+ "identity": {
+  "user_id": "user_325",
+  "email_supplied": "R.COSTA04@GMAIL.COM",
+  "email_kind": "current",
+  "matched_audit_ids": [],
+  "name": "Rafael Costa",
+  "current": {
+   "user_id": "user_325",
+   "name": "Rafael Costa",
+   "email": "r.costa04@gmail.com",
+   "phone": "+55 11 92379-9963",
+   "email_hash": "4321135dc0c475290a48f118b9d4e9d38d925f75cdc10b5cbcf6a84f499b8fe3"
+  },
+  "historical": {
+   "phone": [
+    "+55 51 90336-6532"
+   ]
+  }
+ },
+ "state_at_audit": [
+  {
+   "system": "account_service",
+   "resource_id": "account_4606",
+   "category": "USER_PROFILE",
+   "record_type": "USER_PROFILE",
+   "state": "ABSENT",
+   "raw_state": "ABSENT",
+   "observed_at": "2026-05-09T10:29:49Z",
+   "evidence_id": "evidence_73",
+   "evidence_kind": "manifest",
+   "link_method": "link_key",
+   "identifiers": {},
+   "history": [
+    {
+     "state": "ABSENT",
+     "raw_state": "ABSENT",
+     "observed_at": "2026-04-26T10:05:55Z",
+     "evidence_id": "activity_1595",
+     "kind": "activity"
+    },
+    {
+     "state": "ABSENT",
+     "raw_state": "ABSENT",
+     "observed_at": "2026-05-09T10:29:49Z",
+     "evidence_id": "evidence_73",
+     "kind": "manifest"
+    }
+   ]
+  },
+  {
+   "system": "security_service",
+   "resource_id": "audit_record_461",
+   "category": "SECURITY_AUDIT_LOG",
+   "record_type": "SECURITY_AUDIT_LOG",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-05-09T08:14:05Z",
+   "evidence_id": "evidence_73",
+   "evidence_kind": "manifest",
+   "link_method": "explicit_ref",
+   "identifiers": {
+    "subject_reference": "user_325"
+   },
+   "history": [
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-05-09T08:14:05Z",
+     "evidence_id": "evidence_73",
+     "kind": "manifest"
+    }
+   ]
+  }
+ ],
+ "activity_claims": [
+  {
+   "activity_id": "activity_1595",
+   "event_time": "2026-04-26T10:05:55Z",
+   "event_type": "DELETE_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "account_service",
+   "resource_id": "account_4606",
+   "reported_result": "SUCCESS",
+   "details": "Deletion worker submitted primary profile account_4606 to account_service."
+  }
+ ],
+ "rules": [
+  {
+   "rule_id": "rule_01",
+   "data_category": "USER_PROFILE",
+   "condition": "Always",
+   "required_action": "DELETE"
+  },
+  {
+   "rule_id": "rule_12",
+   "data_category": "SECURITY_AUDIT_LOG",
+   "condition": "Record is within the supplied retention period",
+   "required_action": "RETAIN"
+  }
+ ],
+ "evidence_batch": {
+  "evidence_ids": [
+   "activity_1595",
+   "evidence_73"
+  ],
+  "co_subjects": [
+   "user_321",
+   "user_322",
+   "user_323",
+   "user_324",
+   "user_326",
+   "user_327",
+   "user_328",
+   "user_329",
+   "user_330"
+  ],
+  "unattributed_resources": {
+   "evidence_73": [
+    "analytics_136",
+    "analytics_2022",
+    "analytics_9681",
+    "analytics_2072"
+   ]
+  }
+ },
+ "excluded_after_audit": [
+  {
+   "evidence_id": "evidence_31",
+   "system": "security_service",
+   "resource_id": "audit_record_461",
+   "state": "PRESENT",
+   "captured_at": "2026-05-11T11:00:00Z",
+   "observed_at": "2026-05-09T11:00:00Z"
+  },
+  {
+   "evidence_id": "evidence_31",
+   "system": "account_service",
+   "resource_id": "account_4606",
+   "state": "PRESENT",
+   "captured_at": "2026-05-11T11:00:00Z",
+   "observed_at": "2026-05-11T11:00:00Z"
+  }
+ ],
+ "draft": {
+  "deletion_status": "COMPLETE",
+  "steps_json": [
+   {
+    "step_no": 1,
+    "phase": "VERIFICATION",
+    "system_id": "account_service",
+    "resource_id": "account_4606",
+    "operation": "VERIFY_RECORD_ABSENT",
+    "state": "ABSENT",
+    "evidence_id": "evidence_73"
+   },
+   {
+    "step_no": 2,
+    "phase": "VERIFICATION",
+    "system_id": "security_service",
+    "resource_id": "audit_record_461",
+    "operation": "VERIFY_RECORD_PRESENT",
+    "state": "PRESENT",
+    "evidence_id": "evidence_73"
+   }
+  ]
+ }
+}

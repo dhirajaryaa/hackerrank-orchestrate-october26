@@ -1,0 +1,244 @@
+{
+ "case": {
+  "case_id": "case_174",
+  "audit_at": "2026-07-23T12:00:00Z",
+  "requested_at": "2026-07-01T12:00:00Z",
+  "reported_status": "NOT_STARTED",
+  "reported_at": "2026-07-03T12:00:00Z",
+  "email_supplied": "chughes6797@gmail.com",
+  "request_text": "I no longer use this account and would like it permanently deleted. Please include records associated with the account under your privacy process. Please confirm the result after completing the required checks."
+ },
+ "intent": {
+  "is_deletion": true,
+  "label": "deletion",
+  "matched_terms": [
+   "delet"
+  ],
+  "matched_negations": [],
+  "non_deletion_action": ""
+ },
+ "identity": {
+  "user_id": "user_172",
+  "email_supplied": "chughes6797@gmail.com",
+  "email_kind": "current",
+  "matched_audit_ids": [],
+  "name": "Charlotte Hughes",
+  "current": {
+   "user_id": "user_172",
+   "name": "Charlotte Hughes",
+   "email": "chughes6797@gmail.com",
+   "phone": "+44 7700 900172",
+   "email_hash": "39cb4e8e76e99eedcfc4ff7e2ed90f89ae4b862277547b6f9b16d0dd9f13aa11"
+  },
+  "historical": {}
+ },
+ "state_at_audit": [
+  {
+   "system": "search_service",
+   "resource_id": "search_2138",
+   "category": "SEARCH_INDEX_ENTRY",
+   "record_type": "SEARCH_INDEX_ENTRY",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-07-23T08:52:26Z",
+   "evidence_id": "evidence_84",
+   "evidence_kind": "manifest",
+   "link_method": "identifier",
+   "identifiers": {
+    "email": "chughes6797@gmail.com"
+   },
+   "history": [
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-07-03T13:05:34Z",
+     "evidence_id": "activity_2657",
+     "kind": "activity"
+    },
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-07-23T08:52:26Z",
+     "evidence_id": "evidence_84",
+     "kind": "manifest"
+    }
+   ]
+  },
+  {
+   "system": "support_platform",
+   "resource_id": "support_1887",
+   "category": "SUPPORT_MESSAGE",
+   "record_type": "SUPPORT_MESSAGE",
+   "state": "IDENTIFIABLE",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-07-23T11:15:26Z",
+   "evidence_id": "evidence_84",
+   "evidence_kind": "manifest",
+   "link_method": "identifier",
+   "identifiers": {
+    "requester_email": "chughes6797@gmail.com"
+   },
+   "history": [
+    {
+     "state": "REDACTED",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-07-03T12:46:05Z",
+     "evidence_id": "activity_2654",
+     "kind": "activity"
+    },
+    {
+     "state": "IDENTIFIABLE",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-07-23T11:15:26Z",
+     "evidence_id": "evidence_84",
+     "kind": "manifest"
+    }
+   ]
+  }
+ ],
+ "activity_claims": [
+  {
+   "activity_id": "activity_2654",
+   "event_time": "2026-07-03T12:46:05Z",
+   "event_type": "REDACT_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "support_platform",
+   "resource_id": "support_1887",
+   "reported_result": "FAILED",
+   "details": "Deletion worker received the final result for support_1887 from support_platform."
+  },
+  {
+   "activity_id": "activity_2657",
+   "event_time": "2026-07-03T13:05:34Z",
+   "event_type": "DELETE_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "search_service",
+   "resource_id": "search_2138",
+   "reported_result": "FAILED",
+   "details": "Deletion worker received the final result for search_2138 from search_service."
+  }
+ ],
+ "rules": [
+  {
+   "rule_id": "rule_03",
+   "data_category": "SEARCH_INDEX_ENTRY",
+   "condition": "Always",
+   "required_action": "DELETE"
+  },
+  {
+   "rule_id": "rule_05",
+   "data_category": "SUPPORT_MESSAGE",
+   "condition": "Conversation contains shared customer, agent, or order context that must be retained",
+   "required_action": "REDACT"
+  }
+ ],
+ "evidence_batch": {
+  "evidence_ids": [
+   "activity_2654",
+   "activity_2657",
+   "evidence_84"
+  ],
+  "co_subjects": [
+   "user_171",
+   "user_173",
+   "user_174",
+   "user_175",
+   "user_176",
+   "user_177",
+   "user_178",
+   "user_179",
+   "user_180"
+  ],
+  "unattributed_resources": {
+   "evidence_84": [
+    "analytics_2414",
+    "analytics_9505"
+   ]
+  }
+ },
+ "excluded_after_audit": [
+  {
+   "evidence_id": "evidence_17",
+   "system": "search_service",
+   "resource_id": "search_2138",
+   "state": "PRESENT",
+   "captured_at": "2026-07-25T15:00:00Z",
+   "observed_at": "2026-07-23T12:00:00Z"
+  },
+  {
+   "evidence_id": "evidence_17",
+   "system": "security_service",
+   "resource_id": "audit_record_7011",
+   "state": "PRESENT",
+   "captured_at": "2026-07-25T15:00:00Z",
+   "observed_at": "2026-07-23T12:00:00Z"
+  },
+  {
+   "evidence_id": "evidence_17",
+   "system": "support_platform",
+   "resource_id": "support_1887",
+   "state": "PRESENT",
+   "captured_at": "2026-07-25T15:00:00Z",
+   "observed_at": "2026-07-23T12:00:00Z"
+  }
+ ],
+ "draft": {
+  "deletion_status": "INCOMPLETE",
+  "steps_json": [
+   {
+    "step_no": 1,
+    "phase": "FINDING",
+    "system_id": "search_service",
+    "resource_id": "search_2138",
+    "operation": "REPORT_REMAINING_RECORD",
+    "state": "PRESENT",
+    "evidence_id": "evidence_84"
+   },
+   {
+    "step_no": 2,
+    "phase": "FINDING",
+    "system_id": "support_platform",
+    "resource_id": "support_1887",
+    "operation": "REPORT_EXPOSED_PII",
+    "state": "PRESENT",
+    "evidence_id": "evidence_84"
+   },
+   {
+    "step_no": 3,
+    "phase": "REMEDIATION",
+    "system_id": "search_service",
+    "resource_id": "search_2138",
+    "operation": "DELETE_RECORD",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 4,
+    "phase": "REMEDIATION",
+    "system_id": "support_platform",
+    "resource_id": "support_1887",
+    "operation": "REDACT_RECORD",
+    "state": "REDACTED",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 5,
+    "phase": "VERIFICATION",
+    "system_id": "search_service",
+    "resource_id": "search_2138",
+    "operation": "VERIFY_RECORD_ABSENT",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 6,
+    "phase": "VERIFICATION",
+    "system_id": "support_platform",
+    "resource_id": "support_1887",
+    "operation": "VERIFY_RECORD_REDACTED",
+    "state": "REDACTED",
+    "evidence_id": ""
+   }
+  ]
+ }
+}

@@ -1,0 +1,255 @@
+{
+ "case": {
+  "case_id": "case_330",
+  "audit_at": "2026-05-09T11:00:00Z",
+  "requested_at": "2026-04-21T11:00:00Z",
+  "reported_status": "COMPLETE",
+  "reported_at": "2026-04-23T11:00:00Z",
+  "email_supplied": "gcarter216198@gmail.com",
+  "request_text": "I am requesting deletion of the account registered to this email address. Please ensure the request is applied to the relevant account records. Let me know when the request has been completed."
+ },
+ "intent": {
+  "is_deletion": true,
+  "label": "deletion",
+  "matched_terms": [
+   "delet"
+  ],
+  "matched_negations": [],
+  "non_deletion_action": ""
+ },
+ "identity": {
+  "user_id": "user_328",
+  "email_supplied": "gcarter216198@gmail.com",
+  "email_kind": "historical",
+  "matched_audit_ids": [
+   "audit_152"
+  ],
+  "name": "Grace Carter",
+  "current": {
+   "user_id": "user_328",
+   "name": "Grace Carter",
+   "email": "gcarter2161@gmail.com",
+   "phone": "+44 7700 900328",
+   "email_hash": "13df863c266d05584af7a03be05bf3eeafb7fd5092398d8ed185355097a78f18"
+  },
+  "historical": {
+   "email": [
+    "gcarter216198@gmail.com"
+   ],
+   "email_hash": [
+    "2349802dbfed14b660397534a31b9df49e64f9d1ab8247d24b90b4a78a25b415"
+   ]
+  }
+ },
+ "state_at_audit": [
+  {
+   "system": "search_service",
+   "resource_id": "search_4560",
+   "category": "SEARCH_INDEX_ENTRY",
+   "record_type": "SEARCH_INDEX_ENTRY",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-05-09T10:16:21Z",
+   "evidence_id": "evidence_73",
+   "evidence_kind": "manifest",
+   "link_method": "identifier",
+   "identifiers": {
+    "email": "gcarter216198@gmail.com"
+   },
+   "history": [
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-04-23T12:16:05Z",
+     "evidence_id": "activity_1569",
+     "kind": "activity"
+    },
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-05-09T10:16:21Z",
+     "evidence_id": "evidence_73",
+     "kind": "manifest"
+    }
+   ]
+  },
+  {
+   "system": "support_platform",
+   "resource_id": "support_4851",
+   "category": "SUPPORT_MESSAGE",
+   "record_type": "SUPPORT_MESSAGE",
+   "state": "IDENTIFIABLE",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-05-09T10:05:21Z",
+   "evidence_id": "evidence_73",
+   "evidence_kind": "manifest",
+   "link_method": "identifier",
+   "identifiers": {
+    "requester_email": "gcarter216198@gmail.com"
+   },
+   "history": [
+    {
+     "state": "REDACTED",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-04-23T11:57:35Z",
+     "evidence_id": "activity_1567",
+     "kind": "activity"
+    },
+    {
+     "state": "IDENTIFIABLE",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-05-09T10:05:21Z",
+     "evidence_id": "evidence_73",
+     "kind": "manifest"
+    }
+   ]
+  }
+ ],
+ "activity_claims": [
+  {
+   "activity_id": "activity_1567",
+   "event_time": "2026-04-23T11:57:35Z",
+   "event_type": "REDACT_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "support_platform",
+   "resource_id": "support_4851",
+   "reported_result": "FAILED",
+   "details": "Deletion worker received the final result for support_4851 from support_platform."
+  },
+  {
+   "activity_id": "activity_1569",
+   "event_time": "2026-04-23T12:16:05Z",
+   "event_type": "DELETE_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "search_service",
+   "resource_id": "search_4560",
+   "reported_result": "FAILED",
+   "details": "Deletion worker received the final result for search_4560 from search_service."
+  }
+ ],
+ "rules": [
+  {
+   "rule_id": "rule_03",
+   "data_category": "SEARCH_INDEX_ENTRY",
+   "condition": "Always",
+   "required_action": "DELETE"
+  },
+  {
+   "rule_id": "rule_05",
+   "data_category": "SUPPORT_MESSAGE",
+   "condition": "Conversation contains shared customer, agent, or order context that must be retained",
+   "required_action": "REDACT"
+  }
+ ],
+ "evidence_batch": {
+  "evidence_ids": [
+   "activity_1567",
+   "activity_1569",
+   "evidence_73"
+  ],
+  "co_subjects": [
+   "user_321",
+   "user_322",
+   "user_323",
+   "user_324",
+   "user_325",
+   "user_326",
+   "user_327",
+   "user_329",
+   "user_330"
+  ],
+  "unattributed_resources": {
+   "evidence_73": [
+    "analytics_136",
+    "analytics_2022",
+    "analytics_9681",
+    "analytics_2072"
+   ]
+  }
+ },
+ "excluded_after_audit": [
+  {
+   "evidence_id": "evidence_31",
+   "system": "search_service",
+   "resource_id": "search_4560",
+   "state": "PRESENT",
+   "captured_at": "2026-05-11T11:00:00Z",
+   "observed_at": "2026-05-09T11:00:00Z"
+  },
+  {
+   "evidence_id": "evidence_31",
+   "system": "security_service",
+   "resource_id": "audit_record_6629",
+   "state": "PRESENT",
+   "captured_at": "2026-05-11T11:00:00Z",
+   "observed_at": "2026-05-09T11:00:00Z"
+  },
+  {
+   "evidence_id": "evidence_31",
+   "system": "support_platform",
+   "resource_id": "support_4851",
+   "state": "PRESENT",
+   "captured_at": "2026-05-11T11:00:00Z",
+   "observed_at": "2026-05-09T11:00:00Z"
+  }
+ ],
+ "draft": {
+  "deletion_status": "INCOMPLETE",
+  "steps_json": [
+   {
+    "step_no": 1,
+    "phase": "FINDING",
+    "system_id": "search_service",
+    "resource_id": "search_4560",
+    "operation": "REPORT_REMAINING_RECORD",
+    "state": "PRESENT",
+    "evidence_id": "evidence_73"
+   },
+   {
+    "step_no": 2,
+    "phase": "FINDING",
+    "system_id": "support_platform",
+    "resource_id": "support_4851",
+    "operation": "REPORT_EXPOSED_PII",
+    "state": "PRESENT",
+    "evidence_id": "evidence_73"
+   },
+   {
+    "step_no": 3,
+    "phase": "REMEDIATION",
+    "system_id": "search_service",
+    "resource_id": "search_4560",
+    "operation": "DELETE_RECORD",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 4,
+    "phase": "REMEDIATION",
+    "system_id": "support_platform",
+    "resource_id": "support_4851",
+    "operation": "REDACT_RECORD",
+    "state": "REDACTED",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 5,
+    "phase": "VERIFICATION",
+    "system_id": "search_service",
+    "resource_id": "search_4560",
+    "operation": "VERIFY_RECORD_ABSENT",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 6,
+    "phase": "VERIFICATION",
+    "system_id": "support_platform",
+    "resource_id": "support_4851",
+    "operation": "VERIFY_RECORD_REDACTED",
+    "state": "REDACTED",
+    "evidence_id": ""
+   }
+  ]
+ }
+}

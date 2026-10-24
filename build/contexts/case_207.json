@@ -1,0 +1,124 @@
+{
+ "case": {
+  "case_id": "case_207",
+  "audit_at": "2026-07-08T09:00:00Z",
+  "requested_at": "2026-06-23T09:00:00Z",
+  "reported_status": "PARTIALLY_COMPLETE",
+  "reported_at": "2026-06-25T09:00:00Z",
+  "email_supplied": "k.mthembu24@gmail.com",
+  "request_text": "I would like the account associated with this address to be erased. Please include information linked through current or earlier account identifiers. Please contact me if you need information to verify the request."
+ },
+ "intent": {
+  "is_deletion": true,
+  "label": "deletion",
+  "matched_terms": [
+   "eras"
+  ],
+  "matched_negations": [],
+  "non_deletion_action": ""
+ },
+ "identity": {
+  "user_id": "user_205",
+  "email_supplied": "k.mthembu24@gmail.com",
+  "email_kind": "current",
+  "matched_audit_ids": [],
+  "name": "Kabelo Mthembu",
+  "current": {
+   "user_id": "user_205",
+   "name": "Kabelo Mthembu",
+   "email": "k.mthembu24@gmail.com",
+   "phone": "+27 72 614 5136",
+   "email_hash": "b992186fb60aa0a0d51f7cb2c68c3622bac6a3ad62438b168c5564e133d882e9"
+  },
+  "historical": {
+   "phone": [
+    "+27 72 210 4279"
+   ]
+  }
+ },
+ "state_at_audit": [
+  {
+   "system": "security_service",
+   "resource_id": "audit_record_3578",
+   "category": "SECURITY_AUDIT_LOG",
+   "record_type": "SECURITY_AUDIT_LOG",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-07-08T09:00:00Z",
+   "evidence_id": "evidence_20",
+   "evidence_kind": "manifest",
+   "link_method": "explicit_ref",
+   "identifiers": {
+    "subject_reference": "user_205"
+   },
+   "history": [
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-07-08T09:00:00Z",
+     "evidence_id": "evidence_20",
+     "kind": "manifest"
+    },
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-07-08T09:00:00Z",
+     "evidence_id": "evidence_20",
+     "kind": "manifest"
+    }
+   ]
+  }
+ ],
+ "activity_claims": [],
+ "rules": [
+  {
+   "rule_id": "rule_12",
+   "data_category": "SECURITY_AUDIT_LOG",
+   "condition": "Record is within the supplied retention period",
+   "required_action": "RETAIN"
+  }
+ ],
+ "evidence_batch": {
+  "evidence_ids": [
+   "evidence_20"
+  ],
+  "co_subjects": [
+   "user_201",
+   "user_202",
+   "user_203",
+   "user_204",
+   "user_206",
+   "user_207",
+   "user_208",
+   "user_209",
+   "user_210"
+  ],
+  "unattributed_resources": {
+   "evidence_20": [
+    "analytics_2463",
+    "analytics_9580",
+    "backup_6407",
+    "data_flow_3530",
+    "data_flow_5196",
+    "data_flow_5877",
+    "data_flow_8676",
+    "support_8903"
+   ]
+  }
+ },
+ "excluded_after_audit": [],
+ "draft": {
+  "deletion_status": "COMPLETE",
+  "steps_json": [
+   {
+    "step_no": 1,
+    "phase": "VERIFICATION",
+    "system_id": "security_service",
+    "resource_id": "audit_record_3578",
+    "operation": "VERIFY_RECORD_PRESENT",
+    "state": "PRESENT",
+    "evidence_id": "evidence_20"
+   }
+  ]
+ }
+}

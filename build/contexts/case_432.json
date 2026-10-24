@@ -1,0 +1,307 @@
+{
+ "case": {
+  "case_id": "case_432",
+  "audit_at": "2026-03-20T08:00:00Z",
+  "requested_at": "2026-02-28T08:00:00Z",
+  "reported_status": "PARTIALLY_COMPLETE",
+  "reported_at": "2026-03-02T08:00:00Z",
+  "email_supplied": "anair9899@fastmail.com",
+  "request_text": "Please begin the deletion process for the account using this email address. Please review any identifiers connected to this account as part of the request. Please send a confirmation after the process finishes."
+ },
+ "intent": {
+  "is_deletion": true,
+  "label": "deletion",
+  "matched_terms": [
+   "delet"
+  ],
+  "matched_negations": [],
+  "non_deletion_action": ""
+ },
+ "identity": {
+  "user_id": "user_430",
+  "email_supplied": "anair9899@fastmail.com",
+  "email_kind": "current",
+  "matched_audit_ids": [],
+  "name": "Arjun Nair",
+  "current": {
+   "user_id": "user_430",
+   "name": "Arjun Nair",
+   "email": "anair9899@fastmail.com",
+   "phone": "+91 95348 81179",
+   "email_hash": "bc57496f62881a74959a4081fd60e24f35549393161c6beab17074fec7f1da63"
+  },
+  "historical": {
+   "phone": [
+    "+91 97327 79221"
+   ]
+  }
+ },
+ "state_at_audit": [
+  {
+   "system": "export_service",
+   "resource_id": "export_9343",
+   "category": "USER_EXPORT",
+   "record_type": "USER_EXPORT",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-03-20T07:07:10Z",
+   "evidence_id": "evidence_68",
+   "evidence_kind": "manifest",
+   "link_method": "identifier",
+   "identifiers": {
+    "owner_email": "anair9899@fastmail.com"
+   },
+   "history": [
+    {
+     "state": "UNCERTAIN",
+     "raw_state": "UNCERTAIN",
+     "observed_at": "2026-03-02T08:58:53Z",
+     "evidence_id": "activity_807",
+     "kind": "activity"
+    },
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-03-20T07:07:10Z",
+     "evidence_id": "evidence_68",
+     "kind": "manifest"
+    }
+   ]
+  },
+  {
+   "system": "legal_service",
+   "resource_id": "legal_hold_438",
+   "category": "LEGAL_HOLD_RECORD",
+   "record_type": "LEGAL_HOLD_RECORD",
+   "state": "RETAINED",
+   "raw_state": "RETAINED",
+   "observed_at": "2026-03-02T07:31:13Z",
+   "evidence_id": "activity_801",
+   "evidence_kind": "activity",
+   "link_method": "resource_alias",
+   "identifiers": {},
+   "history": [
+    {
+     "state": "RETAINED",
+     "raw_state": "RETAINED",
+     "observed_at": "2026-03-02T07:31:13Z",
+     "evidence_id": "activity_801",
+     "kind": "activity"
+    }
+   ]
+  },
+  {
+   "system": "search_service",
+   "resource_id": "search_3844",
+   "category": "SEARCH_INDEX_ENTRY",
+   "record_type": "SEARCH_INDEX_ENTRY",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-03-20T04:53:49Z",
+   "evidence_id": "evidence_68",
+   "evidence_kind": "manifest",
+   "link_method": "identifier",
+   "identifiers": {
+    "email": "anair9899@fastmail.com"
+   },
+   "history": [
+    {
+     "state": "UNCERTAIN",
+     "raw_state": "UNCERTAIN",
+     "observed_at": "2026-03-02T09:17:23Z",
+     "evidence_id": "activity_809",
+     "kind": "activity"
+    },
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-03-20T04:53:49Z",
+     "evidence_id": "evidence_68",
+     "kind": "manifest"
+    }
+   ]
+  }
+ ],
+ "activity_claims": [
+  {
+   "activity_id": "activity_801",
+   "event_time": "2026-03-02T07:31:13Z",
+   "event_type": "RETAIN_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "legal_service",
+   "resource_id": "legal_hold_438",
+   "reported_result": "SUCCESS",
+   "details": "Policy action completed for legal_hold_438."
+  },
+  {
+   "activity_id": "activity_807",
+   "event_time": "2026-03-02T08:58:53Z",
+   "event_type": "DELETE_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "export_service",
+   "resource_id": "export_9343",
+   "reported_result": "PARTIAL",
+   "details": "Deletion worker received the final result for export_9343 from export_service."
+  },
+  {
+   "activity_id": "activity_809",
+   "event_time": "2026-03-02T09:17:23Z",
+   "event_type": "DELETE_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "search_service",
+   "resource_id": "search_3844",
+   "reported_result": "PARTIAL",
+   "details": "Deletion worker received the final result for search_3844 from search_service."
+  }
+ ],
+ "rules": [
+  {
+   "rule_id": "rule_03",
+   "data_category": "SEARCH_INDEX_ENTRY",
+   "condition": "Always",
+   "required_action": "DELETE"
+  },
+  {
+   "rule_id": "rule_09",
+   "data_category": "USER_EXPORT",
+   "condition": "Always",
+   "required_action": "DELETE"
+  },
+  {
+   "rule_id": "rule_13",
+   "data_category": "LEGAL_HOLD_RECORD",
+   "condition": "A supplied legal hold is active",
+   "required_action": "RETAIN"
+  }
+ ],
+ "evidence_batch": {
+  "evidence_ids": [
+   "activity_801",
+   "activity_807",
+   "activity_809",
+   "evidence_68"
+  ],
+  "co_subjects": [
+   "user_421",
+   "user_422",
+   "user_423",
+   "user_424",
+   "user_425",
+   "user_426",
+   "user_427",
+   "user_428",
+   "user_429"
+  ],
+  "unattributed_resources": {
+   "evidence_68": [
+    "account_2696",
+    "account_8461",
+    "analytics_3845",
+    "analytics_6249",
+    "analytics_8091"
+   ]
+  }
+ },
+ "excluded_after_audit": [
+  {
+   "evidence_id": "evidence_40",
+   "system": "export_service",
+   "resource_id": "export_9343",
+   "state": "PRESENT",
+   "captured_at": "2026-03-22T08:00:00Z",
+   "observed_at": "2026-03-20T08:00:00Z"
+  },
+  {
+   "evidence_id": "evidence_40",
+   "system": "legal_service",
+   "resource_id": "legal_hold_438",
+   "state": "PRESENT",
+   "captured_at": "2026-03-22T08:00:00Z",
+   "observed_at": "2026-03-20T08:00:00Z"
+  },
+  {
+   "evidence_id": "evidence_40",
+   "system": "search_service",
+   "resource_id": "search_3844",
+   "state": "PRESENT",
+   "captured_at": "2026-03-22T08:00:00Z",
+   "observed_at": "2026-03-20T08:00:00Z"
+  },
+  {
+   "evidence_id": "evidence_40",
+   "system": "security_service",
+   "resource_id": "audit_record_3548",
+   "state": "PRESENT",
+   "captured_at": "2026-03-22T08:00:00Z",
+   "observed_at": "2026-03-20T08:00:00Z"
+  }
+ ],
+ "draft": {
+  "deletion_status": "INCOMPLETE",
+  "steps_json": [
+   {
+    "step_no": 1,
+    "phase": "FINDING",
+    "system_id": "export_service",
+    "resource_id": "export_9343",
+    "operation": "REPORT_REMAINING_RECORD",
+    "state": "PRESENT",
+    "evidence_id": "evidence_68"
+   },
+   {
+    "step_no": 2,
+    "phase": "FINDING",
+    "system_id": "search_service",
+    "resource_id": "search_3844",
+    "operation": "REPORT_REMAINING_RECORD",
+    "state": "PRESENT",
+    "evidence_id": "evidence_68"
+   },
+   {
+    "step_no": 3,
+    "phase": "REMEDIATION",
+    "system_id": "export_service",
+    "resource_id": "export_9343",
+    "operation": "DELETE_RECORD",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 4,
+    "phase": "REMEDIATION",
+    "system_id": "search_service",
+    "resource_id": "search_3844",
+    "operation": "DELETE_RECORD",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 5,
+    "phase": "VERIFICATION",
+    "system_id": "export_service",
+    "resource_id": "export_9343",
+    "operation": "VERIFY_RECORD_ABSENT",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 6,
+    "phase": "VERIFICATION",
+    "system_id": "search_service",
+    "resource_id": "search_3844",
+    "operation": "VERIFY_RECORD_ABSENT",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 7,
+    "phase": "VERIFICATION",
+    "system_id": "legal_service",
+    "resource_id": "legal_hold_438",
+    "operation": "VERIFY_RECORD_PRESENT",
+    "state": "PRESENT",
+    "evidence_id": ""
+   }
+  ]
+ }
+}

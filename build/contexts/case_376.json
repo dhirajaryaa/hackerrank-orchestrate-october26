@@ -1,0 +1,256 @@
+{
+ "case": {
+  "case_id": "case_376",
+  "audit_at": "2026-04-14T06:00:00Z",
+  "requested_at": "2026-03-21T06:00:00Z",
+  "reported_status": "NOT_STARTED",
+  "reported_at": "2026-03-24T06:00:00Z",
+  "email_supplied": "ndlovu.ayanda78@gmail.com",
+  "request_text": "I am asking you to remove my account and the personal information linked to it. Please apply the request across the systems covered by your deletion policy. A short confirmation when the process is complete is sufficient."
+ },
+ "intent": {
+  "is_deletion": true,
+  "label": "deletion",
+  "matched_terms": [
+   "delet",
+   "remov"
+  ],
+  "matched_negations": [],
+  "non_deletion_action": ""
+ },
+ "identity": {
+  "user_id": "user_374",
+  "email_supplied": "ndlovu.ayanda78@gmail.com",
+  "email_kind": "historical",
+  "matched_audit_ids": [
+   "audit_127"
+  ],
+  "name": "Ayanda Ndlovu",
+  "current": {
+   "user_id": "user_374",
+   "name": "Ayanda Ndlovu",
+   "email": "ndlovu.ayanda@gmail.com",
+   "phone": "+27 72 053 6119",
+   "email_hash": "e96c48632017526311c90c4b6d1fb0e9d4dabf57a9f75d8d0cee67a9d83bf27b"
+  },
+  "historical": {
+   "email": [
+    "ndlovu.ayanda78@gmail.com"
+   ],
+   "email_hash": [
+    "b8cdbc0a891d4a31f21770f06c7550244b974c2e090c9cd9a7d276bfb4412b80"
+   ]
+  }
+ },
+ "state_at_audit": [
+  {
+   "system": "search_service",
+   "resource_id": "search_3126",
+   "category": "SEARCH_INDEX_ENTRY",
+   "record_type": "SEARCH_INDEX_ENTRY",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-04-14T04:27:18Z",
+   "evidence_id": "evidence_70",
+   "evidence_kind": "manifest",
+   "link_method": "identifier",
+   "identifiers": {
+    "email": "ndlovu.ayanda78@gmail.com"
+   },
+   "history": [
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-03-24T07:16:08Z",
+     "evidence_id": "activity_1116",
+     "kind": "activity"
+    },
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-04-14T04:27:18Z",
+     "evidence_id": "evidence_70",
+     "kind": "manifest"
+    }
+   ]
+  },
+  {
+   "system": "support_platform",
+   "resource_id": "support_475",
+   "category": "SUPPORT_MESSAGE",
+   "record_type": "SUPPORT_MESSAGE",
+   "state": "IDENTIFIABLE",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-04-14T05:31:08Z",
+   "evidence_id": "evidence_70",
+   "evidence_kind": "manifest",
+   "link_method": "identifier",
+   "identifiers": {
+    "requester_email": "ndlovu.ayanda78@gmail.com"
+   },
+   "history": [
+    {
+     "state": "REDACTED",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-03-24T06:57:38Z",
+     "evidence_id": "activity_1115",
+     "kind": "activity"
+    },
+    {
+     "state": "IDENTIFIABLE",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-04-14T05:31:08Z",
+     "evidence_id": "evidence_70",
+     "kind": "manifest"
+    }
+   ]
+  }
+ ],
+ "activity_claims": [
+  {
+   "activity_id": "activity_1115",
+   "event_time": "2026-03-24T06:57:38Z",
+   "event_type": "REDACT_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "support_platform",
+   "resource_id": "support_475",
+   "reported_result": "FAILED",
+   "details": "Deletion worker received the final result for support_475 from support_platform."
+  },
+  {
+   "activity_id": "activity_1116",
+   "event_time": "2026-03-24T07:16:08Z",
+   "event_type": "DELETE_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "search_service",
+   "resource_id": "search_3126",
+   "reported_result": "FAILED",
+   "details": "Deletion worker received the final result for search_3126 from search_service."
+  }
+ ],
+ "rules": [
+  {
+   "rule_id": "rule_03",
+   "data_category": "SEARCH_INDEX_ENTRY",
+   "condition": "Always",
+   "required_action": "DELETE"
+  },
+  {
+   "rule_id": "rule_05",
+   "data_category": "SUPPORT_MESSAGE",
+   "condition": "Conversation contains shared customer, agent, or order context that must be retained",
+   "required_action": "REDACT"
+  }
+ ],
+ "evidence_batch": {
+  "evidence_ids": [
+   "activity_1115",
+   "activity_1116",
+   "evidence_70"
+  ],
+  "co_subjects": [
+   "user_371",
+   "user_372",
+   "user_373",
+   "user_375",
+   "user_376",
+   "user_377",
+   "user_378",
+   "user_379",
+   "user_380"
+  ],
+  "unattributed_resources": {
+   "evidence_70": [
+    "analytics_3234",
+    "analytics_9394",
+    "analytics_9326",
+    "analytics_5779"
+   ]
+  }
+ },
+ "excluded_after_audit": [
+  {
+   "evidence_id": "evidence_35",
+   "system": "search_service",
+   "resource_id": "search_3126",
+   "state": "PRESENT",
+   "captured_at": "2026-04-16T06:00:00Z",
+   "observed_at": "2026-04-14T06:00:00Z"
+  },
+  {
+   "evidence_id": "evidence_35",
+   "system": "security_service",
+   "resource_id": "audit_record_4137",
+   "state": "PRESENT",
+   "captured_at": "2026-04-16T06:00:00Z",
+   "observed_at": "2026-04-14T06:00:00Z"
+  },
+  {
+   "evidence_id": "evidence_35",
+   "system": "support_platform",
+   "resource_id": "support_475",
+   "state": "PRESENT",
+   "captured_at": "2026-04-16T06:00:00Z",
+   "observed_at": "2026-04-14T06:00:00Z"
+  }
+ ],
+ "draft": {
+  "deletion_status": "INCOMPLETE",
+  "steps_json": [
+   {
+    "step_no": 1,
+    "phase": "FINDING",
+    "system_id": "search_service",
+    "resource_id": "search_3126",
+    "operation": "REPORT_REMAINING_RECORD",
+    "state": "PRESENT",
+    "evidence_id": "evidence_70"
+   },
+   {
+    "step_no": 2,
+    "phase": "FINDING",
+    "system_id": "support_platform",
+    "resource_id": "support_475",
+    "operation": "REPORT_EXPOSED_PII",
+    "state": "PRESENT",
+    "evidence_id": "evidence_70"
+   },
+   {
+    "step_no": 3,
+    "phase": "REMEDIATION",
+    "system_id": "search_service",
+    "resource_id": "search_3126",
+    "operation": "DELETE_RECORD",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 4,
+    "phase": "REMEDIATION",
+    "system_id": "support_platform",
+    "resource_id": "support_475",
+    "operation": "REDACT_RECORD",
+    "state": "REDACTED",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 5,
+    "phase": "VERIFICATION",
+    "system_id": "search_service",
+    "resource_id": "search_3126",
+    "operation": "VERIFY_RECORD_ABSENT",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 6,
+    "phase": "VERIFICATION",
+    "system_id": "support_platform",
+    "resource_id": "support_475",
+    "operation": "VERIFY_RECORD_REDACTED",
+    "state": "REDACTED",
+    "evidence_id": ""
+   }
+  ]
+ }
+}

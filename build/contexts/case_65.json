@@ -1,0 +1,290 @@
+{
+ "case": {
+  "case_id": "case_65",
+  "audit_at": "2026-09-16T09:00:00Z",
+  "requested_at": "2026-09-03T09:00:00Z",
+  "reported_status": "PARTIALLY_COMPLETE",
+  "reported_at": "2026-09-04T09:00:00Z",
+  "email_supplied": "aoi-yamamoto@gmail.com",
+  "request_text": "Please begin the deletion process for the account using this email address. Please handle any copies that fall within the scope of the deletion request. I would appreciate confirmation of the final outcome."
+ },
+ "intent": {
+  "is_deletion": true,
+  "label": "deletion",
+  "matched_terms": [
+   "delet"
+  ],
+  "matched_negations": [],
+  "non_deletion_action": ""
+ },
+ "identity": {
+  "user_id": "user_63",
+  "email_supplied": "aoi-yamamoto@gmail.com",
+  "email_kind": "current",
+  "matched_audit_ids": [],
+  "name": "Aoi Yamamoto",
+  "current": {
+   "user_id": "user_63",
+   "name": "Aoi Yamamoto",
+   "email": "aoi-yamamoto@gmail.com",
+   "phone": "+81 90 5843 8965",
+   "email_hash": "54bc80b5c1fc3b15a69da19b3c803b192c26e87afa064431e26ac5cc5c2ba776"
+  },
+  "historical": {}
+ },
+ "state_at_audit": [
+  {
+   "system": "account_service",
+   "resource_id": "account_5488",
+   "category": "USER_PROFILE",
+   "record_type": "USER_PROFILE",
+   "state": "UNCERTAIN",
+   "raw_state": "UNCERTAIN",
+   "observed_at": "2026-09-04T08:04:19Z",
+   "evidence_id": "activity_3640",
+   "evidence_kind": "activity",
+   "link_method": "resource_alias",
+   "identifiers": {},
+   "history": [
+    {
+     "state": "UNCERTAIN",
+     "raw_state": "UNCERTAIN",
+     "observed_at": "2026-09-04T08:04:19Z",
+     "evidence_id": "activity_3640",
+     "kind": "activity"
+    }
+   ]
+  },
+  {
+   "system": "analytics_platform",
+   "resource_id": "analytics_9246",
+   "category": "ANALYTICS_PROFILE",
+   "record_type": "ANALYTICS_PROFILE",
+   "state": "IDENTIFIABLE",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-09-16T06:15:41Z",
+   "evidence_id": "evidence_93",
+   "evidence_kind": "manifest",
+   "link_method": "identifier",
+   "identifiers": {
+    "email": "aoi-yamamoto@gmail.com"
+   },
+   "history": [
+    {
+     "state": "ANONYMIZED",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-09-04T09:42:11Z",
+     "evidence_id": "activity_3644",
+     "kind": "activity"
+    },
+    {
+     "state": "IDENTIFIABLE",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-09-16T06:15:41Z",
+     "evidence_id": "evidence_93",
+     "kind": "manifest"
+    }
+   ]
+  },
+  {
+   "system": "search_service",
+   "resource_id": "search_689",
+   "category": "SEARCH_INDEX_ENTRY",
+   "record_type": "SEARCH_INDEX_ENTRY",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-09-16T08:06:11Z",
+   "evidence_id": "evidence_93",
+   "evidence_kind": "manifest",
+   "link_method": "identifier",
+   "identifiers": {
+    "email": "aoi-yamamoto@gmail.com"
+   },
+   "history": [
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-09-04T10:01:40Z",
+     "evidence_id": "activity_3647",
+     "kind": "activity"
+    },
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-09-16T08:06:11Z",
+     "evidence_id": "evidence_93",
+     "kind": "manifest"
+    }
+   ]
+  }
+ ],
+ "activity_claims": [
+  {
+   "activity_id": "activity_3640",
+   "event_time": "2026-09-04T08:04:19Z",
+   "event_type": "DELETE_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "account_service",
+   "resource_id": "account_5488",
+   "reported_result": "PARTIAL",
+   "details": "Deletion worker submitted primary profile account_5488 to account_service."
+  },
+  {
+   "activity_id": "activity_3644",
+   "event_time": "2026-09-04T09:42:11Z",
+   "event_type": "ANONYMIZE_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "analytics_platform",
+   "resource_id": "analytics_9246",
+   "reported_result": "FAILED",
+   "details": "Deletion worker received the final result for analytics_9246 from analytics_platform."
+  },
+  {
+   "activity_id": "activity_3647",
+   "event_time": "2026-09-04T10:01:40Z",
+   "event_type": "DELETE_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "search_service",
+   "resource_id": "search_689",
+   "reported_result": "FAILED",
+   "details": "Deletion worker received the final result for search_689 from search_service."
+  }
+ ],
+ "rules": [
+  {
+   "rule_id": "rule_01",
+   "data_category": "USER_PROFILE",
+   "condition": "Always",
+   "required_action": "DELETE"
+  },
+  {
+   "rule_id": "rule_03",
+   "data_category": "SEARCH_INDEX_ENTRY",
+   "condition": "Always",
+   "required_action": "DELETE"
+  },
+  {
+   "rule_id": "rule_07",
+   "data_category": "ANALYTICS_PROFILE",
+   "condition": "Record is still attributable to a user",
+   "required_action": "ANONYMIZE"
+  }
+ ],
+ "evidence_batch": {
+  "evidence_ids": [
+   "activity_3640",
+   "activity_3644",
+   "activity_3647",
+   "evidence_93"
+  ],
+  "co_subjects": [
+   "user_61",
+   "user_62",
+   "user_64",
+   "user_65",
+   "user_66",
+   "user_67",
+   "user_68",
+   "user_69",
+   "user_70"
+  ],
+  "unattributed_resources": {
+   "evidence_93": [
+    "analytics_5718"
+   ]
+  }
+ },
+ "excluded_after_audit": [
+  {
+   "evidence_id": "evidence_06",
+   "system": "account_service",
+   "resource_id": "account_5488",
+   "state": "ABSENT",
+   "captured_at": "2026-09-18T11:55:24Z",
+   "observed_at": "2026-09-16T08:51:33Z"
+  },
+  {
+   "evidence_id": "evidence_06",
+   "system": "analytics_platform",
+   "resource_id": "analytics_9246",
+   "state": "IDENTIFIABLE",
+   "captured_at": "2026-09-18T11:55:24Z",
+   "observed_at": "2026-09-16T08:53:55Z"
+  },
+  {
+   "evidence_id": "evidence_06",
+   "system": "search_service",
+   "resource_id": "search_689",
+   "state": "PRESENT",
+   "captured_at": "2026-09-18T11:55:24Z",
+   "observed_at": "2026-09-16T08:54:28Z"
+  },
+  {
+   "evidence_id": "evidence_06",
+   "system": "security_service",
+   "resource_id": "audit_record_1848",
+   "state": "PRESENT",
+   "captured_at": "2026-09-18T11:55:24Z",
+   "observed_at": "2026-09-16T08:58:57Z"
+  }
+ ],
+ "draft": {
+  "deletion_status": "INCOMPLETE",
+  "steps_json": [
+   {
+    "step_no": 1,
+    "phase": "FINDING",
+    "system_id": "search_service",
+    "resource_id": "search_689",
+    "operation": "REPORT_REMAINING_RECORD",
+    "state": "PRESENT",
+    "evidence_id": "evidence_93"
+   },
+   {
+    "step_no": 2,
+    "phase": "FINDING",
+    "system_id": "analytics_platform",
+    "resource_id": "analytics_9246",
+    "operation": "REPORT_EXPOSED_PII",
+    "state": "PRESENT",
+    "evidence_id": "evidence_93"
+   },
+   {
+    "step_no": 3,
+    "phase": "REMEDIATION",
+    "system_id": "search_service",
+    "resource_id": "search_689",
+    "operation": "DELETE_RECORD",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 4,
+    "phase": "REMEDIATION",
+    "system_id": "analytics_platform",
+    "resource_id": "analytics_9246",
+    "operation": "ANONYMIZE_RECORD",
+    "state": "ANONYMIZED",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 5,
+    "phase": "VERIFICATION",
+    "system_id": "search_service",
+    "resource_id": "search_689",
+    "operation": "VERIFY_RECORD_ABSENT",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 6,
+    "phase": "VERIFICATION",
+    "system_id": "analytics_platform",
+    "resource_id": "analytics_9246",
+    "operation": "VERIFY_RECORD_ANONYMIZED",
+    "state": "ANONYMIZED",
+    "evidence_id": ""
+   }
+  ]
+ }
+}

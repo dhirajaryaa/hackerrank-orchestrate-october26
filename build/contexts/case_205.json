@@ -1,0 +1,207 @@
+{
+ "case": {
+  "case_id": "case_205",
+  "audit_at": "2026-07-08T09:00:00Z",
+  "requested_at": "2026-06-25T09:00:00Z",
+  "reported_status": "COMPLETE",
+  "reported_at": "2026-06-28T09:00:00Z",
+  "email_supplied": "nneka.o2286@zoho.com",
+  "request_text": "Please treat this message as a request for permanent account deletion. Please apply the request across the systems covered by your deletion policy. Please let me know once the request has been reviewed."
+ },
+ "intent": {
+  "is_deletion": true,
+  "label": "deletion",
+  "matched_terms": [
+   "delet"
+  ],
+  "matched_negations": [],
+  "non_deletion_action": ""
+ },
+ "identity": {
+  "user_id": "user_203",
+  "email_supplied": "nneka.o2286@zoho.com",
+  "email_kind": "current",
+  "matched_audit_ids": [],
+  "name": "Nneka Okeke",
+  "current": {
+   "user_id": "user_203",
+   "name": "Nneka Okeke",
+   "email": "nneka.o2286@zoho.com",
+   "phone": "+234 803 640 1873",
+   "email_hash": "ffa1044e024cf58e501246172fc06d2bf0e740483533b452553cf95d14f77122"
+  },
+  "historical": {}
+ },
+ "state_at_audit": [
+  {
+   "system": "search_service",
+   "resource_id": "search_540",
+   "category": "SEARCH_INDEX_ENTRY",
+   "record_type": "SEARCH_INDEX_ENTRY",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-07-08T09:00:00Z",
+   "evidence_id": "evidence_20",
+   "evidence_kind": "manifest",
+   "link_method": "identifier",
+   "identifiers": {
+    "document": {
+     "display_name": "Nneka Okeke",
+     "email": "nneka.o2286@zoho.com",
+     "customer_reference": "user_203"
+    }
+   },
+   "history": [
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-06-28T10:15:39Z",
+     "evidence_id": "activity_2573",
+     "kind": "activity"
+    },
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-07-08T09:00:00Z",
+     "evidence_id": "evidence_20",
+     "kind": "manifest"
+    },
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-07-08T09:00:00Z",
+     "evidence_id": "evidence_20",
+     "kind": "manifest"
+    }
+   ]
+  },
+  {
+   "system": "security_service",
+   "resource_id": "audit_record_5023",
+   "category": "SECURITY_AUDIT_LOG",
+   "record_type": "SECURITY_AUDIT_LOG",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-07-08T09:00:00Z",
+   "evidence_id": "evidence_20",
+   "evidence_kind": "manifest",
+   "link_method": "explicit_ref",
+   "identifiers": {
+    "subject_reference": "user_203"
+   },
+   "history": [
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-07-08T09:00:00Z",
+     "evidence_id": "evidence_20",
+     "kind": "manifest"
+    },
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-07-08T09:00:00Z",
+     "evidence_id": "evidence_20",
+     "kind": "manifest"
+    }
+   ]
+  }
+ ],
+ "activity_claims": [
+  {
+   "activity_id": "activity_2573",
+   "event_time": "2026-06-28T10:15:39Z",
+   "event_type": "DELETE_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "search_service",
+   "resource_id": "search_540",
+   "reported_result": "FAILED",
+   "details": "Deletion worker received the final result for search_540 from search_service."
+  }
+ ],
+ "rules": [
+  {
+   "rule_id": "rule_03",
+   "data_category": "SEARCH_INDEX_ENTRY",
+   "condition": "Always",
+   "required_action": "DELETE"
+  },
+  {
+   "rule_id": "rule_12",
+   "data_category": "SECURITY_AUDIT_LOG",
+   "condition": "Record is within the supplied retention period",
+   "required_action": "RETAIN"
+  }
+ ],
+ "evidence_batch": {
+  "evidence_ids": [
+   "activity_2573",
+   "evidence_20"
+  ],
+  "co_subjects": [
+   "user_201",
+   "user_202",
+   "user_204",
+   "user_205",
+   "user_206",
+   "user_207",
+   "user_208",
+   "user_209",
+   "user_210"
+  ],
+  "unattributed_resources": {
+   "evidence_20": [
+    "analytics_2463",
+    "analytics_9580",
+    "backup_6407",
+    "data_flow_3530",
+    "data_flow_5196",
+    "data_flow_5877",
+    "data_flow_8676",
+    "support_8903"
+   ]
+  }
+ },
+ "excluded_after_audit": [],
+ "draft": {
+  "deletion_status": "INCOMPLETE",
+  "steps_json": [
+   {
+    "step_no": 1,
+    "phase": "FINDING",
+    "system_id": "search_service",
+    "resource_id": "search_540",
+    "operation": "REPORT_REMAINING_RECORD",
+    "state": "PRESENT",
+    "evidence_id": "evidence_20"
+   },
+   {
+    "step_no": 2,
+    "phase": "REMEDIATION",
+    "system_id": "search_service",
+    "resource_id": "search_540",
+    "operation": "DELETE_RECORD",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 3,
+    "phase": "VERIFICATION",
+    "system_id": "search_service",
+    "resource_id": "search_540",
+    "operation": "VERIFY_RECORD_ABSENT",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 4,
+    "phase": "VERIFICATION",
+    "system_id": "security_service",
+    "resource_id": "audit_record_5023",
+    "operation": "VERIFY_RECORD_PRESENT",
+    "state": "PRESENT",
+    "evidence_id": ""
+   }
+  ]
+ }
+}

@@ -1,0 +1,243 @@
+{
+ "case": {
+  "case_id": "case_66",
+  "audit_at": "2026-09-16T09:00:00Z",
+  "requested_at": "2026-09-02T09:00:00Z",
+  "reported_status": "NOT_STARTED",
+  "reported_at": "2026-09-04T09:00:00Z",
+  "email_supplied": "hcho154598@gmail.com",
+  "request_text": "이 이메일 주소에 연결된 계정의 영구 삭제를 요청합니다. 개인정보 처리 절차에 따라 현재 및 이전 식별자를 검토해 주세요. 검토가 완료되면 결과를 확인해 주세요."
+ },
+ "intent": {
+  "is_deletion": true,
+  "label": "deletion",
+  "matched_terms": [
+   "삭제"
+  ],
+  "matched_negations": [],
+  "non_deletion_action": ""
+ },
+ "identity": {
+  "user_id": "user_64",
+  "email_supplied": "hcho154598@gmail.com",
+  "email_kind": "historical",
+  "matched_audit_ids": [
+   "audit_286"
+  ],
+  "name": "Hyun-woo Cho",
+  "current": {
+   "user_id": "user_64",
+   "name": "Hyun-woo Cho",
+   "email": "hcho1545@gmail.com",
+   "phone": "+82 10 7324 9252",
+   "email_hash": "534c275f5c4ba84f1347e7a6fce50e184fbf54a0f5f98fa3d61001803b543a33"
+  },
+  "historical": {
+   "email": [
+    "hcho154598@gmail.com"
+   ],
+   "email_hash": [
+    "4dd108cb17bcad910ff2b0a6c96e72635a978fd616de5c1cdf039ace8b8bdf68"
+   ]
+  }
+ },
+ "state_at_audit": [
+  {
+   "system": "account_service",
+   "resource_id": "account_1602",
+   "category": "USER_PROFILE",
+   "record_type": "USER_PROFILE",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-09-04T07:53:05Z",
+   "evidence_id": "activity_3638",
+   "evidence_kind": "activity",
+   "link_method": "resource_alias",
+   "identifiers": {},
+   "history": [
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-09-04T07:53:05Z",
+     "evidence_id": "activity_3638",
+     "kind": "activity"
+    }
+   ]
+  },
+  {
+   "system": "support_platform",
+   "resource_id": "support_4249",
+   "category": "SUPPORT_MESSAGE",
+   "record_type": "SUPPORT_MESSAGE",
+   "state": "IDENTIFIABLE",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-09-16T07:24:16Z",
+   "evidence_id": "evidence_93",
+   "evidence_kind": "manifest",
+   "link_method": "identifier",
+   "identifiers": {
+    "requester_email": "hcho154598@gmail.com"
+   },
+   "history": [
+    {
+     "state": "REDACTED",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-09-04T09:49:56Z",
+     "evidence_id": "activity_3645",
+     "kind": "activity"
+    },
+    {
+     "state": "IDENTIFIABLE",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-09-16T07:24:16Z",
+     "evidence_id": "evidence_93",
+     "kind": "manifest"
+    }
+   ]
+  }
+ ],
+ "activity_claims": [
+  {
+   "activity_id": "activity_3638",
+   "event_time": "2026-09-04T07:53:05Z",
+   "event_type": "DELETE_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "account_service",
+   "resource_id": "account_1602",
+   "reported_result": "FAILED",
+   "details": "Deletion worker submitted primary profile account_1602 to account_service."
+  },
+  {
+   "activity_id": "activity_3645",
+   "event_time": "2026-09-04T09:49:56Z",
+   "event_type": "REDACT_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "support_platform",
+   "resource_id": "support_4249",
+   "reported_result": "FAILED",
+   "details": "Deletion worker received the final result for support_4249 from support_platform."
+  }
+ ],
+ "rules": [
+  {
+   "rule_id": "rule_01",
+   "data_category": "USER_PROFILE",
+   "condition": "Always",
+   "required_action": "DELETE"
+  },
+  {
+   "rule_id": "rule_05",
+   "data_category": "SUPPORT_MESSAGE",
+   "condition": "Conversation contains shared customer, agent, or order context that must be retained",
+   "required_action": "REDACT"
+  }
+ ],
+ "evidence_batch": {
+  "evidence_ids": [
+   "activity_3638",
+   "activity_3645",
+   "evidence_93"
+  ],
+  "co_subjects": [
+   "user_61",
+   "user_62",
+   "user_63",
+   "user_65",
+   "user_66",
+   "user_67",
+   "user_68",
+   "user_69",
+   "user_70"
+  ],
+  "unattributed_resources": {
+   "evidence_93": [
+    "analytics_5718"
+   ]
+  }
+ },
+ "excluded_after_audit": [
+  {
+   "evidence_id": "evidence_06",
+   "system": "support_platform",
+   "resource_id": "support_4249",
+   "state": "IDENTIFIABLE",
+   "captured_at": "2026-09-18T11:55:24Z",
+   "observed_at": "2026-09-16T08:51:30Z"
+  },
+  {
+   "evidence_id": "evidence_06",
+   "system": "security_service",
+   "resource_id": "audit_record_184",
+   "state": "PRESENT",
+   "captured_at": "2026-09-18T11:55:24Z",
+   "observed_at": "2026-09-16T08:57:11Z"
+  },
+  {
+   "evidence_id": "evidence_06",
+   "system": "account_service",
+   "resource_id": "account_1602",
+   "state": "ABSENT",
+   "captured_at": "2026-09-18T11:55:24Z",
+   "observed_at": "2026-09-16T08:58:06Z"
+  }
+ ],
+ "draft": {
+  "deletion_status": "INCOMPLETE",
+  "steps_json": [
+   {
+    "step_no": 1,
+    "phase": "FINDING",
+    "system_id": "account_service",
+    "resource_id": "account_1602",
+    "operation": "REPORT_REMAINING_RECORD",
+    "state": "PRESENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 2,
+    "phase": "FINDING",
+    "system_id": "support_platform",
+    "resource_id": "support_4249",
+    "operation": "REPORT_EXPOSED_PII",
+    "state": "PRESENT",
+    "evidence_id": "evidence_93"
+   },
+   {
+    "step_no": 3,
+    "phase": "REMEDIATION",
+    "system_id": "account_service",
+    "resource_id": "account_1602",
+    "operation": "DELETE_RECORD",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 4,
+    "phase": "REMEDIATION",
+    "system_id": "support_platform",
+    "resource_id": "support_4249",
+    "operation": "REDACT_RECORD",
+    "state": "REDACTED",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 5,
+    "phase": "VERIFICATION",
+    "system_id": "account_service",
+    "resource_id": "account_1602",
+    "operation": "VERIFY_RECORD_ABSENT",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 6,
+    "phase": "VERIFICATION",
+    "system_id": "support_platform",
+    "resource_id": "support_4249",
+    "operation": "VERIFY_RECORD_REDACTED",
+    "state": "REDACTED",
+    "evidence_id": ""
+   }
+  ]
+ }
+}

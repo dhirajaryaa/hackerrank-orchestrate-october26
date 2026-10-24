@@ -1,0 +1,359 @@
+{
+ "case": {
+  "case_id": "case_213",
+  "audit_at": "2026-07-03T08:00:00Z",
+  "requested_at": "2026-06-12T08:00:00Z",
+  "reported_status": "NOT_STARTED",
+  "reported_at": "2026-06-14T08:00:00Z",
+  "email_supplied": "l.foster38@yahoo.com",
+  "request_text": "I want to close this account and have its associated personal data deleted. Please apply the correct treatment to records covered by the request. Please confirm when the review is complete."
+ },
+ "intent": {
+  "is_deletion": true,
+  "label": "deletion",
+  "matched_terms": [
+   "close this account",
+   "delet"
+  ],
+  "matched_negations": [],
+  "non_deletion_action": ""
+ },
+ "identity": {
+  "user_id": "user_211",
+  "email_supplied": "l.foster38@yahoo.com",
+  "email_kind": "current",
+  "matched_audit_ids": [],
+  "name": "Liam Foster",
+  "current": {
+   "user_id": "user_211",
+   "name": "Liam Foster",
+   "email": "l.foster38@yahoo.com",
+   "phone": "+1 (312) 555-0111",
+   "email_hash": "91d9097ceafd4538de471898444c1a3d8cbe70c23ae798e5afcd459a9a9923ea"
+  },
+  "historical": {}
+ },
+ "state_at_audit": [
+  {
+   "system": "account_service",
+   "resource_id": "account_6674",
+   "category": "USER_PROFILE",
+   "record_type": "USER_PROFILE",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-06-14T06:48:24Z",
+   "evidence_id": "activity_2353",
+   "evidence_kind": "activity",
+   "link_method": "resource_alias",
+   "identifiers": {},
+   "history": [
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-06-14T06:48:24Z",
+     "evidence_id": "activity_2353",
+     "kind": "activity"
+    }
+   ]
+  },
+  {
+   "system": "backup_service",
+   "resource_id": "backup_5626",
+   "category": "BACKUP_ARCHIVE",
+   "record_type": "BACKUP_ARCHIVE",
+   "state": "BLOCKED",
+   "raw_state": "BLOCKED",
+   "observed_at": "2026-07-03T05:19:10Z",
+   "evidence_id": "evidence_81",
+   "evidence_kind": "manifest",
+   "link_method": "explicit_ref",
+   "identifiers": {
+    "customer_reference": "user_211"
+   },
+   "history": [
+    {
+     "state": "BLOCKED",
+     "raw_state": "BLOCKED",
+     "observed_at": "2026-06-14T07:52:33Z",
+     "evidence_id": "activity_2361",
+     "kind": "activity"
+    },
+    {
+     "state": "BLOCKED",
+     "raw_state": "BLOCKED",
+     "observed_at": "2026-07-03T05:19:10Z",
+     "evidence_id": "evidence_81",
+     "kind": "manifest"
+    }
+   ]
+  },
+  {
+   "system": "integration_service",
+   "resource_id": "data_flow_5279",
+   "category": "DATA_FLOW",
+   "record_type": "DATA_FLOW",
+   "state": "DISABLED",
+   "raw_state": "DISABLED",
+   "observed_at": "2026-07-03T04:52:47Z",
+   "evidence_id": "evidence_81",
+   "evidence_kind": "manifest",
+   "link_method": "explicit_ref",
+   "identifiers": {
+    "customer_reference": "user_211"
+   },
+   "history": [
+    {
+     "state": "DISABLED",
+     "raw_state": "DISABLED",
+     "observed_at": "2026-06-14T07:45:04Z",
+     "evidence_id": "activity_2359",
+     "kind": "activity"
+    },
+    {
+     "state": "DISABLED",
+     "raw_state": "DISABLED",
+     "observed_at": "2026-07-03T04:52:47Z",
+     "evidence_id": "evidence_81",
+     "kind": "manifest"
+    }
+   ]
+  },
+  {
+   "system": "security_service",
+   "resource_id": "audit_record_4413",
+   "category": "SECURITY_AUDIT_LOG",
+   "record_type": "SECURITY_AUDIT_LOG",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-07-03T06:58:31Z",
+   "evidence_id": "evidence_81",
+   "evidence_kind": "manifest",
+   "link_method": "explicit_ref",
+   "identifiers": {
+    "subject_reference": "user_211"
+   },
+   "history": [
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-07-03T06:58:31Z",
+     "evidence_id": "evidence_81",
+     "kind": "manifest"
+    }
+   ]
+  },
+  {
+   "system": "support_platform",
+   "resource_id": "support_1360",
+   "category": "SUPPORT_MESSAGE",
+   "record_type": "SUPPORT_MESSAGE",
+   "state": "REDACTED",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-07-03T06:55:06Z",
+   "evidence_id": "evidence_81",
+   "evidence_kind": "manifest",
+   "link_method": "explicit_ref",
+   "identifiers": {
+    "customer_reference": "user_211"
+   },
+   "history": [
+    {
+     "state": "REDACTED",
+     "raw_state": "REDACTED",
+     "observed_at": "2026-06-14T07:38:34Z",
+     "evidence_id": "activity_2357",
+     "kind": "activity"
+    },
+    {
+     "state": "REDACTED",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-07-03T06:55:06Z",
+     "evidence_id": "evidence_81",
+     "kind": "manifest"
+    }
+   ]
+  }
+ ],
+ "activity_claims": [
+  {
+   "activity_id": "activity_2353",
+   "event_time": "2026-06-14T06:48:24Z",
+   "event_type": "DELETE_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "account_service",
+   "resource_id": "account_6674",
+   "reported_result": "FAILED",
+   "details": "Deletion worker submitted primary profile account_6674 to account_service."
+  },
+  {
+   "activity_id": "activity_2357",
+   "event_time": "2026-06-14T07:38:34Z",
+   "event_type": "REDACT_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "support_platform",
+   "resource_id": "support_1360",
+   "reported_result": "SUCCESS",
+   "details": "Policy action completed for support_1360."
+  },
+  {
+   "activity_id": "activity_2359",
+   "event_time": "2026-06-14T07:45:04Z",
+   "event_type": "DISABLE_DATA_FLOW",
+   "source_system": "deletion_worker",
+   "target_system": "integration_service",
+   "resource_id": "data_flow_5279",
+   "reported_result": "SUCCESS",
+   "details": "Policy action completed for data_flow_5279."
+  },
+  {
+   "activity_id": "activity_2361",
+   "event_time": "2026-06-14T07:52:33Z",
+   "event_type": "BLOCK_RESTORE",
+   "source_system": "deletion_worker",
+   "target_system": "backup_service",
+   "resource_id": "backup_5626",
+   "reported_result": "SUCCESS",
+   "details": "Policy action completed for backup_5626."
+  }
+ ],
+ "rules": [
+  {
+   "rule_id": "rule_01",
+   "data_category": "USER_PROFILE",
+   "condition": "Always",
+   "required_action": "DELETE"
+  },
+  {
+   "rule_id": "rule_05",
+   "data_category": "SUPPORT_MESSAGE",
+   "condition": "Conversation contains shared customer, agent, or order context that must be retained",
+   "required_action": "REDACT"
+  },
+  {
+   "rule_id": "rule_12",
+   "data_category": "SECURITY_AUDIT_LOG",
+   "condition": "Record is within the supplied retention period",
+   "required_action": "RETAIN"
+  },
+  {
+   "rule_id": "rule_14",
+   "data_category": "BACKUP_ARCHIVE",
+   "condition": "Restore access can be blocked",
+   "required_action": "RETAIN"
+  }
+ ],
+ "evidence_batch": {
+  "evidence_ids": [
+   "activity_2353",
+   "activity_2357",
+   "activity_2359",
+   "activity_2361",
+   "evidence_81"
+  ],
+  "co_subjects": [
+   "user_212",
+   "user_213",
+   "user_214",
+   "user_215",
+   "user_216",
+   "user_217",
+   "user_218",
+   "user_219",
+   "user_220"
+  ],
+  "unattributed_resources": {
+   "evidence_81": [
+    "analytics_2504",
+    "analytics_257",
+    "analytics_4460",
+    "analytics_7004"
+   ]
+  }
+ },
+ "excluded_after_audit": [
+  {
+   "evidence_id": "evidence_21",
+   "system": "security_service",
+   "resource_id": "audit_record_4413",
+   "state": "PRESENT",
+   "captured_at": "2026-07-05T07:54:27Z",
+   "observed_at": "2026-07-03T07:51:32Z"
+  },
+  {
+   "evidence_id": "evidence_21",
+   "system": "account_service",
+   "resource_id": "account_6674",
+   "state": "ABSENT",
+   "captured_at": "2026-07-05T07:54:27Z",
+   "observed_at": "2026-07-03T07:58:36Z"
+  }
+ ],
+ "draft": {
+  "deletion_status": "INCOMPLETE",
+  "steps_json": [
+   {
+    "step_no": 1,
+    "phase": "FINDING",
+    "system_id": "account_service",
+    "resource_id": "account_6674",
+    "operation": "REPORT_REMAINING_RECORD",
+    "state": "PRESENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 2,
+    "phase": "REMEDIATION",
+    "system_id": "account_service",
+    "resource_id": "account_6674",
+    "operation": "DELETE_RECORD",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 3,
+    "phase": "VERIFICATION",
+    "system_id": "account_service",
+    "resource_id": "account_6674",
+    "operation": "VERIFY_RECORD_ABSENT",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 4,
+    "phase": "VERIFICATION",
+    "system_id": "security_service",
+    "resource_id": "audit_record_4413",
+    "operation": "VERIFY_RECORD_PRESENT",
+    "state": "PRESENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 5,
+    "phase": "VERIFICATION",
+    "system_id": "support_platform",
+    "resource_id": "support_1360",
+    "operation": "VERIFY_RECORD_REDACTED",
+    "state": "REDACTED",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 6,
+    "phase": "VERIFICATION",
+    "system_id": "integration_service",
+    "resource_id": "data_flow_5279",
+    "operation": "VERIFY_DATA_FLOW_DISABLED",
+    "state": "DISABLED",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 7,
+    "phase": "VERIFICATION",
+    "system_id": "backup_service",
+    "resource_id": "backup_5626",
+    "operation": "VERIFY_RESTORE_BLOCKED",
+    "state": "BLOCKED",
+    "evidence_id": ""
+   }
+  ]
+ }
+}

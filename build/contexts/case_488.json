@@ -1,0 +1,293 @@
+{
+ "case": {
+  "case_id": "case_488",
+  "audit_at": "2026-02-18T09:00:00Z",
+  "requested_at": "2026-02-02T09:00:00Z",
+  "reported_status": "COMPLETE",
+  "reported_at": "2026-02-03T09:00:00Z",
+  "email_supplied": "maja.lund@outlook.com",
+  "request_text": "Please erase the account linked to this email address. Please complete the normal identity and data review for this request. Let me know when the request has been completed."
+ },
+ "intent": {
+  "is_deletion": true,
+  "label": "deletion",
+  "matched_terms": [
+   "eras"
+  ],
+  "matched_negations": [],
+  "non_deletion_action": ""
+ },
+ "identity": {
+  "user_id": "user_486",
+  "email_supplied": "maja.lund@outlook.com",
+  "email_kind": "current",
+  "matched_audit_ids": [],
+  "name": "Maja Lund",
+  "current": {
+   "user_id": "user_486",
+   "name": "Maja Lund",
+   "email": "maja.lund@outlook.com",
+   "phone": "+46 70 363 99 94",
+   "email_hash": "9fc7055476116f8307856c9d5b1e57824bc32042e4420772cfde9695a410573c"
+  },
+  "historical": {}
+ },
+ "state_at_audit": [
+  {
+   "system": "account_service",
+   "resource_id": "account_1433",
+   "category": "USER_PROFILE",
+   "record_type": "USER_PROFILE",
+   "state": "ABSENT",
+   "raw_state": "ABSENT",
+   "observed_at": "2026-02-03T08:01:15Z",
+   "evidence_id": "activity_405",
+   "evidence_kind": "activity",
+   "link_method": "resource_alias",
+   "identifiers": {},
+   "history": [
+    {
+     "state": "ABSENT",
+     "raw_state": "ABSENT",
+     "observed_at": "2026-02-03T08:01:15Z",
+     "evidence_id": "activity_405",
+     "kind": "activity"
+    }
+   ]
+  },
+  {
+   "system": "integration_service",
+   "resource_id": "data_flow_3755",
+   "category": "DATA_FLOW",
+   "record_type": "DATA_FLOW",
+   "state": "ACTIVE",
+   "raw_state": "ACTIVE",
+   "observed_at": "2026-02-18T07:10:40Z",
+   "evidence_id": "evidence_64",
+   "evidence_kind": "manifest",
+   "link_method": "identifier",
+   "identifiers": {
+    "customer_email": "maja.lund@outlook.com"
+   },
+   "history": [
+    {
+     "state": "ACTIVE",
+     "raw_state": "ACTIVE",
+     "observed_at": "2026-02-03T09:59:07Z",
+     "evidence_id": "activity_414",
+     "kind": "activity"
+    },
+    {
+     "state": "ACTIVE",
+     "raw_state": "ACTIVE",
+     "observed_at": "2026-02-18T07:10:40Z",
+     "evidence_id": "evidence_64",
+     "kind": "manifest"
+    }
+   ]
+  },
+  {
+   "system": "search_service",
+   "resource_id": "search_4216",
+   "category": "SEARCH_INDEX_ENTRY",
+   "record_type": "SEARCH_INDEX_ENTRY",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-02-18T08:36:10Z",
+   "evidence_id": "evidence_64",
+   "evidence_kind": "manifest",
+   "link_method": "identifier",
+   "identifiers": {
+    "email": "maja.lund@outlook.com"
+   },
+   "history": [
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-02-03T10:18:36Z",
+     "evidence_id": "activity_416",
+     "kind": "activity"
+    },
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-02-18T08:36:10Z",
+     "evidence_id": "evidence_64",
+     "kind": "manifest"
+    }
+   ]
+  }
+ ],
+ "activity_claims": [
+  {
+   "activity_id": "activity_405",
+   "event_time": "2026-02-03T08:01:15Z",
+   "event_type": "DELETE_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "account_service",
+   "resource_id": "account_1433",
+   "reported_result": "SUCCESS",
+   "details": "Deletion worker submitted primary profile account_1433 to account_service."
+  },
+  {
+   "activity_id": "activity_414",
+   "event_time": "2026-02-03T09:59:07Z",
+   "event_type": "CHECK_DATA_FLOW",
+   "source_system": "deletion_worker",
+   "target_system": "integration_service",
+   "resource_id": "data_flow_3755",
+   "reported_result": "SUCCESS",
+   "details": "Connector status check confirmed that data flow data_flow_3755 remains enabled."
+  },
+  {
+   "activity_id": "activity_416",
+   "event_time": "2026-02-03T10:18:36Z",
+   "event_type": "DELETE_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "search_service",
+   "resource_id": "search_4216",
+   "reported_result": "FAILED",
+   "details": "Deletion worker received the final result for search_4216 from search_service."
+  }
+ ],
+ "rules": [
+  {
+   "rule_id": "rule_01",
+   "data_category": "USER_PROFILE",
+   "condition": "Always",
+   "required_action": "DELETE"
+  },
+  {
+   "rule_id": "rule_03",
+   "data_category": "SEARCH_INDEX_ENTRY",
+   "condition": "Always",
+   "required_action": "DELETE"
+  }
+ ],
+ "evidence_batch": {
+  "evidence_ids": [
+   "activity_405",
+   "activity_414",
+   "activity_416",
+   "evidence_64"
+  ],
+  "co_subjects": [
+   "user_481",
+   "user_482",
+   "user_483",
+   "user_484",
+   "user_485",
+   "user_487",
+   "user_488",
+   "user_489",
+   "user_490"
+  ],
+  "unattributed_resources": {
+   "evidence_64": [
+    "analytics_5948"
+   ]
+  }
+ },
+ "excluded_after_audit": [
+  {
+   "evidence_id": "evidence_45",
+   "system": "backup_restore_service",
+   "resource_id": "account_1433",
+   "state": "ABSENT",
+   "captured_at": "2026-02-23T10:00:00Z",
+   "observed_at": "2026-02-18T09:00:00Z"
+  },
+  {
+   "evidence_id": "evidence_45",
+   "system": "backup_restore_service",
+   "resource_id": "audit_record_6252",
+   "state": "PRESENT",
+   "captured_at": "2026-02-23T10:00:00Z",
+   "observed_at": "2026-02-18T09:00:00Z"
+  },
+  {
+   "evidence_id": "evidence_45",
+   "system": "backup_restore_service",
+   "resource_id": "data_flow_3755",
+   "state": "PRESENT",
+   "captured_at": "2026-02-23T10:00:00Z",
+   "observed_at": "2026-02-18T09:00:00Z"
+  },
+  {
+   "evidence_id": "evidence_45",
+   "system": "backup_restore_service",
+   "resource_id": "search_4216",
+   "state": "PRESENT",
+   "captured_at": "2026-02-23T10:00:00Z",
+   "observed_at": "2026-02-18T09:00:00Z"
+  }
+ ],
+ "draft": {
+  "deletion_status": "INCOMPLETE",
+  "steps_json": [
+   {
+    "step_no": 1,
+    "phase": "FINDING",
+    "system_id": "search_service",
+    "resource_id": "search_4216",
+    "operation": "REPORT_REMAINING_RECORD",
+    "state": "PRESENT",
+    "evidence_id": "evidence_64"
+   },
+   {
+    "step_no": 2,
+    "phase": "FINDING",
+    "system_id": "integration_service",
+    "resource_id": "data_flow_3755",
+    "operation": "REPORT_ACTIVE_DATA_FLOW",
+    "state": "ACTIVE",
+    "evidence_id": "evidence_64"
+   },
+   {
+    "step_no": 3,
+    "phase": "REMEDIATION",
+    "system_id": "integration_service",
+    "resource_id": "data_flow_3755",
+    "operation": "DISABLE_DATA_FLOW",
+    "state": "DISABLED",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 4,
+    "phase": "REMEDIATION",
+    "system_id": "search_service",
+    "resource_id": "search_4216",
+    "operation": "DELETE_RECORD",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 5,
+    "phase": "VERIFICATION",
+    "system_id": "account_service",
+    "resource_id": "account_1433",
+    "operation": "VERIFY_RECORD_ABSENT",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 6,
+    "phase": "VERIFICATION",
+    "system_id": "search_service",
+    "resource_id": "search_4216",
+    "operation": "VERIFY_RECORD_ABSENT",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 7,
+    "phase": "VERIFICATION",
+    "system_id": "integration_service",
+    "resource_id": "data_flow_3755",
+    "operation": "VERIFY_DATA_FLOW_DISABLED",
+    "state": "DISABLED",
+    "evidence_id": ""
+   }
+  ]
+ }
+}

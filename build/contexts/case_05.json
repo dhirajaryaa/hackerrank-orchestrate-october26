@@ -1,0 +1,150 @@
+{
+ "case": {
+  "case_id": "case_05",
+  "audit_at": "2026-09-08T13:40:00Z",
+  "requested_at": "2026-08-27T14:17:00Z",
+  "reported_status": "COMPLETE",
+  "reported_at": "2026-08-28T09:03:00Z",
+  "email_supplied": "leila.haddad@yahoo.com",
+  "request_text": "I deleted this account and received a confirmation, but the same email address is still recognized. Please remove any remaining copy of my profile."
+ },
+ "intent": {
+  "is_deletion": true,
+  "label": "deletion",
+  "matched_terms": [
+   "delet",
+   "remov"
+  ],
+  "matched_negations": [],
+  "non_deletion_action": ""
+ },
+ "identity": {
+  "user_id": "user_05",
+  "email_supplied": "leila.haddad@yahoo.com",
+  "email_kind": "current",
+  "matched_audit_ids": [],
+  "name": "Leila Haddad",
+  "current": {
+   "user_id": "user_05",
+   "name": "Leila Haddad",
+   "email": "leila.haddad@yahoo.com",
+   "phone": "+212 6 48 27 15 93",
+   "email_hash": "62667ed065b846a842474f916da51b658edb0f9754ab2da6bf38e68779ff0d08"
+  },
+  "historical": {}
+ },
+ "state_at_audit": [
+  {
+   "system": "account_service",
+   "resource_id": "account_005",
+   "category": "USER_PROFILE",
+   "record_type": "USER_PROFILE",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-09-02T22:45:00Z",
+   "evidence_id": "evidence_54",
+   "evidence_kind": "manifest",
+   "link_method": "explicit_ref",
+   "identifiers": {
+    "user_id": "user_05",
+    "full_name": "Leila Haddad",
+    "email": "leila.haddad@yahoo.com",
+    "phone": "+212 6 48 27 15 93"
+   },
+   "history": [
+    {
+     "state": "ABSENT",
+     "raw_state": "ABSENT",
+     "observed_at": "2026-08-28T09:11:01Z",
+     "evidence_id": "activity_3482",
+     "kind": "activity"
+    },
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-09-02T22:45:00Z",
+     "evidence_id": "evidence_54",
+     "kind": "manifest"
+    }
+   ]
+  }
+ ],
+ "activity_claims": [
+  {
+   "activity_id": "activity_3482",
+   "event_time": "2026-08-28T09:11:01Z",
+   "event_type": "DELETE_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "account_service",
+   "resource_id": "account_005",
+   "reported_result": "SUCCESS",
+   "details": "Deletion worker reported the requested operation as completed. Target resource: account_005."
+  },
+  {
+   "activity_id": "activity_3483",
+   "event_time": "2026-08-28T09:11:09Z",
+   "event_type": "SYNC_RECORD",
+   "source_system": "account_service",
+   "target_system": "account_failover_replica",
+   "resource_id": "account_005",
+   "reported_result": "SUCCESS",
+   "details": "Replication worker reported its final checkpoint. Target resource: account_005."
+  }
+ ],
+ "rules": [
+  {
+   "rule_id": "rule_01",
+   "data_category": "USER_PROFILE",
+   "condition": "Always",
+   "required_action": "DELETE"
+  }
+ ],
+ "evidence_batch": {
+  "evidence_ids": [
+   "activity_3482",
+   "activity_3483",
+   "evidence_54"
+  ],
+  "co_subjects": [],
+  "unattributed_resources": {
+   "evidence_54": [
+    "account_8741",
+    "account_9116",
+    "account_7204"
+   ]
+  }
+ },
+ "excluded_after_audit": [],
+ "draft": {
+  "deletion_status": "INCOMPLETE",
+  "steps_json": [
+   {
+    "step_no": 1,
+    "phase": "FINDING",
+    "system_id": "account_service",
+    "resource_id": "account_005",
+    "operation": "REPORT_REMAINING_RECORD",
+    "state": "PRESENT",
+    "evidence_id": "evidence_54"
+   },
+   {
+    "step_no": 2,
+    "phase": "REMEDIATION",
+    "system_id": "account_service",
+    "resource_id": "account_005",
+    "operation": "DELETE_RECORD",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 3,
+    "phase": "VERIFICATION",
+    "system_id": "account_service",
+    "resource_id": "account_005",
+    "operation": "VERIFY_RECORD_ABSENT",
+    "state": "ABSENT",
+    "evidence_id": ""
+   }
+  ]
+ }
+}

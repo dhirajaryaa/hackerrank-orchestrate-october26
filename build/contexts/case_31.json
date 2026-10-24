@@ -1,0 +1,153 @@
+{
+ "case": {
+  "case_id": "case_31",
+  "audit_at": "2026-09-15T12:00:00Z",
+  "requested_at": "2026-09-04T12:00:00Z",
+  "reported_status": "COMPLETE",
+  "reported_at": "2026-09-06T12:00:00Z",
+  "email_supplied": "a.eze08@gmail.com",
+  "request_text": "I no longer need this account. Please remove my name and contact details, but keeping an internal deleted-account reference is fine if other required records still depend on it."
+ },
+ "intent": {
+  "is_deletion": true,
+  "label": "deletion",
+  "matched_terms": [
+   "delet",
+   "remov"
+  ],
+  "matched_negations": [],
+  "non_deletion_action": ""
+ },
+ "identity": {
+  "user_id": "user_541",
+  "email_supplied": "a.eze08@gmail.com",
+  "email_kind": "current",
+  "matched_audit_ids": [],
+  "name": "Amara Eze",
+  "current": {
+   "user_id": "user_541",
+   "name": "Amara Eze",
+   "email": "a.eze08@gmail.com",
+   "phone": "+234 803 052 7943",
+   "email_hash": "1b7bf5a90890498cc6b7d2b50b0580ad1dbfaee7766f5d09cd87ecb548533e9e"
+  },
+  "historical": {}
+ },
+ "state_at_audit": [
+  {
+   "system": "identity_service",
+   "resource_id": "tombstone_440",
+   "category": "ACCOUNT_TOMBSTONE",
+   "record_type": "ACCOUNT_TOMBSTONE",
+   "state": "REDACTED",
+   "raw_state": "REDACTED",
+   "observed_at": "2026-09-15T12:00:00Z",
+   "evidence_id": "evidence_51",
+   "evidence_kind": "manifest",
+   "link_method": "explicit_ref",
+   "identifiers": {
+    "subject_reference": "user_541"
+   },
+   "history": [
+    {
+     "state": "REDACTED",
+     "raw_state": "REDACTED",
+     "observed_at": "2026-09-06T11:31:39Z",
+     "evidence_id": "activity_3687",
+     "kind": "activity"
+    },
+    {
+     "state": "REDACTED",
+     "raw_state": "REDACTED",
+     "observed_at": "2026-09-15T12:00:00Z",
+     "evidence_id": "evidence_51",
+     "kind": "manifest"
+    }
+   ]
+  },
+  {
+   "system": "security_service",
+   "resource_id": "audit_record_6909",
+   "category": "SECURITY_AUDIT_LOG",
+   "record_type": "SECURITY_AUDIT_LOG",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-09-15T12:00:00Z",
+   "evidence_id": "evidence_51",
+   "evidence_kind": "manifest",
+   "link_method": "explicit_ref",
+   "identifiers": {
+    "subject_reference": "user_541"
+   },
+   "history": [
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-09-15T12:00:00Z",
+     "evidence_id": "evidence_51",
+     "kind": "manifest"
+    }
+   ]
+  }
+ ],
+ "activity_claims": [
+  {
+   "activity_id": "activity_3687",
+   "event_time": "2026-09-06T11:31:39Z",
+   "event_type": "REDACT_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "identity_service",
+   "resource_id": "tombstone_440",
+   "reported_result": "SUCCESS",
+   "details": "Policy action completed for tombstone_440."
+  }
+ ],
+ "rules": [
+  {
+   "rule_id": "rule_12",
+   "data_category": "SECURITY_AUDIT_LOG",
+   "condition": "Record is within the supplied retention period",
+   "required_action": "RETAIN"
+  },
+  {
+   "rule_id": "rule_15",
+   "data_category": "ACCOUNT_TOMBSTONE",
+   "condition": "Account is deleted and only a stable internal user_id is needed to preserve references to retained records",
+   "required_action": "REDACT"
+  }
+ ],
+ "evidence_batch": {
+  "evidence_ids": [
+   "activity_3687",
+   "evidence_51"
+  ],
+  "co_subjects": [
+   "user_542"
+  ],
+  "unattributed_resources": {}
+ },
+ "excluded_after_audit": [],
+ "draft": {
+  "deletion_status": "COMPLETE",
+  "steps_json": [
+   {
+    "step_no": 1,
+    "phase": "VERIFICATION",
+    "system_id": "security_service",
+    "resource_id": "audit_record_6909",
+    "operation": "VERIFY_RECORD_PRESENT",
+    "state": "PRESENT",
+    "evidence_id": "evidence_51"
+   },
+   {
+    "step_no": 2,
+    "phase": "VERIFICATION",
+    "system_id": "identity_service",
+    "resource_id": "tombstone_440",
+    "operation": "VERIFY_RECORD_REDACTED",
+    "state": "REDACTED",
+    "evidence_id": "evidence_51"
+   }
+  ]
+ }
+}

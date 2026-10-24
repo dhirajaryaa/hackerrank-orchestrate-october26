@@ -1,0 +1,230 @@
+{
+ "case": {
+  "case_id": "case_88",
+  "audit_at": "2026-09-06T07:00:00Z",
+  "requested_at": "2026-08-21T07:00:00Z",
+  "reported_status": "COMPLETE",
+  "reported_at": "2026-08-24T07:00:00Z",
+  "email_supplied": "oladipo.ikenna98@gmail.com",
+  "request_text": "Please permanently delete the account associated with this email address. Please review any identifiers connected to this account as part of the request. I would appreciate confirmation of the final outcome."
+ },
+ "intent": {
+  "is_deletion": true,
+  "label": "deletion",
+  "matched_terms": [
+   "delet"
+  ],
+  "matched_negations": [],
+  "non_deletion_action": ""
+ },
+ "identity": {
+  "user_id": "user_86",
+  "email_supplied": "oladipo.ikenna98@gmail.com",
+  "email_kind": "historical",
+  "matched_audit_ids": [
+   "audit_262"
+  ],
+  "name": "Ikenna Oladipo",
+  "current": {
+   "user_id": "user_86",
+   "name": "Ikenna Oladipo",
+   "email": "oladipo.ikenna@gmail.com",
+   "phone": "+234 803 882 9733",
+   "email_hash": "30de6a7d8a938fb60879958dfcb9010864629953230c6b7a6eb9a1ceb8161fd3"
+  },
+  "historical": {
+   "email": [
+    "oladipo.ikenna98@gmail.com"
+   ],
+   "email_hash": [
+    "fa0b727dafea31a06ef3cab04b8160bdba38071adf9b10fcf4b7f4dcd9b44ce1"
+   ]
+  }
+ },
+ "state_at_audit": [
+  {
+   "system": "account_service",
+   "resource_id": "account_868",
+   "category": "USER_PROFILE",
+   "record_type": "USER_PROFILE",
+   "state": "ABSENT",
+   "raw_state": "ABSENT",
+   "observed_at": "2026-09-06T07:00:00Z",
+   "evidence_id": "evidence_08",
+   "evidence_kind": "manifest",
+   "link_method": "link_key",
+   "identifiers": {
+    "subject_reference": "oladipo.ikenna98@gmail.com"
+   },
+   "history": [
+    {
+     "state": "ABSENT",
+     "raw_state": "ABSENT",
+     "observed_at": "2026-08-24T05:59:29Z",
+     "evidence_id": "activity_3414",
+     "kind": "activity"
+    },
+    {
+     "state": "ABSENT",
+     "raw_state": "ABSENT",
+     "observed_at": "2026-09-06T07:00:00Z",
+     "evidence_id": "evidence_08",
+     "kind": "manifest"
+    }
+   ]
+  },
+  {
+   "system": "security_service",
+   "resource_id": "audit_record_3825",
+   "category": "SECURITY_AUDIT_LOG",
+   "record_type": "SECURITY_AUDIT_LOG",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-09-06T07:00:00Z",
+   "evidence_id": "evidence_08",
+   "evidence_kind": "manifest",
+   "link_method": "explicit_ref",
+   "identifiers": {
+    "subject_reference": "user_86"
+   },
+   "history": [
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-09-06T07:00:00Z",
+     "evidence_id": "evidence_08",
+     "kind": "manifest"
+    }
+   ]
+  },
+  {
+   "system": "support_platform",
+   "resource_id": "support_2967",
+   "category": "SUPPORT_MESSAGE",
+   "record_type": "SUPPORT_MESSAGE",
+   "state": "REDACTED",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-09-06T07:00:00Z",
+   "evidence_id": "evidence_08",
+   "evidence_kind": "manifest",
+   "link_method": "link_key",
+   "identifiers": {
+    "subject_reference": "oladipo.ikenna98@gmail.com"
+   },
+   "history": [
+    {
+     "state": "REDACTED",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-08-24T07:42:21Z",
+     "evidence_id": "activity_3421",
+     "kind": "activity"
+    },
+    {
+     "state": "REDACTED",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-09-06T07:00:00Z",
+     "evidence_id": "evidence_08",
+     "kind": "manifest"
+    }
+   ]
+  }
+ ],
+ "activity_claims": [
+  {
+   "activity_id": "activity_3414",
+   "event_time": "2026-08-24T05:59:29Z",
+   "event_type": "DELETE_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "account_service",
+   "resource_id": "account_868",
+   "reported_result": "SUCCESS",
+   "details": "Deletion worker submitted primary profile account_868 to account_service."
+  },
+  {
+   "activity_id": "activity_3421",
+   "event_time": "2026-08-24T07:42:21Z",
+   "event_type": "REDACT_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "support_platform",
+   "resource_id": "support_2967",
+   "reported_result": "FAILED",
+   "details": "Deletion worker received the final result for support_2967 from support_platform."
+  }
+ ],
+ "rules": [
+  {
+   "rule_id": "rule_01",
+   "data_category": "USER_PROFILE",
+   "condition": "Always",
+   "required_action": "DELETE"
+  },
+  {
+   "rule_id": "rule_05",
+   "data_category": "SUPPORT_MESSAGE",
+   "condition": "Conversation contains shared customer, agent, or order context that must be retained",
+   "required_action": "REDACT"
+  },
+  {
+   "rule_id": "rule_12",
+   "data_category": "SECURITY_AUDIT_LOG",
+   "condition": "Record is within the supplied retention period",
+   "required_action": "RETAIN"
+  }
+ ],
+ "evidence_batch": {
+  "evidence_ids": [
+   "activity_3414",
+   "activity_3421",
+   "evidence_08"
+  ],
+  "co_subjects": [
+   "user_81",
+   "user_82",
+   "user_83",
+   "user_84",
+   "user_85",
+   "user_87",
+   "user_88",
+   "user_89",
+   "user_90"
+  ],
+  "unattributed_resources": {
+   "evidence_08": [
+    "analytics_9500"
+   ]
+  }
+ },
+ "excluded_after_audit": [],
+ "draft": {
+  "deletion_status": "COMPLETE",
+  "steps_json": [
+   {
+    "step_no": 1,
+    "phase": "VERIFICATION",
+    "system_id": "account_service",
+    "resource_id": "account_868",
+    "operation": "VERIFY_RECORD_ABSENT",
+    "state": "ABSENT",
+    "evidence_id": "evidence_08"
+   },
+   {
+    "step_no": 2,
+    "phase": "VERIFICATION",
+    "system_id": "security_service",
+    "resource_id": "audit_record_3825",
+    "operation": "VERIFY_RECORD_PRESENT",
+    "state": "PRESENT",
+    "evidence_id": "evidence_08"
+   },
+   {
+    "step_no": 3,
+    "phase": "VERIFICATION",
+    "system_id": "support_platform",
+    "resource_id": "support_2967",
+    "operation": "VERIFY_RECORD_REDACTED",
+    "state": "REDACTED",
+    "evidence_id": "evidence_08"
+   }
+  ]
+ }
+}

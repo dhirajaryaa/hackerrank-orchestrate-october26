@@ -1,0 +1,266 @@
+{
+ "case": {
+  "case_id": "case_24",
+  "audit_at": "2026-09-15T12:00:00Z",
+  "requested_at": "2026-09-01T12:00:00Z",
+  "reported_status": "COMPLETE",
+  "reported_at": "2026-09-02T12:00:00Z",
+  "email_supplied": "keiko.nakamura@gmail.com",
+  "request_text": "I was told that deletion was complete, but the account and its search result can still be found. Please investigate and finish the deletion."
+ },
+ "intent": {
+  "is_deletion": true,
+  "label": "deletion",
+  "matched_terms": [
+   "delet"
+  ],
+  "matched_negations": [],
+  "non_deletion_action": ""
+ },
+ "identity": {
+  "user_id": "user_24",
+  "email_supplied": "keiko.nakamura@gmail.com",
+  "email_kind": "current",
+  "matched_audit_ids": [],
+  "name": "Keiko Nakamura",
+  "current": {
+   "user_id": "user_24",
+   "name": "Keiko Nakamura",
+   "email": "keiko.nakamura@gmail.com",
+   "phone": "+81 90 2669 6684",
+   "email_hash": "dcbef21cf1c49652e5af01b9719d87b096e1fdfe6b9f956910fe298dc63fa710"
+  },
+  "historical": {}
+ },
+ "state_at_audit": [
+  {
+   "system": "account_service",
+   "resource_id": "account_5334",
+   "category": "USER_PROFILE",
+   "record_type": "USER_PROFILE",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-09-15T09:41:33Z",
+   "evidence_id": "evidence_92",
+   "evidence_kind": "manifest",
+   "link_method": "identifier",
+   "identifiers": {
+    "profile": {
+     "email": "keiko.nakamura@gmail.com"
+    }
+   },
+   "history": [
+    {
+     "state": "ABSENT",
+     "raw_state": "ABSENT",
+     "observed_at": "2026-09-02T10:59:41Z",
+     "evidence_id": "activity_3599",
+     "kind": "activity"
+    },
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-09-15T09:41:33Z",
+     "evidence_id": "evidence_92",
+     "kind": "manifest"
+    }
+   ]
+  },
+  {
+   "system": "search_service",
+   "resource_id": "search_5577",
+   "category": "SEARCH_INDEX_ENTRY",
+   "record_type": "SEARCH_INDEX_ENTRY",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-09-15T10:01:51Z",
+   "evidence_id": "evidence_92",
+   "evidence_kind": "manifest",
+   "link_method": "identifier",
+   "identifiers": {
+    "email": "keiko.nakamura@gmail.com"
+   },
+   "history": [
+    {
+     "state": "ABSENT",
+     "raw_state": "ABSENT",
+     "observed_at": "2026-09-02T13:04:03Z",
+     "evidence_id": "activity_3610",
+     "kind": "activity"
+    },
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-09-15T10:01:51Z",
+     "evidence_id": "evidence_92",
+     "kind": "manifest"
+    }
+   ]
+  }
+ ],
+ "activity_claims": [
+  {
+   "activity_id": "activity_3599",
+   "event_time": "2026-09-02T10:59:41Z",
+   "event_type": "DELETE_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "account_service",
+   "resource_id": "account_5334",
+   "reported_result": "SUCCESS",
+   "details": "Deletion worker submitted primary profile account_5334 to account_service."
+  },
+  {
+   "activity_id": "activity_3608",
+   "event_time": "2026-09-02T12:45:33Z",
+   "event_type": "SYNC_RECORD",
+   "source_system": "account_service",
+   "target_system": "account_replication_cluster",
+   "resource_id": "account_5334",
+   "reported_result": "SUCCESS",
+   "details": "Replication worker reported its final checkpoint for account_5334."
+  },
+  {
+   "activity_id": "activity_3610",
+   "event_time": "2026-09-02T13:04:03Z",
+   "event_type": "DELETE_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "search_service",
+   "resource_id": "search_5577",
+   "reported_result": "SUCCESS",
+   "details": "Deletion worker received the final result for search_5577 from search_service."
+  }
+ ],
+ "rules": [
+  {
+   "rule_id": "rule_01",
+   "data_category": "USER_PROFILE",
+   "condition": "Always",
+   "required_action": "DELETE"
+  },
+  {
+   "rule_id": "rule_03",
+   "data_category": "SEARCH_INDEX_ENTRY",
+   "condition": "Always",
+   "required_action": "DELETE"
+  }
+ ],
+ "evidence_batch": {
+  "evidence_ids": [
+   "activity_3599",
+   "activity_3608",
+   "activity_3610",
+   "evidence_27",
+   "evidence_92"
+  ],
+  "co_subjects": [
+   "user_08",
+   "user_12",
+   "user_17",
+   "user_21",
+   "user_23",
+   "user_25",
+   "user_26",
+   "user_27",
+   "user_28",
+   "user_29",
+   "user_30"
+  ],
+  "unattributed_resources": {
+   "evidence_92": [
+    "account_3136",
+    "account_5482",
+    "account_6440",
+    "analytics_1895",
+    "analytics_4566",
+    "analytics_4574",
+    "analytics_5335",
+    "analytics_6077"
+   ]
+  }
+ },
+ "excluded_after_audit": [
+  {
+   "evidence_id": "evidence_02",
+   "system": "account_service",
+   "resource_id": "account_5334",
+   "state": "PRESENT",
+   "captured_at": "2026-09-17T12:00:00Z",
+   "observed_at": "2026-09-15T12:00:00Z"
+  },
+  {
+   "evidence_id": "evidence_02",
+   "system": "search_service",
+   "resource_id": "search_5577",
+   "state": "PRESENT",
+   "captured_at": "2026-09-17T12:00:00Z",
+   "observed_at": "2026-09-15T12:00:00Z"
+  },
+  {
+   "evidence_id": "evidence_02",
+   "system": "security_service",
+   "resource_id": "audit_record_7095",
+   "state": "PRESENT",
+   "captured_at": "2026-09-17T12:00:00Z",
+   "observed_at": "2026-09-15T12:00:00Z"
+  }
+ ],
+ "draft": {
+  "deletion_status": "INCOMPLETE",
+  "steps_json": [
+   {
+    "step_no": 1,
+    "phase": "FINDING",
+    "system_id": "account_service",
+    "resource_id": "account_5334",
+    "operation": "REPORT_REMAINING_RECORD",
+    "state": "PRESENT",
+    "evidence_id": "evidence_92"
+   },
+   {
+    "step_no": 2,
+    "phase": "FINDING",
+    "system_id": "search_service",
+    "resource_id": "search_5577",
+    "operation": "REPORT_REMAINING_RECORD",
+    "state": "PRESENT",
+    "evidence_id": "evidence_92"
+   },
+   {
+    "step_no": 3,
+    "phase": "REMEDIATION",
+    "system_id": "account_service",
+    "resource_id": "account_5334",
+    "operation": "DELETE_RECORD",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 4,
+    "phase": "REMEDIATION",
+    "system_id": "search_service",
+    "resource_id": "search_5577",
+    "operation": "DELETE_RECORD",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 5,
+    "phase": "VERIFICATION",
+    "system_id": "account_service",
+    "resource_id": "account_5334",
+    "operation": "VERIFY_RECORD_ABSENT",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 6,
+    "phase": "VERIFICATION",
+    "system_id": "search_service",
+    "resource_id": "search_5577",
+    "operation": "VERIFY_RECORD_ABSENT",
+    "state": "ABSENT",
+    "evidence_id": ""
+   }
+  ]
+ }
+}

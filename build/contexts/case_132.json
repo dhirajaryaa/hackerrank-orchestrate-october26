@@ -1,0 +1,248 @@
+{
+ "case": {
+  "case_id": "case_132",
+  "audit_at": "2026-08-17T10:00:00Z",
+  "requested_at": "2026-07-28T10:00:00Z",
+  "reported_status": "PARTIALLY_COMPLETE",
+  "reported_at": "2026-07-30T10:00:00Z",
+  "email_supplied": "cnascimento4199@fastmail.com",
+  "request_text": "Solicito a exclusão permanente da conta associada a este e-mail. Verifiquem os identificadores atuais e anteriores conforme o processo de privacidade. Por favor, confirmem o resultado quando a análise terminar."
+ },
+ "intent": {
+  "is_deletion": true,
+  "label": "deletion",
+  "matched_terms": [
+   "exclusão"
+  ],
+  "matched_negations": [],
+  "non_deletion_action": ""
+ },
+ "identity": {
+  "user_id": "user_130",
+  "email_supplied": "cnascimento4199@fastmail.com",
+  "email_kind": "current",
+  "matched_audit_ids": [],
+  "name": "Camila Nascimento",
+  "current": {
+   "user_id": "user_130",
+   "name": "Camila Nascimento",
+   "email": "cnascimento4199@fastmail.com",
+   "phone": "+55 41 96521-0674",
+   "email_hash": "98fef6e9c4f28477174e3bbdf1179ef4ee12f6c8ea32b80848da02a7633bed4d"
+  },
+  "historical": {
+   "phone": [
+    "+55 21 96124-8878"
+   ]
+  }
+ },
+ "state_at_audit": [
+  {
+   "system": "export_service",
+   "resource_id": "export_9157",
+   "category": "USER_EXPORT",
+   "record_type": "USER_EXPORT",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-08-17T09:42:50Z",
+   "evidence_id": "evidence_87",
+   "evidence_kind": "manifest",
+   "link_method": "identifier",
+   "identifiers": {
+    "owner_email": "cnascimento4199@fastmail.com"
+   },
+   "history": [
+    {
+     "state": "UNCERTAIN",
+     "raw_state": "UNCERTAIN",
+     "observed_at": "2026-07-30T10:51:56Z",
+     "evidence_id": "activity_3022",
+     "kind": "activity"
+    },
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-08-17T09:42:50Z",
+     "evidence_id": "evidence_87",
+     "kind": "manifest"
+    }
+   ]
+  },
+  {
+   "system": "search_service",
+   "resource_id": "search_3112",
+   "category": "SEARCH_INDEX_ENTRY",
+   "record_type": "SEARCH_INDEX_ENTRY",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-08-17T09:39:36Z",
+   "evidence_id": "evidence_87",
+   "evidence_kind": "manifest",
+   "link_method": "identifier",
+   "identifiers": {
+    "email": "cnascimento4199@fastmail.com"
+   },
+   "history": [
+    {
+     "state": "UNCERTAIN",
+     "raw_state": "UNCERTAIN",
+     "observed_at": "2026-07-30T11:10:26Z",
+     "evidence_id": "activity_3024",
+     "kind": "activity"
+    },
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-08-17T09:39:36Z",
+     "evidence_id": "evidence_87",
+     "kind": "manifest"
+    }
+   ]
+  }
+ ],
+ "activity_claims": [
+  {
+   "activity_id": "activity_3022",
+   "event_time": "2026-07-30T10:51:56Z",
+   "event_type": "DELETE_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "export_service",
+   "resource_id": "export_9157",
+   "reported_result": "PARTIAL",
+   "details": "Deletion worker received the final result for export_9157 from export_service."
+  },
+  {
+   "activity_id": "activity_3024",
+   "event_time": "2026-07-30T11:10:26Z",
+   "event_type": "DELETE_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "search_service",
+   "resource_id": "search_3112",
+   "reported_result": "PARTIAL",
+   "details": "Deletion worker received the final result for search_3112 from search_service."
+  }
+ ],
+ "rules": [
+  {
+   "rule_id": "rule_03",
+   "data_category": "SEARCH_INDEX_ENTRY",
+   "condition": "Always",
+   "required_action": "DELETE"
+  },
+  {
+   "rule_id": "rule_09",
+   "data_category": "USER_EXPORT",
+   "condition": "Always",
+   "required_action": "DELETE"
+  }
+ ],
+ "evidence_batch": {
+  "evidence_ids": [
+   "activity_3022",
+   "activity_3024",
+   "evidence_87"
+  ],
+  "co_subjects": [
+   "user_121",
+   "user_122",
+   "user_123",
+   "user_124",
+   "user_125",
+   "user_126",
+   "user_127",
+   "user_128",
+   "user_129"
+  ],
+  "unattributed_resources": {
+   "evidence_87": [
+    "analytics_1402",
+    "analytics_7150"
+   ]
+  }
+ },
+ "excluded_after_audit": [
+  {
+   "evidence_id": "evidence_12",
+   "system": "export_service",
+   "resource_id": "export_9157",
+   "state": "PRESENT",
+   "captured_at": "2026-08-19T10:00:00Z",
+   "observed_at": "2026-08-17T10:00:00Z"
+  },
+  {
+   "evidence_id": "evidence_12",
+   "system": "search_service",
+   "resource_id": "search_3112",
+   "state": "PRESENT",
+   "captured_at": "2026-08-19T10:00:00Z",
+   "observed_at": "2026-08-17T10:00:00Z"
+  },
+  {
+   "evidence_id": "evidence_12",
+   "system": "security_service",
+   "resource_id": "audit_record_1424",
+   "state": "PRESENT",
+   "captured_at": "2026-08-19T10:00:00Z",
+   "observed_at": "2026-08-17T10:00:00Z"
+  }
+ ],
+ "draft": {
+  "deletion_status": "INCOMPLETE",
+  "steps_json": [
+   {
+    "step_no": 1,
+    "phase": "FINDING",
+    "system_id": "export_service",
+    "resource_id": "export_9157",
+    "operation": "REPORT_REMAINING_RECORD",
+    "state": "PRESENT",
+    "evidence_id": "evidence_87"
+   },
+   {
+    "step_no": 2,
+    "phase": "FINDING",
+    "system_id": "search_service",
+    "resource_id": "search_3112",
+    "operation": "REPORT_REMAINING_RECORD",
+    "state": "PRESENT",
+    "evidence_id": "evidence_87"
+   },
+   {
+    "step_no": 3,
+    "phase": "REMEDIATION",
+    "system_id": "export_service",
+    "resource_id": "export_9157",
+    "operation": "DELETE_RECORD",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 4,
+    "phase": "REMEDIATION",
+    "system_id": "search_service",
+    "resource_id": "search_3112",
+    "operation": "DELETE_RECORD",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 5,
+    "phase": "VERIFICATION",
+    "system_id": "export_service",
+    "resource_id": "export_9157",
+    "operation": "VERIFY_RECORD_ABSENT",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 6,
+    "phase": "VERIFICATION",
+    "system_id": "search_service",
+    "resource_id": "search_3112",
+    "operation": "VERIFY_RECORD_ABSENT",
+    "state": "ABSENT",
+    "evidence_id": ""
+   }
+  ]
+ }
+}

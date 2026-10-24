@@ -1,0 +1,105 @@
+{
+ "case": {
+  "case_id": "case_533",
+  "audit_at": "2026-10-01T12:00:00Z",
+  "requested_at": "2026-09-10T12:00:00Z",
+  "reported_status": "NOT_STARTED",
+  "reported_at": "2026-09-11T12:00:00Z",
+  "email_supplied": "haruka-kato@gmail.com",
+  "request_text": "The mobile number on my profile is out of date. Please replace it with the new one and leave the account active."
+ },
+ "intent": {
+  "is_deletion": false,
+  "label": "not_deletion",
+  "matched_terms": [],
+  "matched_negations": [
+   "leave the account active"
+  ],
+  "non_deletion_action": ""
+ },
+ "identity": {
+  "user_id": "user_531",
+  "email_supplied": "haruka-kato@gmail.com",
+  "email_kind": "current",
+  "matched_audit_ids": [],
+  "name": "Haruka Kato",
+  "current": {
+   "user_id": "user_531",
+   "name": "Haruka Kato",
+   "email": "haruka-kato@gmail.com",
+   "phone": "+81 90 4757 3543",
+   "email_hash": "afb3d185785a7a8747c4e278c8113110c9a6b8492a75732ce013f35986f0dbe3"
+  },
+  "historical": {}
+ },
+ "state_at_audit": [
+  {
+   "system": "security_service",
+   "resource_id": "audit_record_7626",
+   "category": "SECURITY_AUDIT_LOG",
+   "record_type": "SECURITY_AUDIT_LOG",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-10-01T12:00:00Z",
+   "evidence_id": "evidence_50",
+   "evidence_kind": "manifest",
+   "link_method": "explicit_ref",
+   "identifiers": {
+    "subject_reference": "user_531"
+   },
+   "history": [
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-10-01T12:00:00Z",
+     "evidence_id": "evidence_50",
+     "kind": "manifest"
+    }
+   ]
+  }
+ ],
+ "activity_claims": [],
+ "rules": [
+  {
+   "rule_id": "rule_12",
+   "data_category": "SECURITY_AUDIT_LOG",
+   "condition": "Record is within the supplied retention period",
+   "required_action": "RETAIN"
+  }
+ ],
+ "evidence_batch": {
+  "evidence_ids": [
+   "evidence_50"
+  ],
+  "co_subjects": [
+   "user_532",
+   "user_533",
+   "user_534",
+   "user_535",
+   "user_536",
+   "user_537",
+   "user_538",
+   "user_539",
+   "user_540"
+  ],
+  "unattributed_resources": {
+   "evidence_50": [
+    "account_1733",
+    "account_2176",
+    "account_228",
+    "account_2461",
+    "account_5605",
+    "account_5835",
+    "account_6486",
+    "account_7452",
+    "account_7821",
+    "account_9321"
+   ]
+  }
+ },
+ "excluded_after_audit": [],
+ "draft": {
+  "deletion_status": "NOT_APPLICABLE",
+  "steps_json": []
+ }
+}

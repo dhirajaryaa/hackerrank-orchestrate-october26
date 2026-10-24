@@ -1,0 +1,289 @@
+{
+ "case": {
+  "case_id": "case_17",
+  "audit_at": "2026-09-15T12:00:00Z",
+  "requested_at": "2026-08-19T12:00:00Z",
+  "reported_status": "NOT_STARTED",
+  "reported_at": "2026-08-22T12:00:00Z",
+  "email_supplied": "leonie.g9352@outlook.com",
+  "request_text": "I want to close this account permanently. You may retain backups if required, but they must not be able to restore my personal profile."
+ },
+ "intent": {
+  "is_deletion": true,
+  "label": "deletion",
+  "matched_terms": [
+   "close this account"
+  ],
+  "matched_negations": [],
+  "non_deletion_action": ""
+ },
+ "identity": {
+  "user_id": "user_17",
+  "email_supplied": "leonie.g9352@outlook.com",
+  "email_kind": "current",
+  "matched_audit_ids": [],
+  "name": "Léonie Girard",
+  "current": {
+   "user_id": "user_17",
+   "name": "Léonie Girard",
+   "email": "leonie.g9352@outlook.com",
+   "phone": "+33 6 50 56 17 06",
+   "email_hash": "54cf4f530165a1f0cff508db09db2df1414e78cba6e83adb0e298515176b0989"
+  },
+  "historical": {}
+ },
+ "state_at_audit": [
+  {
+   "system": "account_service",
+   "resource_id": "account_4092",
+   "category": "USER_PROFILE",
+   "record_type": "USER_PROFILE",
+   "state": "ABSENT",
+   "raw_state": "ABSENT",
+   "observed_at": "2026-09-15T11:51:19Z",
+   "evidence_id": "evidence_01",
+   "evidence_kind": "manifest",
+   "link_method": "link_key",
+   "identifiers": {},
+   "history": [
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-08-22T11:14:20Z",
+     "evidence_id": "activity_3383",
+     "kind": "activity"
+    },
+    {
+     "state": "ABSENT",
+     "raw_state": "ABSENT",
+     "observed_at": "2026-09-15T11:51:19Z",
+     "evidence_id": "evidence_01",
+     "kind": "manifest"
+    }
+   ]
+  },
+  {
+   "system": "account_service",
+   "resource_id": "account_6523",
+   "category": "USER_PROFILE",
+   "record_type": "USER_PROFILE",
+   "state": "ABSENT",
+   "raw_state": "ABSENT",
+   "observed_at": "2026-09-15T09:56:51Z",
+   "evidence_id": "activity_3850",
+   "evidence_kind": "activity",
+   "link_method": "resource_alias",
+   "identifiers": {},
+   "history": [
+    {
+     "state": "ABSENT",
+     "raw_state": "ABSENT",
+     "observed_at": "2026-03-10T06:18:01Z",
+     "evidence_id": "evidence_67",
+     "kind": "manifest"
+    },
+    {
+     "state": "ABSENT",
+     "raw_state": "ABSENT",
+     "observed_at": "2026-09-15T09:56:51Z",
+     "evidence_id": "activity_3850",
+     "kind": "activity"
+    }
+   ]
+  },
+  {
+   "system": "backup_service",
+   "resource_id": "backup_3245",
+   "category": "BACKUP_ARCHIVE",
+   "record_type": "BACKUP_ARCHIVE",
+   "state": "ACTIVE",
+   "raw_state": "ACTIVE",
+   "observed_at": "2026-09-15T11:54:41Z",
+   "evidence_id": "evidence_01",
+   "evidence_kind": "manifest",
+   "link_method": "link_key",
+   "identifiers": {},
+   "history": [
+    {
+     "state": "ACTIVE",
+     "raw_state": "ACTIVE",
+     "observed_at": "2026-08-22T12:42:12Z",
+     "evidence_id": "activity_3385",
+     "kind": "activity"
+    },
+    {
+     "state": "ACTIVE",
+     "raw_state": "ACTIVE",
+     "observed_at": "2026-09-15T11:54:41Z",
+     "evidence_id": "evidence_01",
+     "kind": "manifest"
+    }
+   ]
+  },
+  {
+   "system": "security_service",
+   "resource_id": "audit_record_1797",
+   "category": "SECURITY_AUDIT_LOG",
+   "record_type": "SECURITY_AUDIT_LOG",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-09-15T11:53:53Z",
+   "evidence_id": "evidence_01",
+   "evidence_kind": "manifest",
+   "link_method": "link_key",
+   "identifiers": {},
+   "history": [
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-09-15T11:53:53Z",
+     "evidence_id": "evidence_01",
+     "kind": "manifest"
+    }
+   ]
+  }
+ ],
+ "activity_claims": [
+  {
+   "activity_id": "activity_3383",
+   "event_time": "2026-08-22T11:14:20Z",
+   "event_type": "DELETE_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "account_service",
+   "resource_id": "account_4092",
+   "reported_result": "FAILED",
+   "details": "Deletion worker submitted primary profile account_4092 to account_service."
+  },
+  {
+   "activity_id": "activity_3385",
+   "event_time": "2026-08-22T12:42:12Z",
+   "event_type": "CHECK_RESTORE_ACCESS",
+   "source_system": "deletion_worker",
+   "target_system": "backup_service",
+   "resource_id": "backup_3245",
+   "reported_result": "SUCCESS",
+   "details": "Restore-access check confirmed that archive backup_3245 can still be restored."
+  },
+  {
+   "activity_id": "activity_3850",
+   "event_time": "2026-09-15T09:56:51Z",
+   "event_type": "DELETE_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "account_service",
+   "resource_id": "account_6523",
+   "reported_result": "SUCCESS",
+   "details": "Deletion worker submitted primary profile account_6523 to account_service."
+  }
+ ],
+ "rules": [
+  {
+   "rule_id": "rule_01",
+   "data_category": "USER_PROFILE",
+   "condition": "Always",
+   "required_action": "DELETE"
+  },
+  {
+   "rule_id": "rule_12",
+   "data_category": "SECURITY_AUDIT_LOG",
+   "condition": "Record is within the supplied retention period",
+   "required_action": "RETAIN"
+  },
+  {
+   "rule_id": "rule_14",
+   "data_category": "BACKUP_ARCHIVE",
+   "condition": "Restore access can be blocked",
+   "required_action": "RETAIN"
+  }
+ ],
+ "evidence_batch": {
+  "evidence_ids": [
+   "activity_3383",
+   "activity_3385",
+   "activity_3850",
+   "activity_4011",
+   "evidence_01",
+   "evidence_27",
+   "evidence_67"
+  ],
+  "co_subjects": [
+   "user_08",
+   "user_11",
+   "user_12",
+   "user_13",
+   "user_14",
+   "user_15",
+   "user_16",
+   "user_18",
+   "user_19",
+   "user_20",
+   "user_21",
+   "user_24",
+   "user_29"
+  ],
+  "unattributed_resources": {
+   "evidence_01": [
+    "search_1874"
+   ]
+  }
+ },
+ "excluded_after_audit": [],
+ "draft": {
+  "deletion_status": "INCOMPLETE",
+  "steps_json": [
+   {
+    "step_no": 1,
+    "phase": "FINDING",
+    "system_id": "backup_service",
+    "resource_id": "backup_3245",
+    "operation": "REPORT_RESTORE_RISK",
+    "state": "ACTIVE",
+    "evidence_id": "evidence_01"
+   },
+   {
+    "step_no": 2,
+    "phase": "REMEDIATION",
+    "system_id": "backup_service",
+    "resource_id": "backup_3245",
+    "operation": "BLOCK_RESTORE",
+    "state": "BLOCKED",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 3,
+    "phase": "VERIFICATION",
+    "system_id": "account_service",
+    "resource_id": "account_4092",
+    "operation": "VERIFY_RECORD_ABSENT",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 4,
+    "phase": "VERIFICATION",
+    "system_id": "account_service",
+    "resource_id": "account_6523",
+    "operation": "VERIFY_RECORD_ABSENT",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 5,
+    "phase": "VERIFICATION",
+    "system_id": "security_service",
+    "resource_id": "audit_record_1797",
+    "operation": "VERIFY_RECORD_PRESENT",
+    "state": "PRESENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 6,
+    "phase": "VERIFICATION",
+    "system_id": "backup_service",
+    "resource_id": "backup_3245",
+    "operation": "VERIFY_RESTORE_BLOCKED",
+    "state": "BLOCKED",
+    "evidence_id": ""
+   }
+  ]
+ }
+}

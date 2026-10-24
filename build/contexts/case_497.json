@@ -1,0 +1,112 @@
+{
+ "case": {
+  "case_id": "case_497",
+  "audit_at": "2026-02-13T08:00:00Z",
+  "requested_at": "2026-01-19T08:00:00Z",
+  "reported_status": "COMPLETE",
+  "reported_at": "2026-01-20T08:00:00Z",
+  "email_supplied": "priya-mehta@gmail.com",
+  "request_text": "I am requesting deletion of the account registered to this email address. Please include information linked through current or earlier account identifiers. Please confirm when the review is complete."
+ },
+ "intent": {
+  "is_deletion": true,
+  "label": "deletion",
+  "matched_terms": [
+   "delet"
+  ],
+  "matched_negations": [],
+  "non_deletion_action": ""
+ },
+ "identity": {
+  "user_id": "user_495",
+  "email_supplied": "priya-mehta@gmail.com",
+  "email_kind": "current",
+  "matched_audit_ids": [],
+  "name": "Priya Mehta",
+  "current": {
+   "user_id": "user_495",
+   "name": "Priya Mehta",
+   "email": "priya-mehta@gmail.com",
+   "phone": "+91 91528 80291",
+   "email_hash": "83f69dba071e0d7167cc7d1935adc33a6643037ba95d20eda25da2a19c4abbd7"
+  },
+  "historical": {
+   "phone": [
+    "+91 93766 74109"
+   ]
+  }
+ },
+ "state_at_audit": [
+  {
+   "system": "security_service",
+   "resource_id": "audit_record_9796",
+   "category": "SECURITY_AUDIT_LOG",
+   "record_type": "SECURITY_AUDIT_LOG",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-02-13T05:07:15Z",
+   "evidence_id": "evidence_63",
+   "evidence_kind": "manifest",
+   "link_method": "explicit_ref",
+   "identifiers": {
+    "subject_reference": "user_495"
+   },
+   "history": [
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-02-13T05:07:15Z",
+     "evidence_id": "evidence_63",
+     "kind": "manifest"
+    }
+   ]
+  }
+ ],
+ "activity_claims": [],
+ "rules": [
+  {
+   "rule_id": "rule_12",
+   "data_category": "SECURITY_AUDIT_LOG",
+   "condition": "Record is within the supplied retention period",
+   "required_action": "RETAIN"
+  }
+ ],
+ "evidence_batch": {
+  "evidence_ids": [
+   "evidence_63"
+  ],
+  "co_subjects": [
+   "user_491",
+   "user_492",
+   "user_493",
+   "user_494",
+   "user_496",
+   "user_497",
+   "user_498",
+   "user_499",
+   "user_500"
+  ],
+  "unattributed_resources": {
+   "evidence_63": [
+    "analytics_5443",
+    "analytics_5893",
+    "analytics_6565"
+   ]
+  }
+ },
+ "excluded_after_audit": [],
+ "draft": {
+  "deletion_status": "COMPLETE",
+  "steps_json": [
+   {
+    "step_no": 1,
+    "phase": "VERIFICATION",
+    "system_id": "security_service",
+    "resource_id": "audit_record_9796",
+    "operation": "VERIFY_RECORD_PRESENT",
+    "state": "PRESENT",
+    "evidence_id": "evidence_63"
+   }
+  ]
+ }
+}

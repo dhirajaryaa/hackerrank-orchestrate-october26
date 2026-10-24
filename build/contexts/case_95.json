@@ -1,0 +1,363 @@
+{
+ "case": {
+  "case_id": "case_95",
+  "audit_at": "2026-09-01T06:00:00Z",
+  "requested_at": "2026-08-09T06:00:00Z",
+  "reported_status": "NOT_STARTED",
+  "reported_at": "2026-08-10T06:00:00Z",
+  "email_supplied": "andres-alvarez@proton.me",
+  "request_text": "I no longer use this account and would like it permanently deleted. Please review any identifiers connected to this account as part of the request. Please contact me if you need information to verify the request."
+ },
+ "intent": {
+  "is_deletion": true,
+  "label": "deletion",
+  "matched_terms": [
+   "delet"
+  ],
+  "matched_negations": [],
+  "non_deletion_action": ""
+ },
+ "identity": {
+  "user_id": "user_93",
+  "email_supplied": "andres-alvarez@proton.me",
+  "email_kind": "current",
+  "matched_audit_ids": [],
+  "name": "Andrés Alvarez",
+  "current": {
+   "user_id": "user_93",
+   "name": "Andrés Alvarez",
+   "email": "andres-alvarez@proton.me",
+   "phone": "+34 740 634 926",
+   "email_hash": "7d2568f2d8b6201e19fbb43661ecd6fcfd382556988e58c0acbe888f0f58c9be"
+  },
+  "historical": {}
+ },
+ "state_at_audit": [
+  {
+   "system": "analytics_platform",
+   "resource_id": "analytics_1316",
+   "category": "ANALYTICS_PROFILE",
+   "record_type": "ANALYTICS_PROFILE",
+   "state": "IDENTIFIABLE",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-09-01T02:46:10Z",
+   "evidence_id": "evidence_89",
+   "evidence_kind": "manifest",
+   "link_method": "identifier",
+   "identifiers": {
+    "email": "andres-alvarez@proton.me"
+   },
+   "history": [
+    {
+     "state": "ANONYMIZED",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-08-10T07:42:08Z",
+     "evidence_id": "activity_3197",
+     "kind": "activity"
+    },
+    {
+     "state": "IDENTIFIABLE",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-09-01T02:46:10Z",
+     "evidence_id": "evidence_89",
+     "kind": "manifest"
+    }
+   ]
+  },
+  {
+   "system": "search_service",
+   "resource_id": "search_7807",
+   "category": "SEARCH_INDEX_ENTRY",
+   "record_type": "SEARCH_INDEX_ENTRY",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-09-01T05:12:30Z",
+   "evidence_id": "evidence_89",
+   "evidence_kind": "manifest",
+   "link_method": "identifier",
+   "identifiers": {
+    "email": "andres-alvarez@proton.me"
+   },
+   "history": [
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-08-10T07:04:09Z",
+     "evidence_id": "activity_3193",
+     "kind": "activity"
+    },
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-09-01T05:12:30Z",
+     "evidence_id": "evidence_89",
+     "kind": "manifest"
+    }
+   ]
+  },
+  {
+   "system": "support_platform",
+   "resource_id": "support_5750",
+   "category": "SUPPORT_MESSAGE",
+   "record_type": "SUPPORT_MESSAGE",
+   "state": "IDENTIFIABLE",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-09-01T03:30:27Z",
+   "evidence_id": "evidence_89",
+   "evidence_kind": "manifest",
+   "link_method": "identifier",
+   "identifiers": {
+    "requester_email": "andres-alvarez@proton.me"
+   },
+   "history": [
+    {
+     "state": "REDACTED",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-08-10T06:45:39Z",
+     "evidence_id": "activity_3190",
+     "kind": "activity"
+    },
+    {
+     "state": "IDENTIFIABLE",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-09-01T03:30:27Z",
+     "evidence_id": "evidence_89",
+     "kind": "manifest"
+    }
+   ]
+  },
+  {
+   "system": "support_platform",
+   "resource_id": "support_7311",
+   "category": "SUPPORT_MESSAGE",
+   "record_type": "SUPPORT_MESSAGE",
+   "state": "IDENTIFIABLE",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-09-01T04:13:52Z",
+   "evidence_id": "evidence_89",
+   "evidence_kind": "manifest",
+   "link_method": "identifier",
+   "identifiers": {
+    "requester_email": "andres-alvarez@proton.me"
+   },
+   "history": [
+    {
+     "state": "REDACTED",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-08-10T07:23:38Z",
+     "evidence_id": "activity_3195",
+     "kind": "activity"
+    },
+    {
+     "state": "IDENTIFIABLE",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-09-01T04:13:52Z",
+     "evidence_id": "evidence_89",
+     "kind": "manifest"
+    }
+   ]
+  }
+ ],
+ "activity_claims": [
+  {
+   "activity_id": "activity_3190",
+   "event_time": "2026-08-10T06:45:39Z",
+   "event_type": "DELETE_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "support_platform",
+   "resource_id": "support_5750",
+   "reported_result": "FAILED",
+   "details": "Deletion worker received the final result for support_5750 from support_platform."
+  },
+  {
+   "activity_id": "activity_3193",
+   "event_time": "2026-08-10T07:04:09Z",
+   "event_type": "DELETE_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "search_service",
+   "resource_id": "search_7807",
+   "reported_result": "FAILED",
+   "details": "Deletion worker received the final result for search_7807 from search_service."
+  },
+  {
+   "activity_id": "activity_3195",
+   "event_time": "2026-08-10T07:23:38Z",
+   "event_type": "REDACT_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "support_platform",
+   "resource_id": "support_7311",
+   "reported_result": "FAILED",
+   "details": "Deletion worker received the final result for support_7311 from support_platform."
+  },
+  {
+   "activity_id": "activity_3197",
+   "event_time": "2026-08-10T07:42:08Z",
+   "event_type": "ANONYMIZE_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "analytics_platform",
+   "resource_id": "analytics_1316",
+   "reported_result": "FAILED",
+   "details": "Deletion worker received the final result for analytics_1316 from analytics_platform."
+  }
+ ],
+ "rules": [
+  {
+   "rule_id": "rule_03",
+   "data_category": "SEARCH_INDEX_ENTRY",
+   "condition": "Always",
+   "required_action": "DELETE"
+  },
+  {
+   "rule_id": "rule_05",
+   "data_category": "SUPPORT_MESSAGE",
+   "condition": "Conversation contains shared customer, agent, or order context that must be retained",
+   "required_action": "REDACT"
+  },
+  {
+   "rule_id": "rule_07",
+   "data_category": "ANALYTICS_PROFILE",
+   "condition": "Record is still attributable to a user",
+   "required_action": "ANONYMIZE"
+  }
+ ],
+ "evidence_batch": {
+  "evidence_ids": [
+   "activity_3190",
+   "activity_3193",
+   "activity_3195",
+   "activity_3197",
+   "evidence_89"
+  ],
+  "co_subjects": [
+   "user_100",
+   "user_91",
+   "user_92",
+   "user_94",
+   "user_95",
+   "user_96",
+   "user_97",
+   "user_98",
+   "user_99"
+  ],
+  "unattributed_resources": {
+   "evidence_89": [
+    "account_6813",
+    "analytics_9103"
+   ]
+  }
+ },
+ "excluded_after_audit": [],
+ "draft": {
+  "deletion_status": "INCOMPLETE",
+  "steps_json": [
+   {
+    "step_no": 1,
+    "phase": "FINDING",
+    "system_id": "search_service",
+    "resource_id": "search_7807",
+    "operation": "REPORT_REMAINING_RECORD",
+    "state": "PRESENT",
+    "evidence_id": "evidence_89"
+   },
+   {
+    "step_no": 2,
+    "phase": "FINDING",
+    "system_id": "analytics_platform",
+    "resource_id": "analytics_1316",
+    "operation": "REPORT_EXPOSED_PII",
+    "state": "PRESENT",
+    "evidence_id": "evidence_89"
+   },
+   {
+    "step_no": 3,
+    "phase": "FINDING",
+    "system_id": "support_platform",
+    "resource_id": "support_5750",
+    "operation": "REPORT_EXPOSED_PII",
+    "state": "PRESENT",
+    "evidence_id": "evidence_89"
+   },
+   {
+    "step_no": 4,
+    "phase": "FINDING",
+    "system_id": "support_platform",
+    "resource_id": "support_7311",
+    "operation": "REPORT_EXPOSED_PII",
+    "state": "PRESENT",
+    "evidence_id": "evidence_89"
+   },
+   {
+    "step_no": 5,
+    "phase": "REMEDIATION",
+    "system_id": "search_service",
+    "resource_id": "search_7807",
+    "operation": "DELETE_RECORD",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 6,
+    "phase": "REMEDIATION",
+    "system_id": "support_platform",
+    "resource_id": "support_5750",
+    "operation": "REDACT_RECORD",
+    "state": "REDACTED",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 7,
+    "phase": "REMEDIATION",
+    "system_id": "support_platform",
+    "resource_id": "support_7311",
+    "operation": "REDACT_RECORD",
+    "state": "REDACTED",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 8,
+    "phase": "REMEDIATION",
+    "system_id": "analytics_platform",
+    "resource_id": "analytics_1316",
+    "operation": "ANONYMIZE_RECORD",
+    "state": "ANONYMIZED",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 9,
+    "phase": "VERIFICATION",
+    "system_id": "search_service",
+    "resource_id": "search_7807",
+    "operation": "VERIFY_RECORD_ABSENT",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 10,
+    "phase": "VERIFICATION",
+    "system_id": "support_platform",
+    "resource_id": "support_5750",
+    "operation": "VERIFY_RECORD_REDACTED",
+    "state": "REDACTED",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 11,
+    "phase": "VERIFICATION",
+    "system_id": "support_platform",
+    "resource_id": "support_7311",
+    "operation": "VERIFY_RECORD_REDACTED",
+    "state": "REDACTED",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 12,
+    "phase": "VERIFICATION",
+    "system_id": "analytics_platform",
+    "resource_id": "analytics_1316",
+    "operation": "VERIFY_RECORD_ANONYMIZED",
+    "state": "ANONYMIZED",
+    "evidence_id": ""
+   }
+  ]
+ }
+}

@@ -1,0 +1,123 @@
+{
+ "case": {
+  "case_id": "case_457",
+  "audit_at": "2026-03-05T12:00:00Z",
+  "requested_at": "2026-02-08T12:00:00Z",
+  "reported_status": "COMPLETE",
+  "reported_at": "2026-02-11T12:00:00Z",
+  "email_supplied": "rafael.c7874@zoho.com",
+  "request_text": "Please permanently delete the account associated with this email address. Please include records associated with the account under your privacy process. Please confirm the result after completing the required checks."
+ },
+ "intent": {
+  "is_deletion": true,
+  "label": "deletion",
+  "matched_terms": [
+   "delet"
+  ],
+  "matched_negations": [],
+  "non_deletion_action": ""
+ },
+ "identity": {
+  "user_id": "user_455",
+  "email_supplied": "rafael.c7874@zoho.com",
+  "email_kind": "current",
+  "matched_audit_ids": [],
+  "name": "Rafael Carvalho",
+  "current": {
+   "user_id": "user_455",
+   "name": "Rafael Carvalho",
+   "email": "rafael.c7874@zoho.com",
+   "phone": "+55 51 99700-6760",
+   "email_hash": "4d760d117165c84e8ce7435401b8b7350a8c104472dc84f8f876b4f8c1501655"
+  },
+  "historical": {
+   "phone": [
+    "+55 31 90435-2054"
+   ]
+  }
+ },
+ "state_at_audit": [
+  {
+   "system": "security_service",
+   "resource_id": "audit_record_1171",
+   "category": "SECURITY_AUDIT_LOG",
+   "record_type": "SECURITY_AUDIT_LOG",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-03-05T12:00:00Z",
+   "evidence_id": "evidence_43",
+   "evidence_kind": "manifest",
+   "link_method": "explicit_ref",
+   "identifiers": {
+    "subject_reference": "user_455"
+   },
+   "history": [
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-03-05T12:00:00Z",
+     "evidence_id": "evidence_43",
+     "kind": "manifest"
+    },
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-03-05T12:00:00Z",
+     "evidence_id": "evidence_43",
+     "kind": "manifest"
+    }
+   ]
+  }
+ ],
+ "activity_claims": [],
+ "rules": [
+  {
+   "rule_id": "rule_12",
+   "data_category": "SECURITY_AUDIT_LOG",
+   "condition": "Record is within the supplied retention period",
+   "required_action": "RETAIN"
+  }
+ ],
+ "evidence_batch": {
+  "evidence_ids": [
+   "evidence_43"
+  ],
+  "co_subjects": [
+   "user_451",
+   "user_452",
+   "user_453",
+   "user_454",
+   "user_456",
+   "user_457",
+   "user_458",
+   "user_459",
+   "user_460"
+  ],
+  "unattributed_resources": {
+   "evidence_43": [
+    "analytics_1126",
+    "analytics_5221",
+    "analytics_6750",
+    "backup_1140",
+    "data_flow_4612",
+    "search_8371",
+    "support_2055"
+   ]
+  }
+ },
+ "excluded_after_audit": [],
+ "draft": {
+  "deletion_status": "COMPLETE",
+  "steps_json": [
+   {
+    "step_no": 1,
+    "phase": "VERIFICATION",
+    "system_id": "security_service",
+    "resource_id": "audit_record_1171",
+    "operation": "VERIFY_RECORD_PRESENT",
+    "state": "PRESENT",
+    "evidence_id": "evidence_43"
+   }
+  ]
+ }
+}

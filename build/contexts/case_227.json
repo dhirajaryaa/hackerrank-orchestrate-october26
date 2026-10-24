@@ -1,0 +1,256 @@
+{
+ "case": {
+  "case_id": "case_227",
+  "audit_at": "2026-06-28T07:00:00Z",
+  "requested_at": "2026-06-13T07:00:00Z",
+  "reported_status": "COMPLETE",
+  "reported_at": "2026-06-14T07:00:00Z",
+  "email_supplied": "arthur-fontaine83@proton.me",
+  "request_text": "Please begin the deletion process for the account using this email address. Please include information linked through current or earlier account identifiers. A short confirmation when the process is complete is sufficient."
+ },
+ "intent": {
+  "is_deletion": true,
+  "label": "deletion",
+  "matched_terms": [
+   "delet"
+  ],
+  "matched_negations": [],
+  "non_deletion_action": ""
+ },
+ "identity": {
+  "user_id": "user_225",
+  "email_supplied": "arthur-fontaine83@proton.me",
+  "email_kind": "historical",
+  "matched_audit_ids": [
+   "audit_197"
+  ],
+  "name": "Arthur Fontaine",
+  "current": {
+   "user_id": "user_225",
+   "name": "Arthur Fontaine",
+   "email": "arthur-fontaine@proton.me",
+   "phone": "+33 6 86 49 75 02",
+   "email_hash": "3bfe13c9e7303ccab24d31f102ba85e4c7f8c46571b396323f6ef29f77bfd7b3"
+  },
+  "historical": {
+   "email": [
+    "arthur-fontaine83@proton.me"
+   ],
+   "email_hash": [
+    "c1531daa3bd7b3151a543e2c97db05cc1a53cc810ffdcb241502bbe1f50367be"
+   ]
+  }
+ },
+ "state_at_audit": [
+  {
+   "system": "search_service",
+   "resource_id": "search_8181",
+   "category": "SEARCH_INDEX_ENTRY",
+   "record_type": "SEARCH_INDEX_ENTRY",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-06-28T05:31:47Z",
+   "evidence_id": "evidence_80",
+   "evidence_kind": "manifest",
+   "link_method": "identifier",
+   "identifiers": {
+    "email": "arthur-fontaine83@proton.me"
+   },
+   "history": [
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-06-14T08:08:57Z",
+     "evidence_id": "activity_2364",
+     "kind": "activity"
+    },
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-06-28T05:31:47Z",
+     "evidence_id": "evidence_80",
+     "kind": "manifest"
+    }
+   ]
+  },
+  {
+   "system": "support_platform",
+   "resource_id": "support_5830",
+   "category": "SUPPORT_MESSAGE",
+   "record_type": "SUPPORT_MESSAGE",
+   "state": "IDENTIFIABLE",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-06-28T04:59:12Z",
+   "evidence_id": "evidence_80",
+   "evidence_kind": "manifest",
+   "link_method": "identifier",
+   "identifiers": {
+    "requester_email": "arthur-fontaine83@proton.me"
+   },
+   "history": [
+    {
+     "state": "REDACTED",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-06-14T07:49:28Z",
+     "evidence_id": "activity_2360",
+     "kind": "activity"
+    },
+    {
+     "state": "IDENTIFIABLE",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-06-28T04:59:12Z",
+     "evidence_id": "evidence_80",
+     "kind": "manifest"
+    }
+   ]
+  }
+ ],
+ "activity_claims": [
+  {
+   "activity_id": "activity_2360",
+   "event_time": "2026-06-14T07:49:28Z",
+   "event_type": "DELETE_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "support_platform",
+   "resource_id": "support_5830",
+   "reported_result": "FAILED",
+   "details": "Deletion worker received the final result for support_5830 from support_platform."
+  },
+  {
+   "activity_id": "activity_2364",
+   "event_time": "2026-06-14T08:08:57Z",
+   "event_type": "DELETE_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "search_service",
+   "resource_id": "search_8181",
+   "reported_result": "FAILED",
+   "details": "Deletion worker received the final result for search_8181 from search_service."
+  }
+ ],
+ "rules": [
+  {
+   "rule_id": "rule_03",
+   "data_category": "SEARCH_INDEX_ENTRY",
+   "condition": "Always",
+   "required_action": "DELETE"
+  },
+  {
+   "rule_id": "rule_05",
+   "data_category": "SUPPORT_MESSAGE",
+   "condition": "Conversation contains shared customer, agent, or order context that must be retained",
+   "required_action": "REDACT"
+  }
+ ],
+ "evidence_batch": {
+  "evidence_ids": [
+   "activity_2360",
+   "activity_2364",
+   "evidence_80"
+  ],
+  "co_subjects": [
+   "user_221",
+   "user_222",
+   "user_223",
+   "user_224",
+   "user_226",
+   "user_227",
+   "user_228",
+   "user_229",
+   "user_230"
+  ],
+  "unattributed_resources": {
+   "evidence_80": [
+    "account_392",
+    "account_669",
+    "analytics_1544",
+    "analytics_2501",
+    "analytics_8127"
+   ]
+  }
+ },
+ "excluded_after_audit": [
+  {
+   "evidence_id": "evidence_22",
+   "system": "search_service",
+   "resource_id": "search_8181",
+   "state": "PRESENT",
+   "captured_at": "2026-06-30T07:00:00Z",
+   "observed_at": "2026-06-28T07:00:00Z"
+  },
+  {
+   "evidence_id": "evidence_22",
+   "system": "security_service",
+   "resource_id": "audit_record_9043",
+   "state": "PRESENT",
+   "captured_at": "2026-06-30T07:00:00Z",
+   "observed_at": "2026-06-28T07:00:00Z"
+  },
+  {
+   "evidence_id": "evidence_22",
+   "system": "support_platform",
+   "resource_id": "support_5830",
+   "state": "PRESENT",
+   "captured_at": "2026-06-30T07:00:00Z",
+   "observed_at": "2026-06-28T07:00:00Z"
+  }
+ ],
+ "draft": {
+  "deletion_status": "INCOMPLETE",
+  "steps_json": [
+   {
+    "step_no": 1,
+    "phase": "FINDING",
+    "system_id": "search_service",
+    "resource_id": "search_8181",
+    "operation": "REPORT_REMAINING_RECORD",
+    "state": "PRESENT",
+    "evidence_id": "evidence_80"
+   },
+   {
+    "step_no": 2,
+    "phase": "FINDING",
+    "system_id": "support_platform",
+    "resource_id": "support_5830",
+    "operation": "REPORT_EXPOSED_PII",
+    "state": "PRESENT",
+    "evidence_id": "evidence_80"
+   },
+   {
+    "step_no": 3,
+    "phase": "REMEDIATION",
+    "system_id": "search_service",
+    "resource_id": "search_8181",
+    "operation": "DELETE_RECORD",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 4,
+    "phase": "REMEDIATION",
+    "system_id": "support_platform",
+    "resource_id": "support_5830",
+    "operation": "REDACT_RECORD",
+    "state": "REDACTED",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 5,
+    "phase": "VERIFICATION",
+    "system_id": "search_service",
+    "resource_id": "search_8181",
+    "operation": "VERIFY_RECORD_ABSENT",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 6,
+    "phase": "VERIFICATION",
+    "system_id": "support_platform",
+    "resource_id": "support_5830",
+    "operation": "VERIFY_RECORD_REDACTED",
+    "state": "REDACTED",
+    "evidence_id": ""
+   }
+  ]
+ }
+}

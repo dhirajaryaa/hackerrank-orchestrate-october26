@@ -1,0 +1,270 @@
+{
+ "case": {
+  "case_id": "case_433",
+  "audit_at": "2026-03-15T07:00:00Z",
+  "requested_at": "2026-02-22T07:00:00Z",
+  "reported_status": "PARTIALLY_COMPLETE",
+  "reported_at": "2026-02-25T07:00:00Z",
+  "email_supplied": "javier.m7818@zoho.com",
+  "request_text": "Please process a permanent account-deletion request for this email address. Please check the records connected to the account before confirming completion. Please confirm when the review is complete."
+ },
+ "intent": {
+  "is_deletion": true,
+  "label": "deletion",
+  "matched_terms": [
+   "delet"
+  ],
+  "matched_negations": [],
+  "non_deletion_action": ""
+ },
+ "identity": {
+  "user_id": "user_431",
+  "email_supplied": "javier.m7818@zoho.com",
+  "email_kind": "current",
+  "matched_audit_ids": [],
+  "name": "Javier Martínez",
+  "current": {
+   "user_id": "user_431",
+   "name": "Javier Martínez",
+   "email": "javier.m7818@zoho.com",
+   "phone": "+34 614 956 514",
+   "email_hash": "0670d52fe44c7c49a198f03f0586792a307fbcf4a45eef57d09411e0cda51c74"
+  },
+  "historical": {}
+ },
+ "state_at_audit": [
+  {
+   "system": "account_service",
+   "resource_id": "account_5817",
+   "category": "USER_PROFILE",
+   "record_type": "USER_PROFILE",
+   "state": "ABSENT",
+   "raw_state": "ABSENT",
+   "observed_at": "2026-03-15T07:00:00Z",
+   "evidence_id": "evidence_41",
+   "evidence_kind": "manifest",
+   "link_method": "link_key",
+   "identifiers": {
+    "subject_reference": "javier.m7818@zoho.com"
+   },
+   "history": [
+    {
+     "state": "UNCERTAIN",
+     "raw_state": "UNCERTAIN",
+     "observed_at": "2026-02-25T05:46:47Z",
+     "evidence_id": "activity_725",
+     "kind": "activity"
+    },
+    {
+     "state": "ABSENT",
+     "raw_state": "ABSENT",
+     "observed_at": "2026-03-15T07:00:00Z",
+     "evidence_id": "evidence_41",
+     "kind": "manifest"
+    }
+   ]
+  },
+  {
+   "system": "integration_service",
+   "resource_id": "data_flow_1283",
+   "category": "DATA_FLOW",
+   "record_type": "DATA_FLOW",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-03-15T07:00:00Z",
+   "evidence_id": "evidence_41",
+   "evidence_kind": "manifest",
+   "link_method": "link_key",
+   "identifiers": {
+    "subject_reference": "javier.m7818@zoho.com"
+   },
+   "history": [
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-03-15T07:00:00Z",
+     "evidence_id": "evidence_41",
+     "kind": "manifest"
+    }
+   ]
+  },
+  {
+   "system": "search_service",
+   "resource_id": "search_9100",
+   "category": "SEARCH_INDEX_ENTRY",
+   "record_type": "SEARCH_INDEX_ENTRY",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-03-15T07:00:00Z",
+   "evidence_id": "evidence_41",
+   "evidence_kind": "manifest",
+   "link_method": "link_key",
+   "identifiers": {
+    "subject_reference": "javier.m7818@zoho.com"
+   },
+   "history": [
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-02-25T08:01:09Z",
+     "evidence_id": "activity_733",
+     "kind": "activity"
+    },
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-03-15T07:00:00Z",
+     "evidence_id": "evidence_41",
+     "kind": "manifest"
+    }
+   ]
+  },
+  {
+   "system": "security_service",
+   "resource_id": "audit_record_6665",
+   "category": "SECURITY_AUDIT_LOG",
+   "record_type": "SECURITY_AUDIT_LOG",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-03-15T07:00:00Z",
+   "evidence_id": "evidence_41",
+   "evidence_kind": "manifest",
+   "link_method": "explicit_ref",
+   "identifiers": {
+    "subject_reference": "user_431"
+   },
+   "history": [
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-03-15T07:00:00Z",
+     "evidence_id": "evidence_41",
+     "kind": "manifest"
+    }
+   ]
+  }
+ ],
+ "activity_claims": [
+  {
+   "activity_id": "activity_725",
+   "event_time": "2026-02-25T05:46:47Z",
+   "event_type": "DELETE_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "account_service",
+   "resource_id": "account_5817",
+   "reported_result": "PARTIAL",
+   "details": "Deletion worker submitted primary profile account_5817 to account_service."
+  },
+  {
+   "activity_id": "activity_732",
+   "event_time": "2026-02-25T07:42:39Z",
+   "event_type": "SYNC_RECORD",
+   "source_system": "integration_service",
+   "target_system": "search_service",
+   "resource_id": "data_flow_1283",
+   "reported_result": "SUCCESS",
+   "details": "Active connector repopulated downstream resource search_9100."
+  },
+  {
+   "activity_id": "activity_733",
+   "event_time": "2026-02-25T08:01:09Z",
+   "event_type": "DELETE_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "search_service",
+   "resource_id": "search_9100",
+   "reported_result": "FAILED",
+   "details": "Deletion worker received the final result for search_9100 from search_service."
+  }
+ ],
+ "rules": [
+  {
+   "rule_id": "rule_01",
+   "data_category": "USER_PROFILE",
+   "condition": "Always",
+   "required_action": "DELETE"
+  },
+  {
+   "rule_id": "rule_03",
+   "data_category": "SEARCH_INDEX_ENTRY",
+   "condition": "Always",
+   "required_action": "DELETE"
+  },
+  {
+   "rule_id": "rule_12",
+   "data_category": "SECURITY_AUDIT_LOG",
+   "condition": "Record is within the supplied retention period",
+   "required_action": "RETAIN"
+  }
+ ],
+ "evidence_batch": {
+  "evidence_ids": [
+   "activity_725",
+   "activity_732",
+   "activity_733",
+   "evidence_41"
+  ],
+  "co_subjects": [
+   "user_432",
+   "user_433",
+   "user_434",
+   "user_435",
+   "user_436",
+   "user_437",
+   "user_438",
+   "user_439",
+   "user_440"
+  ],
+  "unattributed_resources": {}
+ },
+ "excluded_after_audit": [],
+ "draft": {
+  "deletion_status": "INCOMPLETE",
+  "steps_json": [
+   {
+    "step_no": 1,
+    "phase": "FINDING",
+    "system_id": "search_service",
+    "resource_id": "search_9100",
+    "operation": "REPORT_REMAINING_RECORD",
+    "state": "PRESENT",
+    "evidence_id": "evidence_41"
+   },
+   {
+    "step_no": 2,
+    "phase": "REMEDIATION",
+    "system_id": "search_service",
+    "resource_id": "search_9100",
+    "operation": "DELETE_RECORD",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 3,
+    "phase": "VERIFICATION",
+    "system_id": "account_service",
+    "resource_id": "account_5817",
+    "operation": "VERIFY_RECORD_ABSENT",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 4,
+    "phase": "VERIFICATION",
+    "system_id": "search_service",
+    "resource_id": "search_9100",
+    "operation": "VERIFY_RECORD_ABSENT",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 5,
+    "phase": "VERIFICATION",
+    "system_id": "security_service",
+    "resource_id": "audit_record_6665",
+    "operation": "VERIFY_RECORD_PRESENT",
+    "state": "PRESENT",
+    "evidence_id": ""
+   }
+  ]
+ }
+}

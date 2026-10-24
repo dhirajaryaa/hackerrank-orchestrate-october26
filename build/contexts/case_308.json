@@ -1,0 +1,269 @@
+{
+ "case": {
+  "case_id": "case_308",
+  "audit_at": "2026-05-19T06:00:00Z",
+  "requested_at": "2026-05-03T06:00:00Z",
+  "reported_status": "COMPLETE",
+  "reported_at": "2026-05-04T06:00:00Z",
+  "email_supplied": "laila.saleh@outlook.com",
+  "request_text": "Please close my account and process the associated personal-data deletion. Please apply the request across the systems covered by your deletion policy. Please let me know once the request has been reviewed."
+ },
+ "intent": {
+  "is_deletion": true,
+  "label": "deletion",
+  "matched_terms": [
+   "close my account",
+   "delet"
+  ],
+  "matched_negations": [],
+  "non_deletion_action": ""
+ },
+ "identity": {
+  "user_id": "user_306",
+  "email_supplied": "laila.saleh@outlook.com",
+  "email_kind": "current",
+  "matched_audit_ids": [],
+  "name": "Laila Saleh",
+  "current": {
+   "user_id": "user_306",
+   "name": "Laila Saleh",
+   "email": "laila.saleh@outlook.com",
+   "phone": "+971 55 860 4168",
+   "email_hash": "54f049d0213b78ccf069079a69758183e5680955e4484a8ac25750ac25067746"
+  },
+  "historical": {}
+ },
+ "state_at_audit": [
+  {
+   "system": "backup_service",
+   "resource_id": "backup_4917",
+   "category": "BACKUP_ARCHIVE",
+   "record_type": "BACKUP_ARCHIVE",
+   "state": "BLOCKED",
+   "raw_state": "BLOCKED",
+   "observed_at": "2026-05-19T06:00:00Z",
+   "evidence_id": "evidence_29",
+   "evidence_kind": "manifest",
+   "link_method": "explicit_ref",
+   "identifiers": {
+    "subject_reference": "user_306"
+   },
+   "history": [
+    {
+     "state": "BLOCKED",
+     "raw_state": "BLOCKED",
+     "observed_at": "2026-05-04T05:52:35Z",
+     "evidence_id": "activity_1722",
+     "kind": "activity"
+    },
+    {
+     "state": "BLOCKED",
+     "raw_state": "BLOCKED",
+     "observed_at": "2026-05-19T06:00:00Z",
+     "evidence_id": "evidence_29",
+     "kind": "manifest"
+    },
+    {
+     "state": "BLOCKED",
+     "raw_state": "BLOCKED",
+     "observed_at": "2026-05-19T06:00:00Z",
+     "evidence_id": "evidence_29",
+     "kind": "manifest"
+    },
+    {
+     "state": "BLOCKED",
+     "raw_state": "BLOCKED",
+     "observed_at": "2026-05-19T06:00:00Z",
+     "evidence_id": "evidence_29",
+     "kind": "manifest"
+    }
+   ]
+  },
+  {
+   "system": "security_service",
+   "resource_id": "audit_record_3221",
+   "category": "SECURITY_AUDIT_LOG",
+   "record_type": "SECURITY_AUDIT_LOG",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-05-19T06:00:00Z",
+   "evidence_id": "evidence_29",
+   "evidence_kind": "manifest",
+   "link_method": "explicit_ref",
+   "identifiers": {
+    "subject_reference": "user_306"
+   },
+   "history": [
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-05-19T06:00:00Z",
+     "evidence_id": "evidence_29",
+     "kind": "manifest"
+    },
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-05-19T06:00:00Z",
+     "evidence_id": "evidence_29",
+     "kind": "manifest"
+    },
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-05-19T06:00:00Z",
+     "evidence_id": "evidence_29",
+     "kind": "manifest"
+    }
+   ]
+  },
+  {
+   "system": "support_platform",
+   "resource_id": "support_6046",
+   "category": "SUPPORT_MESSAGE",
+   "record_type": "SUPPORT_MESSAGE",
+   "state": "REDACTED",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-05-19T06:00:00Z",
+   "evidence_id": "evidence_29",
+   "evidence_kind": "manifest",
+   "link_method": "explicit_ref",
+   "identifiers": {
+    "subject_reference": "user_306"
+   },
+   "history": [
+    {
+     "state": "REDACTED",
+     "raw_state": "REDACTED",
+     "observed_at": "2026-05-04T05:38:36Z",
+     "evidence_id": "activity_1719",
+     "kind": "activity"
+    },
+    {
+     "state": "REDACTED",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-05-19T06:00:00Z",
+     "evidence_id": "evidence_29",
+     "kind": "manifest"
+    },
+    {
+     "state": "REDACTED",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-05-19T06:00:00Z",
+     "evidence_id": "evidence_29",
+     "kind": "manifest"
+    },
+    {
+     "state": "REDACTED",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-05-19T06:00:00Z",
+     "evidence_id": "evidence_29",
+     "kind": "manifest"
+    }
+   ]
+  }
+ ],
+ "activity_claims": [
+  {
+   "activity_id": "activity_1719",
+   "event_time": "2026-05-04T05:38:36Z",
+   "event_type": "REDACT_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "support_platform",
+   "resource_id": "support_6046",
+   "reported_result": "SUCCESS",
+   "details": "Policy action completed for support_6046."
+  },
+  {
+   "activity_id": "activity_1722",
+   "event_time": "2026-05-04T05:52:35Z",
+   "event_type": "BLOCK_RESTORE",
+   "source_system": "deletion_worker",
+   "target_system": "backup_service",
+   "resource_id": "backup_4917",
+   "reported_result": "SUCCESS",
+   "details": "Policy action completed for backup_4917."
+  }
+ ],
+ "rules": [
+  {
+   "rule_id": "rule_05",
+   "data_category": "SUPPORT_MESSAGE",
+   "condition": "Conversation contains shared customer, agent, or order context that must be retained",
+   "required_action": "REDACT"
+  },
+  {
+   "rule_id": "rule_12",
+   "data_category": "SECURITY_AUDIT_LOG",
+   "condition": "Record is within the supplied retention period",
+   "required_action": "RETAIN"
+  },
+  {
+   "rule_id": "rule_14",
+   "data_category": "BACKUP_ARCHIVE",
+   "condition": "Restore access can be blocked",
+   "required_action": "RETAIN"
+  }
+ ],
+ "evidence_batch": {
+  "evidence_ids": [
+   "activity_1719",
+   "activity_1722",
+   "evidence_29"
+  ],
+  "co_subjects": [
+   "user_301",
+   "user_302",
+   "user_303",
+   "user_304",
+   "user_305",
+   "user_307",
+   "user_308",
+   "user_309",
+   "user_310"
+  ],
+  "unattributed_resources": {
+   "evidence_29": [
+    "analytics_096",
+    "analytics_3678",
+    "backup_4935",
+    "data_flow_8933",
+    "search_6505",
+    "support_4952"
+   ]
+  }
+ },
+ "excluded_after_audit": [],
+ "draft": {
+  "deletion_status": "COMPLETE",
+  "steps_json": [
+   {
+    "step_no": 1,
+    "phase": "VERIFICATION",
+    "system_id": "security_service",
+    "resource_id": "audit_record_3221",
+    "operation": "VERIFY_RECORD_PRESENT",
+    "state": "PRESENT",
+    "evidence_id": "evidence_29"
+   },
+   {
+    "step_no": 2,
+    "phase": "VERIFICATION",
+    "system_id": "support_platform",
+    "resource_id": "support_6046",
+    "operation": "VERIFY_RECORD_REDACTED",
+    "state": "REDACTED",
+    "evidence_id": "evidence_29"
+   },
+   {
+    "step_no": 3,
+    "phase": "VERIFICATION",
+    "system_id": "backup_service",
+    "resource_id": "backup_4917",
+    "operation": "VERIFY_RESTORE_BLOCKED",
+    "state": "BLOCKED",
+    "evidence_id": "evidence_29"
+   }
+  ]
+ }
+}

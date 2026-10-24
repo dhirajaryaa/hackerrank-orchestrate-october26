@@ -1,0 +1,161 @@
+{
+ "case": {
+  "case_id": "case_179",
+  "audit_at": "2026-07-23T12:00:00Z",
+  "requested_at": "2026-06-26T12:00:00Z",
+  "reported_status": "NOT_STARTED",
+  "reported_at": "2026-06-27T12:00:00Z",
+  "email_supplied": "tunde-balogun@proton.me",
+  "request_text": "Please process a permanent account-deletion request for this email address. Please review the account data that is eligible for deletion or de-identification. Please confirm the result after completing the required checks."
+ },
+ "intent": {
+  "is_deletion": true,
+  "label": "deletion",
+  "matched_terms": [
+   "delet"
+  ],
+  "matched_negations": [],
+  "non_deletion_action": ""
+ },
+ "identity": {
+  "user_id": "user_177",
+  "email_supplied": "tunde-balogun@proton.me",
+  "email_kind": "current",
+  "matched_audit_ids": [],
+  "name": "Tunde Balogun",
+  "current": {
+   "user_id": "user_177",
+   "name": "Tunde Balogun",
+   "email": "tunde-balogun@proton.me",
+   "phone": "+234 803 946 8870",
+   "email_hash": "08c1d01aa47174fdd0da52a9d6c2f63856a36a365d86e602f32fb389668bfef4"
+  },
+  "historical": {}
+ },
+ "state_at_audit": [
+  {
+   "system": "support_platform",
+   "resource_id": "support_2283",
+   "category": "SUPPORT_MESSAGE",
+   "record_type": "SUPPORT_MESSAGE",
+   "state": "IDENTIFIABLE",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-07-23T09:25:20Z",
+   "evidence_id": "evidence_84",
+   "evidence_kind": "manifest",
+   "link_method": "identifier",
+   "identifiers": {
+    "requester_email": "tunde-balogun@proton.me"
+   },
+   "history": [
+    {
+     "state": "REDACTED",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-06-27T12:58:23Z",
+     "evidence_id": "activity_2549",
+     "kind": "activity"
+    },
+    {
+     "state": "IDENTIFIABLE",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-07-23T09:25:20Z",
+     "evidence_id": "evidence_84",
+     "kind": "manifest"
+    }
+   ]
+  }
+ ],
+ "activity_claims": [
+  {
+   "activity_id": "activity_2549",
+   "event_time": "2026-06-27T12:58:23Z",
+   "event_type": "DELETE_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "support_platform",
+   "resource_id": "support_2283",
+   "reported_result": "FAILED",
+   "details": "Deletion worker received the final result for support_2283 from support_platform."
+  }
+ ],
+ "rules": [
+  {
+   "rule_id": "rule_05",
+   "data_category": "SUPPORT_MESSAGE",
+   "condition": "Conversation contains shared customer, agent, or order context that must be retained",
+   "required_action": "REDACT"
+  }
+ ],
+ "evidence_batch": {
+  "evidence_ids": [
+   "activity_2549",
+   "evidence_84"
+  ],
+  "co_subjects": [
+   "user_171",
+   "user_172",
+   "user_173",
+   "user_174",
+   "user_175",
+   "user_176",
+   "user_178",
+   "user_179",
+   "user_180"
+  ],
+  "unattributed_resources": {
+   "evidence_84": [
+    "analytics_2414",
+    "analytics_9505"
+   ]
+  }
+ },
+ "excluded_after_audit": [
+  {
+   "evidence_id": "evidence_17",
+   "system": "security_service",
+   "resource_id": "audit_record_919",
+   "state": "PRESENT",
+   "captured_at": "2026-07-25T15:00:00Z",
+   "observed_at": "2026-07-23T12:00:00Z"
+  },
+  {
+   "evidence_id": "evidence_17",
+   "system": "support_platform",
+   "resource_id": "support_2283",
+   "state": "PRESENT",
+   "captured_at": "2026-07-25T15:00:00Z",
+   "observed_at": "2026-07-23T12:00:00Z"
+  }
+ ],
+ "draft": {
+  "deletion_status": "INCOMPLETE",
+  "steps_json": [
+   {
+    "step_no": 1,
+    "phase": "FINDING",
+    "system_id": "support_platform",
+    "resource_id": "support_2283",
+    "operation": "REPORT_EXPOSED_PII",
+    "state": "PRESENT",
+    "evidence_id": "evidence_84"
+   },
+   {
+    "step_no": 2,
+    "phase": "REMEDIATION",
+    "system_id": "support_platform",
+    "resource_id": "support_2283",
+    "operation": "REDACT_RECORD",
+    "state": "REDACTED",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 3,
+    "phase": "VERIFICATION",
+    "system_id": "support_platform",
+    "resource_id": "support_2283",
+    "operation": "VERIFY_RECORD_REDACTED",
+    "state": "REDACTED",
+    "evidence_id": ""
+   }
+  ]
+ }
+}

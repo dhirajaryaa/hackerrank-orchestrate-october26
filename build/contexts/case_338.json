@@ -1,0 +1,294 @@
+{
+ "case": {
+  "case_id": "case_338",
+  "audit_at": "2026-05-04T10:00:00Z",
+  "requested_at": "2026-04-08T10:00:00Z",
+  "reported_status": "COMPLETE",
+  "reported_at": "2026-04-09T10:00:00Z",
+  "email_supplied": "sota.suzuki@gmail.com",
+  "request_text": "I no longer use this account and would like it permanently deleted. Please ensure the request is applied to the relevant account records. I would appreciate confirmation of the final outcome."
+ },
+ "intent": {
+  "is_deletion": true,
+  "label": "deletion",
+  "matched_terms": [
+   "delet"
+  ],
+  "matched_negations": [],
+  "non_deletion_action": ""
+ },
+ "identity": {
+  "user_id": "user_336",
+  "email_supplied": "sota.suzuki@gmail.com",
+  "email_kind": "current",
+  "matched_audit_ids": [],
+  "name": "Sota Suzuki",
+  "current": {
+   "user_id": "user_336",
+   "name": "Sota Suzuki",
+   "email": "sota.suzuki@gmail.com",
+   "phone": "+81 90 3264 5742",
+   "email_hash": "4a15c27d1ad4c629b17d665b5e1fec5c98ac256b023c0d2312a594f3ef6b4273"
+  },
+  "historical": {}
+ },
+ "state_at_audit": [
+  {
+   "system": "account_service",
+   "resource_id": "account_4231",
+   "category": "USER_PROFILE",
+   "record_type": "USER_PROFILE",
+   "state": "ABSENT",
+   "raw_state": "ABSENT",
+   "observed_at": "2026-04-09T09:08:48Z",
+   "evidence_id": "activity_1349",
+   "evidence_kind": "activity",
+   "link_method": "resource_alias",
+   "identifiers": {},
+   "history": [
+    {
+     "state": "ABSENT",
+     "raw_state": "ABSENT",
+     "observed_at": "2026-04-09T09:08:48Z",
+     "evidence_id": "activity_1349",
+     "kind": "activity"
+    }
+   ]
+  },
+  {
+   "system": "integration_service",
+   "resource_id": "data_flow_9392",
+   "category": "DATA_FLOW",
+   "record_type": "DATA_FLOW",
+   "state": "ACTIVE",
+   "raw_state": "ACTIVE",
+   "observed_at": "2026-05-04T08:28:29Z",
+   "evidence_id": "evidence_72",
+   "evidence_kind": "manifest",
+   "link_method": "identifier",
+   "identifiers": {
+    "customer_email": "sota.suzuki@gmail.com"
+   },
+   "history": [
+    {
+     "state": "ACTIVE",
+     "raw_state": "ACTIVE",
+     "observed_at": "2026-04-09T10:44:40Z",
+     "evidence_id": "activity_1352",
+     "kind": "activity"
+    },
+    {
+     "state": "ACTIVE",
+     "raw_state": "ACTIVE",
+     "observed_at": "2026-05-04T08:28:29Z",
+     "evidence_id": "evidence_72",
+     "kind": "manifest"
+    }
+   ]
+  },
+  {
+   "system": "search_service",
+   "resource_id": "search_1392",
+   "category": "SEARCH_INDEX_ENTRY",
+   "record_type": "SEARCH_INDEX_ENTRY",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-05-04T07:54:32Z",
+   "evidence_id": "evidence_72",
+   "evidence_kind": "manifest",
+   "link_method": "identifier",
+   "identifiers": {
+    "email": "sota.suzuki@gmail.com"
+   },
+   "history": [
+    {
+     "state": "UNCERTAIN",
+     "raw_state": "UNCERTAIN",
+     "observed_at": "2026-04-09T11:03:10Z",
+     "evidence_id": "activity_1354",
+     "kind": "activity"
+    },
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-05-04T07:54:32Z",
+     "evidence_id": "evidence_72",
+     "kind": "manifest"
+    }
+   ]
+  }
+ ],
+ "activity_claims": [
+  {
+   "activity_id": "activity_1349",
+   "event_time": "2026-04-09T09:08:48Z",
+   "event_type": "DELETE_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "account_service",
+   "resource_id": "account_4231",
+   "reported_result": "SUCCESS",
+   "details": "Deletion worker submitted primary profile account_4231 to account_service."
+  },
+  {
+   "activity_id": "activity_1352",
+   "event_time": "2026-04-09T10:44:40Z",
+   "event_type": "CHECK_DATA_FLOW",
+   "source_system": "deletion_worker",
+   "target_system": "integration_service",
+   "resource_id": "data_flow_9392",
+   "reported_result": "SUCCESS",
+   "details": "Connector status check confirmed that data flow data_flow_9392 remains enabled."
+  },
+  {
+   "activity_id": "activity_1354",
+   "event_time": "2026-04-09T11:03:10Z",
+   "event_type": "DELETE_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "search_service",
+   "resource_id": "search_1392",
+   "reported_result": "PARTIAL",
+   "details": "Deletion worker received the final result for search_1392 from search_service."
+  }
+ ],
+ "rules": [
+  {
+   "rule_id": "rule_01",
+   "data_category": "USER_PROFILE",
+   "condition": "Always",
+   "required_action": "DELETE"
+  },
+  {
+   "rule_id": "rule_03",
+   "data_category": "SEARCH_INDEX_ENTRY",
+   "condition": "Always",
+   "required_action": "DELETE"
+  }
+ ],
+ "evidence_batch": {
+  "evidence_ids": [
+   "activity_1349",
+   "activity_1352",
+   "activity_1354",
+   "evidence_72"
+  ],
+  "co_subjects": [
+   "user_331",
+   "user_332",
+   "user_333",
+   "user_334",
+   "user_335",
+   "user_337",
+   "user_338",
+   "user_339",
+   "user_340"
+  ],
+  "unattributed_resources": {
+   "evidence_72": [
+    "analytics_2079",
+    "analytics_3108"
+   ]
+  }
+ },
+ "excluded_after_audit": [
+  {
+   "evidence_id": "evidence_31",
+   "system": "support_storage_service",
+   "resource_id": "account_4231",
+   "state": "ABSENT",
+   "captured_at": "2026-05-11T11:00:00Z",
+   "observed_at": "2026-05-04T10:00:00Z"
+  },
+  {
+   "evidence_id": "evidence_31",
+   "system": "support_storage_service",
+   "resource_id": "audit_record_9226",
+   "state": "PRESENT",
+   "captured_at": "2026-05-11T11:00:00Z",
+   "observed_at": "2026-05-04T10:00:00Z"
+  },
+  {
+   "evidence_id": "evidence_31",
+   "system": "support_storage_service",
+   "resource_id": "data_flow_9392",
+   "state": "PRESENT",
+   "captured_at": "2026-05-11T11:00:00Z",
+   "observed_at": "2026-05-04T10:00:00Z"
+  },
+  {
+   "evidence_id": "evidence_31",
+   "system": "support_storage_service",
+   "resource_id": "search_1392",
+   "state": "PRESENT",
+   "captured_at": "2026-05-11T11:00:00Z",
+   "observed_at": "2026-05-04T10:00:00Z"
+  }
+ ],
+ "draft": {
+  "deletion_status": "INCOMPLETE",
+  "steps_json": [
+   {
+    "step_no": 1,
+    "phase": "FINDING",
+    "system_id": "search_service",
+    "resource_id": "search_1392",
+    "operation": "REPORT_REMAINING_RECORD",
+    "state": "PRESENT",
+    "evidence_id": "evidence_72"
+   },
+   {
+    "step_no": 2,
+    "phase": "FINDING",
+    "system_id": "integration_service",
+    "resource_id": "data_flow_9392",
+    "operation": "REPORT_ACTIVE_DATA_FLOW",
+    "state": "ACTIVE",
+    "evidence_id": "evidence_72"
+   },
+   {
+    "step_no": 3,
+    "phase": "REMEDIATION",
+    "system_id": "integration_service",
+    "resource_id": "data_flow_9392",
+    "operation": "DISABLE_DATA_FLOW",
+    "state": "DISABLED",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 4,
+    "phase": "REMEDIATION",
+    "system_id": "search_service",
+    "resource_id": "search_1392",
+    "operation": "DELETE_RECORD",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 5,
+    "phase": "VERIFICATION",
+    "system_id": "account_service",
+    "resource_id": "account_4231",
+    "operation": "VERIFY_RECORD_ABSENT",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 6,
+    "phase": "VERIFICATION",
+    "system_id": "search_service",
+    "resource_id": "search_1392",
+    "operation": "VERIFY_RECORD_ABSENT",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 7,
+    "phase": "VERIFICATION",
+    "system_id": "integration_service",
+    "resource_id": "data_flow_9392",
+    "operation": "VERIFY_DATA_FLOW_DISABLED",
+    "state": "DISABLED",
+    "evidence_id": ""
+   }
+  ]
+ }
+}

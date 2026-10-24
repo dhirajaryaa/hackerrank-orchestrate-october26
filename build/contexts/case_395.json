@@ -1,0 +1,108 @@
+{
+ "case": {
+  "case_id": "case_395",
+  "audit_at": "2026-04-04T11:00:00Z",
+  "requested_at": "2026-03-12T11:00:00Z",
+  "reported_status": "COMPLETE",
+  "reported_at": "2026-03-13T11:00:00Z",
+  "email_supplied": "oliver-hughes@proton.me",
+  "request_text": "I want to close this account and have its associated personal data deleted. Please process this under the standard personal-data deletion procedure. I would appreciate confirmation of the final outcome."
+ },
+ "intent": {
+  "is_deletion": true,
+  "label": "deletion",
+  "matched_terms": [
+   "close this account",
+   "delet"
+  ],
+  "matched_negations": [],
+  "non_deletion_action": ""
+ },
+ "identity": {
+  "user_id": "user_393",
+  "email_supplied": "oliver-hughes@proton.me",
+  "email_kind": "current",
+  "matched_audit_ids": [],
+  "name": "Oliver Hughes",
+  "current": {
+   "user_id": "user_393",
+   "name": "Oliver Hughes",
+   "email": "oliver-hughes@proton.me",
+   "phone": "+1 (312) 555-0193",
+   "email_hash": "78b32e7c557c756b9ed471fa57aedfb34ea70fa7e016189762821e1362cd0a00"
+  },
+  "historical": {}
+ },
+ "state_at_audit": [
+  {
+   "system": "security_service",
+   "resource_id": "audit_record_2839",
+   "category": "SECURITY_AUDIT_LOG",
+   "record_type": "SECURITY_AUDIT_LOG",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-04-04T07:57:02Z",
+   "evidence_id": "evidence_69",
+   "evidence_kind": "manifest",
+   "link_method": "explicit_ref",
+   "identifiers": {
+    "subject_reference": "user_393"
+   },
+   "history": [
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-04-04T07:57:02Z",
+     "evidence_id": "evidence_69",
+     "kind": "manifest"
+    }
+   ]
+  }
+ ],
+ "activity_claims": [],
+ "rules": [
+  {
+   "rule_id": "rule_12",
+   "data_category": "SECURITY_AUDIT_LOG",
+   "condition": "Record is within the supplied retention period",
+   "required_action": "RETAIN"
+  }
+ ],
+ "evidence_batch": {
+  "evidence_ids": [
+   "evidence_69"
+  ],
+  "co_subjects": [
+   "user_391",
+   "user_392",
+   "user_394",
+   "user_395",
+   "user_396",
+   "user_397",
+   "user_398",
+   "user_399",
+   "user_400"
+  ],
+  "unattributed_resources": {
+   "evidence_69": [
+    "analytics_4455",
+    "analytics_4651"
+   ]
+  }
+ },
+ "excluded_after_audit": [],
+ "draft": {
+  "deletion_status": "COMPLETE",
+  "steps_json": [
+   {
+    "step_no": 1,
+    "phase": "VERIFICATION",
+    "system_id": "security_service",
+    "resource_id": "audit_record_2839",
+    "operation": "VERIFY_RECORD_PRESENT",
+    "state": "PRESENT",
+    "evidence_id": "evidence_69"
+   }
+  ]
+ }
+}

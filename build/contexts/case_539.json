@@ -1,0 +1,58 @@
+{
+ "case": {
+  "case_id": "case_539",
+  "audit_at": "2026-09-25T12:00:00Z",
+  "requested_at": "2026-08-29T12:00:00Z",
+  "reported_status": "NOT_STARTED",
+  "reported_at": "2026-08-30T12:00:00Z",
+  "email_supplied": "leonie-rousseau@proton.me",
+  "request_text": "Can you tell me what personal information you hold about me? This is an information request, not a request to erase it."
+ },
+ "intent": {
+  "is_deletion": false,
+  "label": "not_deletion",
+  "matched_terms": [],
+  "matched_negations": [
+   "not a request to erase",
+   "this is an information request"
+  ],
+  "non_deletion_action": ""
+ },
+ "identity": {
+  "user_id": "user_537",
+  "email_supplied": "leonie-rousseau@proton.me",
+  "email_kind": "current",
+  "matched_audit_ids": [],
+  "name": "Léonie Rousseau",
+  "current": {
+   "user_id": "user_537",
+   "name": "Léonie Rousseau",
+   "email": "leonie-rousseau@proton.me",
+   "phone": "+33 6 87 01 36 75",
+   "email_hash": "6a2958b096cfa86d0ea81a52ab03b3d1d5e43997a7582452ac930a74ad891173"
+  },
+  "historical": {}
+ },
+ "state_at_audit": [],
+ "activity_claims": [],
+ "rules": [],
+ "evidence_batch": {
+  "evidence_ids": [],
+  "co_subjects": [],
+  "unattributed_resources": {}
+ },
+ "excluded_after_audit": [
+  {
+   "evidence_id": "evidence_50",
+   "system": "security_service",
+   "resource_id": "audit_record_1414",
+   "state": "PRESENT",
+   "captured_at": "2026-10-01T12:00:00Z",
+   "observed_at": "2026-10-01T12:00:00Z"
+  }
+ ],
+ "draft": {
+  "deletion_status": "NOT_APPLICABLE",
+  "steps_json": []
+ }
+}

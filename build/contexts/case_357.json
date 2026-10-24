@@ -1,0 +1,312 @@
+{
+ "case": {
+  "case_id": "case_357",
+  "audit_at": "2026-04-24T08:00:00Z",
+  "requested_at": "2026-03-30T08:00:00Z",
+  "reported_status": "COMPLETE",
+  "reported_at": "2026-04-01T08:00:00Z",
+  "email_supplied": "a.lefevre74@yahoo.com",
+  "request_text": "Je demande la suppression définitive du compte associé à cette adresse e-mail. Veuillez examiner les identifiants actuels et antérieurs conformément à votre procédure de confidentialité. Merci de confirmer le résultat une fois la vérification terminée."
+ },
+ "intent": {
+  "is_deletion": true,
+  "label": "deletion",
+  "matched_terms": [
+   "suppression"
+  ],
+  "matched_negations": [],
+  "non_deletion_action": ""
+ },
+ "identity": {
+  "user_id": "user_355",
+  "email_supplied": "a.lefevre74@yahoo.com",
+  "email_kind": "current",
+  "matched_audit_ids": [],
+  "name": "Arthur Lefèvre",
+  "current": {
+   "user_id": "user_355",
+   "name": "Arthur Lefèvre",
+   "email": "a.lefevre74@yahoo.com",
+   "phone": "+33 6 10 19 61 86",
+   "email_hash": "0157f987b0fb5373a6b73db252169d109ab242f289c875be2509112ad1694927"
+  },
+  "historical": {
+   "phone": [
+    "+33 6 97 47 16 88"
+   ]
+  }
+ },
+ "state_at_audit": [
+  {
+   "system": "account_service",
+   "resource_id": "account_8105",
+   "category": "USER_PROFILE",
+   "record_type": "USER_PROFILE",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-04-24T08:00:00Z",
+   "evidence_id": "evidence_33",
+   "evidence_kind": "manifest",
+   "link_method": "explicit_ref",
+   "identifiers": {
+    "customer_reference": "user_355",
+    "full_name": "Arthur Lefèvre",
+    "email": "a.lefevre74@yahoo.com",
+    "phone": "+33 6 10 19 61 86"
+   },
+   "history": [
+    {
+     "state": "ABSENT",
+     "raw_state": "ABSENT",
+     "observed_at": "2026-04-01T06:45:18Z",
+     "evidence_id": "activity_1235",
+     "kind": "activity"
+    },
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-04-24T08:00:00Z",
+     "evidence_id": "evidence_33",
+     "kind": "manifest"
+    }
+   ]
+  },
+  {
+   "system": "search_service",
+   "resource_id": "search_6828",
+   "category": "SEARCH_INDEX_ENTRY",
+   "record_type": "SEARCH_INDEX_ENTRY",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-04-24T08:00:00Z",
+   "evidence_id": "evidence_33",
+   "evidence_kind": "manifest",
+   "link_method": "identifier",
+   "identifiers": {
+    "document": {
+     "display_name": "Arthur Lefèvre",
+     "email": "a.lefevre74@yahoo.com",
+     "customer_reference": "user_355"
+    }
+   },
+   "history": [
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-04-01T08:58:39Z",
+     "evidence_id": "activity_1244",
+     "kind": "activity"
+    },
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-04-24T08:00:00Z",
+     "evidence_id": "evidence_33",
+     "kind": "manifest"
+    },
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-04-24T08:00:00Z",
+     "evidence_id": "evidence_33",
+     "kind": "manifest"
+    },
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-04-24T08:00:00Z",
+     "evidence_id": "evidence_33",
+     "kind": "manifest"
+    }
+   ]
+  },
+  {
+   "system": "security_service",
+   "resource_id": "audit_record_350",
+   "category": "SECURITY_AUDIT_LOG",
+   "record_type": "SECURITY_AUDIT_LOG",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-04-24T08:00:00Z",
+   "evidence_id": "evidence_33",
+   "evidence_kind": "manifest",
+   "link_method": "explicit_ref",
+   "identifiers": {
+    "subject_reference": "user_355"
+   },
+   "history": [
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-04-24T08:00:00Z",
+     "evidence_id": "evidence_33",
+     "kind": "manifest"
+    },
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-04-24T08:00:00Z",
+     "evidence_id": "evidence_33",
+     "kind": "manifest"
+    },
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-04-24T08:00:00Z",
+     "evidence_id": "evidence_33",
+     "kind": "manifest"
+    }
+   ]
+  }
+ ],
+ "activity_claims": [
+  {
+   "activity_id": "activity_1235",
+   "event_time": "2026-04-01T06:45:18Z",
+   "event_type": "DELETE_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "account_service",
+   "resource_id": "account_8105",
+   "reported_result": "SUCCESS",
+   "details": "Deletion worker submitted primary profile account_8105 to account_service."
+  },
+  {
+   "activity_id": "activity_1241",
+   "event_time": "2026-04-01T08:39:10Z",
+   "event_type": "SYNC_RECORD",
+   "source_system": "account_service",
+   "target_system": "account_replication_cluster",
+   "resource_id": "account_8105",
+   "reported_result": "PARTIAL",
+   "details": "Replication worker reported its final checkpoint for account_8105."
+  },
+  {
+   "activity_id": "activity_1244",
+   "event_time": "2026-04-01T08:58:39Z",
+   "event_type": "DELETE_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "search_service",
+   "resource_id": "search_6828",
+   "reported_result": "FAILED",
+   "details": "Deletion worker received the final result for search_6828 from search_service."
+  }
+ ],
+ "rules": [
+  {
+   "rule_id": "rule_01",
+   "data_category": "USER_PROFILE",
+   "condition": "Always",
+   "required_action": "DELETE"
+  },
+  {
+   "rule_id": "rule_03",
+   "data_category": "SEARCH_INDEX_ENTRY",
+   "condition": "Always",
+   "required_action": "DELETE"
+  },
+  {
+   "rule_id": "rule_12",
+   "data_category": "SECURITY_AUDIT_LOG",
+   "condition": "Record is within the supplied retention period",
+   "required_action": "RETAIN"
+  }
+ ],
+ "evidence_batch": {
+  "evidence_ids": [
+   "activity_1235",
+   "activity_1241",
+   "activity_1244",
+   "evidence_33"
+  ],
+  "co_subjects": [
+   "user_351",
+   "user_352",
+   "user_353",
+   "user_354",
+   "user_356",
+   "user_357",
+   "user_358",
+   "user_359",
+   "user_360"
+  ],
+  "unattributed_resources": {
+   "evidence_33": [
+    "analytics_4273",
+    "analytics_439",
+    "data_flow_3052",
+    "data_flow_3180",
+    "data_flow_4472",
+    "support_2537"
+   ]
+  }
+ },
+ "excluded_after_audit": [],
+ "draft": {
+  "deletion_status": "INCOMPLETE",
+  "steps_json": [
+   {
+    "step_no": 1,
+    "phase": "FINDING",
+    "system_id": "account_service",
+    "resource_id": "account_8105",
+    "operation": "REPORT_REMAINING_RECORD",
+    "state": "PRESENT",
+    "evidence_id": "evidence_33"
+   },
+   {
+    "step_no": 2,
+    "phase": "FINDING",
+    "system_id": "search_service",
+    "resource_id": "search_6828",
+    "operation": "REPORT_REMAINING_RECORD",
+    "state": "PRESENT",
+    "evidence_id": "evidence_33"
+   },
+   {
+    "step_no": 3,
+    "phase": "REMEDIATION",
+    "system_id": "account_service",
+    "resource_id": "account_8105",
+    "operation": "DELETE_RECORD",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 4,
+    "phase": "REMEDIATION",
+    "system_id": "search_service",
+    "resource_id": "search_6828",
+    "operation": "DELETE_RECORD",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 5,
+    "phase": "VERIFICATION",
+    "system_id": "account_service",
+    "resource_id": "account_8105",
+    "operation": "VERIFY_RECORD_ABSENT",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 6,
+    "phase": "VERIFICATION",
+    "system_id": "search_service",
+    "resource_id": "search_6828",
+    "operation": "VERIFY_RECORD_ABSENT",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 7,
+    "phase": "VERIFICATION",
+    "system_id": "security_service",
+    "resource_id": "audit_record_350",
+    "operation": "VERIFY_RECORD_PRESENT",
+    "state": "PRESENT",
+    "evidence_id": ""
+   }
+  ]
+ }
+}

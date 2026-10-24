@@ -1,0 +1,121 @@
+{
+ "case": {
+  "case_id": "case_257",
+  "audit_at": "2026-06-13T11:00:00Z",
+  "requested_at": "2026-05-19T11:00:00Z",
+  "reported_status": "COMPLETE",
+  "reported_at": "2026-05-20T11:00:00Z",
+  "email_supplied": "yetunde-nwosu@gmail.com",
+  "request_text": "I would like to submit a request to delete this account and its personal data. Please apply the correct treatment to records covered by the request. Let me know when the request has been completed."
+ },
+ "intent": {
+  "is_deletion": true,
+  "label": "deletion",
+  "matched_terms": [
+   "delet"
+  ],
+  "matched_negations": [],
+  "non_deletion_action": ""
+ },
+ "identity": {
+  "user_id": "user_255",
+  "email_supplied": "yetunde-nwosu@gmail.com",
+  "email_kind": "current",
+  "matched_audit_ids": [],
+  "name": "Yetunde Nwosu",
+  "current": {
+   "user_id": "user_255",
+   "name": "Yetunde Nwosu",
+   "email": "yetunde-nwosu@gmail.com",
+   "phone": "+234 803 836 6074",
+   "email_hash": "47dbc43341eae9626b2c4e3ed47b216bf368cd5a32eefa432b3fd71bb266420c"
+  },
+  "historical": {
+   "phone": [
+    "+234 803 966 1847"
+   ]
+  }
+ },
+ "state_at_audit": [
+  {
+   "system": "security_service",
+   "resource_id": "audit_record_7193",
+   "category": "SECURITY_AUDIT_LOG",
+   "record_type": "SECURITY_AUDIT_LOG",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-06-13T11:00:00Z",
+   "evidence_id": "evidence_24",
+   "evidence_kind": "manifest",
+   "link_method": "explicit_ref",
+   "identifiers": {
+    "subject_reference": "user_255"
+   },
+   "history": [
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-06-13T11:00:00Z",
+     "evidence_id": "evidence_24",
+     "kind": "manifest"
+    },
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-06-13T11:00:00Z",
+     "evidence_id": "evidence_24",
+     "kind": "manifest"
+    }
+   ]
+  }
+ ],
+ "activity_claims": [],
+ "rules": [
+  {
+   "rule_id": "rule_12",
+   "data_category": "SECURITY_AUDIT_LOG",
+   "condition": "Record is within the supplied retention period",
+   "required_action": "RETAIN"
+  }
+ ],
+ "evidence_batch": {
+  "evidence_ids": [
+   "evidence_24"
+  ],
+  "co_subjects": [
+   "user_251",
+   "user_252",
+   "user_253",
+   "user_254",
+   "user_256",
+   "user_257",
+   "user_258",
+   "user_259",
+   "user_260"
+  ],
+  "unattributed_resources": {
+   "evidence_24": [
+    "analytics_2977",
+    "analytics_5053",
+    "analytics_6136",
+    "backup_2427",
+    "data_flow_6233"
+   ]
+  }
+ },
+ "excluded_after_audit": [],
+ "draft": {
+  "deletion_status": "COMPLETE",
+  "steps_json": [
+   {
+    "step_no": 1,
+    "phase": "VERIFICATION",
+    "system_id": "security_service",
+    "resource_id": "audit_record_7193",
+    "operation": "VERIFY_RECORD_PRESENT",
+    "state": "PRESENT",
+    "evidence_id": "evidence_24"
+   }
+  ]
+ }
+}

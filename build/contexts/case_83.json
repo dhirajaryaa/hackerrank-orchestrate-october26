@@ -1,0 +1,165 @@
+{
+ "case": {
+  "case_id": "case_83",
+  "audit_at": "2026-09-06T07:00:00Z",
+  "requested_at": "2026-08-26T07:00:00Z",
+  "reported_status": "PARTIALLY_COMPLETE",
+  "reported_at": "2026-08-27T07:00:00Z",
+  "email_supplied": "liam-walker@proton.me",
+  "request_text": "Please erase the account linked to this email address. Please review the account data that is eligible for deletion or de-identification. I would appreciate confirmation of the final outcome."
+ },
+ "intent": {
+  "is_deletion": true,
+  "label": "deletion",
+  "matched_terms": [
+   "delet",
+   "eras"
+  ],
+  "matched_negations": [],
+  "non_deletion_action": ""
+ },
+ "identity": {
+  "user_id": "user_81",
+  "email_supplied": "liam-walker@proton.me",
+  "email_kind": "current",
+  "matched_audit_ids": [],
+  "name": "Liam Walker",
+  "current": {
+   "user_id": "user_81",
+   "name": "Liam Walker",
+   "email": "liam-walker@proton.me",
+   "phone": "+1 (718) 555-0181",
+   "email_hash": "2b9c78417c75725f2169d25de90efac36a19978b17015fb7757863f642580000"
+  },
+  "historical": {}
+ },
+ "state_at_audit": [
+  {
+   "system": "account_service",
+   "resource_id": "account_2449",
+   "category": "USER_PROFILE",
+   "record_type": "USER_PROFILE",
+   "state": "ABSENT",
+   "raw_state": "ABSENT",
+   "observed_at": "2026-09-06T07:00:00Z",
+   "evidence_id": "evidence_08",
+   "evidence_kind": "manifest",
+   "link_method": "link_key",
+   "identifiers": {
+    "subject_reference": "liam-walker@proton.me"
+   },
+   "history": [
+    {
+     "state": "UNCERTAIN",
+     "raw_state": "UNCERTAIN",
+     "observed_at": "2026-08-27T05:52:37Z",
+     "evidence_id": "activity_3458",
+     "kind": "activity"
+    },
+    {
+     "state": "ABSENT",
+     "raw_state": "ABSENT",
+     "observed_at": "2026-09-06T07:00:00Z",
+     "evidence_id": "evidence_08",
+     "kind": "manifest"
+    }
+   ]
+  },
+  {
+   "system": "security_service",
+   "resource_id": "audit_record_2636",
+   "category": "SECURITY_AUDIT_LOG",
+   "record_type": "SECURITY_AUDIT_LOG",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-09-06T07:00:00Z",
+   "evidence_id": "evidence_08",
+   "evidence_kind": "manifest",
+   "link_method": "explicit_ref",
+   "identifiers": {
+    "subject_reference": "user_81"
+   },
+   "history": [
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-09-06T07:00:00Z",
+     "evidence_id": "evidence_08",
+     "kind": "manifest"
+    }
+   ]
+  }
+ ],
+ "activity_claims": [
+  {
+   "activity_id": "activity_3458",
+   "event_time": "2026-08-27T05:52:37Z",
+   "event_type": "DELETE_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "account_service",
+   "resource_id": "account_2449",
+   "reported_result": "PARTIAL",
+   "details": "Deletion worker submitted primary profile account_2449 to account_service."
+  }
+ ],
+ "rules": [
+  {
+   "rule_id": "rule_01",
+   "data_category": "USER_PROFILE",
+   "condition": "Always",
+   "required_action": "DELETE"
+  },
+  {
+   "rule_id": "rule_12",
+   "data_category": "SECURITY_AUDIT_LOG",
+   "condition": "Record is within the supplied retention period",
+   "required_action": "RETAIN"
+  }
+ ],
+ "evidence_batch": {
+  "evidence_ids": [
+   "activity_3458",
+   "evidence_08"
+  ],
+  "co_subjects": [
+   "user_82",
+   "user_83",
+   "user_84",
+   "user_85",
+   "user_86",
+   "user_87",
+   "user_88",
+   "user_89",
+   "user_90"
+  ],
+  "unattributed_resources": {
+   "evidence_08": [
+    "analytics_9500"
+   ]
+  }
+ },
+ "excluded_after_audit": [],
+ "draft": {
+  "deletion_status": "COMPLETE",
+  "steps_json": [
+   {
+    "step_no": 1,
+    "phase": "VERIFICATION",
+    "system_id": "account_service",
+    "resource_id": "account_2449",
+    "operation": "VERIFY_RECORD_ABSENT",
+    "state": "ABSENT",
+    "evidence_id": "evidence_08"
+   },
+   {
+    "step_no": 2,
+    "phase": "VERIFICATION",
+    "system_id": "security_service",
+    "resource_id": "audit_record_2636",
+    "operation": "VERIFY_RECORD_PRESENT",
+    "state": "PRESENT",
+    "evidence_id": "evidence_08"
+   }
+  ]
+ }
+}

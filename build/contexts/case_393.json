@@ -1,0 +1,107 @@
+{
+ "case": {
+  "case_id": "case_393",
+  "audit_at": "2026-04-04T11:00:00Z",
+  "requested_at": "2026-03-14T11:00:00Z",
+  "reported_status": "PARTIALLY_COMPLETE",
+  "reported_at": "2026-03-16T11:00:00Z",
+  "email_supplied": "a.menon58@yahoo.com",
+  "request_text": "I no longer use this account and would like it permanently deleted. Please ensure the request is applied to the relevant account records. Please send a confirmation after the process finishes."
+ },
+ "intent": {
+  "is_deletion": true,
+  "label": "deletion",
+  "matched_terms": [
+   "delet"
+  ],
+  "matched_negations": [],
+  "non_deletion_action": ""
+ },
+ "identity": {
+  "user_id": "user_391",
+  "email_supplied": "a.menon58@yahoo.com",
+  "email_kind": "current",
+  "matched_audit_ids": [],
+  "name": "Aarav Menon",
+  "current": {
+   "user_id": "user_391",
+   "name": "Aarav Menon",
+   "email": "a.menon58@yahoo.com",
+   "phone": "+91 98481 56511",
+   "email_hash": "d73a09f80161459a34f67b27cd89079c1af87c893eb237f7c051933fe3501992"
+  },
+  "historical": {}
+ },
+ "state_at_audit": [
+  {
+   "system": "security_service",
+   "resource_id": "audit_record_7330",
+   "category": "SECURITY_AUDIT_LOG",
+   "record_type": "SECURITY_AUDIT_LOG",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-04-04T09:31:53Z",
+   "evidence_id": "evidence_69",
+   "evidence_kind": "manifest",
+   "link_method": "explicit_ref",
+   "identifiers": {
+    "subject_reference": "user_391"
+   },
+   "history": [
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-04-04T09:31:53Z",
+     "evidence_id": "evidence_69",
+     "kind": "manifest"
+    }
+   ]
+  }
+ ],
+ "activity_claims": [],
+ "rules": [
+  {
+   "rule_id": "rule_12",
+   "data_category": "SECURITY_AUDIT_LOG",
+   "condition": "Record is within the supplied retention period",
+   "required_action": "RETAIN"
+  }
+ ],
+ "evidence_batch": {
+  "evidence_ids": [
+   "evidence_69"
+  ],
+  "co_subjects": [
+   "user_392",
+   "user_393",
+   "user_394",
+   "user_395",
+   "user_396",
+   "user_397",
+   "user_398",
+   "user_399",
+   "user_400"
+  ],
+  "unattributed_resources": {
+   "evidence_69": [
+    "analytics_4455",
+    "analytics_4651"
+   ]
+  }
+ },
+ "excluded_after_audit": [],
+ "draft": {
+  "deletion_status": "COMPLETE",
+  "steps_json": [
+   {
+    "step_no": 1,
+    "phase": "VERIFICATION",
+    "system_id": "security_service",
+    "resource_id": "audit_record_7330",
+    "operation": "VERIFY_RECORD_PRESENT",
+    "state": "PRESENT",
+    "evidence_id": "evidence_69"
+   }
+  ]
+ }
+}

@@ -1,0 +1,316 @@
+{
+ "case": {
+  "case_id": "case_36",
+  "audit_at": "2026-10-01T12:00:00Z",
+  "requested_at": "2026-09-07T12:00:00Z",
+  "reported_status": "COMPLETE",
+  "reported_at": "2026-09-09T12:00:00Z",
+  "email_supplied": "aadebayo3975@fastmail.com",
+  "request_text": "Please close my account and process the associated personal-data deletion. Please review the account data that is eligible for deletion or de-identification. Please send a confirmation after the process finishes."
+ },
+ "intent": {
+  "is_deletion": true,
+  "label": "deletion",
+  "matched_terms": [
+   "close my account",
+   "delet"
+  ],
+  "matched_negations": [],
+  "non_deletion_action": ""
+ },
+ "identity": {
+  "user_id": "user_34",
+  "email_supplied": "aadebayo3975@fastmail.com",
+  "email_kind": "current",
+  "matched_audit_ids": [],
+  "name": "Adaeze Adebayo",
+  "current": {
+   "user_id": "user_34",
+   "name": "Adaeze Adebayo",
+   "email": "aadebayo3975@fastmail.com",
+   "phone": "+234 803 794 5038",
+   "email_hash": "84b1d4275c3879987c506529e9d1771dad4537d5fd8ad23580eef452d1a90fc6"
+  },
+  "historical": {}
+ },
+ "state_at_audit": [
+  {
+   "system": "account_service",
+   "resource_id": "account_5823",
+   "category": "USER_PROFILE",
+   "record_type": "USER_PROFILE",
+   "state": "ABSENT",
+   "raw_state": "ABSENT",
+   "observed_at": "2026-10-01T12:00:00Z",
+   "evidence_id": "evidence_03",
+   "evidence_kind": "manifest",
+   "link_method": "identifier",
+   "identifiers": {
+    "email": "aadebayo3975@fastmail.com"
+   },
+   "history": [
+    {
+     "state": "ABSENT",
+     "raw_state": "ABSENT",
+     "observed_at": "2026-09-09T11:13:14Z",
+     "evidence_id": "activity_3742",
+     "kind": "activity"
+    },
+    {
+     "state": "ABSENT",
+     "raw_state": "ABSENT",
+     "observed_at": "2026-10-01T12:00:00Z",
+     "evidence_id": "evidence_03",
+     "kind": "manifest"
+    }
+   ]
+  },
+  {
+   "system": "export_service",
+   "resource_id": "export_7689",
+   "category": "USER_EXPORT",
+   "record_type": "USER_EXPORT",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-10-01T12:00:00Z",
+   "evidence_id": "evidence_03",
+   "evidence_kind": "manifest",
+   "link_method": "identifier",
+   "identifiers": {
+    "email": "aadebayo3975@fastmail.com"
+   },
+   "history": [
+    {
+     "state": "UNCERTAIN",
+     "raw_state": "UNCERTAIN",
+     "observed_at": "2026-09-09T12:46:06Z",
+     "evidence_id": "activity_3754",
+     "kind": "activity"
+    },
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-10-01T12:00:00Z",
+     "evidence_id": "evidence_03",
+     "kind": "manifest"
+    }
+   ]
+  },
+  {
+   "system": "search_service",
+   "resource_id": "search_5575",
+   "category": "SEARCH_INDEX_ENTRY",
+   "record_type": "SEARCH_INDEX_ENTRY",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-10-01T12:00:00Z",
+   "evidence_id": "evidence_03",
+   "evidence_kind": "manifest",
+   "link_method": "identifier",
+   "identifiers": {
+    "email": "aadebayo3975@fastmail.com"
+   },
+   "history": [
+    {
+     "state": "UNCERTAIN",
+     "raw_state": "UNCERTAIN",
+     "observed_at": "2026-09-09T13:05:35Z",
+     "evidence_id": "activity_3757",
+     "kind": "activity"
+    },
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-10-01T12:00:00Z",
+     "evidence_id": "evidence_03",
+     "kind": "manifest"
+    }
+   ]
+  },
+  {
+   "system": "security_service",
+   "resource_id": "audit_record_2966",
+   "category": "SECURITY_AUDIT_LOG",
+   "record_type": "SECURITY_AUDIT_LOG",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-10-01T12:00:00Z",
+   "evidence_id": "evidence_03",
+   "evidence_kind": "manifest",
+   "link_method": "explicit_ref",
+   "identifiers": {
+    "subject_reference": "user_34"
+   },
+   "history": [
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-10-01T12:00:00Z",
+     "evidence_id": "evidence_03",
+     "kind": "manifest"
+    }
+   ]
+  }
+ ],
+ "activity_claims": [
+  {
+   "activity_id": "activity_3742",
+   "event_time": "2026-09-09T11:13:14Z",
+   "event_type": "DELETE_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "account_service",
+   "resource_id": "account_5823",
+   "reported_result": "SUCCESS",
+   "details": "Deletion worker submitted primary profile account_5823 to account_service."
+  },
+  {
+   "activity_id": "activity_3754",
+   "event_time": "2026-09-09T12:46:06Z",
+   "event_type": "DELETE_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "export_service",
+   "resource_id": "export_7689",
+   "reported_result": "PARTIAL",
+   "details": "Deletion worker received the final result for export_7689 from export_service."
+  },
+  {
+   "activity_id": "activity_3757",
+   "event_time": "2026-09-09T13:05:35Z",
+   "event_type": "DELETE_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "search_service",
+   "resource_id": "search_5575",
+   "reported_result": "PARTIAL",
+   "details": "Deletion worker received the final result for search_5575 from search_service."
+  }
+ ],
+ "rules": [
+  {
+   "rule_id": "rule_01",
+   "data_category": "USER_PROFILE",
+   "condition": "Always",
+   "required_action": "DELETE"
+  },
+  {
+   "rule_id": "rule_03",
+   "data_category": "SEARCH_INDEX_ENTRY",
+   "condition": "Always",
+   "required_action": "DELETE"
+  },
+  {
+   "rule_id": "rule_09",
+   "data_category": "USER_EXPORT",
+   "condition": "Always",
+   "required_action": "DELETE"
+  },
+  {
+   "rule_id": "rule_12",
+   "data_category": "SECURITY_AUDIT_LOG",
+   "condition": "Record is within the supplied retention period",
+   "required_action": "RETAIN"
+  }
+ ],
+ "evidence_batch": {
+  "evidence_ids": [
+   "activity_3742",
+   "activity_3754",
+   "activity_3757",
+   "evidence_03"
+  ],
+  "co_subjects": [
+   "user_31",
+   "user_32",
+   "user_33",
+   "user_35",
+   "user_36",
+   "user_37",
+   "user_38",
+   "user_39",
+   "user_40"
+  ],
+  "unattributed_resources": {
+   "evidence_03": [
+    "analytics_6830",
+    "analytics_9447"
+   ]
+  }
+ },
+ "excluded_after_audit": [],
+ "draft": {
+  "deletion_status": "INCOMPLETE",
+  "steps_json": [
+   {
+    "step_no": 1,
+    "phase": "FINDING",
+    "system_id": "export_service",
+    "resource_id": "export_7689",
+    "operation": "REPORT_REMAINING_RECORD",
+    "state": "PRESENT",
+    "evidence_id": "evidence_03"
+   },
+   {
+    "step_no": 2,
+    "phase": "FINDING",
+    "system_id": "search_service",
+    "resource_id": "search_5575",
+    "operation": "REPORT_REMAINING_RECORD",
+    "state": "PRESENT",
+    "evidence_id": "evidence_03"
+   },
+   {
+    "step_no": 3,
+    "phase": "REMEDIATION",
+    "system_id": "export_service",
+    "resource_id": "export_7689",
+    "operation": "DELETE_RECORD",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 4,
+    "phase": "REMEDIATION",
+    "system_id": "search_service",
+    "resource_id": "search_5575",
+    "operation": "DELETE_RECORD",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 5,
+    "phase": "VERIFICATION",
+    "system_id": "account_service",
+    "resource_id": "account_5823",
+    "operation": "VERIFY_RECORD_ABSENT",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 6,
+    "phase": "VERIFICATION",
+    "system_id": "export_service",
+    "resource_id": "export_7689",
+    "operation": "VERIFY_RECORD_ABSENT",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 7,
+    "phase": "VERIFICATION",
+    "system_id": "search_service",
+    "resource_id": "search_5575",
+    "operation": "VERIFY_RECORD_ABSENT",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 8,
+    "phase": "VERIFICATION",
+    "system_id": "security_service",
+    "resource_id": "audit_record_2966",
+    "operation": "VERIFY_RECORD_PRESENT",
+    "state": "PRESENT",
+    "evidence_id": ""
+   }
+  ]
+ }
+}

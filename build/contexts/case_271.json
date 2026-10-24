@@ -1,0 +1,48 @@
+{
+ "case": {
+  "case_id": "case_271",
+  "audit_at": "2026-06-08T10:00:00Z",
+  "requested_at": "2026-05-20T10:00:00Z",
+  "reported_status": "COMPLETE",
+  "reported_at": "2026-05-23T10:00:00Z",
+  "email_supplied": "kwame.g4940@outlook.com",
+  "request_text": "I would like to submit a request to delete this account and its personal data. Please apply the request across the systems covered by your deletion policy. Please confirm when the review is complete."
+ },
+ "intent": {
+  "is_deletion": true,
+  "label": "deletion",
+  "matched_terms": [
+   "delet"
+  ],
+  "matched_negations": [],
+  "non_deletion_action": ""
+ },
+ "identity": {
+  "user_id": "user_269",
+  "email_supplied": "kwame.g4940@outlook.com",
+  "email_kind": "current",
+  "matched_audit_ids": [],
+  "name": "Kwame Gyasi",
+  "current": {
+   "user_id": "user_269",
+   "name": "Kwame Gyasi",
+   "email": "kwame.g4940@outlook.com",
+   "phone": "+233 24 805 0311",
+   "email_hash": "6f2c1494546867474f81aae4bc883a3bf9de29ec9d197f5012fa491ad9c4df39"
+  },
+  "historical": {}
+ },
+ "state_at_audit": [],
+ "activity_claims": [],
+ "rules": [],
+ "evidence_batch": {
+  "evidence_ids": [],
+  "co_subjects": [],
+  "unattributed_resources": {}
+ },
+ "excluded_after_audit": [],
+ "draft": {
+  "deletion_status": "COMPLETE",
+  "steps_json": []
+ }
+}

@@ -1,0 +1,240 @@
+{
+ "case": {
+  "case_id": "case_14",
+  "audit_at": "2026-10-01T12:00:00Z",
+  "requested_at": "2026-09-04T12:00:00Z",
+  "reported_status": "COMPLETE",
+  "reported_at": "2026-09-06T12:00:00Z",
+  "email_supplied": "y.tanaka32@gmail.com",
+  "request_text": "このメールアドレスに関連するアカウントの完全な削除を依頼します。 プライバシー手続きに従い、現在および過去の識別情報を確認してください。 確認が完了したら結果をお知らせください。"
+ },
+ "intent": {
+  "is_deletion": true,
+  "label": "deletion",
+  "matched_terms": [
+   "削除"
+  ],
+  "matched_negations": [],
+  "non_deletion_action": ""
+ },
+ "identity": {
+  "user_id": "user_37",
+  "email_supplied": "y.tanaka32@gmail.com",
+  "email_kind": "current",
+  "matched_audit_ids": [],
+  "name": "Yuki Tanaka",
+  "current": {
+   "user_id": "user_37",
+   "name": "Yuki Tanaka",
+   "email": "y.tanaka32@gmail.com",
+   "phone": "+81 90 0802 6399",
+   "email_hash": "3eafe3b9e3dcda746895ba9b54148df33f38f8dc900b14acd2dfc95428493e20"
+  },
+  "historical": {}
+ },
+ "state_at_audit": [
+  {
+   "system": "account_service",
+   "resource_id": "account_3677",
+   "category": "USER_PROFILE",
+   "record_type": "USER_PROFILE",
+   "state": "ABSENT",
+   "raw_state": "ABSENT",
+   "observed_at": "2026-10-01T12:00:00Z",
+   "evidence_id": "evidence_03",
+   "evidence_kind": "manifest",
+   "link_method": "identifier",
+   "identifiers": {
+    "email": "y.tanaka32@gmail.com"
+   },
+   "history": [
+    {
+     "state": "ABSENT",
+     "raw_state": "ABSENT",
+     "observed_at": "2026-09-06T11:11:02Z",
+     "evidence_id": "activity_3686",
+     "kind": "activity"
+    },
+    {
+     "state": "ABSENT",
+     "raw_state": "ABSENT",
+     "observed_at": "2026-10-01T12:00:00Z",
+     "evidence_id": "evidence_03",
+     "kind": "manifest"
+    }
+   ]
+  },
+  {
+   "system": "backup_service",
+   "resource_id": "backup_3870",
+   "category": "BACKUP_ARCHIVE",
+   "record_type": "BACKUP_ARCHIVE",
+   "state": "ACTIVE",
+   "raw_state": "ACTIVE",
+   "observed_at": "2026-10-01T12:00:00Z",
+   "evidence_id": "evidence_03",
+   "evidence_kind": "manifest",
+   "link_method": "identifier",
+   "identifiers": {
+    "email": "y.tanaka32@gmail.com"
+   },
+   "history": [
+    {
+     "state": "ACTIVE",
+     "raw_state": "ACTIVE",
+     "observed_at": "2026-09-06T12:44:53Z",
+     "evidence_id": "activity_3690",
+     "kind": "activity"
+    },
+    {
+     "state": "ACTIVE",
+     "raw_state": "ACTIVE",
+     "observed_at": "2026-10-01T12:00:00Z",
+     "evidence_id": "evidence_03",
+     "kind": "manifest"
+    }
+   ]
+  },
+  {
+   "system": "security_service",
+   "resource_id": "audit_record_987",
+   "category": "SECURITY_AUDIT_LOG",
+   "record_type": "SECURITY_AUDIT_LOG",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-10-01T12:00:00Z",
+   "evidence_id": "evidence_03",
+   "evidence_kind": "manifest",
+   "link_method": "explicit_ref",
+   "identifiers": {
+    "subject_reference": "user_37"
+   },
+   "history": [
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-10-01T12:00:00Z",
+     "evidence_id": "evidence_03",
+     "kind": "manifest"
+    }
+   ]
+  }
+ ],
+ "activity_claims": [
+  {
+   "activity_id": "activity_3686",
+   "event_time": "2026-09-06T11:11:02Z",
+   "event_type": "DELETE_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "account_service",
+   "resource_id": "account_3677",
+   "reported_result": "SUCCESS",
+   "details": "Deletion worker submitted primary profile account_3677 to account_service."
+  },
+  {
+   "activity_id": "activity_3690",
+   "event_time": "2026-09-06T12:44:53Z",
+   "event_type": "CHECK_RESTORE_ACCESS",
+   "source_system": "deletion_worker",
+   "target_system": "backup_service",
+   "resource_id": "backup_3870",
+   "reported_result": "SUCCESS",
+   "details": "Restore-access check confirmed that archive backup_3870 can still be restored."
+  }
+ ],
+ "rules": [
+  {
+   "rule_id": "rule_01",
+   "data_category": "USER_PROFILE",
+   "condition": "Always",
+   "required_action": "DELETE"
+  },
+  {
+   "rule_id": "rule_12",
+   "data_category": "SECURITY_AUDIT_LOG",
+   "condition": "Record is within the supplied retention period",
+   "required_action": "RETAIN"
+  },
+  {
+   "rule_id": "rule_14",
+   "data_category": "BACKUP_ARCHIVE",
+   "condition": "Restore access can be blocked",
+   "required_action": "RETAIN"
+  }
+ ],
+ "evidence_batch": {
+  "evidence_ids": [
+   "activity_3686",
+   "activity_3690",
+   "evidence_03"
+  ],
+  "co_subjects": [
+   "user_31",
+   "user_32",
+   "user_33",
+   "user_34",
+   "user_35",
+   "user_36",
+   "user_38",
+   "user_39",
+   "user_40"
+  ],
+  "unattributed_resources": {
+   "evidence_03": [
+    "analytics_6830",
+    "analytics_9447"
+   ]
+  }
+ },
+ "excluded_after_audit": [],
+ "draft": {
+  "deletion_status": "INCOMPLETE",
+  "steps_json": [
+   {
+    "step_no": 1,
+    "phase": "FINDING",
+    "system_id": "backup_service",
+    "resource_id": "backup_3870",
+    "operation": "REPORT_RESTORE_RISK",
+    "state": "ACTIVE",
+    "evidence_id": "evidence_03"
+   },
+   {
+    "step_no": 2,
+    "phase": "REMEDIATION",
+    "system_id": "backup_service",
+    "resource_id": "backup_3870",
+    "operation": "BLOCK_RESTORE",
+    "state": "BLOCKED",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 3,
+    "phase": "VERIFICATION",
+    "system_id": "account_service",
+    "resource_id": "account_3677",
+    "operation": "VERIFY_RECORD_ABSENT",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 4,
+    "phase": "VERIFICATION",
+    "system_id": "security_service",
+    "resource_id": "audit_record_987",
+    "operation": "VERIFY_RECORD_PRESENT",
+    "state": "PRESENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 5,
+    "phase": "VERIFICATION",
+    "system_id": "backup_service",
+    "resource_id": "backup_3870",
+    "operation": "VERIFY_RESTORE_BLOCKED",
+    "state": "BLOCKED",
+    "evidence_id": ""
+   }
+  ]
+ }
+}

@@ -1,0 +1,384 @@
+{
+ "case": {
+  "case_id": "case_404",
+  "audit_at": "2026-03-30T10:00:00Z",
+  "requested_at": "2026-03-18T10:00:00Z",
+  "reported_status": "COMPLETE",
+  "reported_at": "2026-03-19T10:00:00Z",
+  "email_supplied": "minjun.jung@outlook.com",
+  "request_text": "Please erase the account linked to this email address. Please include records associated with the account under your privacy process. Please confirm the result after completing the required checks."
+ },
+ "intent": {
+  "is_deletion": true,
+  "label": "deletion",
+  "matched_terms": [
+   "eras"
+  ],
+  "matched_negations": [],
+  "non_deletion_action": ""
+ },
+ "identity": {
+  "user_id": "user_402",
+  "email_supplied": "minjun.jung@outlook.com",
+  "email_kind": "current",
+  "matched_audit_ids": [],
+  "name": "Min-jun Jung",
+  "current": {
+   "user_id": "user_402",
+   "name": "Min-jun Jung",
+   "email": "minjun.jung@outlook.com",
+   "phone": "+82 10 8655 5230",
+   "email_hash": "2971cbd0a4aafe50e6072eabc0990724073d1939fb2e409b950278d82807bc44"
+  },
+  "historical": {}
+ },
+ "state_at_audit": [
+  {
+   "system": "analytics_platform",
+   "resource_id": "analytics_1792",
+   "category": "ANALYTICS_PROFILE",
+   "record_type": "ANALYTICS_PROFILE",
+   "state": "IDENTIFIABLE",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-03-30T10:00:00Z",
+   "evidence_id": "evidence_38",
+   "evidence_kind": "manifest",
+   "link_method": "explicit_ref",
+   "identifiers": {
+    "user_id": "user_402",
+    "email": "minjun.jung@outlook.com",
+    "phone": "+82 10 8655 5230",
+    "email_hash": "2971cbd0a4aafe50e6072eabc0990724073d1939fb2e409b950278d82807bc44"
+   },
+   "history": [
+    {
+     "state": "ANONYMIZED",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-03-19T11:43:30Z",
+     "evidence_id": "activity_1058",
+     "kind": "activity"
+    },
+    {
+     "state": "IDENTIFIABLE",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-03-30T10:00:00Z",
+     "evidence_id": "evidence_38",
+     "kind": "manifest"
+    },
+    {
+     "state": "IDENTIFIABLE",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-03-30T10:00:00Z",
+     "evidence_id": "evidence_38",
+     "kind": "manifest"
+    },
+    {
+     "state": "IDENTIFIABLE",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-03-30T10:00:00Z",
+     "evidence_id": "evidence_38",
+     "kind": "manifest"
+    }
+   ]
+  },
+  {
+   "system": "search_service",
+   "resource_id": "search_7022",
+   "category": "SEARCH_INDEX_ENTRY",
+   "record_type": "SEARCH_INDEX_ENTRY",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-03-30T10:00:00Z",
+   "evidence_id": "evidence_38",
+   "evidence_kind": "manifest",
+   "link_method": "identifier",
+   "identifiers": {
+    "document": {
+     "display_name": "Min-jun Jung",
+     "email": "minjun.jung@outlook.com",
+     "customer_reference": "user_402"
+    }
+   },
+   "history": [
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-03-19T11:05:31Z",
+     "evidence_id": "activity_1053",
+     "kind": "activity"
+    },
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-03-30T10:00:00Z",
+     "evidence_id": "evidence_38",
+     "kind": "manifest"
+    },
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-03-30T10:00:00Z",
+     "evidence_id": "evidence_38",
+     "kind": "manifest"
+    },
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-03-30T10:00:00Z",
+     "evidence_id": "evidence_38",
+     "kind": "manifest"
+    }
+   ]
+  },
+  {
+   "system": "security_service",
+   "resource_id": "audit_record_6099",
+   "category": "SECURITY_AUDIT_LOG",
+   "record_type": "SECURITY_AUDIT_LOG",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-03-30T10:00:00Z",
+   "evidence_id": "evidence_38",
+   "evidence_kind": "manifest",
+   "link_method": "explicit_ref",
+   "identifiers": {
+    "subject_reference": "user_402"
+   },
+   "history": [
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-03-30T10:00:00Z",
+     "evidence_id": "evidence_38",
+     "kind": "manifest"
+    },
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-03-30T10:00:00Z",
+     "evidence_id": "evidence_38",
+     "kind": "manifest"
+    },
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-03-30T10:00:00Z",
+     "evidence_id": "evidence_38",
+     "kind": "manifest"
+    }
+   ]
+  },
+  {
+   "system": "support_platform",
+   "resource_id": "support_880",
+   "category": "SUPPORT_MESSAGE",
+   "record_type": "SUPPORT_MESSAGE",
+   "state": "REDACTED",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-03-30T10:00:00Z",
+   "evidence_id": "evidence_38",
+   "evidence_kind": "manifest",
+   "link_method": "explicit_ref",
+   "identifiers": {
+    "subject_reference": "user_402"
+   },
+   "history": [
+    {
+     "state": "REDACTED",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-03-19T11:24:01Z",
+     "evidence_id": "activity_1057",
+     "kind": "activity"
+    },
+    {
+     "state": "REDACTED",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-03-30T10:00:00Z",
+     "evidence_id": "evidence_38",
+     "kind": "manifest"
+    },
+    {
+     "state": "REDACTED",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-03-30T10:00:00Z",
+     "evidence_id": "evidence_38",
+     "kind": "manifest"
+    },
+    {
+     "state": "REDACTED",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-03-30T10:00:00Z",
+     "evidence_id": "evidence_38",
+     "kind": "manifest"
+    }
+   ]
+  }
+ ],
+ "activity_claims": [
+  {
+   "activity_id": "activity_1053",
+   "event_time": "2026-03-19T11:05:31Z",
+   "event_type": "DELETE_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "search_service",
+   "resource_id": "search_7022",
+   "reported_result": "FAILED",
+   "details": "Deletion worker received the final result for search_7022 from search_service."
+  },
+  {
+   "activity_id": "activity_1057",
+   "event_time": "2026-03-19T11:24:01Z",
+   "event_type": "REDACT_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "support_platform",
+   "resource_id": "support_880",
+   "reported_result": "FAILED",
+   "details": "Deletion worker received the final result for support_880 from support_platform."
+  },
+  {
+   "activity_id": "activity_1058",
+   "event_time": "2026-03-19T11:43:30Z",
+   "event_type": "ANONYMIZE_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "analytics_platform",
+   "resource_id": "analytics_1792",
+   "reported_result": "FAILED",
+   "details": "Deletion worker received the final result for analytics_1792 from analytics_platform."
+  }
+ ],
+ "rules": [
+  {
+   "rule_id": "rule_03",
+   "data_category": "SEARCH_INDEX_ENTRY",
+   "condition": "Always",
+   "required_action": "DELETE"
+  },
+  {
+   "rule_id": "rule_05",
+   "data_category": "SUPPORT_MESSAGE",
+   "condition": "Conversation contains shared customer, agent, or order context that must be retained",
+   "required_action": "REDACT"
+  },
+  {
+   "rule_id": "rule_07",
+   "data_category": "ANALYTICS_PROFILE",
+   "condition": "Record is still attributable to a user",
+   "required_action": "ANONYMIZE"
+  },
+  {
+   "rule_id": "rule_12",
+   "data_category": "SECURITY_AUDIT_LOG",
+   "condition": "Record is within the supplied retention period",
+   "required_action": "RETAIN"
+  }
+ ],
+ "evidence_batch": {
+  "evidence_ids": [
+   "activity_1053",
+   "activity_1057",
+   "activity_1058",
+   "evidence_38"
+  ],
+  "co_subjects": [
+   "user_401",
+   "user_403",
+   "user_404",
+   "user_405",
+   "user_406",
+   "user_407",
+   "user_408",
+   "user_409",
+   "user_410"
+  ],
+  "unattributed_resources": {
+   "evidence_38": [
+    "analytics_298",
+    "analytics_542",
+    "analytics_7090",
+    "analytics_8973",
+    "data_flow_8093",
+    "data_flow_8300",
+    "search_5582",
+    "support_3802"
+   ]
+  }
+ },
+ "excluded_after_audit": [],
+ "draft": {
+  "deletion_status": "INCOMPLETE",
+  "steps_json": [
+   {
+    "step_no": 1,
+    "phase": "FINDING",
+    "system_id": "search_service",
+    "resource_id": "search_7022",
+    "operation": "REPORT_REMAINING_RECORD",
+    "state": "PRESENT",
+    "evidence_id": "evidence_38"
+   },
+   {
+    "step_no": 2,
+    "phase": "FINDING",
+    "system_id": "analytics_platform",
+    "resource_id": "analytics_1792",
+    "operation": "REPORT_EXPOSED_PII",
+    "state": "PRESENT",
+    "evidence_id": "evidence_38"
+   },
+   {
+    "step_no": 3,
+    "phase": "REMEDIATION",
+    "system_id": "search_service",
+    "resource_id": "search_7022",
+    "operation": "DELETE_RECORD",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 4,
+    "phase": "REMEDIATION",
+    "system_id": "analytics_platform",
+    "resource_id": "analytics_1792",
+    "operation": "ANONYMIZE_RECORD",
+    "state": "ANONYMIZED",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 5,
+    "phase": "VERIFICATION",
+    "system_id": "search_service",
+    "resource_id": "search_7022",
+    "operation": "VERIFY_RECORD_ABSENT",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 6,
+    "phase": "VERIFICATION",
+    "system_id": "security_service",
+    "resource_id": "audit_record_6099",
+    "operation": "VERIFY_RECORD_PRESENT",
+    "state": "PRESENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 7,
+    "phase": "VERIFICATION",
+    "system_id": "support_platform",
+    "resource_id": "support_880",
+    "operation": "VERIFY_RECORD_REDACTED",
+    "state": "REDACTED",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 8,
+    "phase": "VERIFICATION",
+    "system_id": "analytics_platform",
+    "resource_id": "analytics_1792",
+    "operation": "VERIFY_RECORD_ANONYMIZED",
+    "state": "ANONYMIZED",
+    "evidence_id": ""
+   }
+  ]
+ }
+}

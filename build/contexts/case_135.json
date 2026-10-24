@@ -1,0 +1,133 @@
+{
+ "case": {
+  "case_id": "case_135",
+  "audit_at": "2026-08-12T09:00:00Z",
+  "requested_at": "2026-07-20T09:00:00Z",
+  "reported_status": "COMPLETE",
+  "reported_at": "2026-07-22T09:00:00Z",
+  "email_supplied": "o.morgan56@gmail.com",
+  "request_text": "Please process a permanent account-deletion request for this email address. Please handle any copies that fall within the scope of the deletion request. I would appreciate confirmation of the final outcome."
+ },
+ "intent": {
+  "is_deletion": true,
+  "label": "deletion",
+  "matched_terms": [
+   "delet"
+  ],
+  "matched_negations": [],
+  "non_deletion_action": ""
+ },
+ "identity": {
+  "user_id": "user_133",
+  "email_supplied": "o.morgan56@gmail.com",
+  "email_kind": "current",
+  "matched_audit_ids": [],
+  "name": "Oliver Morgan",
+  "current": {
+   "user_id": "user_133",
+   "name": "Oliver Morgan",
+   "email": "o.morgan56@gmail.com",
+   "phone": "+1 (415) 555-0133",
+   "email_hash": "8f846a0cd281c1aecad004fb9afe30a0b822e26ead0bcc084b7795c278fe3a2a"
+  },
+  "historical": {}
+ },
+ "state_at_audit": [
+  {
+   "system": "security_service",
+   "resource_id": "audit_record_5140",
+   "category": "SECURITY_AUDIT_LOG",
+   "record_type": "SECURITY_AUDIT_LOG",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-08-12T09:00:00Z",
+   "evidence_id": "evidence_13",
+   "evidence_kind": "manifest",
+   "link_method": "explicit_ref",
+   "identifiers": {
+    "subject_reference": "user_133"
+   },
+   "history": [
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-08-12T09:00:00Z",
+     "evidence_id": "evidence_13",
+     "kind": "manifest"
+    }
+   ]
+  }
+ ],
+ "activity_claims": [],
+ "rules": [
+  {
+   "rule_id": "rule_12",
+   "data_category": "SECURITY_AUDIT_LOG",
+   "condition": "Record is within the supplied retention period",
+   "required_action": "RETAIN"
+  }
+ ],
+ "evidence_batch": {
+  "evidence_ids": [
+   "evidence_13"
+  ],
+  "co_subjects": [
+   "user_131",
+   "user_132",
+   "user_134",
+   "user_135",
+   "user_136",
+   "user_137",
+   "user_138",
+   "user_139",
+   "user_140"
+  ],
+  "unattributed_resources": {
+   "evidence_13": [
+    "account_1084",
+    "account_1417",
+    "account_2434",
+    "account_3734",
+    "account_4079",
+    "account_6372",
+    "account_6452",
+    "account_907",
+    "account_9191",
+    "account_923",
+    "analytics_3006",
+    "analytics_7772",
+    "data_flow_4227",
+    "data_flow_7812",
+    "data_flow_9030",
+    "search_1110",
+    "search_1474",
+    "search_2024",
+    "search_4464",
+    "search_460",
+    "search_6677",
+    "search_7363",
+    "search_7941",
+    "support_2716",
+    "support_4410",
+    "support_4442",
+    "support_5323",
+    "support_771"
+   ]
+  }
+ },
+ "excluded_after_audit": [],
+ "draft": {
+  "deletion_status": "COMPLETE",
+  "steps_json": [
+   {
+    "step_no": 1,
+    "phase": "VERIFICATION",
+    "system_id": "security_service",
+    "resource_id": "audit_record_5140",
+    "operation": "VERIFY_RECORD_PRESENT",
+    "state": "PRESENT",
+    "evidence_id": "evidence_13"
+   }
+  ]
+ }
+}

@@ -1,0 +1,453 @@
+{
+ "case": {
+  "case_id": "case_365",
+  "audit_at": "2026-04-19T07:00:00Z",
+  "requested_at": "2026-04-06T07:00:00Z",
+  "reported_status": "COMPLETE",
+  "reported_at": "2026-04-07T07:00:00Z",
+  "email_supplied": "haeun-jung@gmail.com",
+  "request_text": "I would like the account associated with this address to be erased. Please apply the request across the systems covered by your deletion policy. I would appreciate confirmation of the final outcome."
+ },
+ "intent": {
+  "is_deletion": true,
+  "label": "deletion",
+  "matched_terms": [
+   "delet",
+   "eras"
+  ],
+  "matched_negations": [],
+  "non_deletion_action": ""
+ },
+ "identity": {
+  "user_id": "user_363",
+  "email_supplied": "haeun-jung@gmail.com",
+  "email_kind": "current",
+  "matched_audit_ids": [],
+  "name": "Ha-eun Jung",
+  "current": {
+   "user_id": "user_363",
+   "name": "Ha-eun Jung",
+   "email": "haeun-jung@gmail.com",
+   "phone": "+82 10 5864 2681",
+   "email_hash": "951ea67019e352fc2773d9fa8e2b716da43b31fe064f062a8022368b6c1663ab"
+  },
+  "historical": {}
+ },
+ "state_at_audit": [
+  {
+   "system": "account_service",
+   "resource_id": "account_3016",
+   "category": "USER_PROFILE",
+   "record_type": "USER_PROFILE",
+   "state": "ABSENT",
+   "raw_state": "ABSENT",
+   "observed_at": "2026-04-19T06:52:30Z",
+   "evidence_id": "evidence_34",
+   "evidence_kind": "manifest",
+   "link_method": "link_key",
+   "identifiers": {},
+   "history": [
+    {
+     "state": "ABSENT",
+     "raw_state": "ABSENT",
+     "observed_at": "2026-04-07T05:50:25Z",
+     "evidence_id": "activity_1309",
+     "kind": "activity"
+    },
+    {
+     "state": "ABSENT",
+     "raw_state": "ABSENT",
+     "observed_at": "2026-04-19T06:52:30Z",
+     "evidence_id": "evidence_34",
+     "kind": "manifest"
+    }
+   ]
+  },
+  {
+   "system": "analytics_platform",
+   "resource_id": "analytics_547",
+   "category": "ANALYTICS_PROFILE",
+   "record_type": "ANALYTICS_PROFILE",
+   "state": "IDENTIFIABLE",
+   "raw_state": "IDENTIFIABLE",
+   "observed_at": "2026-04-19T06:51:41Z",
+   "evidence_id": "evidence_34",
+   "evidence_kind": "manifest",
+   "link_method": "identifier",
+   "identifiers": {
+    "email": "haeun-jung@gmail.com",
+    "detector": "direct_identifier"
+   },
+   "history": [
+    {
+     "state": "ANONYMIZED",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-04-07T07:49:17Z",
+     "evidence_id": "activity_1316",
+     "kind": "activity"
+    },
+    {
+     "state": "IDENTIFIABLE",
+     "raw_state": "IDENTIFIABLE",
+     "observed_at": "2026-04-19T06:51:41Z",
+     "evidence_id": "evidence_34",
+     "kind": "manifest"
+    }
+   ]
+  },
+  {
+   "system": "integration_service",
+   "resource_id": "data_flow_1021",
+   "category": "DATA_FLOW",
+   "record_type": "DATA_FLOW",
+   "state": "ACTIVE",
+   "raw_state": "ACTIVE",
+   "observed_at": "2026-04-19T06:56:50Z",
+   "evidence_id": "evidence_34",
+   "evidence_kind": "manifest",
+   "link_method": "link_key",
+   "identifiers": {},
+   "history": [
+    {
+     "state": "ACTIVE",
+     "raw_state": "ACTIVE",
+     "observed_at": "2026-04-07T08:46:45Z",
+     "evidence_id": "activity_1326",
+     "kind": "activity"
+    },
+    {
+     "state": "ACTIVE",
+     "raw_state": "ACTIVE",
+     "observed_at": "2026-04-19T06:56:50Z",
+     "evidence_id": "evidence_34",
+     "kind": "manifest"
+    }
+   ]
+  },
+  {
+   "system": "search_service",
+   "resource_id": "search_6311",
+   "category": "SEARCH_INDEX_ENTRY",
+   "record_type": "SEARCH_INDEX_ENTRY",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-04-19T06:54:37Z",
+   "evidence_id": "evidence_34",
+   "evidence_kind": "manifest",
+   "link_method": "link_key",
+   "identifiers": {},
+   "history": [
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-04-07T08:08:46Z",
+     "evidence_id": "activity_1320",
+     "kind": "activity"
+    },
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-04-19T06:54:37Z",
+     "evidence_id": "evidence_34",
+     "kind": "manifest"
+    }
+   ]
+  },
+  {
+   "system": "security_service",
+   "resource_id": "audit_record_5798",
+   "category": "SECURITY_AUDIT_LOG",
+   "record_type": "SECURITY_AUDIT_LOG",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-04-19T06:51:35Z",
+   "evidence_id": "evidence_34",
+   "evidence_kind": "manifest",
+   "link_method": "link_key",
+   "identifiers": {},
+   "history": [
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-04-19T06:51:35Z",
+     "evidence_id": "evidence_34",
+     "kind": "manifest"
+    }
+   ]
+  },
+  {
+   "system": "support_platform",
+   "resource_id": "support_3294",
+   "category": "SUPPORT_MESSAGE",
+   "record_type": "SUPPORT_MESSAGE",
+   "state": "IDENTIFIABLE",
+   "raw_state": "IDENTIFIABLE",
+   "observed_at": "2026-04-19T06:51:45Z",
+   "evidence_id": "evidence_34",
+   "evidence_kind": "manifest",
+   "link_method": "identifier",
+   "identifiers": {
+    "email": "haeun-jung@gmail.com",
+    "detector": "direct_identifier"
+   },
+   "history": [
+    {
+     "state": "REDACTED",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-04-07T08:27:16Z",
+     "evidence_id": "activity_1323",
+     "kind": "activity"
+    },
+    {
+     "state": "IDENTIFIABLE",
+     "raw_state": "IDENTIFIABLE",
+     "observed_at": "2026-04-19T06:51:45Z",
+     "evidence_id": "evidence_34",
+     "kind": "manifest"
+    }
+   ]
+  }
+ ],
+ "activity_claims": [
+  {
+   "activity_id": "activity_1309",
+   "event_time": "2026-04-07T05:50:25Z",
+   "event_type": "DELETE_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "account_service",
+   "resource_id": "account_3016",
+   "reported_result": "SUCCESS",
+   "details": "Deletion worker submitted primary profile account_3016 to account_service."
+  },
+  {
+   "activity_id": "activity_1316",
+   "event_time": "2026-04-07T07:49:17Z",
+   "event_type": "ANONYMIZE_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "analytics_platform",
+   "resource_id": "analytics_547",
+   "reported_result": "FAILED",
+   "details": "Deletion worker received the final result for analytics_547 from analytics_platform."
+  },
+  {
+   "activity_id": "activity_1320",
+   "event_time": "2026-04-07T08:08:46Z",
+   "event_type": "DELETE_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "search_service",
+   "resource_id": "search_6311",
+   "reported_result": "FAILED",
+   "details": "Deletion worker received the final result for search_6311 from search_service."
+  },
+  {
+   "activity_id": "activity_1323",
+   "event_time": "2026-04-07T08:27:16Z",
+   "event_type": "REDACT_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "support_platform",
+   "resource_id": "support_3294",
+   "reported_result": "FAILED",
+   "details": "Deletion worker received the final result for support_3294 from support_platform."
+  },
+  {
+   "activity_id": "activity_1326",
+   "event_time": "2026-04-07T08:46:45Z",
+   "event_type": "CHECK_DATA_FLOW",
+   "source_system": "deletion_worker",
+   "target_system": "integration_service",
+   "resource_id": "data_flow_1021",
+   "reported_result": "SUCCESS",
+   "details": "Connector status check confirmed that data flow data_flow_1021 remains enabled."
+  }
+ ],
+ "rules": [
+  {
+   "rule_id": "rule_01",
+   "data_category": "USER_PROFILE",
+   "condition": "Always",
+   "required_action": "DELETE"
+  },
+  {
+   "rule_id": "rule_03",
+   "data_category": "SEARCH_INDEX_ENTRY",
+   "condition": "Always",
+   "required_action": "DELETE"
+  },
+  {
+   "rule_id": "rule_05",
+   "data_category": "SUPPORT_MESSAGE",
+   "condition": "Conversation contains shared customer, agent, or order context that must be retained",
+   "required_action": "REDACT"
+  },
+  {
+   "rule_id": "rule_07",
+   "data_category": "ANALYTICS_PROFILE",
+   "condition": "Record is still attributable to a user",
+   "required_action": "ANONYMIZE"
+  },
+  {
+   "rule_id": "rule_12",
+   "data_category": "SECURITY_AUDIT_LOG",
+   "condition": "Record is within the supplied retention period",
+   "required_action": "RETAIN"
+  }
+ ],
+ "evidence_batch": {
+  "evidence_ids": [
+   "activity_1309",
+   "activity_1316",
+   "activity_1320",
+   "activity_1323",
+   "activity_1326",
+   "evidence_34"
+  ],
+  "co_subjects": [
+   "user_361",
+   "user_362",
+   "user_364",
+   "user_365",
+   "user_366",
+   "user_367",
+   "user_368",
+   "user_369",
+   "user_370"
+  ],
+  "unattributed_resources": {
+   "evidence_34": [
+    "analytics_2807"
+   ]
+  }
+ },
+ "excluded_after_audit": [],
+ "draft": {
+  "deletion_status": "INCOMPLETE",
+  "steps_json": [
+   {
+    "step_no": 1,
+    "phase": "FINDING",
+    "system_id": "search_service",
+    "resource_id": "search_6311",
+    "operation": "REPORT_REMAINING_RECORD",
+    "state": "PRESENT",
+    "evidence_id": "evidence_34"
+   },
+   {
+    "step_no": 2,
+    "phase": "FINDING",
+    "system_id": "analytics_platform",
+    "resource_id": "analytics_547",
+    "operation": "REPORT_EXPOSED_PII",
+    "state": "PRESENT",
+    "evidence_id": "evidence_34"
+   },
+   {
+    "step_no": 3,
+    "phase": "FINDING",
+    "system_id": "support_platform",
+    "resource_id": "support_3294",
+    "operation": "REPORT_EXPOSED_PII",
+    "state": "PRESENT",
+    "evidence_id": "evidence_34"
+   },
+   {
+    "step_no": 4,
+    "phase": "FINDING",
+    "system_id": "integration_service",
+    "resource_id": "data_flow_1021",
+    "operation": "REPORT_ACTIVE_DATA_FLOW",
+    "state": "ACTIVE",
+    "evidence_id": "evidence_34"
+   },
+   {
+    "step_no": 5,
+    "phase": "REMEDIATION",
+    "system_id": "integration_service",
+    "resource_id": "data_flow_1021",
+    "operation": "DISABLE_DATA_FLOW",
+    "state": "DISABLED",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 6,
+    "phase": "REMEDIATION",
+    "system_id": "search_service",
+    "resource_id": "search_6311",
+    "operation": "DELETE_RECORD",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 7,
+    "phase": "REMEDIATION",
+    "system_id": "support_platform",
+    "resource_id": "support_3294",
+    "operation": "REDACT_RECORD",
+    "state": "REDACTED",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 8,
+    "phase": "REMEDIATION",
+    "system_id": "analytics_platform",
+    "resource_id": "analytics_547",
+    "operation": "ANONYMIZE_RECORD",
+    "state": "ANONYMIZED",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 9,
+    "phase": "VERIFICATION",
+    "system_id": "account_service",
+    "resource_id": "account_3016",
+    "operation": "VERIFY_RECORD_ABSENT",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 10,
+    "phase": "VERIFICATION",
+    "system_id": "search_service",
+    "resource_id": "search_6311",
+    "operation": "VERIFY_RECORD_ABSENT",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 11,
+    "phase": "VERIFICATION",
+    "system_id": "security_service",
+    "resource_id": "audit_record_5798",
+    "operation": "VERIFY_RECORD_PRESENT",
+    "state": "PRESENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 12,
+    "phase": "VERIFICATION",
+    "system_id": "support_platform",
+    "resource_id": "support_3294",
+    "operation": "VERIFY_RECORD_REDACTED",
+    "state": "REDACTED",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 13,
+    "phase": "VERIFICATION",
+    "system_id": "analytics_platform",
+    "resource_id": "analytics_547",
+    "operation": "VERIFY_RECORD_ANONYMIZED",
+    "state": "ANONYMIZED",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 14,
+    "phase": "VERIFICATION",
+    "system_id": "integration_service",
+    "resource_id": "data_flow_1021",
+    "operation": "VERIFY_DATA_FLOW_DISABLED",
+    "state": "DISABLED",
+    "evidence_id": ""
+   }
+  ]
+ }
+}

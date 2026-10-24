@@ -1,0 +1,206 @@
+{
+ "case": {
+  "case_id": "case_455",
+  "audit_at": "2026-03-05T12:00:00Z",
+  "requested_at": "2026-02-10T12:00:00Z",
+  "reported_status": "COMPLETE",
+  "reported_at": "2026-02-11T12:00:00Z",
+  "email_supplied": "aoi-mori@proton.me",
+  "request_text": "I am requesting deletion of the account registered to this email address. Please include information linked through current or earlier account identifiers. Let me know when the request has been completed."
+ },
+ "intent": {
+  "is_deletion": true,
+  "label": "deletion",
+  "matched_terms": [
+   "delet"
+  ],
+  "matched_negations": [],
+  "non_deletion_action": ""
+ },
+ "identity": {
+  "user_id": "user_453",
+  "email_supplied": "aoi-mori@proton.me",
+  "email_kind": "current",
+  "matched_audit_ids": [],
+  "name": "Aoi Mori",
+  "current": {
+   "user_id": "user_453",
+   "name": "Aoi Mori",
+   "email": "aoi-mori@proton.me",
+   "phone": "+81 90 0676 0102",
+   "email_hash": "1b281589fd4791fe7aabf50c0cd7dfa6da4d7c709328692f0d1ec4905e692def"
+  },
+  "historical": {}
+ },
+ "state_at_audit": [
+  {
+   "system": "search_service",
+   "resource_id": "search_887",
+   "category": "SEARCH_INDEX_ENTRY",
+   "record_type": "SEARCH_INDEX_ENTRY",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-03-05T12:00:00Z",
+   "evidence_id": "evidence_43",
+   "evidence_kind": "manifest",
+   "link_method": "identifier",
+   "identifiers": {
+    "document": {
+     "display_name": "Aoi Mori",
+     "email": "aoi-mori@proton.me",
+     "customer_reference": "user_453"
+    }
+   },
+   "history": [
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-02-11T13:17:25Z",
+     "evidence_id": "activity_531",
+     "kind": "activity"
+    },
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-03-05T12:00:00Z",
+     "evidence_id": "evidence_43",
+     "kind": "manifest"
+    },
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-03-05T12:00:00Z",
+     "evidence_id": "evidence_43",
+     "kind": "manifest"
+    }
+   ]
+  },
+  {
+   "system": "security_service",
+   "resource_id": "audit_record_2788",
+   "category": "SECURITY_AUDIT_LOG",
+   "record_type": "SECURITY_AUDIT_LOG",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-03-05T12:00:00Z",
+   "evidence_id": "evidence_43",
+   "evidence_kind": "manifest",
+   "link_method": "explicit_ref",
+   "identifiers": {
+    "subject_reference": "user_453"
+   },
+   "history": [
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-03-05T12:00:00Z",
+     "evidence_id": "evidence_43",
+     "kind": "manifest"
+    },
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-03-05T12:00:00Z",
+     "evidence_id": "evidence_43",
+     "kind": "manifest"
+    }
+   ]
+  }
+ ],
+ "activity_claims": [
+  {
+   "activity_id": "activity_531",
+   "event_time": "2026-02-11T13:17:25Z",
+   "event_type": "DELETE_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "search_service",
+   "resource_id": "search_887",
+   "reported_result": "FAILED",
+   "details": "Deletion worker received the final result for search_887 from search_service."
+  }
+ ],
+ "rules": [
+  {
+   "rule_id": "rule_03",
+   "data_category": "SEARCH_INDEX_ENTRY",
+   "condition": "Always",
+   "required_action": "DELETE"
+  },
+  {
+   "rule_id": "rule_12",
+   "data_category": "SECURITY_AUDIT_LOG",
+   "condition": "Record is within the supplied retention period",
+   "required_action": "RETAIN"
+  }
+ ],
+ "evidence_batch": {
+  "evidence_ids": [
+   "activity_531",
+   "evidence_43"
+  ],
+  "co_subjects": [
+   "user_451",
+   "user_452",
+   "user_454",
+   "user_455",
+   "user_456",
+   "user_457",
+   "user_458",
+   "user_459",
+   "user_460"
+  ],
+  "unattributed_resources": {
+   "evidence_43": [
+    "analytics_1126",
+    "analytics_5221",
+    "analytics_6750",
+    "backup_1140",
+    "data_flow_4612",
+    "search_8371",
+    "support_2055"
+   ]
+  }
+ },
+ "excluded_after_audit": [],
+ "draft": {
+  "deletion_status": "INCOMPLETE",
+  "steps_json": [
+   {
+    "step_no": 1,
+    "phase": "FINDING",
+    "system_id": "search_service",
+    "resource_id": "search_887",
+    "operation": "REPORT_REMAINING_RECORD",
+    "state": "PRESENT",
+    "evidence_id": "evidence_43"
+   },
+   {
+    "step_no": 2,
+    "phase": "REMEDIATION",
+    "system_id": "search_service",
+    "resource_id": "search_887",
+    "operation": "DELETE_RECORD",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 3,
+    "phase": "VERIFICATION",
+    "system_id": "search_service",
+    "resource_id": "search_887",
+    "operation": "VERIFY_RECORD_ABSENT",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 4,
+    "phase": "VERIFICATION",
+    "system_id": "security_service",
+    "resource_id": "audit_record_2788",
+    "operation": "VERIFY_RECORD_PRESENT",
+    "state": "PRESENT",
+    "evidence_id": ""
+   }
+  ]
+ }
+}

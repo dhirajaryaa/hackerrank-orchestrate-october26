@@ -1,0 +1,153 @@
+{
+ "case": {
+  "case_id": "case_50",
+  "audit_at": "2026-07-14T12:00:00Z",
+  "requested_at": "2026-07-11T07:00:00Z",
+  "reported_status": "NOT_STARTED",
+  "reported_at": "2026-07-13T01:00:00Z",
+  "email_supplied": "darwish.omar@icloud.com",
+  "request_text": "Please treat this message as a request for permanent account deletion. Please check the records connected to the account before confirming completion. Please send a confirmation after the process finishes."
+ },
+ "intent": {
+  "is_deletion": true,
+  "label": "deletion",
+  "matched_terms": [
+   "delet"
+  ],
+  "matched_negations": [],
+  "non_deletion_action": ""
+ },
+ "identity": {
+  "user_id": "user_20",
+  "email_supplied": "darwish.omar@icloud.com",
+  "email_kind": "current",
+  "matched_audit_ids": [],
+  "name": "Omar Darwish",
+  "current": {
+   "user_id": "user_20",
+   "name": "Omar Darwish",
+   "email": "darwish.omar@icloud.com",
+   "phone": "+971 52 858 8894",
+   "email_hash": "09f05b9fb59a2493e9349bbfeac4ab5288a534689c8ecbe44bcc106f5ede50a7"
+  },
+  "historical": {
+   "phone": [
+    "+971 52 452 6308"
+   ]
+  }
+ },
+ "state_at_audit": [
+  {
+   "system": "analytics_platform",
+   "resource_id": "analytics_7438",
+   "category": "ANALYTICS_PROFILE",
+   "record_type": "REFERENCE",
+   "state": "REFERENCED",
+   "raw_state": "REFERENCED",
+   "observed_at": "2026-07-13T10:00:00Z",
+   "evidence_id": "evidence_19",
+   "evidence_kind": "manifest",
+   "link_method": "resource_alias",
+   "identifiers": {},
+   "history": [
+    {
+     "state": "REFERENCED",
+     "raw_state": "REFERENCED",
+     "observed_at": "2026-07-13T10:00:00Z",
+     "evidence_id": "evidence_19",
+     "kind": "manifest"
+    }
+   ]
+  }
+ ],
+ "activity_claims": [
+  {
+   "activity_id": "activity_4003",
+   "event_time": "2026-07-13T10:07:01Z",
+   "event_type": "LINK_RESOURCE_IDENTITY",
+   "source_system": "data_catalog",
+   "target_system": "analytics_platform",
+   "resource_id": "analytics_7438",
+   "reported_result": "SUCCESS",
+   "details": "Data catalog linked analytics_7438 (analytics_7438) to darwish.omar@icloud.com and user_20."
+  }
+ ],
+ "rules": [
+  {
+   "rule_id": "rule_07",
+   "data_category": "ANALYTICS_PROFILE",
+   "condition": "Record is still attributable to a user",
+   "required_action": "ANONYMIZE"
+  }
+ ],
+ "evidence_batch": {
+  "evidence_ids": [
+   "activity_4003",
+   "evidence_19"
+  ],
+  "co_subjects": [],
+  "unattributed_resources": {}
+ },
+ "excluded_after_audit": [
+  {
+   "evidence_id": "activity_3719",
+   "system": "account_service",
+   "resource_id": "account_3270",
+   "state": "PRESENT",
+   "captured_at": "2026-09-08T11:12:08Z",
+   "observed_at": "2026-09-08T11:12:08Z"
+  },
+  {
+   "evidence_id": "activity_3723",
+   "system": "analytics_platform",
+   "resource_id": "analytics_7438",
+   "state": "PRESENT",
+   "captured_at": "2026-09-08T12:40:59Z",
+   "observed_at": "2026-09-08T12:40:59Z"
+  },
+  {
+   "evidence_id": "activity_3725",
+   "system": "search_service",
+   "resource_id": "search_4639",
+   "state": "PRESENT",
+   "captured_at": "2026-09-08T12:59:29Z",
+   "observed_at": "2026-09-08T12:59:29Z"
+  },
+  {
+   "evidence_id": "evidence_01",
+   "system": "search_service",
+   "resource_id": "search_4639",
+   "state": "PRESENT",
+   "captured_at": "2026-09-15T11:59:39Z",
+   "observed_at": "2026-09-15T11:51:16Z"
+  },
+  {
+   "evidence_id": "evidence_01",
+   "system": "analytics_platform",
+   "resource_id": "analytics_7438",
+   "state": "IDENTIFIABLE",
+   "captured_at": "2026-09-15T11:59:39Z",
+   "observed_at": "2026-09-15T11:54:39Z"
+  },
+  {
+   "evidence_id": "evidence_01",
+   "system": "account_service",
+   "resource_id": "account_3270",
+   "state": "ABSENT",
+   "captured_at": "2026-09-15T11:59:39Z",
+   "observed_at": "2026-09-15T11:54:42Z"
+  },
+  {
+   "evidence_id": "evidence_01",
+   "system": "security_service",
+   "resource_id": "audit_record_5080",
+   "state": "PRESENT",
+   "captured_at": "2026-09-15T11:59:39Z",
+   "observed_at": "2026-09-15T11:57:56Z"
+  }
+ ],
+ "draft": {
+  "deletion_status": "INCOMPLETE",
+  "steps_json": []
+ }
+}

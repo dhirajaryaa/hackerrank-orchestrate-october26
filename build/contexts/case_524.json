@@ -1,0 +1,119 @@
+{
+ "case": {
+  "case_id": "case_524",
+  "audit_at": "2026-01-29T12:00:00Z",
+  "requested_at": "2026-01-17T12:00:00Z",
+  "reported_status": "NOT_STARTED",
+  "reported_at": "2026-01-18T12:00:00Z",
+  "email_supplied": "mateo.castillo@outlook.com",
+  "request_text": "Please process a permanent account-deletion request for this email address. Please handle any copies that fall within the scope of the deletion request. I would appreciate confirmation of the final outcome."
+ },
+ "intent": {
+  "is_deletion": true,
+  "label": "deletion",
+  "matched_terms": [
+   "delet"
+  ],
+  "matched_negations": [],
+  "non_deletion_action": ""
+ },
+ "identity": {
+  "user_id": "user_522",
+  "email_supplied": "mateo.castillo@outlook.com",
+  "email_kind": "current",
+  "matched_audit_ids": [],
+  "name": "Mateo Castillo",
+  "current": {
+   "user_id": "user_522",
+   "name": "Mateo Castillo",
+   "email": "mateo.castillo@outlook.com",
+   "phone": "+34 629 765 457",
+   "email_hash": "6ba69020119b7f5cd1a261eb4536de9bb1fa65a9150037ef9cfa7d36a6e64111"
+  },
+  "historical": {}
+ },
+ "state_at_audit": [
+  {
+   "system": "security_service",
+   "resource_id": "audit_record_5429",
+   "category": "SECURITY_AUDIT_LOG",
+   "record_type": "SECURITY_AUDIT_LOG",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-01-29T08:49:08Z",
+   "evidence_id": "evidence_62",
+   "evidence_kind": "manifest",
+   "link_method": "explicit_ref",
+   "identifiers": {
+    "subject_reference": "user_522"
+   },
+   "history": [
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-01-29T08:49:08Z",
+     "evidence_id": "evidence_62",
+     "kind": "manifest"
+    }
+   ]
+  }
+ ],
+ "activity_claims": [],
+ "rules": [
+  {
+   "rule_id": "rule_12",
+   "data_category": "SECURITY_AUDIT_LOG",
+   "condition": "Record is within the supplied retention period",
+   "required_action": "RETAIN"
+  }
+ ],
+ "evidence_batch": {
+  "evidence_ids": [
+   "evidence_62"
+  ],
+  "co_subjects": [
+   "user_521",
+   "user_523",
+   "user_524",
+   "user_525",
+   "user_526",
+   "user_527",
+   "user_528",
+   "user_529",
+   "user_530"
+  ],
+  "unattributed_resources": {
+   "evidence_62": [
+    "account_470",
+    "account_6169",
+    "account_704",
+    "analytics_3744",
+    "analytics_893"
+   ]
+  }
+ },
+ "excluded_after_audit": [
+  {
+   "evidence_id": "evidence_49",
+   "system": "security_service",
+   "resource_id": "audit_record_5429",
+   "state": "PRESENT",
+   "captured_at": "2026-01-31T15:00:00Z",
+   "observed_at": "2026-01-29T12:00:00Z"
+  }
+ ],
+ "draft": {
+  "deletion_status": "COMPLETE",
+  "steps_json": [
+   {
+    "step_no": 1,
+    "phase": "VERIFICATION",
+    "system_id": "security_service",
+    "resource_id": "audit_record_5429",
+    "operation": "VERIFY_RECORD_PRESENT",
+    "state": "PRESENT",
+    "evidence_id": "evidence_62"
+   }
+  ]
+ }
+}

@@ -1,0 +1,239 @@
+{
+ "case": {
+  "case_id": "case_187",
+  "audit_at": "2026-07-18T11:00:00Z",
+  "requested_at": "2026-07-03T11:00:00Z",
+  "reported_status": "PARTIALLY_COMPLETE",
+  "reported_at": "2026-07-06T11:00:00Z",
+  "email_supplied": "ethan.b9744@outlook.com",
+  "request_text": "Please process a permanent account-deletion request for this email address. Please check the records connected to the account before confirming completion. Please send a confirmation after the process finishes."
+ },
+ "intent": {
+  "is_deletion": true,
+  "label": "deletion",
+  "matched_terms": [
+   "delet"
+  ],
+  "matched_negations": [],
+  "non_deletion_action": ""
+ },
+ "identity": {
+  "user_id": "user_185",
+  "email_supplied": "ethan.b9744@outlook.com",
+  "email_kind": "current",
+  "matched_audit_ids": [],
+  "name": "Ethan Bennett",
+  "current": {
+   "user_id": "user_185",
+   "name": "Ethan Bennett",
+   "email": "ethan.b9744@outlook.com",
+   "phone": "+1 (202) 555-0185",
+   "email_hash": "fbfbf33cdef449f8b15e97aef5c28c0eb01b2465d37f5ac8ece33429e1bf162c"
+  },
+  "historical": {
+   "phone": [
+    "+1 (718) 555-0135"
+   ]
+  }
+ },
+ "state_at_audit": [
+  {
+   "system": "account_service",
+   "resource_id": "account_5375",
+   "category": "USER_PROFILE",
+   "record_type": "USER_PROFILE",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-07-18T10:24:53Z",
+   "evidence_id": "evidence_83",
+   "evidence_kind": "manifest",
+   "link_method": "identifier",
+   "identifiers": {
+    "profile": {
+     "email": "ethan.b9744@outlook.com"
+    }
+   },
+   "history": [
+    {
+     "state": "UNCERTAIN",
+     "raw_state": "UNCERTAIN",
+     "observed_at": "2026-07-06T09:55:07Z",
+     "evidence_id": "activity_2689",
+     "kind": "activity"
+    },
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-07-18T10:24:53Z",
+     "evidence_id": "evidence_83",
+     "kind": "manifest"
+    }
+   ]
+  },
+  {
+   "system": "search_service",
+   "resource_id": "search_9921",
+   "category": "SEARCH_INDEX_ENTRY",
+   "record_type": "SEARCH_INDEX_ENTRY",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-07-18T09:54:37Z",
+   "evidence_id": "evidence_83",
+   "evidence_kind": "manifest",
+   "link_method": "identifier",
+   "identifiers": {
+    "email": "ethan.b9744@outlook.com"
+   },
+   "history": [
+    {
+     "state": "ABSENT",
+     "raw_state": "ABSENT",
+     "observed_at": "2026-07-06T12:04:28Z",
+     "evidence_id": "activity_2696",
+     "kind": "activity"
+    },
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-07-18T09:54:37Z",
+     "evidence_id": "evidence_83",
+     "kind": "manifest"
+    }
+   ]
+  }
+ ],
+ "activity_claims": [
+  {
+   "activity_id": "activity_2689",
+   "event_time": "2026-07-06T09:55:07Z",
+   "event_type": "DELETE_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "account_service",
+   "resource_id": "account_5375",
+   "reported_result": "PARTIAL",
+   "details": "Deletion worker submitted primary profile account_5375 to account_service."
+  },
+  {
+   "activity_id": "activity_2693",
+   "event_time": "2026-07-06T11:45:58Z",
+   "event_type": "SYNC_RECORD",
+   "source_system": "account_service",
+   "target_system": "account_replication_cluster",
+   "resource_id": "account_5375",
+   "reported_result": "SUCCESS",
+   "details": "Replication worker reported its final checkpoint for account_5375."
+  },
+  {
+   "activity_id": "activity_2696",
+   "event_time": "2026-07-06T12:04:28Z",
+   "event_type": "DELETE_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "search_service",
+   "resource_id": "search_9921",
+   "reported_result": "SUCCESS",
+   "details": "Deletion worker received the final result for search_9921 from search_service."
+  }
+ ],
+ "rules": [
+  {
+   "rule_id": "rule_01",
+   "data_category": "USER_PROFILE",
+   "condition": "Always",
+   "required_action": "DELETE"
+  },
+  {
+   "rule_id": "rule_03",
+   "data_category": "SEARCH_INDEX_ENTRY",
+   "condition": "Always",
+   "required_action": "DELETE"
+  }
+ ],
+ "evidence_batch": {
+  "evidence_ids": [
+   "activity_2689",
+   "activity_2693",
+   "activity_2696",
+   "evidence_83"
+  ],
+  "co_subjects": [
+   "user_181",
+   "user_182",
+   "user_183",
+   "user_184",
+   "user_186",
+   "user_187",
+   "user_188",
+   "user_189",
+   "user_190"
+  ],
+  "unattributed_resources": {
+   "evidence_83": [
+    "account_4854",
+    "account_7063",
+    "account_9317",
+    "analytics_5614",
+    "analytics_8767"
+   ]
+  }
+ },
+ "excluded_after_audit": [],
+ "draft": {
+  "deletion_status": "INCOMPLETE",
+  "steps_json": [
+   {
+    "step_no": 1,
+    "phase": "FINDING",
+    "system_id": "account_service",
+    "resource_id": "account_5375",
+    "operation": "REPORT_REMAINING_RECORD",
+    "state": "PRESENT",
+    "evidence_id": "evidence_83"
+   },
+   {
+    "step_no": 2,
+    "phase": "FINDING",
+    "system_id": "search_service",
+    "resource_id": "search_9921",
+    "operation": "REPORT_REMAINING_RECORD",
+    "state": "PRESENT",
+    "evidence_id": "evidence_83"
+   },
+   {
+    "step_no": 3,
+    "phase": "REMEDIATION",
+    "system_id": "account_service",
+    "resource_id": "account_5375",
+    "operation": "DELETE_RECORD",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 4,
+    "phase": "REMEDIATION",
+    "system_id": "search_service",
+    "resource_id": "search_9921",
+    "operation": "DELETE_RECORD",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 5,
+    "phase": "VERIFICATION",
+    "system_id": "account_service",
+    "resource_id": "account_5375",
+    "operation": "VERIFY_RECORD_ABSENT",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 6,
+    "phase": "VERIFICATION",
+    "system_id": "search_service",
+    "resource_id": "search_9921",
+    "operation": "VERIFY_RECORD_ABSENT",
+    "state": "ABSENT",
+    "evidence_id": ""
+   }
+  ]
+ }
+}

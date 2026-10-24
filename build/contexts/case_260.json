@@ -1,0 +1,117 @@
+{
+ "case": {
+  "case_id": "case_260",
+  "audit_at": "2026-06-13T11:00:00Z",
+  "requested_at": "2026-05-16T11:00:00Z",
+  "reported_status": "NOT_STARTED",
+  "reported_at": "2026-05-17T11:00:00Z",
+  "email_supplied": "daichi.takahashi@outlook.com",
+  "request_text": "Please permanently delete the account associated with this email address. Please review any identifiers connected to this account as part of the request. Let me know when the request has been completed."
+ },
+ "intent": {
+  "is_deletion": true,
+  "label": "deletion",
+  "matched_terms": [
+   "delet"
+  ],
+  "matched_negations": [],
+  "non_deletion_action": ""
+ },
+ "identity": {
+  "user_id": "user_258",
+  "email_supplied": "daichi.takahashi@outlook.com",
+  "email_kind": "current",
+  "matched_audit_ids": [],
+  "name": "Daichi Takahashi",
+  "current": {
+   "user_id": "user_258",
+   "name": "Daichi Takahashi",
+   "email": "daichi.takahashi@outlook.com",
+   "phone": "+81 90 4364 0133",
+   "email_hash": "547d24ada073da76d32020eb8e8fe5da9b04af0a8cac5abe932a6a0bd3c7fba9"
+  },
+  "historical": {}
+ },
+ "state_at_audit": [
+  {
+   "system": "security_service",
+   "resource_id": "audit_record_1876",
+   "category": "SECURITY_AUDIT_LOG",
+   "record_type": "SECURITY_AUDIT_LOG",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-06-13T11:00:00Z",
+   "evidence_id": "evidence_24",
+   "evidence_kind": "manifest",
+   "link_method": "explicit_ref",
+   "identifiers": {
+    "subject_reference": "user_258"
+   },
+   "history": [
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-06-13T11:00:00Z",
+     "evidence_id": "evidence_24",
+     "kind": "manifest"
+    },
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-06-13T11:00:00Z",
+     "evidence_id": "evidence_24",
+     "kind": "manifest"
+    }
+   ]
+  }
+ ],
+ "activity_claims": [],
+ "rules": [
+  {
+   "rule_id": "rule_12",
+   "data_category": "SECURITY_AUDIT_LOG",
+   "condition": "Record is within the supplied retention period",
+   "required_action": "RETAIN"
+  }
+ ],
+ "evidence_batch": {
+  "evidence_ids": [
+   "evidence_24"
+  ],
+  "co_subjects": [
+   "user_251",
+   "user_252",
+   "user_253",
+   "user_254",
+   "user_255",
+   "user_256",
+   "user_257",
+   "user_259",
+   "user_260"
+  ],
+  "unattributed_resources": {
+   "evidence_24": [
+    "analytics_2977",
+    "analytics_5053",
+    "analytics_6136",
+    "backup_2427",
+    "data_flow_6233"
+   ]
+  }
+ },
+ "excluded_after_audit": [],
+ "draft": {
+  "deletion_status": "COMPLETE",
+  "steps_json": [
+   {
+    "step_no": 1,
+    "phase": "VERIFICATION",
+    "system_id": "security_service",
+    "resource_id": "audit_record_1876",
+    "operation": "VERIFY_RECORD_PRESENT",
+    "state": "PRESENT",
+    "evidence_id": "evidence_24"
+   }
+  ]
+ }
+}

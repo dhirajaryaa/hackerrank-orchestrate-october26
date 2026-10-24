@@ -1,0 +1,260 @@
+{
+ "case": {
+  "case_id": "case_223",
+  "audit_at": "2026-06-28T07:00:00Z",
+  "requested_at": "2026-06-17T07:00:00Z",
+  "reported_status": "PARTIALLY_COMPLETE",
+  "reported_at": "2026-06-20T07:00:00Z",
+  "email_supplied": "thiago.s4828@outlook.com",
+  "request_text": "Please erase the account linked to this email address. Please include information linked through current or earlier account identifiers. Let me know when the request has been completed."
+ },
+ "intent": {
+  "is_deletion": true,
+  "label": "deletion",
+  "matched_terms": [
+   "eras"
+  ],
+  "matched_negations": [],
+  "non_deletion_action": ""
+ },
+ "identity": {
+  "user_id": "user_221",
+  "email_supplied": "thiago.s4828@outlook.com",
+  "email_kind": "current",
+  "matched_audit_ids": [],
+  "name": "Thiago Souza",
+  "current": {
+   "user_id": "user_221",
+   "name": "Thiago Souza",
+   "email": "thiago.s4828@outlook.com",
+   "phone": "+55 51 92710-4321",
+   "email_hash": "fa164e0e5128c5d7876060d47c08177683feb40f6d995534923a3ae86aca6050"
+  },
+  "historical": {}
+ },
+ "state_at_audit": [
+  {
+   "system": "account_service",
+   "resource_id": "account_5479",
+   "category": "USER_PROFILE",
+   "record_type": "USER_PROFILE",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-06-28T04:18:09Z",
+   "evidence_id": "evidence_80",
+   "evidence_kind": "manifest",
+   "link_method": "identifier",
+   "identifiers": {
+    "profile": {
+     "email": "thiago.s4828@outlook.com"
+    }
+   },
+   "history": [
+    {
+     "state": "UNCERTAIN",
+     "raw_state": "UNCERTAIN",
+     "observed_at": "2026-06-20T06:02:02Z",
+     "evidence_id": "activity_2448",
+     "kind": "activity"
+    },
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-06-28T04:18:09Z",
+     "evidence_id": "evidence_80",
+     "kind": "manifest"
+    }
+   ]
+  },
+  {
+   "system": "search_service",
+   "resource_id": "search_8764",
+   "category": "SEARCH_INDEX_ENTRY",
+   "record_type": "SEARCH_INDEX_ENTRY",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-06-28T06:14:36Z",
+   "evidence_id": "evidence_80",
+   "evidence_kind": "manifest",
+   "link_method": "identifier",
+   "identifiers": {
+    "email": "thiago.s4828@outlook.com"
+   },
+   "history": [
+    {
+     "state": "ABSENT",
+     "raw_state": "ABSENT",
+     "observed_at": "2026-06-20T08:03:23Z",
+     "evidence_id": "activity_2451",
+     "kind": "activity"
+    },
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-06-28T06:14:36Z",
+     "evidence_id": "evidence_80",
+     "kind": "manifest"
+    }
+   ]
+  }
+ ],
+ "activity_claims": [
+  {
+   "activity_id": "activity_2448",
+   "event_time": "2026-06-20T06:02:02Z",
+   "event_type": "DELETE_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "account_service",
+   "resource_id": "account_5479",
+   "reported_result": "PARTIAL",
+   "details": "Deletion worker submitted primary profile account_5479 to account_service."
+  },
+  {
+   "activity_id": "activity_2449",
+   "event_time": "2026-06-20T07:44:53Z",
+   "event_type": "SYNC_RECORD",
+   "source_system": "account_service",
+   "target_system": "account_replication_cluster",
+   "resource_id": "account_5479",
+   "reported_result": "SUCCESS",
+   "details": "Replication worker reported its final checkpoint for account_5479."
+  },
+  {
+   "activity_id": "activity_2451",
+   "event_time": "2026-06-20T08:03:23Z",
+   "event_type": "DELETE_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "search_service",
+   "resource_id": "search_8764",
+   "reported_result": "SUCCESS",
+   "details": "Deletion worker received the final result for search_8764 from search_service."
+  }
+ ],
+ "rules": [
+  {
+   "rule_id": "rule_01",
+   "data_category": "USER_PROFILE",
+   "condition": "Always",
+   "required_action": "DELETE"
+  },
+  {
+   "rule_id": "rule_03",
+   "data_category": "SEARCH_INDEX_ENTRY",
+   "condition": "Always",
+   "required_action": "DELETE"
+  }
+ ],
+ "evidence_batch": {
+  "evidence_ids": [
+   "activity_2448",
+   "activity_2449",
+   "activity_2451",
+   "evidence_80"
+  ],
+  "co_subjects": [
+   "user_222",
+   "user_223",
+   "user_224",
+   "user_225",
+   "user_226",
+   "user_227",
+   "user_228",
+   "user_229",
+   "user_230"
+  ],
+  "unattributed_resources": {
+   "evidence_80": [
+    "account_392",
+    "account_669",
+    "analytics_1544",
+    "analytics_2501",
+    "analytics_8127"
+   ]
+  }
+ },
+ "excluded_after_audit": [
+  {
+   "evidence_id": "evidence_22",
+   "system": "account_service",
+   "resource_id": "account_5479",
+   "state": "PRESENT",
+   "captured_at": "2026-06-30T07:00:00Z",
+   "observed_at": "2026-06-28T07:00:00Z"
+  },
+  {
+   "evidence_id": "evidence_22",
+   "system": "search_service",
+   "resource_id": "search_8764",
+   "state": "PRESENT",
+   "captured_at": "2026-06-30T07:00:00Z",
+   "observed_at": "2026-06-28T07:00:00Z"
+  },
+  {
+   "evidence_id": "evidence_22",
+   "system": "security_service",
+   "resource_id": "audit_record_234",
+   "state": "PRESENT",
+   "captured_at": "2026-06-30T07:00:00Z",
+   "observed_at": "2026-06-28T07:00:00Z"
+  }
+ ],
+ "draft": {
+  "deletion_status": "INCOMPLETE",
+  "steps_json": [
+   {
+    "step_no": 1,
+    "phase": "FINDING",
+    "system_id": "account_service",
+    "resource_id": "account_5479",
+    "operation": "REPORT_REMAINING_RECORD",
+    "state": "PRESENT",
+    "evidence_id": "evidence_80"
+   },
+   {
+    "step_no": 2,
+    "phase": "FINDING",
+    "system_id": "search_service",
+    "resource_id": "search_8764",
+    "operation": "REPORT_REMAINING_RECORD",
+    "state": "PRESENT",
+    "evidence_id": "evidence_80"
+   },
+   {
+    "step_no": 3,
+    "phase": "REMEDIATION",
+    "system_id": "account_service",
+    "resource_id": "account_5479",
+    "operation": "DELETE_RECORD",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 4,
+    "phase": "REMEDIATION",
+    "system_id": "search_service",
+    "resource_id": "search_8764",
+    "operation": "DELETE_RECORD",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 5,
+    "phase": "VERIFICATION",
+    "system_id": "account_service",
+    "resource_id": "account_5479",
+    "operation": "VERIFY_RECORD_ABSENT",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 6,
+    "phase": "VERIFICATION",
+    "system_id": "search_service",
+    "resource_id": "search_8764",
+    "operation": "VERIFY_RECORD_ABSENT",
+    "state": "ABSENT",
+    "evidence_id": ""
+   }
+  ]
+ }
+}

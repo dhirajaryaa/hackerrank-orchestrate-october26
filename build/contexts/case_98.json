@@ -1,0 +1,146 @@
+{
+ "case": {
+  "case_id": "case_98",
+  "audit_at": "2026-09-01T06:00:00Z",
+  "requested_at": "2026-08-06T06:00:00Z",
+  "reported_status": "COMPLETE",
+  "reported_at": "2026-08-07T06:00:00Z",
+  "email_supplied": "maja.eriksen86@gmail.com",
+  "request_text": "Please treat this message as a request for permanent account deletion. Please include records associated with the account under your privacy process. Please confirm the result after completing the required checks."
+ },
+ "intent": {
+  "is_deletion": true,
+  "label": "deletion",
+  "matched_terms": [
+   "delet"
+  ],
+  "matched_negations": [],
+  "non_deletion_action": ""
+ },
+ "identity": {
+  "user_id": "user_96",
+  "email_supplied": "maja.eriksen86@gmail.com",
+  "email_kind": "historical",
+  "matched_audit_ids": [
+   "audit_254"
+  ],
+  "name": "Maja Eriksen",
+  "current": {
+   "user_id": "user_96",
+   "name": "Maja Eriksen",
+   "email": "maja.eriksen@gmail.com",
+   "phone": "+46 70 564 09 30",
+   "email_hash": "cc009487604f6f57b71e79b264f5b95432d2dfcf9b0ea02f95116e97a0eb2cc2"
+  },
+  "historical": {
+   "email": [
+    "maja.eriksen86@gmail.com"
+   ],
+   "email_hash": [
+    "1d4f8cdcb5b9be2e4f7328c895e3ae296356f1ecc71224d3adec7001c69d373a"
+   ]
+  }
+ },
+ "state_at_audit": [
+  {
+   "system": "integration_service",
+   "resource_id": "data_flow_3165",
+   "category": "DATA_FLOW",
+   "record_type": "DATA_FLOW",
+   "state": "ACTIVE",
+   "raw_state": "ACTIVE",
+   "observed_at": "2026-09-01T03:43:18Z",
+   "evidence_id": "evidence_89",
+   "evidence_kind": "manifest",
+   "link_method": "identifier",
+   "identifiers": {
+    "customer_email": "maja.eriksen86@gmail.com"
+   },
+   "history": [
+    {
+     "state": "ACTIVE",
+     "raw_state": "ACTIVE",
+     "observed_at": "2026-08-07T06:43:55Z",
+     "evidence_id": "activity_3141",
+     "kind": "activity"
+    },
+    {
+     "state": "ACTIVE",
+     "raw_state": "ACTIVE",
+     "observed_at": "2026-09-01T03:43:18Z",
+     "evidence_id": "evidence_89",
+     "kind": "manifest"
+    }
+   ]
+  }
+ ],
+ "activity_claims": [
+  {
+   "activity_id": "activity_3141",
+   "event_time": "2026-08-07T06:43:55Z",
+   "event_type": "CHECK_DATA_FLOW",
+   "source_system": "deletion_worker",
+   "target_system": "integration_service",
+   "resource_id": "data_flow_3165",
+   "reported_result": "SUCCESS",
+   "details": "Connector status check confirmed that data flow data_flow_3165 remains enabled."
+  }
+ ],
+ "rules": [],
+ "evidence_batch": {
+  "evidence_ids": [
+   "activity_3141",
+   "evidence_89"
+  ],
+  "co_subjects": [
+   "user_100",
+   "user_91",
+   "user_92",
+   "user_93",
+   "user_94",
+   "user_95",
+   "user_97",
+   "user_98",
+   "user_99"
+  ],
+  "unattributed_resources": {
+   "evidence_89": [
+    "account_6813",
+    "analytics_9103"
+   ]
+  }
+ },
+ "excluded_after_audit": [],
+ "draft": {
+  "deletion_status": "INCOMPLETE",
+  "steps_json": [
+   {
+    "step_no": 1,
+    "phase": "FINDING",
+    "system_id": "integration_service",
+    "resource_id": "data_flow_3165",
+    "operation": "REPORT_ACTIVE_DATA_FLOW",
+    "state": "ACTIVE",
+    "evidence_id": "evidence_89"
+   },
+   {
+    "step_no": 2,
+    "phase": "REMEDIATION",
+    "system_id": "integration_service",
+    "resource_id": "data_flow_3165",
+    "operation": "DISABLE_DATA_FLOW",
+    "state": "DISABLED",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 3,
+    "phase": "VERIFICATION",
+    "system_id": "integration_service",
+    "resource_id": "data_flow_3165",
+    "operation": "VERIFY_DATA_FLOW_DISABLED",
+    "state": "DISABLED",
+    "evidence_id": ""
+   }
+  ]
+ }
+}

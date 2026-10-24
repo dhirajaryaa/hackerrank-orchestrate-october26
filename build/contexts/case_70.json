@@ -1,0 +1,180 @@
+{
+ "case": {
+  "case_id": "case_70",
+  "audit_at": "2026-09-16T09:00:00Z",
+  "requested_at": "2026-08-29T09:00:00Z",
+  "reported_status": "COMPLETE",
+  "reported_at": "2026-09-01T09:00:00Z",
+  "email_supplied": "collins.grace@icloud.com",
+  "request_text": "I no longer use this account and would like it permanently deleted. Please ensure the request is applied to the relevant account records. A short confirmation when the process is complete is sufficient."
+ },
+ "intent": {
+  "is_deletion": true,
+  "label": "deletion",
+  "matched_terms": [
+   "delet"
+  ],
+  "matched_negations": [],
+  "non_deletion_action": ""
+ },
+ "identity": {
+  "user_id": "user_68",
+  "email_supplied": "collins.grace@icloud.com",
+  "email_kind": "current",
+  "matched_audit_ids": [],
+  "name": "Grace Collins",
+  "current": {
+   "user_id": "user_68",
+   "name": "Grace Collins",
+   "email": "collins.grace@icloud.com",
+   "phone": "+44 7700 900068",
+   "email_hash": "90d09f3df13df7c987633adf915ab5624896522461d8ec7c3aae5e8164670686"
+  },
+  "historical": {}
+ },
+ "state_at_audit": [
+  {
+   "system": "account_service",
+   "resource_id": "account_6633",
+   "category": "USER_PROFILE",
+   "record_type": "USER_PROFILE",
+   "state": "ABSENT",
+   "raw_state": "ABSENT",
+   "observed_at": "2026-09-01T08:11:10Z",
+   "evidence_id": "activity_3570",
+   "evidence_kind": "activity",
+   "link_method": "resource_alias",
+   "identifiers": {},
+   "history": [
+    {
+     "state": "ABSENT",
+     "raw_state": "ABSENT",
+     "observed_at": "2026-09-01T08:11:10Z",
+     "evidence_id": "activity_3570",
+     "kind": "activity"
+    }
+   ]
+  },
+  {
+   "system": "security_service",
+   "resource_id": "audit_record_1738",
+   "category": "SECURITY_AUDIT_LOG",
+   "record_type": "SECURITY_AUDIT_LOG",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-09-16T06:06:38Z",
+   "evidence_id": "evidence_93",
+   "evidence_kind": "manifest",
+   "link_method": "explicit_ref",
+   "identifiers": {
+    "subject_reference": "user_68"
+   },
+   "history": [
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-09-16T06:06:38Z",
+     "evidence_id": "evidence_93",
+     "kind": "manifest"
+    }
+   ]
+  }
+ ],
+ "activity_claims": [
+  {
+   "activity_id": "activity_3570",
+   "event_time": "2026-09-01T08:11:10Z",
+   "event_type": "DELETE_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "account_service",
+   "resource_id": "account_6633",
+   "reported_result": "SUCCESS",
+   "details": "Deletion worker submitted primary profile account_6633 to account_service."
+  }
+ ],
+ "rules": [
+  {
+   "rule_id": "rule_01",
+   "data_category": "USER_PROFILE",
+   "condition": "Always",
+   "required_action": "DELETE"
+  },
+  {
+   "rule_id": "rule_12",
+   "data_category": "SECURITY_AUDIT_LOG",
+   "condition": "Record is within the supplied retention period",
+   "required_action": "RETAIN"
+  }
+ ],
+ "evidence_batch": {
+  "evidence_ids": [
+   "activity_3570",
+   "evidence_93"
+  ],
+  "co_subjects": [
+   "user_61",
+   "user_62",
+   "user_63",
+   "user_64",
+   "user_65",
+   "user_66",
+   "user_67",
+   "user_69",
+   "user_70"
+  ],
+  "unattributed_resources": {
+   "evidence_93": [
+    "analytics_5718"
+   ]
+  }
+ },
+ "excluded_after_audit": [
+  {
+   "evidence_id": "evidence_06",
+   "system": "account_service",
+   "resource_id": "account_6633",
+   "state": "PRESENT",
+   "captured_at": "2026-09-18T11:55:24Z",
+   "observed_at": "2026-09-10T08:56:20Z"
+  },
+  {
+   "evidence_id": "evidence_06",
+   "system": "security_service",
+   "resource_id": "audit_record_1738",
+   "state": "PRESENT",
+   "captured_at": "2026-09-18T11:55:24Z",
+   "observed_at": "2026-09-16T08:52:11Z"
+  },
+  {
+   "evidence_id": "evidence_06",
+   "system": "account_service",
+   "resource_id": "account_6633",
+   "state": "ABSENT",
+   "captured_at": "2026-09-18T11:55:24Z",
+   "observed_at": "2026-09-16T08:56:42Z"
+  }
+ ],
+ "draft": {
+  "deletion_status": "COMPLETE",
+  "steps_json": [
+   {
+    "step_no": 1,
+    "phase": "VERIFICATION",
+    "system_id": "account_service",
+    "resource_id": "account_6633",
+    "operation": "VERIFY_RECORD_ABSENT",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 2,
+    "phase": "VERIFICATION",
+    "system_id": "security_service",
+    "resource_id": "audit_record_1738",
+    "operation": "VERIFY_RECORD_PRESENT",
+    "state": "PRESENT",
+    "evidence_id": "evidence_93"
+   }
+  ]
+ }
+}

@@ -1,0 +1,161 @@
+{
+ "case": {
+  "case_id": "case_123",
+  "audit_at": "2026-08-17T10:00:00Z",
+  "requested_at": "2026-08-06T10:00:00Z",
+  "reported_status": "COMPLETE",
+  "reported_at": "2026-08-08T10:00:00Z",
+  "email_supplied": "m.mercier28@gmail.com",
+  "request_text": "Je demande la suppression définitive du compte associé à cette adresse e-mail. Veuillez examiner les identifiants actuels et antérieurs conformément à votre procédure de confidentialité. Merci de confirmer le résultat une fois la vérification terminée."
+ },
+ "intent": {
+  "is_deletion": true,
+  "label": "deletion",
+  "matched_terms": [
+   "suppression"
+  ],
+  "matched_negations": [],
+  "non_deletion_action": ""
+ },
+ "identity": {
+  "user_id": "user_121",
+  "email_supplied": "m.mercier28@gmail.com",
+  "email_kind": "current",
+  "matched_audit_ids": [],
+  "name": "Mathis Mercier",
+  "current": {
+   "user_id": "user_121",
+   "name": "Mathis Mercier",
+   "email": "m.mercier28@gmail.com",
+   "phone": "+33 6 36 37 41 61",
+   "email_hash": "f86e324feaff7a751e9cf6813fd1bcf8b483d698eadded1b1e8d5b6c39a10132"
+  },
+  "historical": {}
+ },
+ "state_at_audit": [
+  {
+   "system": "backup_service",
+   "resource_id": "backup_8742",
+   "category": "BACKUP_ARCHIVE",
+   "record_type": "BACKUP_ARCHIVE",
+   "state": "ACTIVE",
+   "raw_state": "ACTIVE",
+   "observed_at": "2026-08-17T06:50:20Z",
+   "evidence_id": "evidence_87",
+   "evidence_kind": "manifest",
+   "link_method": "identifier",
+   "identifiers": {
+    "customer_email": "m.mercier28@gmail.com"
+   },
+   "history": [
+    {
+     "state": "ACTIVE",
+     "raw_state": "ACTIVE",
+     "observed_at": "2026-08-08T10:57:33Z",
+     "evidence_id": "activity_3170",
+     "kind": "activity"
+    },
+    {
+     "state": "ACTIVE",
+     "raw_state": "ACTIVE",
+     "observed_at": "2026-08-17T06:50:20Z",
+     "evidence_id": "evidence_87",
+     "kind": "manifest"
+    }
+   ]
+  }
+ ],
+ "activity_claims": [
+  {
+   "activity_id": "activity_3170",
+   "event_time": "2026-08-08T10:57:33Z",
+   "event_type": "CHECK_RESTORE_ACCESS",
+   "source_system": "deletion_worker",
+   "target_system": "backup_service",
+   "resource_id": "backup_8742",
+   "reported_result": "SUCCESS",
+   "details": "Restore-access check confirmed that archive backup_8742 can still be restored."
+  }
+ ],
+ "rules": [
+  {
+   "rule_id": "rule_14",
+   "data_category": "BACKUP_ARCHIVE",
+   "condition": "Restore access can be blocked",
+   "required_action": "RETAIN"
+  }
+ ],
+ "evidence_batch": {
+  "evidence_ids": [
+   "activity_3170",
+   "evidence_87"
+  ],
+  "co_subjects": [
+   "user_122",
+   "user_123",
+   "user_124",
+   "user_125",
+   "user_126",
+   "user_127",
+   "user_128",
+   "user_129",
+   "user_130"
+  ],
+  "unattributed_resources": {
+   "evidence_87": [
+    "analytics_1402",
+    "analytics_7150"
+   ]
+  }
+ },
+ "excluded_after_audit": [
+  {
+   "evidence_id": "evidence_12",
+   "system": "backup_service",
+   "resource_id": "backup_8742",
+   "state": "ACTIVE",
+   "captured_at": "2026-08-19T10:00:00Z",
+   "observed_at": "2026-08-17T10:00:00Z"
+  },
+  {
+   "evidence_id": "evidence_12",
+   "system": "security_service",
+   "resource_id": "audit_record_5645",
+   "state": "PRESENT",
+   "captured_at": "2026-08-19T10:00:00Z",
+   "observed_at": "2026-08-17T10:00:00Z"
+  }
+ ],
+ "draft": {
+  "deletion_status": "INCOMPLETE",
+  "steps_json": [
+   {
+    "step_no": 1,
+    "phase": "FINDING",
+    "system_id": "backup_service",
+    "resource_id": "backup_8742",
+    "operation": "REPORT_RESTORE_RISK",
+    "state": "ACTIVE",
+    "evidence_id": "evidence_87"
+   },
+   {
+    "step_no": 2,
+    "phase": "REMEDIATION",
+    "system_id": "backup_service",
+    "resource_id": "backup_8742",
+    "operation": "BLOCK_RESTORE",
+    "state": "BLOCKED",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 3,
+    "phase": "VERIFICATION",
+    "system_id": "backup_service",
+    "resource_id": "backup_8742",
+    "operation": "VERIFY_RESTORE_BLOCKED",
+    "state": "BLOCKED",
+    "evidence_id": ""
+   }
+  ]
+ }
+}

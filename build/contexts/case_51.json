@@ -1,0 +1,328 @@
+{
+ "case": {
+  "case_id": "case_51",
+  "audit_at": "2026-09-26T11:00:00Z",
+  "requested_at": "2026-09-07T11:00:00Z",
+  "reported_status": "COMPLETE",
+  "reported_at": "2026-09-09T11:00:00Z",
+  "email_supplied": "n.masuku60@gmail.com",
+  "request_text": "I am requesting deletion of the account registered to this email address. Please apply the request across the systems covered by your deletion policy. Please confirm the result after completing the required checks."
+ },
+ "intent": {
+  "is_deletion": true,
+  "label": "deletion",
+  "matched_terms": [
+   "delet"
+  ],
+  "matched_negations": [],
+  "non_deletion_action": ""
+ },
+ "identity": {
+  "user_id": "user_49",
+  "email_supplied": "n.masuku60@gmail.com",
+  "email_kind": "current",
+  "matched_audit_ids": [],
+  "name": "Naledi Masuku",
+  "current": {
+   "user_id": "user_49",
+   "name": "Naledi Masuku",
+   "email": "n.masuku60@gmail.com",
+   "phone": "+27 72 058 0208",
+   "email_hash": "82671907ea5c5a13febf35ad2e11fced23c933e75cbd73638511031bb8782ec9"
+  },
+  "historical": {}
+ },
+ "state_at_audit": [
+  {
+   "system": "account_service",
+   "resource_id": "account_3610",
+   "category": "USER_PROFILE",
+   "record_type": "USER_PROFILE",
+   "state": "ABSENT",
+   "raw_state": "ABSENT",
+   "observed_at": "2026-09-26T08:37:56Z",
+   "evidence_id": "evidence_94",
+   "evidence_kind": "manifest",
+   "link_method": "link_key",
+   "identifiers": {},
+   "history": [
+    {
+     "state": "ABSENT",
+     "raw_state": "ABSENT",
+     "observed_at": "2026-09-09T10:03:41Z",
+     "evidence_id": "activity_3733",
+     "kind": "activity"
+    },
+    {
+     "state": "ABSENT",
+     "raw_state": "ABSENT",
+     "observed_at": "2026-09-26T08:37:56Z",
+     "evidence_id": "evidence_94",
+     "kind": "manifest"
+    }
+   ]
+  },
+  {
+   "system": "backup_service",
+   "resource_id": "backup_7809",
+   "category": "BACKUP_ARCHIVE",
+   "record_type": "BACKUP_ARCHIVE",
+   "state": "BLOCKED",
+   "raw_state": "BLOCKED",
+   "observed_at": "2026-09-26T07:54:41Z",
+   "evidence_id": "evidence_94",
+   "evidence_kind": "manifest",
+   "link_method": "explicit_ref",
+   "identifiers": {
+    "customer_reference": "user_49"
+   },
+   "history": [
+    {
+     "state": "BLOCKED",
+     "raw_state": "BLOCKED",
+     "observed_at": "2026-09-09T10:52:50Z",
+     "evidence_id": "activity_3738",
+     "kind": "activity"
+    },
+    {
+     "state": "BLOCKED",
+     "raw_state": "BLOCKED",
+     "observed_at": "2026-09-26T07:54:41Z",
+     "evidence_id": "evidence_94",
+     "kind": "manifest"
+    }
+   ]
+  },
+  {
+   "system": "integration_service",
+   "resource_id": "data_flow_4713",
+   "category": "DATA_FLOW",
+   "record_type": "DATA_FLOW",
+   "state": "DISABLED",
+   "raw_state": "DISABLED",
+   "observed_at": "2026-09-26T07:51:26Z",
+   "evidence_id": "evidence_94",
+   "evidence_kind": "manifest",
+   "link_method": "explicit_ref",
+   "identifiers": {
+    "customer_reference": "user_49"
+   },
+   "history": [
+    {
+     "state": "DISABLED",
+     "raw_state": "DISABLED",
+     "observed_at": "2026-09-09T10:45:21Z",
+     "evidence_id": "activity_3737",
+     "kind": "activity"
+    },
+    {
+     "state": "DISABLED",
+     "raw_state": "DISABLED",
+     "observed_at": "2026-09-26T07:51:26Z",
+     "evidence_id": "evidence_94",
+     "kind": "manifest"
+    }
+   ]
+  },
+  {
+   "system": "security_service",
+   "resource_id": "audit_record_3308",
+   "category": "SECURITY_AUDIT_LOG",
+   "record_type": "SECURITY_AUDIT_LOG",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-09-26T10:37:23Z",
+   "evidence_id": "evidence_94",
+   "evidence_kind": "manifest",
+   "link_method": "explicit_ref",
+   "identifiers": {
+    "subject_reference": "user_49"
+   },
+   "history": [
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-09-26T10:37:23Z",
+     "evidence_id": "evidence_94",
+     "kind": "manifest"
+    }
+   ]
+  },
+  {
+   "system": "support_platform",
+   "resource_id": "support_1097",
+   "category": "SUPPORT_MESSAGE",
+   "record_type": "SUPPORT_MESSAGE",
+   "state": "REDACTED",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-09-26T10:00:17Z",
+   "evidence_id": "evidence_94",
+   "evidence_kind": "manifest",
+   "link_method": "explicit_ref",
+   "identifiers": {
+    "customer_reference": "user_49"
+   },
+   "history": [
+    {
+     "state": "REDACTED",
+     "raw_state": "REDACTED",
+     "observed_at": "2026-09-09T10:38:51Z",
+     "evidence_id": "activity_3736",
+     "kind": "activity"
+    },
+    {
+     "state": "REDACTED",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-09-26T10:00:17Z",
+     "evidence_id": "evidence_94",
+     "kind": "manifest"
+    }
+   ]
+  }
+ ],
+ "activity_claims": [
+  {
+   "activity_id": "activity_3733",
+   "event_time": "2026-09-09T10:03:41Z",
+   "event_type": "DELETE_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "account_service",
+   "resource_id": "account_3610",
+   "reported_result": "SUCCESS",
+   "details": "Deletion worker submitted primary profile account_3610 to account_service."
+  },
+  {
+   "activity_id": "activity_3736",
+   "event_time": "2026-09-09T10:38:51Z",
+   "event_type": "REDACT_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "support_platform",
+   "resource_id": "support_1097",
+   "reported_result": "SUCCESS",
+   "details": "Policy action completed for support_1097."
+  },
+  {
+   "activity_id": "activity_3737",
+   "event_time": "2026-09-09T10:45:21Z",
+   "event_type": "DISABLE_DATA_FLOW",
+   "source_system": "deletion_worker",
+   "target_system": "integration_service",
+   "resource_id": "data_flow_4713",
+   "reported_result": "SUCCESS",
+   "details": "Policy action completed for data_flow_4713."
+  },
+  {
+   "activity_id": "activity_3738",
+   "event_time": "2026-09-09T10:52:50Z",
+   "event_type": "BLOCK_RESTORE",
+   "source_system": "deletion_worker",
+   "target_system": "backup_service",
+   "resource_id": "backup_7809",
+   "reported_result": "SUCCESS",
+   "details": "Policy action completed for backup_7809."
+  }
+ ],
+ "rules": [
+  {
+   "rule_id": "rule_01",
+   "data_category": "USER_PROFILE",
+   "condition": "Always",
+   "required_action": "DELETE"
+  },
+  {
+   "rule_id": "rule_05",
+   "data_category": "SUPPORT_MESSAGE",
+   "condition": "Conversation contains shared customer, agent, or order context that must be retained",
+   "required_action": "REDACT"
+  },
+  {
+   "rule_id": "rule_12",
+   "data_category": "SECURITY_AUDIT_LOG",
+   "condition": "Record is within the supplied retention period",
+   "required_action": "RETAIN"
+  },
+  {
+   "rule_id": "rule_14",
+   "data_category": "BACKUP_ARCHIVE",
+   "condition": "Restore access can be blocked",
+   "required_action": "RETAIN"
+  }
+ ],
+ "evidence_batch": {
+  "evidence_ids": [
+   "activity_3733",
+   "activity_3736",
+   "activity_3737",
+   "activity_3738",
+   "evidence_94"
+  ],
+  "co_subjects": [
+   "user_41",
+   "user_42",
+   "user_43",
+   "user_45",
+   "user_46",
+   "user_47",
+   "user_48",
+   "user_50"
+  ],
+  "unattributed_resources": {
+   "evidence_94": [
+    "analytics_5589",
+    "analytics_9406",
+    "analytics_2265"
+   ]
+  }
+ },
+ "excluded_after_audit": [],
+ "draft": {
+  "deletion_status": "COMPLETE",
+  "steps_json": [
+   {
+    "step_no": 1,
+    "phase": "VERIFICATION",
+    "system_id": "account_service",
+    "resource_id": "account_3610",
+    "operation": "VERIFY_RECORD_ABSENT",
+    "state": "ABSENT",
+    "evidence_id": "evidence_94"
+   },
+   {
+    "step_no": 2,
+    "phase": "VERIFICATION",
+    "system_id": "security_service",
+    "resource_id": "audit_record_3308",
+    "operation": "VERIFY_RECORD_PRESENT",
+    "state": "PRESENT",
+    "evidence_id": "evidence_94"
+   },
+   {
+    "step_no": 3,
+    "phase": "VERIFICATION",
+    "system_id": "support_platform",
+    "resource_id": "support_1097",
+    "operation": "VERIFY_RECORD_REDACTED",
+    "state": "REDACTED",
+    "evidence_id": "evidence_94"
+   },
+   {
+    "step_no": 4,
+    "phase": "VERIFICATION",
+    "system_id": "integration_service",
+    "resource_id": "data_flow_4713",
+    "operation": "VERIFY_DATA_FLOW_DISABLED",
+    "state": "DISABLED",
+    "evidence_id": "evidence_94"
+   },
+   {
+    "step_no": 5,
+    "phase": "VERIFICATION",
+    "system_id": "backup_service",
+    "resource_id": "backup_7809",
+    "operation": "VERIFY_RESTORE_BLOCKED",
+    "state": "BLOCKED",
+    "evidence_id": "evidence_94"
+   }
+  ]
+ }
+}

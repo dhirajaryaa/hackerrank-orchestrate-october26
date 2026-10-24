@@ -1,0 +1,312 @@
+{
+ "case": {
+  "case_id": "case_312",
+  "audit_at": "2026-05-19T06:00:00Z",
+  "requested_at": "2026-04-29T06:00:00Z",
+  "reported_status": "PARTIALLY_COMPLETE",
+  "reported_at": "2026-05-01T06:00:00Z",
+  "email_supplied": "rkato9619@fastmail.com",
+  "request_text": "このメールアドレスに関連するアカウントの完全な削除を依頼します。 プライバシー手続きに従い、現在および過去の識別情報を確認してください。 確認が完了したら結果をお知らせください。"
+ },
+ "intent": {
+  "is_deletion": true,
+  "label": "deletion",
+  "matched_terms": [
+   "削除"
+  ],
+  "matched_negations": [],
+  "non_deletion_action": ""
+ },
+ "identity": {
+  "user_id": "user_310",
+  "email_supplied": "rkato9619@fastmail.com",
+  "email_kind": "current",
+  "matched_audit_ids": [],
+  "name": "Ren Kato",
+  "current": {
+   "user_id": "user_310",
+   "name": "Ren Kato",
+   "email": "rkato9619@fastmail.com",
+   "phone": "+81 90 7116 9217",
+   "email_hash": "26ef89fa32a4afab5b815a8c180eda642ba85d605bdf3e45bd75ffcd5b87ee50"
+  },
+  "historical": {
+   "phone": [
+    "+81 90 8881 0744"
+   ]
+  }
+ },
+ "state_at_audit": [
+  {
+   "system": "export_service",
+   "resource_id": "export_9860",
+   "category": "USER_EXPORT",
+   "record_type": "USER_EXPORT",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-05-19T06:00:00Z",
+   "evidence_id": "evidence_29",
+   "evidence_kind": "manifest",
+   "link_method": "identifier",
+   "identifiers": {
+    "owner_email": "rkato9619@fastmail.com"
+   },
+   "history": [
+    {
+     "state": "UNCERTAIN",
+     "raw_state": "UNCERTAIN",
+     "observed_at": "2026-05-01T06:46:50Z",
+     "evidence_id": "activity_1675",
+     "kind": "activity"
+    },
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-05-19T06:00:00Z",
+     "evidence_id": "evidence_29",
+     "kind": "manifest"
+    },
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-05-19T06:00:00Z",
+     "evidence_id": "evidence_29",
+     "kind": "manifest"
+    },
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-05-19T06:00:00Z",
+     "evidence_id": "evidence_29",
+     "kind": "manifest"
+    }
+   ]
+  },
+  {
+   "system": "search_service",
+   "resource_id": "search_6805",
+   "category": "SEARCH_INDEX_ENTRY",
+   "record_type": "SEARCH_INDEX_ENTRY",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-05-19T06:00:00Z",
+   "evidence_id": "evidence_29",
+   "evidence_kind": "manifest",
+   "link_method": "identifier",
+   "identifiers": {
+    "document": {
+     "display_name": "Ren Kato",
+     "email": "rkato9619@fastmail.com",
+     "customer_reference": "user_310"
+    }
+   },
+   "history": [
+    {
+     "state": "UNCERTAIN",
+     "raw_state": "UNCERTAIN",
+     "observed_at": "2026-05-01T07:05:20Z",
+     "evidence_id": "activity_1678",
+     "kind": "activity"
+    },
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-05-19T06:00:00Z",
+     "evidence_id": "evidence_29",
+     "kind": "manifest"
+    },
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-05-19T06:00:00Z",
+     "evidence_id": "evidence_29",
+     "kind": "manifest"
+    },
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-05-19T06:00:00Z",
+     "evidence_id": "evidence_29",
+     "kind": "manifest"
+    }
+   ]
+  },
+  {
+   "system": "security_service",
+   "resource_id": "audit_record_6559",
+   "category": "SECURITY_AUDIT_LOG",
+   "record_type": "SECURITY_AUDIT_LOG",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-05-19T06:00:00Z",
+   "evidence_id": "evidence_29",
+   "evidence_kind": "manifest",
+   "link_method": "explicit_ref",
+   "identifiers": {
+    "subject_reference": "user_310"
+   },
+   "history": [
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-05-19T06:00:00Z",
+     "evidence_id": "evidence_29",
+     "kind": "manifest"
+    },
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-05-19T06:00:00Z",
+     "evidence_id": "evidence_29",
+     "kind": "manifest"
+    },
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-05-19T06:00:00Z",
+     "evidence_id": "evidence_29",
+     "kind": "manifest"
+    }
+   ]
+  }
+ ],
+ "activity_claims": [
+  {
+   "activity_id": "activity_1675",
+   "event_time": "2026-05-01T06:46:50Z",
+   "event_type": "DELETE_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "export_service",
+   "resource_id": "export_9860",
+   "reported_result": "PARTIAL",
+   "details": "Deletion worker received the final result for export_9860 from export_service."
+  },
+  {
+   "activity_id": "activity_1678",
+   "event_time": "2026-05-01T07:05:20Z",
+   "event_type": "DELETE_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "search_service",
+   "resource_id": "search_6805",
+   "reported_result": "PARTIAL",
+   "details": "Deletion worker received the final result for search_6805 from search_service."
+  }
+ ],
+ "rules": [
+  {
+   "rule_id": "rule_03",
+   "data_category": "SEARCH_INDEX_ENTRY",
+   "condition": "Always",
+   "required_action": "DELETE"
+  },
+  {
+   "rule_id": "rule_09",
+   "data_category": "USER_EXPORT",
+   "condition": "Always",
+   "required_action": "DELETE"
+  },
+  {
+   "rule_id": "rule_12",
+   "data_category": "SECURITY_AUDIT_LOG",
+   "condition": "Record is within the supplied retention period",
+   "required_action": "RETAIN"
+  }
+ ],
+ "evidence_batch": {
+  "evidence_ids": [
+   "activity_1675",
+   "activity_1678",
+   "evidence_29"
+  ],
+  "co_subjects": [
+   "user_301",
+   "user_302",
+   "user_303",
+   "user_304",
+   "user_305",
+   "user_306",
+   "user_307",
+   "user_308",
+   "user_309"
+  ],
+  "unattributed_resources": {
+   "evidence_29": [
+    "analytics_096",
+    "analytics_3678",
+    "backup_4935",
+    "data_flow_8933",
+    "search_6505",
+    "support_4952"
+   ]
+  }
+ },
+ "excluded_after_audit": [],
+ "draft": {
+  "deletion_status": "INCOMPLETE",
+  "steps_json": [
+   {
+    "step_no": 1,
+    "phase": "FINDING",
+    "system_id": "export_service",
+    "resource_id": "export_9860",
+    "operation": "REPORT_REMAINING_RECORD",
+    "state": "PRESENT",
+    "evidence_id": "evidence_29"
+   },
+   {
+    "step_no": 2,
+    "phase": "FINDING",
+    "system_id": "search_service",
+    "resource_id": "search_6805",
+    "operation": "REPORT_REMAINING_RECORD",
+    "state": "PRESENT",
+    "evidence_id": "evidence_29"
+   },
+   {
+    "step_no": 3,
+    "phase": "REMEDIATION",
+    "system_id": "export_service",
+    "resource_id": "export_9860",
+    "operation": "DELETE_RECORD",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 4,
+    "phase": "REMEDIATION",
+    "system_id": "search_service",
+    "resource_id": "search_6805",
+    "operation": "DELETE_RECORD",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 5,
+    "phase": "VERIFICATION",
+    "system_id": "export_service",
+    "resource_id": "export_9860",
+    "operation": "VERIFY_RECORD_ABSENT",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 6,
+    "phase": "VERIFICATION",
+    "system_id": "search_service",
+    "resource_id": "search_6805",
+    "operation": "VERIFY_RECORD_ABSENT",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 7,
+    "phase": "VERIFICATION",
+    "system_id": "security_service",
+    "resource_id": "audit_record_6559",
+    "operation": "VERIFY_RECORD_PRESENT",
+    "state": "PRESENT",
+    "evidence_id": ""
+   }
+  ]
+ }
+}

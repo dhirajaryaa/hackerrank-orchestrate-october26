@@ -1,0 +1,61 @@
+{
+ "case": {
+  "case_id": "case_537",
+  "audit_at": "2026-09-27T12:00:00Z",
+  "requested_at": "2026-09-02T12:00:00Z",
+  "reported_status": "NOT_STARTED",
+  "reported_at": "2026-09-04T12:00:00Z",
+  "email_supplied": "l.alvarez94@yahoo.com",
+  "request_text": "My surname is misspelled on the account. Can you correct it without removing any of my records?"
+ },
+ "intent": {
+  "is_deletion": false,
+  "label": "not_deletion",
+  "matched_terms": [],
+  "matched_negations": [
+   "without removing any of my records"
+  ],
+  "non_deletion_action": ""
+ },
+ "identity": {
+  "user_id": "user_535",
+  "email_supplied": "l.alvarez94@yahoo.com",
+  "email_kind": "current",
+  "matched_audit_ids": [],
+  "name": "Lucía Alvarez",
+  "current": {
+   "user_id": "user_535",
+   "name": "Lucía Alvarez",
+   "email": "l.alvarez94@yahoo.com",
+   "phone": "+34 778 833 175",
+   "email_hash": "8a28de8e72f61c736f21e4557cf52c2a94000c0dabfe51fc750a34573bbe0e40"
+  },
+  "historical": {
+   "phone": [
+    "+34 665 047 466"
+   ]
+  }
+ },
+ "state_at_audit": [],
+ "activity_claims": [],
+ "rules": [],
+ "evidence_batch": {
+  "evidence_ids": [],
+  "co_subjects": [],
+  "unattributed_resources": {}
+ },
+ "excluded_after_audit": [
+  {
+   "evidence_id": "evidence_50",
+   "system": "security_service",
+   "resource_id": "audit_record_5109",
+   "state": "PRESENT",
+   "captured_at": "2026-10-01T12:00:00Z",
+   "observed_at": "2026-10-01T12:00:00Z"
+  }
+ ],
+ "draft": {
+  "deletion_status": "NOT_APPLICABLE",
+  "steps_json": []
+ }
+}

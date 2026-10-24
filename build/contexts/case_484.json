@@ -1,0 +1,216 @@
+{
+ "case": {
+  "case_id": "case_484",
+  "audit_at": "2026-02-18T09:00:00Z",
+  "requested_at": "2026-02-06T09:00:00Z",
+  "reported_status": "COMPLETE",
+  "reported_at": "2026-02-09T09:00:00Z",
+  "email_supplied": "rao.neel@gmail.com",
+  "request_text": "I am requesting deletion of the account registered to this email address. Please ensure the request is applied to the relevant account records. A short confirmation when the process is complete is sufficient."
+ },
+ "intent": {
+  "is_deletion": true,
+  "label": "deletion",
+  "matched_terms": [
+   "delet"
+  ],
+  "matched_negations": [],
+  "non_deletion_action": ""
+ },
+ "identity": {
+  "user_id": "user_482",
+  "email_supplied": "rao.neel@gmail.com",
+  "email_kind": "current",
+  "matched_audit_ids": [],
+  "name": "Neel Rao",
+  "current": {
+   "user_id": "user_482",
+   "name": "Neel Rao",
+   "email": "rao.neel@gmail.com",
+   "phone": "+91 93779 93032",
+   "email_hash": "e04a28ea51afdeda586b65bc2ec7bd17f775a002e0d817a7f90d96aa7a96bf1c"
+  },
+  "historical": {}
+ },
+ "state_at_audit": [
+  {
+   "system": "account_service",
+   "resource_id": "account_2961",
+   "category": "USER_PROFILE",
+   "record_type": "USER_PROFILE",
+   "state": "ABSENT",
+   "raw_state": "ABSENT",
+   "observed_at": "2026-02-09T08:14:12Z",
+   "evidence_id": "activity_491",
+   "evidence_kind": "activity",
+   "link_method": "resource_alias",
+   "identifiers": {},
+   "history": [
+    {
+     "state": "ABSENT",
+     "raw_state": "ABSENT",
+     "observed_at": "2026-02-09T08:14:12Z",
+     "evidence_id": "activity_491",
+     "kind": "activity"
+    }
+   ]
+  },
+  {
+   "system": "support_platform",
+   "resource_id": "support_7973",
+   "category": "SUPPORT_MESSAGE",
+   "record_type": "SUPPORT_MESSAGE",
+   "state": "IDENTIFIABLE",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-02-18T06:44:21Z",
+   "evidence_id": "evidence_64",
+   "evidence_kind": "manifest",
+   "link_method": "identifier",
+   "identifiers": {
+    "requester_email": "rao.neel@gmail.com"
+   },
+   "history": [
+    {
+     "state": "REDACTED",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-02-09T09:54:04Z",
+     "evidence_id": "activity_493",
+     "kind": "activity"
+    },
+    {
+     "state": "IDENTIFIABLE",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-02-18T06:44:21Z",
+     "evidence_id": "evidence_64",
+     "kind": "manifest"
+    }
+   ]
+  }
+ ],
+ "activity_claims": [
+  {
+   "activity_id": "activity_491",
+   "event_time": "2026-02-09T08:14:12Z",
+   "event_type": "DELETE_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "account_service",
+   "resource_id": "account_2961",
+   "reported_result": "SUCCESS",
+   "details": "Deletion worker submitted primary profile account_2961 to account_service."
+  },
+  {
+   "activity_id": "activity_493",
+   "event_time": "2026-02-09T09:54:04Z",
+   "event_type": "REDACT_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "support_platform",
+   "resource_id": "support_7973",
+   "reported_result": "FAILED",
+   "details": "Deletion worker received the final result for support_7973 from support_platform."
+  }
+ ],
+ "rules": [
+  {
+   "rule_id": "rule_01",
+   "data_category": "USER_PROFILE",
+   "condition": "Always",
+   "required_action": "DELETE"
+  },
+  {
+   "rule_id": "rule_05",
+   "data_category": "SUPPORT_MESSAGE",
+   "condition": "Conversation contains shared customer, agent, or order context that must be retained",
+   "required_action": "REDACT"
+  }
+ ],
+ "evidence_batch": {
+  "evidence_ids": [
+   "activity_491",
+   "activity_493",
+   "evidence_64"
+  ],
+  "co_subjects": [
+   "user_481",
+   "user_483",
+   "user_484",
+   "user_485",
+   "user_486",
+   "user_487",
+   "user_488",
+   "user_489",
+   "user_490"
+  ],
+  "unattributed_resources": {
+   "evidence_64": [
+    "analytics_5948"
+   ]
+  }
+ },
+ "excluded_after_audit": [
+  {
+   "evidence_id": "evidence_45",
+   "system": "backup_restore_service",
+   "resource_id": "account_2961",
+   "state": "ABSENT",
+   "captured_at": "2026-02-23T10:00:00Z",
+   "observed_at": "2026-02-18T09:00:00Z"
+  },
+  {
+   "evidence_id": "evidence_45",
+   "system": "backup_restore_service",
+   "resource_id": "audit_record_5270",
+   "state": "PRESENT",
+   "captured_at": "2026-02-23T10:00:00Z",
+   "observed_at": "2026-02-18T09:00:00Z"
+  },
+  {
+   "evidence_id": "evidence_45",
+   "system": "backup_restore_service",
+   "resource_id": "support_7973",
+   "state": "PRESENT",
+   "captured_at": "2026-02-23T10:00:00Z",
+   "observed_at": "2026-02-18T09:00:00Z"
+  }
+ ],
+ "draft": {
+  "deletion_status": "INCOMPLETE",
+  "steps_json": [
+   {
+    "step_no": 1,
+    "phase": "FINDING",
+    "system_id": "support_platform",
+    "resource_id": "support_7973",
+    "operation": "REPORT_EXPOSED_PII",
+    "state": "PRESENT",
+    "evidence_id": "evidence_64"
+   },
+   {
+    "step_no": 2,
+    "phase": "REMEDIATION",
+    "system_id": "support_platform",
+    "resource_id": "support_7973",
+    "operation": "REDACT_RECORD",
+    "state": "REDACTED",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 3,
+    "phase": "VERIFICATION",
+    "system_id": "account_service",
+    "resource_id": "account_2961",
+    "operation": "VERIFY_RECORD_ABSENT",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 4,
+    "phase": "VERIFICATION",
+    "system_id": "support_platform",
+    "resource_id": "support_7973",
+    "operation": "VERIFY_RECORD_REDACTED",
+    "state": "REDACTED",
+    "evidence_id": ""
+   }
+  ]
+ }
+}

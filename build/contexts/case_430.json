@@ -1,0 +1,184 @@
+{
+ "case": {
+  "case_id": "case_430",
+  "audit_at": "2026-03-20T08:00:00Z",
+  "requested_at": "2026-03-02T08:00:00Z",
+  "reported_status": "NOT_STARTED",
+  "reported_at": "2026-03-05T08:00:00Z",
+  "email_supplied": "yoon.jihoon@icloud.com",
+  "request_text": "Please close my account and process the associated personal-data deletion. Please check the records connected to the account before confirming completion. I would appreciate confirmation of the final outcome."
+ },
+ "intent": {
+  "is_deletion": true,
+  "label": "deletion",
+  "matched_terms": [
+   "close my account",
+   "delet"
+  ],
+  "matched_negations": [],
+  "non_deletion_action": ""
+ },
+ "identity": {
+  "user_id": "user_428",
+  "email_supplied": "yoon.jihoon@icloud.com",
+  "email_kind": "current",
+  "matched_audit_ids": [],
+  "name": "Ji-hoon Yoon",
+  "current": {
+   "user_id": "user_428",
+   "name": "Ji-hoon Yoon",
+   "email": "yoon.jihoon@icloud.com",
+   "phone": "+82 10 2686 9320",
+   "email_hash": "db60e5653df2de8b84e177af1b3a110e46c61abe2d5d0f652463c65e88754532"
+  },
+  "historical": {}
+ },
+ "state_at_audit": [
+  {
+   "system": "account_service",
+   "resource_id": "account_6006",
+   "category": "USER_PROFILE",
+   "record_type": "USER_PROFILE",
+   "state": "ABSENT",
+   "raw_state": "ABSENT",
+   "observed_at": "2026-03-20T05:29:33Z",
+   "evidence_id": "evidence_68",
+   "evidence_kind": "manifest",
+   "link_method": "resource_alias",
+   "identifiers": {},
+   "history": [
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-03-05T06:48:59Z",
+     "evidence_id": "activity_847",
+     "kind": "activity"
+    },
+    {
+     "state": "ABSENT",
+     "raw_state": "ABSENT",
+     "observed_at": "2026-03-20T05:29:33Z",
+     "evidence_id": "evidence_68",
+     "kind": "manifest"
+    }
+   ]
+  },
+  {
+   "system": "security_service",
+   "resource_id": "audit_record_5292",
+   "category": "SECURITY_AUDIT_LOG",
+   "record_type": "SECURITY_AUDIT_LOG",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-03-20T07:16:21Z",
+   "evidence_id": "evidence_68",
+   "evidence_kind": "manifest",
+   "link_method": "explicit_ref",
+   "identifiers": {
+    "subject_reference": "user_428"
+   },
+   "history": [
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-03-20T07:16:21Z",
+     "evidence_id": "evidence_68",
+     "kind": "manifest"
+    }
+   ]
+  }
+ ],
+ "activity_claims": [
+  {
+   "activity_id": "activity_847",
+   "event_time": "2026-03-05T06:48:59Z",
+   "event_type": "DELETE_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "account_service",
+   "resource_id": "account_6006",
+   "reported_result": "FAILED",
+   "details": "Deletion worker submitted primary profile account_6006 to account_service."
+  }
+ ],
+ "rules": [
+  {
+   "rule_id": "rule_01",
+   "data_category": "USER_PROFILE",
+   "condition": "Always",
+   "required_action": "DELETE"
+  },
+  {
+   "rule_id": "rule_12",
+   "data_category": "SECURITY_AUDIT_LOG",
+   "condition": "Record is within the supplied retention period",
+   "required_action": "RETAIN"
+  }
+ ],
+ "evidence_batch": {
+  "evidence_ids": [
+   "activity_847",
+   "evidence_68"
+  ],
+  "co_subjects": [
+   "user_421",
+   "user_422",
+   "user_423",
+   "user_424",
+   "user_425",
+   "user_426",
+   "user_427",
+   "user_429",
+   "user_430"
+  ],
+  "unattributed_resources": {
+   "evidence_68": [
+    "account_2696",
+    "account_8461",
+    "analytics_3845",
+    "analytics_6249",
+    "analytics_8091"
+   ]
+  }
+ },
+ "excluded_after_audit": [
+  {
+   "evidence_id": "evidence_40",
+   "system": "account_service",
+   "resource_id": "account_6006",
+   "state": "PRESENT",
+   "captured_at": "2026-03-22T08:00:00Z",
+   "observed_at": "2026-03-14T08:00:00Z"
+  },
+  {
+   "evidence_id": "evidence_40",
+   "system": "security_service",
+   "resource_id": "audit_record_5292",
+   "state": "PRESENT",
+   "captured_at": "2026-03-22T08:00:00Z",
+   "observed_at": "2026-03-20T08:00:00Z"
+  }
+ ],
+ "draft": {
+  "deletion_status": "COMPLETE",
+  "steps_json": [
+   {
+    "step_no": 1,
+    "phase": "VERIFICATION",
+    "system_id": "account_service",
+    "resource_id": "account_6006",
+    "operation": "VERIFY_RECORD_ABSENT",
+    "state": "ABSENT",
+    "evidence_id": "evidence_68"
+   },
+   {
+    "step_no": 2,
+    "phase": "VERIFICATION",
+    "system_id": "security_service",
+    "resource_id": "audit_record_5292",
+    "operation": "VERIFY_RECORD_PRESENT",
+    "state": "PRESENT",
+    "evidence_id": "evidence_68"
+   }
+  ]
+ }
+}

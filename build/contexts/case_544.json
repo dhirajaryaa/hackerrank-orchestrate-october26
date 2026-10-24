@@ -1,0 +1,192 @@
+{
+ "case": {
+  "case_id": "case_544",
+  "audit_at": "2026-09-20T12:00:00Z",
+  "requested_at": "2026-09-06T12:00:00Z",
+  "reported_status": "COMPLETE",
+  "reported_at": "2026-09-08T12:00:00Z",
+  "email_supplied": "kito2665@gmail.com",
+  "request_text": "Please begin the deletion process for the account using this email address. Please ensure the request is applied to the relevant account records. A short confirmation when the process is complete is sufficient."
+ },
+ "intent": {
+  "is_deletion": true,
+  "label": "deletion",
+  "matched_terms": [
+   "delet"
+  ],
+  "matched_negations": [],
+  "non_deletion_action": ""
+ },
+ "identity": {
+  "user_id": "user_544",
+  "email_supplied": "kito2665@gmail.com",
+  "email_kind": "current",
+  "matched_audit_ids": [],
+  "name": "Keiko Ito",
+  "current": {
+   "user_id": "user_544",
+   "name": "Keiko Ito",
+   "email": "kito2665@gmail.com",
+   "phone": "+81 90 1117 9536",
+   "email_hash": "12f0c41e4faf4f4d18810fd065ef28922c6f12332472f88d1854725bad3ea76b"
+  },
+  "historical": {}
+ },
+ "state_at_audit": [
+  {
+   "system": "identity_service",
+   "resource_id": "tombstone_8648",
+   "category": "ACCOUNT_TOMBSTONE",
+   "record_type": "ACCOUNT_TOMBSTONE",
+   "state": "IDENTIFIABLE",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-09-20T12:00:00Z",
+   "evidence_id": "evidence_52",
+   "evidence_kind": "manifest",
+   "link_method": "explicit_ref",
+   "identifiers": {
+    "subject_reference": "user_544",
+    "email": "kito2665@gmail.com",
+    "email_hash": "12f0c41e4faf4f4d18810fd065ef28922c6f12332472f88d1854725bad3ea76b"
+   },
+   "history": [
+    {
+     "state": "REDACTED",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-09-08T12:51:39Z",
+     "evidence_id": "activity_3724",
+     "kind": "activity"
+    },
+    {
+     "state": "IDENTIFIABLE",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-09-20T12:00:00Z",
+     "evidence_id": "evidence_52",
+     "kind": "manifest"
+    },
+    {
+     "state": "IDENTIFIABLE",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-09-20T12:00:00Z",
+     "evidence_id": "evidence_52",
+     "kind": "manifest"
+    }
+   ]
+  },
+  {
+   "system": "security_service",
+   "resource_id": "audit_record_1037",
+   "category": "SECURITY_AUDIT_LOG",
+   "record_type": "SECURITY_AUDIT_LOG",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-09-20T12:00:00Z",
+   "evidence_id": "evidence_52",
+   "evidence_kind": "manifest",
+   "link_method": "explicit_ref",
+   "identifiers": {
+    "subject_reference": "user_544"
+   },
+   "history": [
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-09-20T12:00:00Z",
+     "evidence_id": "evidence_52",
+     "kind": "manifest"
+    },
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-09-20T12:00:00Z",
+     "evidence_id": "evidence_52",
+     "kind": "manifest"
+    }
+   ]
+  }
+ ],
+ "activity_claims": [
+  {
+   "activity_id": "activity_3724",
+   "event_time": "2026-09-08T12:51:39Z",
+   "event_type": "REDACT_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "identity_service",
+   "resource_id": "tombstone_8648",
+   "reported_result": "FAILED",
+   "details": "Deletion worker received the final result for tombstone_8648 from identity_service."
+  }
+ ],
+ "rules": [
+  {
+   "rule_id": "rule_12",
+   "data_category": "SECURITY_AUDIT_LOG",
+   "condition": "Record is within the supplied retention period",
+   "required_action": "RETAIN"
+  },
+  {
+   "rule_id": "rule_15",
+   "data_category": "ACCOUNT_TOMBSTONE",
+   "condition": "Account is deleted and only a stable internal user_id is needed to preserve references to retained records",
+   "required_action": "REDACT"
+  }
+ ],
+ "evidence_batch": {
+  "evidence_ids": [
+   "activity_3724",
+   "evidence_52"
+  ],
+  "co_subjects": [
+   "user_543",
+   "user_545",
+   "user_546",
+   "user_547",
+   "user_548",
+   "user_549",
+   "user_550"
+  ],
+  "unattributed_resources": {}
+ },
+ "excluded_after_audit": [],
+ "draft": {
+  "deletion_status": "INCOMPLETE",
+  "steps_json": [
+   {
+    "step_no": 1,
+    "phase": "FINDING",
+    "system_id": "identity_service",
+    "resource_id": "tombstone_8648",
+    "operation": "REPORT_EXPOSED_PII",
+    "state": "PRESENT",
+    "evidence_id": "evidence_52"
+   },
+   {
+    "step_no": 2,
+    "phase": "REMEDIATION",
+    "system_id": "identity_service",
+    "resource_id": "tombstone_8648",
+    "operation": "REDACT_RECORD",
+    "state": "REDACTED",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 3,
+    "phase": "VERIFICATION",
+    "system_id": "security_service",
+    "resource_id": "audit_record_1037",
+    "operation": "VERIFY_RECORD_PRESENT",
+    "state": "PRESENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 4,
+    "phase": "VERIFICATION",
+    "system_id": "identity_service",
+    "resource_id": "tombstone_8648",
+    "operation": "VERIFY_RECORD_REDACTED",
+    "state": "REDACTED",
+    "evidence_id": ""
+   }
+  ]
+ }
+}

@@ -1,0 +1,110 @@
+{
+ "case": {
+  "case_id": "case_183",
+  "audit_at": "2026-07-18T11:00:00Z",
+  "requested_at": "2026-07-07T11:00:00Z",
+  "reported_status": "NOT_STARTED",
+  "reported_at": "2026-07-09T11:00:00Z",
+  "email_supplied": "s.jung68@gmail.com",
+  "request_text": "이 이메일 주소에 연결된 계정의 영구 삭제를 요청합니다. 개인정보 처리 절차에 따라 현재 및 이전 식별자를 검토해 주세요. 검토가 완료되면 결과를 확인해 주세요."
+ },
+ "intent": {
+  "is_deletion": true,
+  "label": "deletion",
+  "matched_terms": [
+   "삭제"
+  ],
+  "matched_negations": [],
+  "non_deletion_action": ""
+ },
+ "identity": {
+  "user_id": "user_181",
+  "email_supplied": "s.jung68@gmail.com",
+  "email_kind": "current",
+  "matched_audit_ids": [],
+  "name": "Seo-yeon Jung",
+  "current": {
+   "user_id": "user_181",
+   "name": "Seo-yeon Jung",
+   "email": "s.jung68@gmail.com",
+   "phone": "+82 10 0210 4604",
+   "email_hash": "6be63fb740c737f2314590c448a26c83a32d33d9033d0b634b66bcc81be8d4ec"
+  },
+  "historical": {}
+ },
+ "state_at_audit": [
+  {
+   "system": "security_service",
+   "resource_id": "audit_record_3262",
+   "category": "SECURITY_AUDIT_LOG",
+   "record_type": "SECURITY_AUDIT_LOG",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-07-18T08:12:52Z",
+   "evidence_id": "evidence_83",
+   "evidence_kind": "manifest",
+   "link_method": "explicit_ref",
+   "identifiers": {
+    "subject_reference": "user_181"
+   },
+   "history": [
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-07-18T08:12:52Z",
+     "evidence_id": "evidence_83",
+     "kind": "manifest"
+    }
+   ]
+  }
+ ],
+ "activity_claims": [],
+ "rules": [
+  {
+   "rule_id": "rule_12",
+   "data_category": "SECURITY_AUDIT_LOG",
+   "condition": "Record is within the supplied retention period",
+   "required_action": "RETAIN"
+  }
+ ],
+ "evidence_batch": {
+  "evidence_ids": [
+   "evidence_83"
+  ],
+  "co_subjects": [
+   "user_182",
+   "user_183",
+   "user_184",
+   "user_185",
+   "user_186",
+   "user_187",
+   "user_188",
+   "user_189",
+   "user_190"
+  ],
+  "unattributed_resources": {
+   "evidence_83": [
+    "account_4854",
+    "account_7063",
+    "account_9317",
+    "analytics_5614",
+    "analytics_8767"
+   ]
+  }
+ },
+ "excluded_after_audit": [],
+ "draft": {
+  "deletion_status": "COMPLETE",
+  "steps_json": [
+   {
+    "step_no": 1,
+    "phase": "VERIFICATION",
+    "system_id": "security_service",
+    "resource_id": "audit_record_3262",
+    "operation": "VERIFY_RECORD_PRESENT",
+    "state": "PRESENT",
+    "evidence_id": "evidence_83"
+   }
+  ]
+ }
+}

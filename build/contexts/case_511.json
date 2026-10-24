@@ -1,0 +1,280 @@
+{
+ "case": {
+  "case_id": "case_511",
+  "audit_at": "2026-02-08T07:00:00Z",
+  "requested_at": "2026-01-20T07:00:00Z",
+  "reported_status": "PARTIALLY_COMPLETE",
+  "reported_at": "2026-01-23T07:00:00Z",
+  "email_supplied": "nicolas.f550081@outlook.com",
+  "request_text": "Please begin the deletion process for the account using this email address. Please handle any copies that fall within the scope of the deletion request. Please confirm the result after completing the required checks."
+ },
+ "intent": {
+  "is_deletion": true,
+  "label": "deletion",
+  "matched_terms": [
+   "delet"
+  ],
+  "matched_negations": [],
+  "non_deletion_action": ""
+ },
+ "identity": {
+  "user_id": "user_509",
+  "email_supplied": "nicolas.f550081@outlook.com",
+  "email_kind": "historical",
+  "matched_audit_ids": [
+   "audit_69"
+  ],
+  "name": "Nicolás Fernández",
+  "current": {
+   "user_id": "user_509",
+   "name": "Nicolás Fernández",
+   "email": "nicolas.f5500@outlook.com",
+   "phone": "+34 733 038 927",
+   "email_hash": "ffcccdd81c7d5fbfe33fd37d71d01bc80b52049f246c0914f3d1ef8af4856e56"
+  },
+  "historical": {
+   "email": [
+    "nicolas.f550081@outlook.com"
+   ],
+   "email_hash": [
+    "fcd3f65f30c54b0be9a7ca24054c364b7f3a5586b11f1132d4ae20e9c31b84d3"
+   ]
+  }
+ },
+ "state_at_audit": [
+  {
+   "system": "account_service",
+   "resource_id": "account_1035",
+   "category": "USER_PROFILE",
+   "record_type": "USER_PROFILE",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-02-08T07:00:00Z",
+   "evidence_id": "evidence_47",
+   "evidence_kind": "manifest",
+   "link_method": "explicit_ref",
+   "identifiers": {
+    "customer_reference": "user_509",
+    "full_name": "Nicolás Fernández",
+    "email": "nicolas.f550081@outlook.com",
+    "phone": "+34 733 038 927"
+   },
+   "history": [
+    {
+     "state": "UNCERTAIN",
+     "raw_state": "UNCERTAIN",
+     "observed_at": "2026-01-23T05:56:53Z",
+     "evidence_id": "activity_262",
+     "kind": "activity"
+    },
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-02-08T07:00:00Z",
+     "evidence_id": "evidence_47",
+     "kind": "manifest"
+    }
+   ]
+  },
+  {
+   "system": "legal_service",
+   "resource_id": "legal_hold_4887",
+   "category": "LEGAL_HOLD_RECORD",
+   "record_type": "LEGAL_HOLD_RECORD",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-02-08T07:00:00Z",
+   "evidence_id": "evidence_47",
+   "evidence_kind": "manifest",
+   "link_method": "explicit_ref",
+   "identifiers": {
+    "subject_reference": "user_509"
+   },
+   "history": [
+    {
+     "state": "RETAINED",
+     "raw_state": "RETAINED",
+     "observed_at": "2026-01-23T06:31:34Z",
+     "evidence_id": "activity_264",
+     "kind": "activity"
+    },
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-02-08T07:00:00Z",
+     "evidence_id": "evidence_47",
+     "kind": "manifest"
+    },
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-02-08T07:00:00Z",
+     "evidence_id": "evidence_47",
+     "kind": "manifest"
+    }
+   ]
+  },
+  {
+   "system": "security_service",
+   "resource_id": "audit_record_4883",
+   "category": "SECURITY_AUDIT_LOG",
+   "record_type": "SECURITY_AUDIT_LOG",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-02-08T07:00:00Z",
+   "evidence_id": "evidence_47",
+   "evidence_kind": "manifest",
+   "link_method": "explicit_ref",
+   "identifiers": {
+    "subject_reference": "user_509"
+   },
+   "history": [
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-02-08T07:00:00Z",
+     "evidence_id": "evidence_47",
+     "kind": "manifest"
+    },
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-02-08T07:00:00Z",
+     "evidence_id": "evidence_47",
+     "kind": "manifest"
+    }
+   ]
+  }
+ ],
+ "activity_claims": [
+  {
+   "activity_id": "activity_262",
+   "event_time": "2026-01-23T05:56:53Z",
+   "event_type": "DELETE_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "account_service",
+   "resource_id": "account_1035",
+   "reported_result": "PARTIAL",
+   "details": "Deletion worker submitted primary profile account_1035 to account_service."
+  },
+  {
+   "activity_id": "activity_264",
+   "event_time": "2026-01-23T06:31:34Z",
+   "event_type": "RETAIN_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "legal_service",
+   "resource_id": "legal_hold_4887",
+   "reported_result": "SUCCESS",
+   "details": "Policy action completed for legal_hold_4887."
+  },
+  {
+   "activity_id": "activity_271",
+   "event_time": "2026-01-23T07:59:15Z",
+   "event_type": "SYNC_RECORD",
+   "source_system": "account_service",
+   "target_system": "account_replication_cluster",
+   "resource_id": "account_1035",
+   "reported_result": "SUCCESS",
+   "details": "Replication worker reported its final checkpoint for account_1035."
+  }
+ ],
+ "rules": [
+  {
+   "rule_id": "rule_01",
+   "data_category": "USER_PROFILE",
+   "condition": "Always",
+   "required_action": "DELETE"
+  },
+  {
+   "rule_id": "rule_12",
+   "data_category": "SECURITY_AUDIT_LOG",
+   "condition": "Record is within the supplied retention period",
+   "required_action": "RETAIN"
+  },
+  {
+   "rule_id": "rule_13",
+   "data_category": "LEGAL_HOLD_RECORD",
+   "condition": "A supplied legal hold is active",
+   "required_action": "RETAIN"
+  }
+ ],
+ "evidence_batch": {
+  "evidence_ids": [
+   "activity_262",
+   "activity_264",
+   "activity_271",
+   "evidence_47"
+  ],
+  "co_subjects": [
+   "user_501",
+   "user_502",
+   "user_503",
+   "user_504",
+   "user_505",
+   "user_506",
+   "user_507",
+   "user_508",
+   "user_510"
+  ],
+  "unattributed_resources": {
+   "evidence_47": [
+    "analytics_1558",
+    "backup_369",
+    "data_flow_5281",
+    "search_4725",
+    "support_2295"
+   ]
+  }
+ },
+ "excluded_after_audit": [],
+ "draft": {
+  "deletion_status": "INCOMPLETE",
+  "steps_json": [
+   {
+    "step_no": 1,
+    "phase": "FINDING",
+    "system_id": "account_service",
+    "resource_id": "account_1035",
+    "operation": "REPORT_REMAINING_RECORD",
+    "state": "PRESENT",
+    "evidence_id": "evidence_47"
+   },
+   {
+    "step_no": 2,
+    "phase": "REMEDIATION",
+    "system_id": "account_service",
+    "resource_id": "account_1035",
+    "operation": "DELETE_RECORD",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 3,
+    "phase": "VERIFICATION",
+    "system_id": "account_service",
+    "resource_id": "account_1035",
+    "operation": "VERIFY_RECORD_ABSENT",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 4,
+    "phase": "VERIFICATION",
+    "system_id": "legal_service",
+    "resource_id": "legal_hold_4887",
+    "operation": "VERIFY_RECORD_PRESENT",
+    "state": "PRESENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 5,
+    "phase": "VERIFICATION",
+    "system_id": "security_service",
+    "resource_id": "audit_record_4883",
+    "operation": "VERIFY_RECORD_PRESENT",
+    "state": "PRESENT",
+    "evidence_id": ""
+   }
+  ]
+ }
+}

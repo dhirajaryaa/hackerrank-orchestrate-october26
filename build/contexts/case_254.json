@@ -1,0 +1,204 @@
+{
+ "case": {
+  "case_id": "case_254",
+  "audit_at": "2026-06-13T11:00:00Z",
+  "requested_at": "2026-05-22T11:00:00Z",
+  "reported_status": "PARTIALLY_COMPLETE",
+  "reported_at": "2026-05-23T11:00:00Z",
+  "email_supplied": "linnea.johansson@gmail.com",
+  "request_text": "Please process a permanent account-deletion request for this email address. Please check the records connected to the account before confirming completion. Please contact me if you need information to verify the request."
+ },
+ "intent": {
+  "is_deletion": true,
+  "label": "deletion",
+  "matched_terms": [
+   "delet"
+  ],
+  "matched_negations": [],
+  "non_deletion_action": ""
+ },
+ "identity": {
+  "user_id": "user_252",
+  "email_supplied": "linnea.johansson@gmail.com",
+  "email_kind": "current",
+  "matched_audit_ids": [],
+  "name": "Linnea Johansson",
+  "current": {
+   "user_id": "user_252",
+   "name": "Linnea Johansson",
+   "email": "linnea.johansson@gmail.com",
+   "phone": "+46 70 008 91 39",
+   "email_hash": "0c0aa639cc9aab38ad115e9eccba6207edce45d8bf440f7a522dcd386177f4e4"
+  },
+  "historical": {}
+ },
+ "state_at_audit": [
+  {
+   "system": "search_service",
+   "resource_id": "search_3011",
+   "category": "SEARCH_INDEX_ENTRY",
+   "record_type": "SEARCH_INDEX_ENTRY",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-06-13T11:00:00Z",
+   "evidence_id": "evidence_24",
+   "evidence_kind": "manifest",
+   "link_method": "identifier",
+   "identifiers": {
+    "document": {
+     "display_name": "Linnea Johansson",
+     "email": "linnea.johansson@gmail.com",
+     "customer_reference": "user_252"
+    }
+   },
+   "history": [
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-05-23T12:13:34Z",
+     "evidence_id": "activity_2029",
+     "kind": "activity"
+    },
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-06-13T11:00:00Z",
+     "evidence_id": "evidence_24",
+     "kind": "manifest"
+    },
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-06-13T11:00:00Z",
+     "evidence_id": "evidence_24",
+     "kind": "manifest"
+    }
+   ]
+  },
+  {
+   "system": "security_service",
+   "resource_id": "audit_record_9256",
+   "category": "SECURITY_AUDIT_LOG",
+   "record_type": "SECURITY_AUDIT_LOG",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-06-13T11:00:00Z",
+   "evidence_id": "evidence_24",
+   "evidence_kind": "manifest",
+   "link_method": "explicit_ref",
+   "identifiers": {
+    "subject_reference": "user_252"
+   },
+   "history": [
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-06-13T11:00:00Z",
+     "evidence_id": "evidence_24",
+     "kind": "manifest"
+    },
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-06-13T11:00:00Z",
+     "evidence_id": "evidence_24",
+     "kind": "manifest"
+    }
+   ]
+  }
+ ],
+ "activity_claims": [
+  {
+   "activity_id": "activity_2029",
+   "event_time": "2026-05-23T12:13:34Z",
+   "event_type": "DELETE_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "search_service",
+   "resource_id": "search_3011",
+   "reported_result": "FAILED",
+   "details": "Deletion worker received the final result for search_3011 from search_service."
+  }
+ ],
+ "rules": [
+  {
+   "rule_id": "rule_03",
+   "data_category": "SEARCH_INDEX_ENTRY",
+   "condition": "Always",
+   "required_action": "DELETE"
+  },
+  {
+   "rule_id": "rule_12",
+   "data_category": "SECURITY_AUDIT_LOG",
+   "condition": "Record is within the supplied retention period",
+   "required_action": "RETAIN"
+  }
+ ],
+ "evidence_batch": {
+  "evidence_ids": [
+   "activity_2029",
+   "evidence_24"
+  ],
+  "co_subjects": [
+   "user_251",
+   "user_253",
+   "user_254",
+   "user_255",
+   "user_256",
+   "user_257",
+   "user_258",
+   "user_259",
+   "user_260"
+  ],
+  "unattributed_resources": {
+   "evidence_24": [
+    "analytics_2977",
+    "analytics_5053",
+    "analytics_6136",
+    "backup_2427",
+    "data_flow_6233"
+   ]
+  }
+ },
+ "excluded_after_audit": [],
+ "draft": {
+  "deletion_status": "INCOMPLETE",
+  "steps_json": [
+   {
+    "step_no": 1,
+    "phase": "FINDING",
+    "system_id": "search_service",
+    "resource_id": "search_3011",
+    "operation": "REPORT_REMAINING_RECORD",
+    "state": "PRESENT",
+    "evidence_id": "evidence_24"
+   },
+   {
+    "step_no": 2,
+    "phase": "REMEDIATION",
+    "system_id": "search_service",
+    "resource_id": "search_3011",
+    "operation": "DELETE_RECORD",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 3,
+    "phase": "VERIFICATION",
+    "system_id": "search_service",
+    "resource_id": "search_3011",
+    "operation": "VERIFY_RECORD_ABSENT",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 4,
+    "phase": "VERIFICATION",
+    "system_id": "security_service",
+    "resource_id": "audit_record_9256",
+    "operation": "VERIFY_RECORD_PRESENT",
+    "state": "PRESENT",
+    "evidence_id": ""
+   }
+  ]
+ }
+}

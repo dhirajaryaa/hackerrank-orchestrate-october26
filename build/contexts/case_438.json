@@ -1,0 +1,391 @@
+{
+ "case": {
+  "case_id": "case_438",
+  "audit_at": "2026-03-15T07:00:00Z",
+  "requested_at": "2026-02-17T07:00:00Z",
+  "reported_status": "COMPLETE",
+  "reported_at": "2026-02-19T07:00:00Z",
+  "email_supplied": "lkhalil7413@gmail.com",
+  "request_text": "I would like to submit a request to delete this account and its personal data. Please handle any copies that fall within the scope of the deletion request. Please contact me if you need information to verify the request."
+ },
+ "intent": {
+  "is_deletion": true,
+  "label": "deletion",
+  "matched_terms": [
+   "delet"
+  ],
+  "matched_negations": [],
+  "non_deletion_action": ""
+ },
+ "identity": {
+  "user_id": "user_436",
+  "email_supplied": "lkhalil7413@gmail.com",
+  "email_kind": "current",
+  "matched_audit_ids": [],
+  "name": "Laila Khalil",
+  "current": {
+   "user_id": "user_436",
+   "name": "Laila Khalil",
+   "email": "lkhalil7413@gmail.com",
+   "phone": "+971 55 749 5696",
+   "email_hash": "1b5f24534d7bfca43a3a035f31bb47d8b43542a73eec4c7c6c0c1bd129404c60"
+  },
+  "historical": {}
+ },
+ "state_at_audit": [
+  {
+   "system": "account_service",
+   "resource_id": "account_1680",
+   "category": "USER_PROFILE",
+   "record_type": "USER_PROFILE",
+   "state": "ABSENT",
+   "raw_state": "ABSENT",
+   "observed_at": "2026-03-15T07:00:00Z",
+   "evidence_id": "evidence_41",
+   "evidence_kind": "manifest",
+   "link_method": "link_key",
+   "identifiers": {
+    "subject_reference": "lkhalil7413@gmail.com"
+   },
+   "history": [
+    {
+     "state": "ABSENT",
+     "raw_state": "ABSENT",
+     "observed_at": "2026-02-19T05:53:36Z",
+     "evidence_id": "activity_635",
+     "kind": "activity"
+    },
+    {
+     "state": "ABSENT",
+     "raw_state": "ABSENT",
+     "observed_at": "2026-03-15T07:00:00Z",
+     "evidence_id": "evidence_41",
+     "kind": "manifest"
+    }
+   ]
+  },
+  {
+   "system": "analytics_platform",
+   "resource_id": "analytics_6528",
+   "category": "ANALYTICS_PROFILE",
+   "record_type": "ANALYTICS_PROFILE",
+   "state": "ANONYMIZED",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-03-15T07:00:00Z",
+   "evidence_id": "evidence_41",
+   "evidence_kind": "manifest",
+   "link_method": "link_key",
+   "identifiers": {
+    "subject_reference": "lkhalil7413@gmail.com"
+   },
+   "history": [
+    {
+     "state": "ANONYMIZED",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-02-19T08:32:27Z",
+     "evidence_id": "activity_643",
+     "kind": "activity"
+    },
+    {
+     "state": "ANONYMIZED",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-03-15T07:00:00Z",
+     "evidence_id": "evidence_41",
+     "kind": "manifest"
+    }
+   ]
+  },
+  {
+   "system": "integration_service",
+   "resource_id": "data_flow_3226",
+   "category": "DATA_FLOW",
+   "record_type": "DATA_FLOW",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-03-15T07:00:00Z",
+   "evidence_id": "evidence_41",
+   "evidence_kind": "manifest",
+   "link_method": "link_key",
+   "identifiers": {
+    "subject_reference": "lkhalil7413@gmail.com"
+   },
+   "history": [
+    {
+     "state": "ACTIVE",
+     "raw_state": "ACTIVE",
+     "observed_at": "2026-02-19T08:51:56Z",
+     "evidence_id": "activity_644",
+     "kind": "activity"
+    },
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-03-15T07:00:00Z",
+     "evidence_id": "evidence_41",
+     "kind": "manifest"
+    }
+   ]
+  },
+  {
+   "system": "search_service",
+   "resource_id": "search_2052",
+   "category": "SEARCH_INDEX_ENTRY",
+   "record_type": "SEARCH_INDEX_ENTRY",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-03-15T07:00:00Z",
+   "evidence_id": "evidence_41",
+   "evidence_kind": "manifest",
+   "link_method": "link_key",
+   "identifiers": {
+    "subject_reference": "lkhalil7413@gmail.com"
+   },
+   "history": [
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-02-19T08:13:57Z",
+     "evidence_id": "activity_642",
+     "kind": "activity"
+    },
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-03-15T07:00:00Z",
+     "evidence_id": "evidence_41",
+     "kind": "manifest"
+    }
+   ]
+  },
+  {
+   "system": "security_service",
+   "resource_id": "audit_record_1366",
+   "category": "SECURITY_AUDIT_LOG",
+   "record_type": "SECURITY_AUDIT_LOG",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-03-15T07:00:00Z",
+   "evidence_id": "evidence_41",
+   "evidence_kind": "manifest",
+   "link_method": "explicit_ref",
+   "identifiers": {
+    "subject_reference": "user_436"
+   },
+   "history": [
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-03-15T07:00:00Z",
+     "evidence_id": "evidence_41",
+     "kind": "manifest"
+    }
+   ]
+  },
+  {
+   "system": "support_platform",
+   "resource_id": "support_6688",
+   "category": "SUPPORT_MESSAGE",
+   "record_type": "SUPPORT_MESSAGE",
+   "state": "REDACTED",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-03-15T07:00:00Z",
+   "evidence_id": "evidence_41",
+   "evidence_kind": "manifest",
+   "link_method": "link_key",
+   "identifiers": {
+    "subject_reference": "lkhalil7413@gmail.com"
+   },
+   "history": [
+    {
+     "state": "REDACTED",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-02-19T07:54:28Z",
+     "evidence_id": "activity_640",
+     "kind": "activity"
+    },
+    {
+     "state": "REDACTED",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-03-15T07:00:00Z",
+     "evidence_id": "evidence_41",
+     "kind": "manifest"
+    }
+   ]
+  }
+ ],
+ "activity_claims": [
+  {
+   "activity_id": "activity_635",
+   "event_time": "2026-02-19T05:53:36Z",
+   "event_type": "DELETE_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "account_service",
+   "resource_id": "account_1680",
+   "reported_result": "SUCCESS",
+   "details": "Deletion worker submitted primary profile account_1680 to account_service."
+  },
+  {
+   "activity_id": "activity_640",
+   "event_time": "2026-02-19T07:54:28Z",
+   "event_type": "REDACT_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "support_platform",
+   "resource_id": "support_6688",
+   "reported_result": "FAILED",
+   "details": "Deletion worker received the final result for support_6688 from support_platform."
+  },
+  {
+   "activity_id": "activity_642",
+   "event_time": "2026-02-19T08:13:57Z",
+   "event_type": "DELETE_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "search_service",
+   "resource_id": "search_2052",
+   "reported_result": "FAILED",
+   "details": "Deletion worker received the final result for search_2052 from search_service."
+  },
+  {
+   "activity_id": "activity_643",
+   "event_time": "2026-02-19T08:32:27Z",
+   "event_type": "ANONYMIZE_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "analytics_platform",
+   "resource_id": "analytics_6528",
+   "reported_result": "FAILED",
+   "details": "Deletion worker received the final result for analytics_6528 from analytics_platform."
+  },
+  {
+   "activity_id": "activity_644",
+   "event_time": "2026-02-19T08:51:56Z",
+   "event_type": "CHECK_DATA_FLOW",
+   "source_system": "deletion_worker",
+   "target_system": "integration_service",
+   "resource_id": "data_flow_3226",
+   "reported_result": "SUCCESS",
+   "details": "Connector status check confirmed that data flow data_flow_3226 remains enabled."
+  }
+ ],
+ "rules": [
+  {
+   "rule_id": "rule_01",
+   "data_category": "USER_PROFILE",
+   "condition": "Always",
+   "required_action": "DELETE"
+  },
+  {
+   "rule_id": "rule_03",
+   "data_category": "SEARCH_INDEX_ENTRY",
+   "condition": "Always",
+   "required_action": "DELETE"
+  },
+  {
+   "rule_id": "rule_05",
+   "data_category": "SUPPORT_MESSAGE",
+   "condition": "Conversation contains shared customer, agent, or order context that must be retained",
+   "required_action": "REDACT"
+  },
+  {
+   "rule_id": "rule_07",
+   "data_category": "ANALYTICS_PROFILE",
+   "condition": "Record is still attributable to a user",
+   "required_action": "ANONYMIZE"
+  },
+  {
+   "rule_id": "rule_12",
+   "data_category": "SECURITY_AUDIT_LOG",
+   "condition": "Record is within the supplied retention period",
+   "required_action": "RETAIN"
+  }
+ ],
+ "evidence_batch": {
+  "evidence_ids": [
+   "activity_635",
+   "activity_640",
+   "activity_642",
+   "activity_643",
+   "activity_644",
+   "evidence_41"
+  ],
+  "co_subjects": [
+   "user_431",
+   "user_432",
+   "user_433",
+   "user_434",
+   "user_435",
+   "user_437",
+   "user_438",
+   "user_439",
+   "user_440"
+  ],
+  "unattributed_resources": {}
+ },
+ "excluded_after_audit": [],
+ "draft": {
+  "deletion_status": "INCOMPLETE",
+  "steps_json": [
+   {
+    "step_no": 1,
+    "phase": "FINDING",
+    "system_id": "search_service",
+    "resource_id": "search_2052",
+    "operation": "REPORT_REMAINING_RECORD",
+    "state": "PRESENT",
+    "evidence_id": "evidence_41"
+   },
+   {
+    "step_no": 2,
+    "phase": "REMEDIATION",
+    "system_id": "search_service",
+    "resource_id": "search_2052",
+    "operation": "DELETE_RECORD",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 3,
+    "phase": "VERIFICATION",
+    "system_id": "account_service",
+    "resource_id": "account_1680",
+    "operation": "VERIFY_RECORD_ABSENT",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 4,
+    "phase": "VERIFICATION",
+    "system_id": "search_service",
+    "resource_id": "search_2052",
+    "operation": "VERIFY_RECORD_ABSENT",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 5,
+    "phase": "VERIFICATION",
+    "system_id": "security_service",
+    "resource_id": "audit_record_1366",
+    "operation": "VERIFY_RECORD_PRESENT",
+    "state": "PRESENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 6,
+    "phase": "VERIFICATION",
+    "system_id": "support_platform",
+    "resource_id": "support_6688",
+    "operation": "VERIFY_RECORD_REDACTED",
+    "state": "REDACTED",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 7,
+    "phase": "VERIFICATION",
+    "system_id": "analytics_platform",
+    "resource_id": "analytics_6528",
+    "operation": "VERIFY_RECORD_ANONYMIZED",
+    "state": "ANONYMIZED",
+    "evidence_id": ""
+   }
+  ]
+ }
+}

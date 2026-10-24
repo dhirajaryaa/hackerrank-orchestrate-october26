@@ -1,0 +1,215 @@
+{
+ "case": {
+  "case_id": "case_200",
+  "audit_at": "2026-07-13T10:00:00Z",
+  "requested_at": "2026-06-15T10:00:00Z",
+  "reported_status": "PARTIALLY_COMPLETE",
+  "reported_at": "2026-06-16T10:00:00Z",
+  "email_supplied": "grace.reed@outlook.com",
+  "request_text": "I would like to submit a request to delete this account and its personal data. Please follow the applicable retention and deletion requirements for the account. I would appreciate confirmation of the final outcome."
+ },
+ "intent": {
+  "is_deletion": true,
+  "label": "deletion",
+  "matched_terms": [
+   "delet"
+  ],
+  "matched_negations": [],
+  "non_deletion_action": ""
+ },
+ "identity": {
+  "user_id": "user_198",
+  "email_supplied": "grace.reed@outlook.com",
+  "email_kind": "current",
+  "matched_audit_ids": [],
+  "name": "Grace Reed",
+  "current": {
+   "user_id": "user_198",
+   "name": "Grace Reed",
+   "email": "grace.reed@outlook.com",
+   "phone": "+44 7700 900198",
+   "email_hash": "f4a974acdd0c219889fb24b6c2851b07e3f0329a4ace241a27c6dfc40a24c67a"
+  },
+  "historical": {}
+ },
+ "state_at_audit": [
+  {
+   "system": "integration_service",
+   "resource_id": "data_flow_2310",
+   "category": "DATA_FLOW",
+   "record_type": "DATA_FLOW",
+   "state": "ACTIVE",
+   "raw_state": "ACTIVE",
+   "observed_at": "2026-07-13T07:13:44Z",
+   "evidence_id": "evidence_82",
+   "evidence_kind": "manifest",
+   "link_method": "identifier",
+   "identifiers": {
+    "customer_email": "grace.reed@outlook.com"
+   },
+   "history": [
+    {
+     "state": "ACTIVE",
+     "raw_state": "ACTIVE",
+     "observed_at": "2026-06-16T10:44:52Z",
+     "evidence_id": "activity_2388",
+     "kind": "activity"
+    },
+    {
+     "state": "ACTIVE",
+     "raw_state": "ACTIVE",
+     "observed_at": "2026-07-13T07:13:44Z",
+     "evidence_id": "evidence_82",
+     "kind": "manifest"
+    }
+   ]
+  },
+  {
+   "system": "search_service",
+   "resource_id": "search_7472",
+   "category": "SEARCH_INDEX_ENTRY",
+   "record_type": "SEARCH_INDEX_ENTRY",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-07-13T07:24:22Z",
+   "evidence_id": "evidence_82",
+   "evidence_kind": "manifest",
+   "link_method": "identifier",
+   "identifiers": {
+    "email": "grace.reed@outlook.com"
+   },
+   "history": [
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-06-16T11:03:22Z",
+     "evidence_id": "activity_2390",
+     "kind": "activity"
+    },
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-07-13T07:24:22Z",
+     "evidence_id": "evidence_82",
+     "kind": "manifest"
+    }
+   ]
+  }
+ ],
+ "activity_claims": [
+  {
+   "activity_id": "activity_2388",
+   "event_time": "2026-06-16T10:44:52Z",
+   "event_type": "CHECK_DATA_FLOW",
+   "source_system": "deletion_worker",
+   "target_system": "integration_service",
+   "resource_id": "data_flow_2310",
+   "reported_result": "SUCCESS",
+   "details": "Connector status check confirmed that data flow data_flow_2310 remains enabled."
+  },
+  {
+   "activity_id": "activity_2390",
+   "event_time": "2026-06-16T11:03:22Z",
+   "event_type": "DELETE_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "search_service",
+   "resource_id": "search_7472",
+   "reported_result": "FAILED",
+   "details": "Deletion worker received the final result for search_7472 from search_service."
+  }
+ ],
+ "rules": [
+  {
+   "rule_id": "rule_03",
+   "data_category": "SEARCH_INDEX_ENTRY",
+   "condition": "Always",
+   "required_action": "DELETE"
+  }
+ ],
+ "evidence_batch": {
+  "evidence_ids": [
+   "activity_2388",
+   "activity_2390",
+   "evidence_82"
+  ],
+  "co_subjects": [
+   "user_191",
+   "user_192",
+   "user_193",
+   "user_194",
+   "user_195",
+   "user_196",
+   "user_197",
+   "user_199",
+   "user_200"
+  ],
+  "unattributed_resources": {
+   "evidence_82": [
+    "analytics_5166",
+    "analytics_3454",
+    "analytics_8037",
+    "analytics_349"
+   ]
+  }
+ },
+ "excluded_after_audit": [],
+ "draft": {
+  "deletion_status": "INCOMPLETE",
+  "steps_json": [
+   {
+    "step_no": 1,
+    "phase": "FINDING",
+    "system_id": "search_service",
+    "resource_id": "search_7472",
+    "operation": "REPORT_REMAINING_RECORD",
+    "state": "PRESENT",
+    "evidence_id": "evidence_82"
+   },
+   {
+    "step_no": 2,
+    "phase": "FINDING",
+    "system_id": "integration_service",
+    "resource_id": "data_flow_2310",
+    "operation": "REPORT_ACTIVE_DATA_FLOW",
+    "state": "ACTIVE",
+    "evidence_id": "evidence_82"
+   },
+   {
+    "step_no": 3,
+    "phase": "REMEDIATION",
+    "system_id": "integration_service",
+    "resource_id": "data_flow_2310",
+    "operation": "DISABLE_DATA_FLOW",
+    "state": "DISABLED",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 4,
+    "phase": "REMEDIATION",
+    "system_id": "search_service",
+    "resource_id": "search_7472",
+    "operation": "DELETE_RECORD",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 5,
+    "phase": "VERIFICATION",
+    "system_id": "search_service",
+    "resource_id": "search_7472",
+    "operation": "VERIFY_RECORD_ABSENT",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 6,
+    "phase": "VERIFICATION",
+    "system_id": "integration_service",
+    "resource_id": "data_flow_2310",
+    "operation": "VERIFY_DATA_FLOW_DISABLED",
+    "state": "DISABLED",
+    "evidence_id": ""
+   }
+  ]
+ }
+}

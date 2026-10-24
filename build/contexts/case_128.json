@@ -1,0 +1,154 @@
+{
+ "case": {
+  "case_id": "case_128",
+  "audit_at": "2026-08-17T10:00:00Z",
+  "requested_at": "2026-08-01T10:00:00Z",
+  "reported_status": "COMPLETE",
+  "reported_at": "2026-08-02T10:00:00Z",
+  "email_supplied": "adwoa.frimpong@outlook.com",
+  "request_text": "Please begin the deletion process for the account using this email address. Please follow the applicable retention and deletion requirements for the account. Please let me know once the request has been reviewed."
+ },
+ "intent": {
+  "is_deletion": true,
+  "label": "deletion",
+  "matched_terms": [
+   "delet"
+  ],
+  "matched_negations": [],
+  "non_deletion_action": ""
+ },
+ "identity": {
+  "user_id": "user_126",
+  "email_supplied": "adwoa.frimpong@outlook.com",
+  "email_kind": "current",
+  "matched_audit_ids": [],
+  "name": "Adwoa Frimpong",
+  "current": {
+   "user_id": "user_126",
+   "name": "Adwoa Frimpong",
+   "email": "adwoa.frimpong@outlook.com",
+   "phone": "+233 24 447 4725",
+   "email_hash": "8d1682a4a7aecdae22601d8605461458f9140c66d2a8e581ca5d64331daf5a33"
+  },
+  "historical": {}
+ },
+ "state_at_audit": [
+  {
+   "system": "integration_service",
+   "resource_id": "data_flow_5550",
+   "category": "DATA_FLOW",
+   "record_type": "DATA_FLOW",
+   "state": "ACTIVE",
+   "raw_state": "ACTIVE",
+   "observed_at": "2026-08-17T08:58:32Z",
+   "evidence_id": "evidence_87",
+   "evidence_kind": "manifest",
+   "link_method": "identifier",
+   "identifiers": {
+    "customer_email": "adwoa.frimpong@outlook.com"
+   },
+   "history": [
+    {
+     "state": "ACTIVE",
+     "raw_state": "ACTIVE",
+     "observed_at": "2026-08-02T10:46:24Z",
+     "evidence_id": "activity_3064",
+     "kind": "activity"
+    },
+    {
+     "state": "ACTIVE",
+     "raw_state": "ACTIVE",
+     "observed_at": "2026-08-17T08:58:32Z",
+     "evidence_id": "evidence_87",
+     "kind": "manifest"
+    }
+   ]
+  }
+ ],
+ "activity_claims": [
+  {
+   "activity_id": "activity_3064",
+   "event_time": "2026-08-02T10:46:24Z",
+   "event_type": "CHECK_DATA_FLOW",
+   "source_system": "deletion_worker",
+   "target_system": "integration_service",
+   "resource_id": "data_flow_5550",
+   "reported_result": "SUCCESS",
+   "details": "Connector status check confirmed that data flow data_flow_5550 remains enabled."
+  }
+ ],
+ "rules": [],
+ "evidence_batch": {
+  "evidence_ids": [
+   "activity_3064",
+   "evidence_87"
+  ],
+  "co_subjects": [
+   "user_121",
+   "user_122",
+   "user_123",
+   "user_124",
+   "user_125",
+   "user_127",
+   "user_128",
+   "user_129",
+   "user_130"
+  ],
+  "unattributed_resources": {
+   "evidence_87": [
+    "analytics_1402",
+    "analytics_7150"
+   ]
+  }
+ },
+ "excluded_after_audit": [
+  {
+   "evidence_id": "evidence_12",
+   "system": "integration_service",
+   "resource_id": "data_flow_5550",
+   "state": "ACTIVE",
+   "captured_at": "2026-08-19T10:00:00Z",
+   "observed_at": "2026-08-17T10:00:00Z"
+  },
+  {
+   "evidence_id": "evidence_12",
+   "system": "security_service",
+   "resource_id": "audit_record_4249",
+   "state": "PRESENT",
+   "captured_at": "2026-08-19T10:00:00Z",
+   "observed_at": "2026-08-17T10:00:00Z"
+  }
+ ],
+ "draft": {
+  "deletion_status": "INCOMPLETE",
+  "steps_json": [
+   {
+    "step_no": 1,
+    "phase": "FINDING",
+    "system_id": "integration_service",
+    "resource_id": "data_flow_5550",
+    "operation": "REPORT_ACTIVE_DATA_FLOW",
+    "state": "ACTIVE",
+    "evidence_id": "evidence_87"
+   },
+   {
+    "step_no": 2,
+    "phase": "REMEDIATION",
+    "system_id": "integration_service",
+    "resource_id": "data_flow_5550",
+    "operation": "DISABLE_DATA_FLOW",
+    "state": "DISABLED",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 3,
+    "phase": "VERIFICATION",
+    "system_id": "integration_service",
+    "resource_id": "data_flow_5550",
+    "operation": "VERIFY_DATA_FLOW_DISABLED",
+    "state": "DISABLED",
+    "evidence_id": ""
+   }
+  ]
+ }
+}

@@ -1,0 +1,234 @@
+{
+ "case": {
+  "case_id": "case_519",
+  "audit_at": "2026-02-03T06:00:00Z",
+  "requested_at": "2026-01-07T06:00:00Z",
+  "reported_status": "PARTIALLY_COMPLETE",
+  "reported_at": "2026-01-09T06:00:00Z",
+  "email_supplied": "s.dlamini52@gmail.com",
+  "request_text": "Please permanently delete the account associated with this email address. Please apply the request across the systems covered by your deletion policy. I would appreciate confirmation of the final outcome."
+ },
+ "intent": {
+  "is_deletion": true,
+  "label": "deletion",
+  "matched_terms": [
+   "delet"
+  ],
+  "matched_negations": [],
+  "non_deletion_action": ""
+ },
+ "identity": {
+  "user_id": "user_517",
+  "email_supplied": "s.dlamini52@gmail.com",
+  "email_kind": "current",
+  "matched_audit_ids": [],
+  "name": "Sibusiso Dlamini",
+  "current": {
+   "user_id": "user_517",
+   "name": "Sibusiso Dlamini",
+   "email": "s.dlamini52@gmail.com",
+   "phone": "+27 72 714 5630",
+   "email_hash": "4d32484f68adbb3443f8c2569ad25b2e15df6587c11cb4f5edffb1ca427d2b6b"
+  },
+  "historical": {}
+ },
+ "state_at_audit": [
+  {
+   "system": "account_service",
+   "resource_id": "account_1506",
+   "category": "USER_PROFILE",
+   "record_type": "USER_PROFILE",
+   "state": "ABSENT",
+   "raw_state": "ABSENT",
+   "observed_at": "2026-02-03T05:57:13Z",
+   "evidence_id": "evidence_48",
+   "evidence_kind": "manifest",
+   "link_method": "link_key",
+   "identifiers": {},
+   "history": [
+    {
+     "state": "UNCERTAIN",
+     "raw_state": "UNCERTAIN",
+     "observed_at": "2026-01-09T05:01:59Z",
+     "evidence_id": "activity_46",
+     "kind": "activity"
+    },
+    {
+     "state": "ABSENT",
+     "raw_state": "ABSENT",
+     "observed_at": "2026-02-03T05:57:13Z",
+     "evidence_id": "evidence_48",
+     "kind": "manifest"
+    }
+   ]
+  },
+  {
+   "system": "backup_service",
+   "resource_id": "backup_8264",
+   "category": "BACKUP_ARCHIVE",
+   "record_type": "BACKUP_ARCHIVE",
+   "state": "ACTIVE",
+   "raw_state": "ACTIVE",
+   "observed_at": "2026-02-03T05:58:20Z",
+   "evidence_id": "evidence_48",
+   "evidence_kind": "manifest",
+   "link_method": "link_key",
+   "identifiers": {},
+   "history": [
+    {
+     "state": "ACTIVE",
+     "raw_state": "ACTIVE",
+     "observed_at": "2026-01-09T06:46:51Z",
+     "evidence_id": "activity_49",
+     "kind": "activity"
+    },
+    {
+     "state": "ACTIVE",
+     "raw_state": "ACTIVE",
+     "observed_at": "2026-02-03T05:58:20Z",
+     "evidence_id": "evidence_48",
+     "kind": "manifest"
+    }
+   ]
+  },
+  {
+   "system": "security_service",
+   "resource_id": "audit_record_4027",
+   "category": "SECURITY_AUDIT_LOG",
+   "record_type": "SECURITY_AUDIT_LOG",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-02-03T05:51:30Z",
+   "evidence_id": "evidence_48",
+   "evidence_kind": "manifest",
+   "link_method": "link_key",
+   "identifiers": {},
+   "history": [
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-02-03T05:51:30Z",
+     "evidence_id": "evidence_48",
+     "kind": "manifest"
+    }
+   ]
+  }
+ ],
+ "activity_claims": [
+  {
+   "activity_id": "activity_46",
+   "event_time": "2026-01-09T05:01:59Z",
+   "event_type": "DELETE_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "account_service",
+   "resource_id": "account_1506",
+   "reported_result": "PARTIAL",
+   "details": "Deletion worker submitted primary profile account_1506 to account_service."
+  },
+  {
+   "activity_id": "activity_49",
+   "event_time": "2026-01-09T06:46:51Z",
+   "event_type": "CHECK_RESTORE_ACCESS",
+   "source_system": "deletion_worker",
+   "target_system": "backup_service",
+   "resource_id": "backup_8264",
+   "reported_result": "SUCCESS",
+   "details": "Restore-access check confirmed that archive backup_8264 can still be restored."
+  }
+ ],
+ "rules": [
+  {
+   "rule_id": "rule_01",
+   "data_category": "USER_PROFILE",
+   "condition": "Always",
+   "required_action": "DELETE"
+  },
+  {
+   "rule_id": "rule_12",
+   "data_category": "SECURITY_AUDIT_LOG",
+   "condition": "Record is within the supplied retention period",
+   "required_action": "RETAIN"
+  },
+  {
+   "rule_id": "rule_14",
+   "data_category": "BACKUP_ARCHIVE",
+   "condition": "Restore access can be blocked",
+   "required_action": "RETAIN"
+  }
+ ],
+ "evidence_batch": {
+  "evidence_ids": [
+   "activity_46",
+   "activity_49",
+   "evidence_48"
+  ],
+  "co_subjects": [
+   "user_511",
+   "user_512",
+   "user_513",
+   "user_514",
+   "user_515",
+   "user_516",
+   "user_518",
+   "user_519",
+   "user_520"
+  ],
+  "unattributed_resources": {
+   "evidence_48": [
+    "analytics_4804",
+    "analytics_7277"
+   ]
+  }
+ },
+ "excluded_after_audit": [],
+ "draft": {
+  "deletion_status": "INCOMPLETE",
+  "steps_json": [
+   {
+    "step_no": 1,
+    "phase": "FINDING",
+    "system_id": "backup_service",
+    "resource_id": "backup_8264",
+    "operation": "REPORT_RESTORE_RISK",
+    "state": "ACTIVE",
+    "evidence_id": "evidence_48"
+   },
+   {
+    "step_no": 2,
+    "phase": "REMEDIATION",
+    "system_id": "backup_service",
+    "resource_id": "backup_8264",
+    "operation": "BLOCK_RESTORE",
+    "state": "BLOCKED",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 3,
+    "phase": "VERIFICATION",
+    "system_id": "account_service",
+    "resource_id": "account_1506",
+    "operation": "VERIFY_RECORD_ABSENT",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 4,
+    "phase": "VERIFICATION",
+    "system_id": "security_service",
+    "resource_id": "audit_record_4027",
+    "operation": "VERIFY_RECORD_PRESENT",
+    "state": "PRESENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 5,
+    "phase": "VERIFICATION",
+    "system_id": "backup_service",
+    "resource_id": "backup_8264",
+    "operation": "VERIFY_RESTORE_BLOCKED",
+    "state": "BLOCKED",
+    "evidence_id": ""
+   }
+  ]
+ }
+}

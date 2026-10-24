@@ -1,0 +1,107 @@
+{
+ "case": {
+  "case_id": "case_244",
+  "audit_at": "2026-06-18T12:00:00Z",
+  "requested_at": "2026-06-06T12:00:00Z",
+  "reported_status": "COMPLETE",
+  "reported_at": "2026-06-09T12:00:00Z",
+  "email_supplied": "ogunleye.obinna@gmail.com",
+  "request_text": "I am requesting deletion of the account registered to this email address. Please ensure the request is applied to the relevant account records. Please contact me if you need information to verify the request."
+ },
+ "intent": {
+  "is_deletion": true,
+  "label": "deletion",
+  "matched_terms": [
+   "delet"
+  ],
+  "matched_negations": [],
+  "non_deletion_action": ""
+ },
+ "identity": {
+  "user_id": "user_242",
+  "email_supplied": "ogunleye.obinna@gmail.com",
+  "email_kind": "current",
+  "matched_audit_ids": [],
+  "name": "Obinna Ogunleye",
+  "current": {
+   "user_id": "user_242",
+   "name": "Obinna Ogunleye",
+   "email": "ogunleye.obinna@gmail.com",
+   "phone": "+234 803 182 7611",
+   "email_hash": "f7fc10a9d4337ade5b8f975f2a5b4ebf678efa746ee7966593662f10ad59795a"
+  },
+  "historical": {}
+ },
+ "state_at_audit": [
+  {
+   "system": "security_service",
+   "resource_id": "audit_record_9314",
+   "category": "SECURITY_AUDIT_LOG",
+   "record_type": "SECURITY_AUDIT_LOG",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-06-18T09:53:41Z",
+   "evidence_id": "evidence_78",
+   "evidence_kind": "manifest",
+   "link_method": "explicit_ref",
+   "identifiers": {
+    "subject_reference": "user_242"
+   },
+   "history": [
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-06-18T09:53:41Z",
+     "evidence_id": "evidence_78",
+     "kind": "manifest"
+    }
+   ]
+  }
+ ],
+ "activity_claims": [],
+ "rules": [
+  {
+   "rule_id": "rule_12",
+   "data_category": "SECURITY_AUDIT_LOG",
+   "condition": "Record is within the supplied retention period",
+   "required_action": "RETAIN"
+  }
+ ],
+ "evidence_batch": {
+  "evidence_ids": [
+   "evidence_78"
+  ],
+  "co_subjects": [
+   "user_241",
+   "user_243",
+   "user_244",
+   "user_245",
+   "user_246",
+   "user_247",
+   "user_248",
+   "user_249",
+   "user_250"
+  ],
+  "unattributed_resources": {
+   "evidence_78": [
+    "analytics_5891",
+    "analytics_9166"
+   ]
+  }
+ },
+ "excluded_after_audit": [],
+ "draft": {
+  "deletion_status": "COMPLETE",
+  "steps_json": [
+   {
+    "step_no": 1,
+    "phase": "VERIFICATION",
+    "system_id": "security_service",
+    "resource_id": "audit_record_9314",
+    "operation": "VERIFY_RECORD_PRESENT",
+    "state": "PRESENT",
+    "evidence_id": "evidence_78"
+   }
+  ]
+ }
+}

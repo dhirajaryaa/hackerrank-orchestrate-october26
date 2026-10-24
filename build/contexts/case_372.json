@@ -1,0 +1,238 @@
+{
+ "case": {
+  "case_id": "case_372",
+  "audit_at": "2026-04-19T07:00:00Z",
+  "requested_at": "2026-03-30T07:00:00Z",
+  "reported_status": "COMPLETE",
+  "reported_at": "2026-04-01T07:00:00Z",
+  "email_supplied": "ppetrescu4759@fastmail.com",
+  "request_text": "Please close my account and process the associated personal-data deletion. Please handle any copies that fall within the scope of the deletion request. Let me know when the request has been completed."
+ },
+ "intent": {
+  "is_deletion": true,
+  "label": "deletion",
+  "matched_terms": [
+   "close my account",
+   "delet"
+  ],
+  "matched_negations": [],
+  "non_deletion_action": ""
+ },
+ "identity": {
+  "user_id": "user_370",
+  "email_supplied": "ppetrescu4759@fastmail.com",
+  "email_kind": "current",
+  "matched_audit_ids": [],
+  "name": "Pavel Petrescu",
+  "current": {
+   "user_id": "user_370",
+   "name": "Pavel Petrescu",
+   "email": "ppetrescu4759@fastmail.com",
+   "phone": "+48 783 608 913",
+   "email_hash": "a1370ad33b64a6f71affa2dfd2af3a52f036fe182a940fb0f0aae351ab5e62cc"
+  },
+  "historical": {
+   "phone": [
+    "+48 737 061 639"
+   ]
+  }
+ },
+ "state_at_audit": [
+  {
+   "system": "account_service",
+   "resource_id": "account_2062",
+   "category": "USER_PROFILE",
+   "record_type": "USER_PROFILE",
+   "state": "ABSENT",
+   "raw_state": "ABSENT",
+   "observed_at": "2026-04-19T06:54:04Z",
+   "evidence_id": "evidence_34",
+   "evidence_kind": "manifest",
+   "link_method": "link_key",
+   "identifiers": {},
+   "history": [
+    {
+     "state": "ABSENT",
+     "raw_state": "ABSENT",
+     "observed_at": "2026-04-01T06:06:12Z",
+     "evidence_id": "activity_1234",
+     "kind": "activity"
+    },
+    {
+     "state": "ABSENT",
+     "raw_state": "ABSENT",
+     "observed_at": "2026-04-19T06:54:04Z",
+     "evidence_id": "evidence_34",
+     "kind": "manifest"
+    }
+   ]
+  },
+  {
+   "system": "export_service",
+   "resource_id": "export_5081",
+   "category": "USER_EXPORT",
+   "record_type": "USER_EXPORT",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-04-19T06:55:49Z",
+   "evidence_id": "evidence_34",
+   "evidence_kind": "manifest",
+   "link_method": "link_key",
+   "identifiers": {},
+   "history": [
+    {
+     "state": "UNCERTAIN",
+     "raw_state": "UNCERTAIN",
+     "observed_at": "2026-04-01T07:52:04Z",
+     "evidence_id": "activity_1239",
+     "kind": "activity"
+    },
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-04-19T06:55:49Z",
+     "evidence_id": "evidence_34",
+     "kind": "manifest"
+    }
+   ]
+  },
+  {
+   "system": "security_service",
+   "resource_id": "audit_record_5705",
+   "category": "SECURITY_AUDIT_LOG",
+   "record_type": "SECURITY_AUDIT_LOG",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-04-19T06:54:12Z",
+   "evidence_id": "evidence_34",
+   "evidence_kind": "manifest",
+   "link_method": "link_key",
+   "identifiers": {},
+   "history": [
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-04-19T06:54:12Z",
+     "evidence_id": "evidence_34",
+     "kind": "manifest"
+    }
+   ]
+  }
+ ],
+ "activity_claims": [
+  {
+   "activity_id": "activity_1234",
+   "event_time": "2026-04-01T06:06:12Z",
+   "event_type": "DELETE_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "account_service",
+   "resource_id": "account_2062",
+   "reported_result": "SUCCESS",
+   "details": "Deletion worker submitted primary profile account_2062 to account_service."
+  },
+  {
+   "activity_id": "activity_1239",
+   "event_time": "2026-04-01T07:52:04Z",
+   "event_type": "DELETE_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "export_service",
+   "resource_id": "export_5081",
+   "reported_result": "PARTIAL",
+   "details": "Deletion worker received the final result for export_5081 from export_service."
+  }
+ ],
+ "rules": [
+  {
+   "rule_id": "rule_01",
+   "data_category": "USER_PROFILE",
+   "condition": "Always",
+   "required_action": "DELETE"
+  },
+  {
+   "rule_id": "rule_09",
+   "data_category": "USER_EXPORT",
+   "condition": "Always",
+   "required_action": "DELETE"
+  },
+  {
+   "rule_id": "rule_12",
+   "data_category": "SECURITY_AUDIT_LOG",
+   "condition": "Record is within the supplied retention period",
+   "required_action": "RETAIN"
+  }
+ ],
+ "evidence_batch": {
+  "evidence_ids": [
+   "activity_1234",
+   "activity_1239",
+   "evidence_34"
+  ],
+  "co_subjects": [
+   "user_361",
+   "user_362",
+   "user_363",
+   "user_364",
+   "user_365",
+   "user_366",
+   "user_367",
+   "user_368",
+   "user_369"
+  ],
+  "unattributed_resources": {
+   "evidence_34": [
+    "analytics_2807"
+   ]
+  }
+ },
+ "excluded_after_audit": [],
+ "draft": {
+  "deletion_status": "INCOMPLETE",
+  "steps_json": [
+   {
+    "step_no": 1,
+    "phase": "FINDING",
+    "system_id": "export_service",
+    "resource_id": "export_5081",
+    "operation": "REPORT_REMAINING_RECORD",
+    "state": "PRESENT",
+    "evidence_id": "evidence_34"
+   },
+   {
+    "step_no": 2,
+    "phase": "REMEDIATION",
+    "system_id": "export_service",
+    "resource_id": "export_5081",
+    "operation": "DELETE_RECORD",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 3,
+    "phase": "VERIFICATION",
+    "system_id": "account_service",
+    "resource_id": "account_2062",
+    "operation": "VERIFY_RECORD_ABSENT",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 4,
+    "phase": "VERIFICATION",
+    "system_id": "export_service",
+    "resource_id": "export_5081",
+    "operation": "VERIFY_RECORD_ABSENT",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 5,
+    "phase": "VERIFICATION",
+    "system_id": "security_service",
+    "resource_id": "audit_record_5705",
+    "operation": "VERIFY_RECORD_PRESENT",
+    "state": "PRESENT",
+    "evidence_id": ""
+   }
+  ]
+ }
+}

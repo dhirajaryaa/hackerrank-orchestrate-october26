@@ -1,0 +1,224 @@
+{
+ "case": {
+  "case_id": "case_102",
+  "audit_at": "2026-09-01T06:00:00Z",
+  "requested_at": "2026-08-22T06:00:00Z",
+  "reported_status": "COMPLETE",
+  "reported_at": "2026-08-24T06:00:00Z",
+  "email_supplied": "eaddo6629@gmail.com",
+  "request_text": "Please erase the account linked to this email address. Please follow the applicable retention and deletion requirements for the account. A short confirmation when the process is complete is sufficient."
+ },
+ "intent": {
+  "is_deletion": true,
+  "label": "deletion",
+  "matched_terms": [
+   "delet",
+   "eras"
+  ],
+  "matched_negations": [],
+  "non_deletion_action": ""
+ },
+ "identity": {
+  "user_id": "user_100",
+  "email_supplied": "eaddo6629@gmail.com",
+  "email_kind": "current",
+  "matched_audit_ids": [],
+  "name": "Efua Addo",
+  "current": {
+   "user_id": "user_100",
+   "name": "Efua Addo",
+   "email": "eaddo6629@gmail.com",
+   "phone": "+233 24 660 3074",
+   "email_hash": "025085603b82c32e7febf86ae064516d8af0f2c9bf1df1200bd611bec5843c98"
+  },
+  "historical": {
+   "phone": [
+    "+233 24 034 4993"
+   ]
+  }
+ },
+ "state_at_audit": [
+  {
+   "system": "search_service",
+   "resource_id": "search_4586",
+   "category": "SEARCH_INDEX_ENTRY",
+   "record_type": "SEARCH_INDEX_ENTRY",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-09-01T05:33:16Z",
+   "evidence_id": "evidence_89",
+   "evidence_kind": "manifest",
+   "link_method": "identifier",
+   "identifiers": {
+    "email": "eaddo6629@gmail.com"
+   },
+   "history": [
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-08-24T07:07:29Z",
+     "evidence_id": "activity_3418",
+     "kind": "activity"
+    },
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-09-01T05:33:16Z",
+     "evidence_id": "evidence_89",
+     "kind": "manifest"
+    }
+   ]
+  },
+  {
+   "system": "support_platform",
+   "resource_id": "support_345",
+   "category": "SUPPORT_MESSAGE",
+   "record_type": "SUPPORT_MESSAGE",
+   "state": "IDENTIFIABLE",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-09-01T03:15:20Z",
+   "evidence_id": "evidence_89",
+   "evidence_kind": "manifest",
+   "link_method": "identifier",
+   "identifiers": {
+    "requester_email": "eaddo6629@gmail.com"
+   },
+   "history": [
+    {
+     "state": "REDACTED",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-08-24T06:48:59Z",
+     "evidence_id": "activity_3417",
+     "kind": "activity"
+    },
+    {
+     "state": "IDENTIFIABLE",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-09-01T03:15:20Z",
+     "evidence_id": "evidence_89",
+     "kind": "manifest"
+    }
+   ]
+  }
+ ],
+ "activity_claims": [
+  {
+   "activity_id": "activity_3417",
+   "event_time": "2026-08-24T06:48:59Z",
+   "event_type": "REDACT_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "support_platform",
+   "resource_id": "support_345",
+   "reported_result": "FAILED",
+   "details": "Deletion worker received the final result for support_345 from support_platform."
+  },
+  {
+   "activity_id": "activity_3418",
+   "event_time": "2026-08-24T07:07:29Z",
+   "event_type": "DELETE_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "search_service",
+   "resource_id": "search_4586",
+   "reported_result": "FAILED",
+   "details": "Deletion worker received the final result for search_4586 from search_service."
+  }
+ ],
+ "rules": [
+  {
+   "rule_id": "rule_03",
+   "data_category": "SEARCH_INDEX_ENTRY",
+   "condition": "Always",
+   "required_action": "DELETE"
+  },
+  {
+   "rule_id": "rule_05",
+   "data_category": "SUPPORT_MESSAGE",
+   "condition": "Conversation contains shared customer, agent, or order context that must be retained",
+   "required_action": "REDACT"
+  }
+ ],
+ "evidence_batch": {
+  "evidence_ids": [
+   "activity_3417",
+   "activity_3418",
+   "evidence_89"
+  ],
+  "co_subjects": [
+   "user_91",
+   "user_92",
+   "user_93",
+   "user_94",
+   "user_95",
+   "user_96",
+   "user_97",
+   "user_98",
+   "user_99"
+  ],
+  "unattributed_resources": {
+   "evidence_89": [
+    "account_6813",
+    "analytics_9103"
+   ]
+  }
+ },
+ "excluded_after_audit": [],
+ "draft": {
+  "deletion_status": "INCOMPLETE",
+  "steps_json": [
+   {
+    "step_no": 1,
+    "phase": "FINDING",
+    "system_id": "search_service",
+    "resource_id": "search_4586",
+    "operation": "REPORT_REMAINING_RECORD",
+    "state": "PRESENT",
+    "evidence_id": "evidence_89"
+   },
+   {
+    "step_no": 2,
+    "phase": "FINDING",
+    "system_id": "support_platform",
+    "resource_id": "support_345",
+    "operation": "REPORT_EXPOSED_PII",
+    "state": "PRESENT",
+    "evidence_id": "evidence_89"
+   },
+   {
+    "step_no": 3,
+    "phase": "REMEDIATION",
+    "system_id": "search_service",
+    "resource_id": "search_4586",
+    "operation": "DELETE_RECORD",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 4,
+    "phase": "REMEDIATION",
+    "system_id": "support_platform",
+    "resource_id": "support_345",
+    "operation": "REDACT_RECORD",
+    "state": "REDACTED",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 5,
+    "phase": "VERIFICATION",
+    "system_id": "search_service",
+    "resource_id": "search_4586",
+    "operation": "VERIFY_RECORD_ABSENT",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 6,
+    "phase": "VERIFICATION",
+    "system_id": "support_platform",
+    "resource_id": "support_345",
+    "operation": "VERIFY_RECORD_REDACTED",
+    "state": "REDACTED",
+    "evidence_id": ""
+   }
+  ]
+ }
+}

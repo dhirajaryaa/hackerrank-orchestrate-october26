@@ -1,0 +1,125 @@
+{
+ "case": {
+  "case_id": "case_10",
+  "audit_at": "2026-09-18T12:25:00Z",
+  "requested_at": "2026-08-31T15:42:00Z",
+  "reported_status": "COMPLETE",
+  "reported_at": "2026-09-02T10:08:00Z",
+  "email_supplied": "nadia.ionescu@yahoo.com",
+  "request_text": "I used this Yahoo address before changing the email on my account. Please remove records linked to both the old and current addresses."
+ },
+ "intent": {
+  "is_deletion": true,
+  "label": "deletion",
+  "matched_terms": [
+   "remov"
+  ],
+  "matched_negations": [],
+  "non_deletion_action": ""
+ },
+ "identity": {
+  "user_id": "user_10",
+  "email_supplied": "nadia.ionescu@yahoo.com",
+  "email_kind": "historical",
+  "matched_audit_ids": [
+   "audit_121"
+  ],
+  "name": "Nadia Petrescu",
+  "current": {
+   "user_id": "user_10",
+   "name": "Nadia Petrescu",
+   "email": "n.petrescu@yahoo.com",
+   "phone": "+40 723 481 638",
+   "email_hash": "6385b5b5e70720c197abedd379f714bb84330a9c7bc86bbb4bfbc4405bdba326"
+  },
+  "historical": {
+   "email": [
+    "nadia.ionescu@yahoo.com",
+    "nadia.petrescu@yahoo.com"
+   ],
+   "email_hash": [
+    "708ef5640eec7c7aa89a6dc39793c5df6f9bca6968397f46a8f44ff1bdde75f5",
+    "e407f542e6f638d23b7efa7c74bacfb3ee6c3991ca6625ad36c8dcb7dffa144a"
+   ]
+  }
+ },
+ "state_at_audit": [
+  {
+   "system": "support_platform",
+   "resource_id": "support_002",
+   "category": "SUPPORT_MESSAGE",
+   "record_type": "SUPPORT_MESSAGE",
+   "state": "REDACTED",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-09-17T22:00:05Z",
+   "evidence_id": "evidence_61",
+   "evidence_kind": "manifest",
+   "link_method": "link_key",
+   "identifiers": {},
+   "history": [
+    {
+     "state": "ABSENT",
+     "raw_state": "ABSENT",
+     "observed_at": "2026-09-02T10:09:01Z",
+     "evidence_id": "activity_3596",
+     "kind": "activity"
+    },
+    {
+     "state": "REDACTED",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-09-17T22:00:05Z",
+     "evidence_id": "evidence_61",
+     "kind": "manifest"
+    }
+   ]
+  }
+ ],
+ "activity_claims": [
+  {
+   "activity_id": "activity_3596",
+   "event_time": "2026-09-02T10:09:01Z",
+   "event_type": "DELETE_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "support_platform",
+   "resource_id": "support_002",
+   "reported_result": "SUCCESS",
+   "details": "Deletion worker reported the requested operation as completed. Target resource: support_002."
+  }
+ ],
+ "rules": [
+  {
+   "rule_id": "rule_05",
+   "data_category": "SUPPORT_MESSAGE",
+   "condition": "Conversation contains shared customer, agent, or order context that must be retained",
+   "required_action": "REDACT"
+  }
+ ],
+ "evidence_batch": {
+  "evidence_ids": [
+   "activity_3596",
+   "evidence_61"
+  ],
+  "co_subjects": [],
+  "unattributed_resources": {
+   "evidence_61": [
+    "support_4104",
+    "support_5914"
+   ]
+  }
+ },
+ "excluded_after_audit": [],
+ "draft": {
+  "deletion_status": "COMPLETE",
+  "steps_json": [
+   {
+    "step_no": 1,
+    "phase": "VERIFICATION",
+    "system_id": "support_platform",
+    "resource_id": "support_002",
+    "operation": "VERIFY_RECORD_REDACTED",
+    "state": "REDACTED",
+    "evidence_id": "evidence_61"
+   }
+  ]
+ }
+}

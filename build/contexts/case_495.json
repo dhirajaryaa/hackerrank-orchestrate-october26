@@ -1,0 +1,145 @@
+{
+ "case": {
+  "case_id": "case_495",
+  "audit_at": "2026-02-13T08:00:00Z",
+  "requested_at": "2026-01-21T08:00:00Z",
+  "reported_status": "NOT_STARTED",
+  "reported_at": "2026-01-23T08:00:00Z",
+  "email_supplied": "H.LIM96@GMAIL.COM",
+  "request_text": "이 이메일 주소에 연결된 계정의 영구 삭제를 요청합니다. 개인정보 처리 절차에 따라 현재 및 이전 식별자를 검토해 주세요. 검토가 완료되면 결과를 확인해 주세요."
+ },
+ "intent": {
+  "is_deletion": true,
+  "label": "deletion",
+  "matched_terms": [
+   "삭제"
+  ],
+  "matched_negations": [],
+  "non_deletion_action": ""
+ },
+ "identity": {
+  "user_id": "user_493",
+  "email_supplied": "H.LIM96@GMAIL.COM",
+  "email_kind": "current",
+  "matched_audit_ids": [],
+  "name": "Ha-eun Lim",
+  "current": {
+   "user_id": "user_493",
+   "name": "Ha-eun Lim",
+   "email": "h.lim96@gmail.com",
+   "phone": "+82 10 4492 4143",
+   "email_hash": "44c2059965c4c11d1d59b81a7f852403810b9835a1140caa3586488f02ebc193"
+  },
+  "historical": {}
+ },
+ "state_at_audit": [
+  {
+   "system": "backup_service",
+   "resource_id": "backup_5061",
+   "category": "BACKUP_ARCHIVE",
+   "record_type": "BACKUP_ARCHIVE",
+   "state": "ACTIVE",
+   "raw_state": "ACTIVE",
+   "observed_at": "2026-02-13T05:21:17Z",
+   "evidence_id": "evidence_63",
+   "evidence_kind": "manifest",
+   "link_method": "identifier",
+   "identifiers": {
+    "customer_email": "H.LIM96@GMAIL.COM"
+   },
+   "history": [
+    {
+     "state": "ACTIVE",
+     "raw_state": "ACTIVE",
+     "observed_at": "2026-01-23T08:39:28Z",
+     "evidence_id": "activity_274",
+     "kind": "activity"
+    },
+    {
+     "state": "ACTIVE",
+     "raw_state": "ACTIVE",
+     "observed_at": "2026-02-13T05:21:17Z",
+     "evidence_id": "evidence_63",
+     "kind": "manifest"
+    }
+   ]
+  }
+ ],
+ "activity_claims": [
+  {
+   "activity_id": "activity_274",
+   "event_time": "2026-01-23T08:39:28Z",
+   "event_type": "CHECK_RESTORE_ACCESS",
+   "source_system": "deletion_worker",
+   "target_system": "backup_service",
+   "resource_id": "backup_5061",
+   "reported_result": "SUCCESS",
+   "details": "Restore-access check confirmed that archive backup_5061 can still be restored."
+  }
+ ],
+ "rules": [
+  {
+   "rule_id": "rule_14",
+   "data_category": "BACKUP_ARCHIVE",
+   "condition": "Restore access can be blocked",
+   "required_action": "RETAIN"
+  }
+ ],
+ "evidence_batch": {
+  "evidence_ids": [
+   "activity_274",
+   "evidence_63"
+  ],
+  "co_subjects": [
+   "user_491",
+   "user_492",
+   "user_494",
+   "user_495",
+   "user_496",
+   "user_497",
+   "user_498",
+   "user_499",
+   "user_500"
+  ],
+  "unattributed_resources": {
+   "evidence_63": [
+    "analytics_5443",
+    "analytics_5893",
+    "analytics_6565"
+   ]
+  }
+ },
+ "excluded_after_audit": [],
+ "draft": {
+  "deletion_status": "INCOMPLETE",
+  "steps_json": [
+   {
+    "step_no": 1,
+    "phase": "FINDING",
+    "system_id": "backup_service",
+    "resource_id": "backup_5061",
+    "operation": "REPORT_RESTORE_RISK",
+    "state": "ACTIVE",
+    "evidence_id": "evidence_63"
+   },
+   {
+    "step_no": 2,
+    "phase": "REMEDIATION",
+    "system_id": "backup_service",
+    "resource_id": "backup_5061",
+    "operation": "BLOCK_RESTORE",
+    "state": "BLOCKED",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 3,
+    "phase": "VERIFICATION",
+    "system_id": "backup_service",
+    "resource_id": "backup_5061",
+    "operation": "VERIFY_RESTORE_BLOCKED",
+    "state": "BLOCKED",
+    "evidence_id": ""
+   }
+  ]
+ }
+}

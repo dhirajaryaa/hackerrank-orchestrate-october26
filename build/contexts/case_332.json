@@ -1,0 +1,244 @@
+{
+ "case": {
+  "case_id": "case_332",
+  "audit_at": "2026-05-09T11:00:00Z",
+  "requested_at": "2026-04-19T11:00:00Z",
+  "reported_status": "NOT_STARTED",
+  "reported_at": "2026-04-20T11:00:00Z",
+  "email_supplied": "astrid.andersson@outlook.com",
+  "request_text": "Please process a permanent account-deletion request for this email address. Please review the account data that is eligible for deletion or de-identification. Let me know when the request has been completed."
+ },
+ "intent": {
+  "is_deletion": true,
+  "label": "deletion",
+  "matched_terms": [
+   "delet"
+  ],
+  "matched_negations": [],
+  "non_deletion_action": ""
+ },
+ "identity": {
+  "user_id": "user_330",
+  "email_supplied": "astrid.andersson@outlook.com",
+  "email_kind": "current",
+  "matched_audit_ids": [],
+  "name": "Astrid Andersson",
+  "current": {
+   "user_id": "user_330",
+   "name": "Astrid Andersson",
+   "email": "astrid.andersson@outlook.com",
+   "phone": "+46 70 632 11 28",
+   "email_hash": "359e7f27549d2c48cb82b438ca48c0666fef92954605edb3eeae874475ea0311"
+  },
+  "historical": {
+   "phone": [
+    "+46 70 441 24 58"
+   ]
+  }
+ },
+ "state_at_audit": [
+  {
+   "system": "integration_service",
+   "resource_id": "data_flow_4392",
+   "category": "DATA_FLOW",
+   "record_type": "DATA_FLOW",
+   "state": "ACTIVE",
+   "raw_state": "ACTIVE",
+   "observed_at": "2026-05-09T10:08:40Z",
+   "evidence_id": "evidence_73",
+   "evidence_kind": "manifest",
+   "link_method": "identifier",
+   "identifiers": {
+    "customer_email": "astrid.andersson@outlook.com"
+   },
+   "history": [
+    {
+     "state": "ACTIVE",
+     "raw_state": "ACTIVE",
+     "observed_at": "2026-04-20T11:48:06Z",
+     "evidence_id": "activity_1519",
+     "kind": "activity"
+    },
+    {
+     "state": "ACTIVE",
+     "raw_state": "ACTIVE",
+     "observed_at": "2026-05-09T10:08:40Z",
+     "evidence_id": "evidence_73",
+     "kind": "manifest"
+    }
+   ]
+  },
+  {
+   "system": "search_service",
+   "resource_id": "search_049",
+   "category": "SEARCH_INDEX_ENTRY",
+   "record_type": "SEARCH_INDEX_ENTRY",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-05-09T08:30:55Z",
+   "evidence_id": "evidence_73",
+   "evidence_kind": "manifest",
+   "link_method": "identifier",
+   "identifiers": {
+    "email": "astrid.andersson@outlook.com"
+   },
+   "history": [
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-04-20T12:07:35Z",
+     "evidence_id": "activity_1520",
+     "kind": "activity"
+    },
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-05-09T08:30:55Z",
+     "evidence_id": "evidence_73",
+     "kind": "manifest"
+    }
+   ]
+  }
+ ],
+ "activity_claims": [
+  {
+   "activity_id": "activity_1519",
+   "event_time": "2026-04-20T11:48:06Z",
+   "event_type": "CHECK_DATA_FLOW",
+   "source_system": "deletion_worker",
+   "target_system": "integration_service",
+   "resource_id": "data_flow_4392",
+   "reported_result": "SUCCESS",
+   "details": "Connector status check confirmed that data flow data_flow_4392 remains enabled."
+  },
+  {
+   "activity_id": "activity_1520",
+   "event_time": "2026-04-20T12:07:35Z",
+   "event_type": "DELETE_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "search_service",
+   "resource_id": "search_049",
+   "reported_result": "FAILED",
+   "details": "Deletion worker received the final result for search_049 from search_service."
+  }
+ ],
+ "rules": [
+  {
+   "rule_id": "rule_03",
+   "data_category": "SEARCH_INDEX_ENTRY",
+   "condition": "Always",
+   "required_action": "DELETE"
+  }
+ ],
+ "evidence_batch": {
+  "evidence_ids": [
+   "activity_1519",
+   "activity_1520",
+   "evidence_73"
+  ],
+  "co_subjects": [
+   "user_321",
+   "user_322",
+   "user_323",
+   "user_324",
+   "user_325",
+   "user_326",
+   "user_327",
+   "user_328",
+   "user_329"
+  ],
+  "unattributed_resources": {
+   "evidence_73": [
+    "analytics_136",
+    "analytics_2022",
+    "analytics_9681",
+    "analytics_2072"
+   ]
+  }
+ },
+ "excluded_after_audit": [
+  {
+   "evidence_id": "evidence_31",
+   "system": "integration_service",
+   "resource_id": "data_flow_4392",
+   "state": "ACTIVE",
+   "captured_at": "2026-05-11T11:00:00Z",
+   "observed_at": "2026-05-09T11:00:00Z"
+  },
+  {
+   "evidence_id": "evidence_31",
+   "system": "search_service",
+   "resource_id": "search_049",
+   "state": "PRESENT",
+   "captured_at": "2026-05-11T11:00:00Z",
+   "observed_at": "2026-05-09T11:00:00Z"
+  },
+  {
+   "evidence_id": "evidence_31",
+   "system": "security_service",
+   "resource_id": "audit_record_8914",
+   "state": "PRESENT",
+   "captured_at": "2026-05-11T11:00:00Z",
+   "observed_at": "2026-05-09T11:00:00Z"
+  }
+ ],
+ "draft": {
+  "deletion_status": "INCOMPLETE",
+  "steps_json": [
+   {
+    "step_no": 1,
+    "phase": "FINDING",
+    "system_id": "search_service",
+    "resource_id": "search_049",
+    "operation": "REPORT_REMAINING_RECORD",
+    "state": "PRESENT",
+    "evidence_id": "evidence_73"
+   },
+   {
+    "step_no": 2,
+    "phase": "FINDING",
+    "system_id": "integration_service",
+    "resource_id": "data_flow_4392",
+    "operation": "REPORT_ACTIVE_DATA_FLOW",
+    "state": "ACTIVE",
+    "evidence_id": "evidence_73"
+   },
+   {
+    "step_no": 3,
+    "phase": "REMEDIATION",
+    "system_id": "integration_service",
+    "resource_id": "data_flow_4392",
+    "operation": "DISABLE_DATA_FLOW",
+    "state": "DISABLED",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 4,
+    "phase": "REMEDIATION",
+    "system_id": "search_service",
+    "resource_id": "search_049",
+    "operation": "DELETE_RECORD",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 5,
+    "phase": "VERIFICATION",
+    "system_id": "search_service",
+    "resource_id": "search_049",
+    "operation": "VERIFY_RECORD_ABSENT",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 6,
+    "phase": "VERIFICATION",
+    "system_id": "integration_service",
+    "resource_id": "data_flow_4392",
+    "operation": "VERIFY_DATA_FLOW_DISABLED",
+    "state": "DISABLED",
+    "evidence_id": ""
+   }
+  ]
+ }
+}

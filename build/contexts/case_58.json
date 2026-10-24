@@ -1,0 +1,120 @@
+{
+ "case": {
+  "case_id": "case_58",
+  "audit_at": "2026-09-21T10:00:00Z",
+  "requested_at": "2026-08-26T10:00:00Z",
+  "reported_status": "NOT_STARTED",
+  "reported_at": "2026-08-29T10:00:00Z",
+  "email_supplied": "fournier.manon@icloud.com",
+  "request_text": "I would like the account associated with this address to be erased. Please review any identifiers connected to this account as part of the request. Let me know when the request has been completed."
+ },
+ "intent": {
+  "is_deletion": true,
+  "label": "deletion",
+  "matched_terms": [
+   "eras"
+  ],
+  "matched_negations": [],
+  "non_deletion_action": ""
+ },
+ "identity": {
+  "user_id": "user_56",
+  "email_supplied": "fournier.manon@icloud.com",
+  "email_kind": "current",
+  "matched_audit_ids": [],
+  "name": "Manon Fournier",
+  "current": {
+   "user_id": "user_56",
+   "name": "Manon Fournier",
+   "email": "fournier.manon@icloud.com",
+   "phone": "+33 6 86 31 80 86",
+   "email_hash": "466e06c2cdedfbf41bfa25b09d09e02258bd74a9fa5b9e832f061250996b83a8"
+  },
+  "historical": {}
+ },
+ "state_at_audit": [
+  {
+   "system": "security_service",
+   "resource_id": "audit_record_8465",
+   "category": "SECURITY_AUDIT_LOG",
+   "record_type": "SECURITY_AUDIT_LOG",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-09-21T10:00:00Z",
+   "evidence_id": "evidence_05",
+   "evidence_kind": "manifest",
+   "link_method": "explicit_ref",
+   "identifiers": {
+    "subject_reference": "user_56"
+   },
+   "history": [
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-09-21T10:00:00Z",
+     "evidence_id": "evidence_05",
+     "kind": "manifest"
+    },
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-09-21T10:00:00Z",
+     "evidence_id": "evidence_05",
+     "kind": "manifest"
+    }
+   ]
+  }
+ ],
+ "activity_claims": [],
+ "rules": [
+  {
+   "rule_id": "rule_12",
+   "data_category": "SECURITY_AUDIT_LOG",
+   "condition": "Record is within the supplied retention period",
+   "required_action": "RETAIN"
+  }
+ ],
+ "evidence_batch": {
+  "evidence_ids": [
+   "evidence_05"
+  ],
+  "co_subjects": [
+   "user_51",
+   "user_52",
+   "user_53",
+   "user_54",
+   "user_55",
+   "user_57",
+   "user_58",
+   "user_59",
+   "user_60"
+  ],
+  "unattributed_resources": {
+   "evidence_05": [
+    "analytics_2572",
+    "analytics_8858",
+    "analytics_9069",
+    "data_flow_108",
+    "data_flow_1368",
+    "data_flow_373",
+    "data_flow_4218",
+    "data_flow_5080"
+   ]
+  }
+ },
+ "excluded_after_audit": [],
+ "draft": {
+  "deletion_status": "COMPLETE",
+  "steps_json": [
+   {
+    "step_no": 1,
+    "phase": "VERIFICATION",
+    "system_id": "security_service",
+    "resource_id": "audit_record_8465",
+    "operation": "VERIFY_RECORD_PRESENT",
+    "state": "PRESENT",
+    "evidence_id": "evidence_05"
+   }
+  ]
+ }
+}

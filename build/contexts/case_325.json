@@ -1,0 +1,242 @@
+{
+ "case": {
+  "case_id": "case_325",
+  "audit_at": "2026-05-09T11:00:00Z",
+  "requested_at": "2026-04-26T11:00:00Z",
+  "reported_status": "COMPLETE",
+  "reported_at": "2026-04-29T11:00:00Z",
+  "email_supplied": "aoi.i256693@zoho.com",
+  "request_text": "I would like to submit a request to delete this account and its personal data. Please ensure the request is applied to the relevant account records. Let me know when the request has been completed."
+ },
+ "intent": {
+  "is_deletion": true,
+  "label": "deletion",
+  "matched_terms": [
+   "delet"
+  ],
+  "matched_negations": [],
+  "non_deletion_action": ""
+ },
+ "identity": {
+  "user_id": "user_323",
+  "email_supplied": "aoi.i256693@zoho.com",
+  "email_kind": "historical",
+  "matched_audit_ids": [
+   "audit_154"
+  ],
+  "name": "Aoi Ito",
+  "current": {
+   "user_id": "user_323",
+   "name": "Aoi Ito",
+   "email": "aoi.i2566@zoho.com",
+   "phone": "+81 90 9494 7994",
+   "email_hash": "1e97d8d186f6fd39042fdafde3e6aebc7bb8b2464d38bc12149c9253e7ec211a"
+  },
+  "historical": {
+   "email": [
+    "aoi.i256693@zoho.com"
+   ],
+   "email_hash": [
+    "f2f036c962665bc66f0d4dbc4ca25648a786f730d480fa55c3be97d22ac0623c"
+   ]
+  }
+ },
+ "state_at_audit": [
+  {
+   "system": "integration_service",
+   "resource_id": "data_flow_9962",
+   "category": "DATA_FLOW",
+   "record_type": "DATA_FLOW",
+   "state": "ACTIVE",
+   "raw_state": "ACTIVE",
+   "observed_at": "2026-05-09T08:54:23Z",
+   "evidence_id": "evidence_73",
+   "evidence_kind": "manifest",
+   "link_method": "identifier",
+   "identifiers": {
+    "customer_email": "aoi.i256693@zoho.com"
+   },
+   "history": [
+    {
+     "state": "ACTIVE",
+     "raw_state": "ACTIVE",
+     "observed_at": "2026-05-09T08:54:23Z",
+     "evidence_id": "evidence_73",
+     "kind": "manifest"
+    }
+   ]
+  },
+  {
+   "system": "search_service",
+   "resource_id": "search_4054",
+   "category": "SEARCH_INDEX_ENTRY",
+   "record_type": "SEARCH_INDEX_ENTRY",
+   "state": "PRESENT",
+   "raw_state": "PRESENT",
+   "observed_at": "2026-05-09T10:32:52Z",
+   "evidence_id": "evidence_73",
+   "evidence_kind": "manifest",
+   "link_method": "identifier",
+   "identifiers": {
+    "email": "aoi.i256693@zoho.com"
+   },
+   "history": [
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-04-29T12:04:46Z",
+     "evidence_id": "activity_1648",
+     "kind": "activity"
+    },
+    {
+     "state": "PRESENT",
+     "raw_state": "PRESENT",
+     "observed_at": "2026-05-09T10:32:52Z",
+     "evidence_id": "evidence_73",
+     "kind": "manifest"
+    }
+   ]
+  }
+ ],
+ "activity_claims": [
+  {
+   "activity_id": "activity_1647",
+   "event_time": "2026-04-29T11:45:17Z",
+   "event_type": "SYNC_RECORD",
+   "source_system": "integration_service",
+   "target_system": "search_service",
+   "resource_id": "data_flow_9962",
+   "reported_result": "SUCCESS",
+   "details": "Active connector repopulated downstream resource search_4054."
+  },
+  {
+   "activity_id": "activity_1648",
+   "event_time": "2026-04-29T12:04:46Z",
+   "event_type": "DELETE_RECORD",
+   "source_system": "deletion_worker",
+   "target_system": "search_service",
+   "resource_id": "search_4054",
+   "reported_result": "FAILED",
+   "details": "Deletion worker received the final result for search_4054 from search_service."
+  }
+ ],
+ "rules": [
+  {
+   "rule_id": "rule_03",
+   "data_category": "SEARCH_INDEX_ENTRY",
+   "condition": "Always",
+   "required_action": "DELETE"
+  }
+ ],
+ "evidence_batch": {
+  "evidence_ids": [
+   "activity_1647",
+   "activity_1648",
+   "evidence_73"
+  ],
+  "co_subjects": [
+   "user_321",
+   "user_322",
+   "user_324",
+   "user_325",
+   "user_326",
+   "user_327",
+   "user_328",
+   "user_329",
+   "user_330"
+  ],
+  "unattributed_resources": {
+   "evidence_73": [
+    "analytics_136",
+    "analytics_2022",
+    "analytics_9681",
+    "analytics_2072"
+   ]
+  }
+ },
+ "excluded_after_audit": [
+  {
+   "evidence_id": "evidence_31",
+   "system": "integration_service",
+   "resource_id": "data_flow_9962",
+   "state": "ACTIVE",
+   "captured_at": "2026-05-11T11:00:00Z",
+   "observed_at": "2026-05-09T11:00:00Z"
+  },
+  {
+   "evidence_id": "evidence_31",
+   "system": "search_service",
+   "resource_id": "search_4054",
+   "state": "PRESENT",
+   "captured_at": "2026-05-11T11:00:00Z",
+   "observed_at": "2026-05-09T11:00:00Z"
+  },
+  {
+   "evidence_id": "evidence_31",
+   "system": "security_service",
+   "resource_id": "audit_record_2236",
+   "state": "PRESENT",
+   "captured_at": "2026-05-11T11:00:00Z",
+   "observed_at": "2026-05-09T11:00:00Z"
+  }
+ ],
+ "draft": {
+  "deletion_status": "INCOMPLETE",
+  "steps_json": [
+   {
+    "step_no": 1,
+    "phase": "FINDING",
+    "system_id": "search_service",
+    "resource_id": "search_4054",
+    "operation": "REPORT_REMAINING_RECORD",
+    "state": "PRESENT",
+    "evidence_id": "evidence_73"
+   },
+   {
+    "step_no": 2,
+    "phase": "FINDING",
+    "system_id": "integration_service",
+    "resource_id": "data_flow_9962",
+    "operation": "REPORT_ACTIVE_DATA_FLOW",
+    "state": "ACTIVE",
+    "evidence_id": "evidence_73"
+   },
+   {
+    "step_no": 3,
+    "phase": "REMEDIATION",
+    "system_id": "integration_service",
+    "resource_id": "data_flow_9962",
+    "operation": "DISABLE_DATA_FLOW",
+    "state": "DISABLED",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 4,
+    "phase": "REMEDIATION",
+    "system_id": "search_service",
+    "resource_id": "search_4054",
+    "operation": "DELETE_RECORD",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 5,
+    "phase": "VERIFICATION",
+    "system_id": "search_service",
+    "resource_id": "search_4054",
+    "operation": "VERIFY_RECORD_ABSENT",
+    "state": "ABSENT",
+    "evidence_id": ""
+   },
+   {
+    "step_no": 6,
+    "phase": "VERIFICATION",
+    "system_id": "integration_service",
+    "resource_id": "data_flow_9962",
+    "operation": "VERIFY_DATA_FLOW_DISABLED",
+    "state": "DISABLED",
+    "evidence_id": ""
+   }
+  ]
+ }
+}
