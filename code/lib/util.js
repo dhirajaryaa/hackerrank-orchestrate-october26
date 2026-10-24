@@ -128,6 +128,47 @@ function escapeRegExp(value) {
   return String(value).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
 
+function splitKv(input) {
+  const out = {};
+  const fragment = String(input || '').replace(/\\"/g, '"');
+  const pattern = /(\b[A-Za-z_][A-Za-z0-9_]*)=(?:"([^"]*)"|([^\s]+))/g;
+  let match;
+  while ((match = pattern.exec(fragment)) !== null) {
+    const key = match[1];
+    let value = match[2] !== undefined ? match[2] : match[3];
+    value = String(value ?? '').trim();
+    if (['null', 'none', ''].includes(value.toLowerCase())) value = null;
+    out[key] = value;
+  }
+  return out;
+}
+
+function firstOf(mapping, ...keys) {
+  for (const key of keys) {
+    if (mapping && mapping[key] !== undefined && mapping[key] !== null && mapping[key] !== '') return mapping[key];
+  }
+  return null;
+}
+
+function truthy(value) {
+  if (typeof value === 'boolean') return value;
+  if (value === null || value === undefined) return null;
+  return ['1', 'true', 'yes', 'y', 'enabled', 'active'].includes(String(value).trim().toLowerCase());
+}
+
+function resourceKind(resourceId) {
+  const match = String(resourceId || '').match(/^([a-z_]+?)_[A-Za-z0-9]+$/);
+  return match ? match[1] : '';
+}
+
+function stableJson(value) {
+  if (Array.isArray(value)) return `[${value.map(stableJson).join(',')}]`;
+  if (value && typeof value === 'object') {
+    return `{${Object.keys(value).sort().map((k) => `${JSON.stringify(k)}:${stableJson(value[k])}`).join(',')}}`;
+  }
+  return JSON.stringify(value);
+}
+
 function sortBy(values, fn) {
   return [...values].sort((a, b) => {
     const ka = fn(a);
@@ -163,4 +204,9 @@ export {
   lowerKeys,
   escapeRegExp,
   sortBy,
+  splitKv,
+  firstOf,
+  truthy,
+  resourceKind,
+  stableJson,
 };
