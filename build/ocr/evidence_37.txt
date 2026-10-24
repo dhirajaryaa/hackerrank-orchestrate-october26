@@ -1,0 +1,32 @@
+& [OE — Sentinel © Search events, users, IP addresses or references... oO
+Northstar Shop | Sentinel / Account events
+LJ overview Account events aIEED Fier || Export | Actors
+O Threats Subject filter: user_03 - 18-26 Aug 2026 UTC
+Events (6) Timeline tegrity
+[J Account events
+J Auditiogs Eon Categories [re— Partition
+6 5 [} 2026-03
+[J Detections == == == ==
+[J investigations Events (6) Updated moments ago - 6 records audit_record_003 - Raw event
+[J Reports Time (UTC) Event Category Subject Actor Integrity Reference CED CETTE TE
+[1] 25 Aug 04:03 Account closure recorded Account lfecycle user_03 Automated workflow Valid audit_record_003 subject ——
+(2) 25 Aug 03:21 Po—— ep— user_03 Security system Valid audit_record_002 actor ‘automated account workflow
+recorded at 2026-08-25T04:03:00Z
+(2) 28 Aug 16:18 [vm—] Authentication user_03 User (self) Valid audit_record_001
+fgerprint stoc..3ad
+[0 22mg 27 Email change confirmed Profile update user_03 User (self) Valid audit_record_006
+— Valid
+(2) 20 Aug 09:42 Login from new devica Authentication user_03 User (self) Valid audit_record_005 journal 2026-03
+18 Aug 14:05. Password changed Authentication user_03 User (self) Valid audit_record_004 »
+Activity
+25800
+a
+25000
+Ee
+28 hu
+ems Er
+2am
+EE
+ei
+FE ee
+build 2026104

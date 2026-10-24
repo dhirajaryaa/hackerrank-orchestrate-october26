@@ -1,0 +1,30 @@
+Northstar Shop Customer Download Center ~~ © Search exports. Production Help (CD
+Northstar Shop / Customer Download Center / Data exports
+Home
+0 Data exports os | en
+[J orders Create and manage customer download packages
+Oo Allexports Ready Processing Expired
+Customers
+[J Data exports Ready Processing Created today Downloads today
+2 2 1 0
+[0 Products - - - -
+[Marketing Al exports Updated moments ago 4 records || export_1260
+[] Analytics xpor ilename wher atus reatec
+O ly Export ID Fil o Stat Created Owner ingrid.dahl@outiook.com
+[) settings 1 export 1261 customer_export_1261.2ip marcus Jee@northstar.shop Collecting 20 Jun 14:18 UTC Created 18 Jun 2026 06:42 UTC
+2 export 1260 customer_export_1260.zip ingrid dahl@outiook com Ready 18 Jun 08:42 UTC Expires 25 Jun 2026 06:42 UTC
+size 18.4M8
+5 export 1259 customer_export_1269.2ip sara kim@northstar.shop Packaging 17 Jun 1103 UTC
+Checksum SHA-256 416308,
+«export 1258 customer_export_1268.2ip daniel park@northstar.shop Ready 16 Jun 08:27 UTC
+Download count 0
+included Profile - Orders - Saved addresses
+Activity
+o 0646
+Ready for download
+o 064s
+Package created
+o 0643
+Callecting customer records
+o 0642
+Export requested

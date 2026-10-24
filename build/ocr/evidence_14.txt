@@ -1,0 +1,13 @@
+Northstar Shop BridgeOps © Search connectors... Production Help ( B
+Northstar Shop / BridgeOps / Connections
+Ce ti .
+[J Connections a rn —— ror | [oon
+[e— PRODUCTION - u-vist - 07 Aug 2026 08:00 UTC
+_ Topology Throughput Recent delveries
+Monitoring
+0 events Healthy Events | hour Delivery p95 Backiog Destination health
+12 413 18s 18 Healthy
+0) Emmons ~ ~ ~ ~
+[J settings Topology Updated moments ago 4 records data_flow_1121
+2 | data_flow_9846 customer_analytics_warehouse lucia-torres@gmail.com Continuous 842 07:59:36 Destination customer_analytics_warehouse
+Activity

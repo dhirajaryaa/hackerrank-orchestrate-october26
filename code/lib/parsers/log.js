@@ -50,6 +50,25 @@ const EXPOSURE_EVENTS = {
   analytics_identity_scan: 'ANALYTICS_PROFILE',
 };
 
+const RECORD_TYPE_OVERRIDES = {
+  contact_lookup_completed: 'CACHE_ENTRY',
+  contact_query_completed: 'SUPPORT_ATTACHMENT',
+  support_attachment_read_completed: 'SUPPORT_ATTACHMENT',
+  support_ticket_read_completed: 'SUPPORT_MESSAGE',
+  analytics_profile_read: 'ANALYTICS_PROFILE',
+  analytics_profile_read_completed: 'ANALYTICS_PROFILE',
+  analytics_profile_scan_completed: 'ANALYTICS_PROFILE',
+  analytics_identity_scan: 'ANALYTICS_PROFILE',
+  cache_entry_read_completed: 'CACHE_ENTRY',
+  restore_policy_read_completed: 'BACKUP_ARCHIVE',
+  restore_candidate_evaluated: 'BACKUP_ARCHIVE',
+  connector_config_read_completed: 'DATA_FLOW',
+  connector_heartbeat: 'DATA_FLOW',
+  export_job_read_completed: 'USER_EXPORT',
+  export_metadata_read_completed: 'USER_EXPORT',
+  export_download_check_completed: 'USER_EXPORT',
+};
+
 const LINK_KEY_FIELDS = [
   'lookup_key', 'correlation_key', 'subject_key', 'scan_key', 'owner_key',
   'match_key', 'subject_ref', 'matched_value', 'subject_reference',
@@ -178,8 +197,14 @@ function stateOf(name, fields) {
   if (name === 'index_query_completed') {
     return String(fields.result || '').toLowerCase() === 'miss' ? 'ABSENT' : 'PRESENT';
   }
-  if (name === 'analytics_profile_read') {
-    return String(fields.direct_identifiers || '0') !== '0' ? 'IDENTIFIABLE' : 'ANONYMIZED';
+  if (['analytics_profile_read', 'analytics_profile_read_completed', 'analytics_profile_scan_completed'].includes(name)) {
+    const direct = fields.direct_identifiers !== undefined
+      ? String(fields.direct_identifiers) !== '0'
+      : ['customer_reference', 'email', 'phone', 'email_hash'].some((key) => {
+        const value = fields[key];
+        return value !== undefined && value !== null && value !== '' && value !== 'null';
+      });
+    return direct ? 'IDENTIFIABLE' : 'ANONYMIZED';
   }
   if (name === 'contact_lookup_completed') {
     return String(fields.rows || '1') === '0' ? 'ABSENT' : 'PRESENT';
@@ -260,6 +285,7 @@ function toRecord(evidence, event, lookupKeys, traceKeys) {
   let system = fields.system || STATE_EVENTS[name] || guessSystem(resourceId);
   let recordType = guessRecordType(system, null, fields.record_type);
   if (EXPOSURE_EVENTS[name]) recordType = EXPOSURE_EVENTS[name];
+  if (RECORD_TYPE_OVERRIDES[name]) recordType = RECORD_TYPE_OVERRIDES[name];
   if (!recordType || recordType === 'UNKNOWN') recordType = guessRecordType(system, null, null);
 
   const identifiers = {};

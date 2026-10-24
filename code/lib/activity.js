@@ -1,4 +1,5 @@
 import { makeRecord } from './model.js';
+import { guessRecordType, guessSystem } from './model.js';
 import { findEmails, findUserRefs } from './util.js';
 
 const EVENT_MAP = {
@@ -55,10 +56,29 @@ const STATE_BEARING_EVENTS = new Set([
   'CHECK_RESTORE_ACCESS',
 ]);
 
-function recordTypeFor(system, eventType) {
+function recordTypeFor(system, eventType, resourceId) {
+  if (system === 'account_service' || system === 'account_replication_cluster' || system === 'account_failover_replica') {
+    return 'USER_PROFILE';
+  }
+  if (system === 'analytics_platform') {
+    return eventType === 'DELETE_RECORD' ? 'CACHE_ENTRY' : 'ANALYTICS_PROFILE';
+  }
+  if (system === 'support_platform' || system === 'support_storage_service') {
+    return eventType === 'DELETE_RECORD' ? 'SUPPORT_ATTACHMENT' : 'SUPPORT_MESSAGE';
+  }
+  if (system === 'identity_service') return 'ACCOUNT_TOMBSTONE';
+  if (system === 'security_service') return 'SECURITY_AUDIT_LOG';
+  if (system === 'backup_service' || system === 'backup_restore_service' || system === 'archive_service') {
+    return 'BACKUP_ARCHIVE';
+  }
+  if (system === 'integration_service') return 'DATA_FLOW';
+  if (system === 'email_delivery_service') return 'EMAIL_DELIVERY_LOG';
+  if (system === 'marketing_platform') return 'MARKETING_PROFILE';
+  if (system === 'legal_service') return 'LEGAL_HOLD_RECORD';
+  if (system === 'object_store' || system === 'object_storage') return 'SUPPORT_ATTACHMENT';
   const mapped = EVENT_MAP[eventType]?.[0];
   if (mapped && mapped !== '__same__') return mapped;
-  return RECORD_TYPE_BY_SYSTEM[system] || 'UNKNOWN';
+  return RECORD_TYPE_BY_SYSTEM[system] || guessRecordType(guessSystem(resourceId), null);
 }
 
 function buildActivityRecords(events) {
@@ -72,17 +92,19 @@ function buildActivityRecords(events) {
     const state = partial ? 'UNCERTAIN' : (success ? onSuccess : onFailure);
     const identifiers = {};
     const linkKeys = [];
-    if (event.event_type === 'LINK_RESOURCE_IDENTITY') {
-      const emails = findEmails(event.details);
-      const users = findUserRefs(event.details);
-      if (emails[0]) {
-        linkKeys.push(emails[0]);
-        identifiers.email = emails[0];
-      }
-      if (users[0]) {
-        linkKeys.push(users[0]);
-        identifiers.subject_reference = users[0];
-      }
+    const emails = findEmails(event.details);
+    const users = findUserRefs(event.details);
+    if (emails[0]) {
+      linkKeys.push(emails[0]);
+      identifiers.email = emails[0];
+    }
+    if (users[0]) {
+      linkKeys.push(users[0]);
+      identifiers.subject_reference = users[0];
+    }
+    for (const match of event.details.matchAll(/\bemail_hash\s*[=:]\s*([a-f0-9]{32,128})\b/gi)) {
+      identifiers.email_hash = match[1].toLowerCase();
+      linkKeys.push(match[1].toLowerCase());
     }
     const record = makeRecord({
       evidenceId: event.activity_id,
@@ -91,7 +113,7 @@ function buildActivityRecords(events) {
       observedAt: event.event_time,
       system,
       resourceId: event.resource_id,
-      recordType: recordTypeFor(system, event.event_type),
+      recordType: recordTypeFor(system, event.event_type, event.resource_id),
       state,
       identifiers,
       linkKeys,

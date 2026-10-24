@@ -1,0 +1,23 @@
+Northstar Shop Search Console » emailg silva76@gmail.com Production Help (SC
+_ Northstar Shop / Search Console | Customer Search
+[J Customer Search Customer Search 2h Fiter | Export
+0 Ete customer._directory_v3 | prod-eu
+— Results (2) Query details Shard timing
+[J Order Search
+[J indexes Executed Latency Index Environment Shard total
+01Sep 2026 06:00:14 UTC 184ms customer_directory_v3 prod-eu 184 ms
+[J Cluster health
+[7] Stow queries Results (2) Updsted moments ago 2records | Raw document - search_428
+Jd Display name Email Customer reference Score Lastindexed index customer.diroctory v3
+1 search_428 Gabriel Silva gsilva76@gmailcom user 13 08a 05:58:21 UTC " search 28
+2] search 1874 - g5ilva76 r@gmailcom - an 05:55:03 UTC display_name Gabriel Silva
+email g.siva76@gmail.com
+customer_reference user 13
+indexed_at 2026-09-01T05:58:212
+Activity
+o os001a
+emallg.sia76@gmal.com - 2 hits
+© osiaz03
+customer_oferenceuser_9842 1 hit
+o osi3tie
+lisplay_name:Adi Jain® 1 hit
