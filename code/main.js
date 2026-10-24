@@ -7,6 +7,9 @@ import { Linker } from './lib/linker.js';
 import { inferResources } from './lib/inference.js';
 import { buildCaseContexts } from './lib/context.js';
 import { decideCase, serializeDecision } from './lib/engine.js';
+import { classifyIntentWithGemini } from './lib/gemini.js';
+import { classifyIntent } from './lib/request_intent.js';
+import { usage } from './lib/usage.js';
 import { loadRequests, loadSampleOutput } from './lib/tables.js';
 import { ROOT_DIR, BUILD_DIR, PHASE_ORDER, OPERATION_STATE, STATE_PLAN } from './lib/config.js';
 import { readCsv, writeCsv, parseTs } from './lib/util.js';
@@ -21,7 +24,8 @@ const ALLOWED_PHASES = new Set(['FINDING', 'REMEDIATION', 'VERIFICATION']);
 const ALLOWED_OPS = new Set(Object.keys(OPERATION_STATE));
 const STEP_FIELDS = ['step_no', 'phase', 'system_id', 'resource_id', 'operation', 'state', 'evidence_id'];
 
-async function runPipeline({ sample = false, caseId = '' } = {}) {
+async function runPipeline({ sample = false, caseId = '', useAi = false } = {}) {
+  usage.reset();
   const { store } = await buildEvidenceStore();
   const resolver = createIdentityResolver();
   const linker = new Linker(resolver, store);
@@ -38,7 +42,15 @@ async function runPipeline({ sample = false, caseId = '' } = {}) {
     requests,
     resolver,
   });
-  const decisions = contexts.map(decideCase);
+  const decisions = [];
+  for (const context of contexts) {
+    let decision = decideCase(context);
+    if (useAi && decision.intent.label === 'unclear') {
+      const fallback = await classifyIntentWithGemini(context.request_text, { caseId: context.case_id });
+      if (fallback.ok) decision = decideCase(context, fallback.intent);
+    }
+    decisions.push(decision);
+  }
   return { store, resolver, linker, inference, contexts, decisions };
 }
 
@@ -51,6 +63,12 @@ function summaryOf(decisions) {
 function writeJson(filePath, value) {
   fs.mkdirSync(path.dirname(filePath), { recursive: true });
   fs.writeFileSync(filePath, `${JSON.stringify(value, null, 2)}\n`, 'utf8');
+}
+
+function writeUsage() {
+  const summary = usage.summary();
+  writeJson(path.join(BUILD_DIR, 'usage.json'), summary);
+  return summary;
 }
 
 function canonical(value) {
@@ -154,8 +172,8 @@ function scoreSample() {
   });
 }
 
-function predict() {
-  return runPipeline({ sample: false }).then(({ decisions, inference, contexts }) => {
+function predict({ useAi = false } = {}) {
+  return runPipeline({ sample: false, useAi }).then(({ decisions, inference, contexts }) => {
     const rows = decisions
       .slice()
       .sort((a, b) => a.case_id.localeCompare(b.case_id))
@@ -170,14 +188,16 @@ function predict() {
     })));
     writeJson(path.join(BUILD_DIR, 'assignments.json'), inference.assignments);
     writeJson(path.join(BUILD_DIR, 'case-contexts.json'), contexts);
+    const usageSummary = writeUsage();
     console.log(`Wrote ${rows.length} rows to ${OUTPUT_PATH}`);
     console.log('Status counts:', summaryOf(decisions));
+    console.log('Model calls:', usageSummary.totals.calls);
     return { rows, decisions };
   });
 }
 
-function build() {
-  return runPipeline({ sample: false }).then(({ store, contexts, decisions, inference }) => {
+function build({ useAi = false } = {}) {
+  return runPipeline({ sample: false, useAi }).then(({ store, contexts, decisions, inference }) => {
     const stats = store.stats();
     writeJson(path.join(BUILD_DIR, 'store-summary.json'), {
       stats,
@@ -186,7 +206,13 @@ function build() {
     });
     writeJson(path.join(BUILD_DIR, 'contexts.json'), contexts);
     writeJson(path.join(BUILD_DIR, 'decisions.json'), decisions);
-    console.log(JSON.stringify({ stats, assignments: inference.assignments.length, status: summaryOf(decisions) }, null, 2));
+    const usageSummary = writeUsage();
+    console.log(JSON.stringify({
+      stats,
+      assignments: inference.assignments.length,
+      status: summaryOf(decisions),
+      model_calls: usageSummary.totals.calls,
+    }, null, 2));
     return { store, stats };
   });
 }
@@ -233,7 +259,15 @@ function validateOutput() {
       if (OPERATION_STATE[step.operation] !== step.state) errors.push(`${caseId} step ${stepIndex + 1}: bad state ${step.state} for ${step.operation}`);
       if (!step.system_id || !step.resource_id) errors.push(`${caseId} step ${stepIndex + 1}: missing system/resource`);
       if (step.phase === 'FINDING' && step.evidence_id === '') errors.push(`${caseId} step ${stepIndex + 1}: finding needs evidence`);
-      if (step.phase !== 'FINDING' && step.evidence_id !== '') errors.push(`${caseId} step ${stepIndex + 1}: non-finding must have empty evidence`);
+      if (step.phase === 'REMEDIATION' && step.evidence_id !== '') errors.push(`${caseId} step ${stepIndex + 1}: remediation must have empty evidence`);
+      if (step.phase === 'VERIFICATION') {
+        if (row.deletion_status === 'COMPLETE' && step.evidence_id === '') {
+          errors.push(`${caseId} step ${stepIndex + 1}: complete verification needs evidence`);
+        }
+        if (row.deletion_status === 'INCOMPLETE' && step.evidence_id !== '') {
+          errors.push(`${caseId} step ${stepIndex + 1}: future verification must have empty evidence`);
+        }
+      }
       const order = PHASE_ORDER[step.phase];
       if (order < phase) errors.push(`${caseId} step ${stepIndex + 1}: phase order`);
       phase = Math.max(phase, order);
@@ -268,16 +302,26 @@ async function main() {
   const command = process.argv[2] || 'predict';
   const caseArgIndex = process.argv.indexOf('--case');
   const caseId = caseArgIndex >= 0 ? process.argv[caseArgIndex + 1] : '';
-  if (command === 'build') await build();
-  else if (command === 'predict') await predict();
+  const useAi = process.argv.includes('--ai') || process.env.GEMINI_FALLBACK === '1';
+  if (command === 'build') await build({ useAi });
+  else if (command === 'predict') await predict({ useAi });
   else if (command === 'score') printScore(await scoreSample());
   else if (command === 'validate') validateOutput();
-  else if (command === 'debug') {
-    const { decisions } = await runPipeline({ sample: !process.argv.includes('--eval'), caseId });
+  else if (command === 'ai-check') {
+    const textArgIndex = process.argv.indexOf('--text');
+    const text = textArgIndex >= 0
+      ? process.argv.slice(textArgIndex + 1).join(' ')
+      : 'Please close the account associated with this address and erase the personal data.';
+    const deterministic = classifyIntent(text);
+    const fallback = await classifyIntentWithGemini(text, { caseId: 'ai-check' });
+    const usageSummary = writeUsage();
+    console.log(JSON.stringify({ deterministic, fallback, usage: usageSummary.totals }, null, 2));
+  } else if (command === 'debug') {
+    const { decisions } = await runPipeline({ sample: !process.argv.includes('--eval'), caseId, useAi });
     console.log(JSON.stringify(decisions, null, 2));
   } else {
     console.error(`Unknown command: ${command}`);
-    console.error('Usage: node code/main.js <build|predict|score|validate|debug> [--case case_XX] [--eval]');
+    console.error('Usage: node code/main.js <build|predict|score|validate|ai-check|debug> [--case case_XX] [--eval] [--ai]');
     process.exitCode = 2;
   }
 }

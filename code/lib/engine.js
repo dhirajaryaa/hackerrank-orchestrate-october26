@@ -10,8 +10,8 @@ function findingsFor(resources) {
   return findings;
 }
 
-function decideCase(context) {
-  const intent = classifyIntent(context.request_text);
+function decideCase(context, intentOverride = null) {
+  const intent = intentOverride || classifyIntent(context.request_text);
   if (!intent.is_deletion) {
     return {
       case_id: context.case_id,

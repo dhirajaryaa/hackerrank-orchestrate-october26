@@ -400,16 +400,8 @@ function reorderEventAssignments(assignments, resourceUsers, requests) {
     groups.get(key).push(assignment);
   }
 
-  const requestCount = new Map();
-  for (const request of requests) {
-    if (!request.reported_at) continue;
-    requestCount.set(request.reported_at, (requestCount.get(request.reported_at) || 0) + 1);
-  }
-
   for (const [key, group] of groups.entries()) {
     if (group.length < 2) continue;
-    const reportedAt = key.split('|').slice(1).join('|');
-    if ((requestCount.get(reportedAt) || 0) !== group.length) continue;
     const eventTimes = group.map((assignment) => assignment.eventMs).sort((a, b) => a - b);
     if (eventTimes[eventTimes.length - 1] - eventTimes[0] > 30 * 60000) continue;
 

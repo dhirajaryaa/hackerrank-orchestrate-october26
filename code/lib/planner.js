@@ -23,6 +23,7 @@ function buildSteps(resources, status) {
   for (const resource of resources) {
     const category = resource.category || 'UNKNOWN';
     const state = resource.state || 'PRESENT';
+    if (status === 'COMPLETE' && resource.evidence_kind !== 'manifest') continue;
     let [finding, remediation, verification] = planFor(category, state);
     if (!verification) continue;
 
