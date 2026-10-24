@@ -2,6 +2,16 @@
 
 > Scope: this report was built only from participant-facing files under `dataset/` and the public challenge documents. No organizer-only truth, golden answers, or generator internals were inspected. Row counts exclude CSV headers. All timestamps are UTC.
 
+## 0. Repository state (inspection only; no files changed)
+
+- The worktree is clean on branch `main`. The latest commit is `21b6189 overview of code done`.
+- Existing implementation: `code/main.py` is a **Python** CLI with `build`, `predict`, `score`, `list-cases`, and `case` commands. `code/ghostdata/` contains table loaders, an identity resolver, evidence parsers (SQL/JSON/log/TXT/PDF/PNG), a linker, a per-case context builder, and a deterministic planner.
+- `code/evaluation/main.py` exists but is empty (0 bytes).
+- There is **no** `package.json`, no `config/` directory, no `.env`, no JS/TS source file, and no test suite yet. The requested JavaScript stack is therefore not scaffolded.
+- `dataset/output.csv` is the blank header-only template; root-level `output.csv` does not exist yet.
+- Some Python `__pycache__/*.pyc` files are tracked by git. They should be excluded from the final `code.zip`.
+- The existing Python code was **not deleted, modified, or executed** during this inspection. It is preserved as prior work.
+
 ## 1. Challenge in simple Hinglish
 
 Challenge ka core simple hai, lekin trap bada hai: company ka deletion workflow **"Complete"** bol sakta hai, par user ka data databases, replicas, logs, support attachments, exports, search index, analytics, archives ya backups mein bach sakta hai. Aapko har request pe pehle decide karna hai ki person ne deletion maanga bhi hai ya nahi — access, correction, export, ya marketing opt-out ho to **NOT_APPLICABLE**. Agar deletion authorized hai, to current aur historical email/phone/hash se user ke saare records dhundo, `audit_at` tak ki evidence se true state banao, aur `deletion_rules.csv` lagao: kuch records delete honge, kuch redact, kuch anonymize, kuch retain, aur account tombstone mein sirf stable `user_id` rahega. Agar koi copy bachi hai ya sync/restore wapas la sakta hai, to **INCOMPLETE** do — findings, safe ordered remediation (pehle data flows/restore block, phir records), aur verification checks. Agar sab policy-compliant hai, to **COMPLETE** do — sirf evidence-backed verification steps. Workflow status aur activity ke `SUCCESS` claims proof nahi hain; evidence se state prove karni hoti hai.
@@ -200,3 +210,18 @@ The same snapshot also shows `tombstone_440` already redacted with null name/ema
 - **Policy is not "delete everything".** Security audit records, legal holds, backups, support conversations, analytics profiles, and account tombstones each have different required treatments.
 - **No public NOT_APPLICABLE example exists.** The format is specified (`[]`), but no sample row demonstrates it; non-deletion requests in the evaluation set must be classified from their text rather than from `reported_status`.
 - **Only the provided data supports conclusions.** Where a file does not expose a fact (for example, a tombstone audit record's exact retention expiry), the report should state what is evidenced and avoid inventing the missing detail.
+
+## 7. Uncertainties and risks to investigate
+
+1. **Stack mismatch is the main decision.** The repository already contains a substantial Python implementation, while the requested stack is JavaScript. Porting it line-by-line is expensive; building a minimal JS pipeline from scratch is cleaner but must still cover the same parsing, identity, policy, and ordering rules. Do not overwrite the Python code until this choice is approved.
+2. **Only 32 public examples for 518 evaluation cases.** The samples are useful for regression testing but are not a representative validation set. Custom cases are needed for non-deletion intent, historical-email-only matches, active flows, restore risk, tombstones, and multi-system evidence.
+3. **No NOT_APPLICABLE sample.** Intent classification must be tested separately. A request for access, correction, export, or marketing opt-out must produce `NOT_APPLICABLE` and `[]`, even if the person exists and has records.
+4. **Evidence extraction quality.** Eleven PNGs need OCR and four PDFs need PDF text extraction. Console screenshots and table layouts can lose identifiers; OCR/PDF parsing must be checked against the sample cases and against known resource IDs before trusting it.
+5. **Temporal filtering must be per observation, not just per file.** A file's `captured_at` is a file-level timestamp, but logs and SQL snapshots can contain events at different times. The decision must use only observations at or before `audit_at`.
+6. **SQL topology and replication drift.** Primary, read, regional, reporting, and failover snapshots can disagree. The implementation needs a generic table/row abstraction rather than hardcoded table names, and must compare the relevant snapshot(s) without assuming the primary is authoritative for every case.
+7. **Identity resolution edge cases.** Historical email changes, email hashes, phone changes, `LINK_RESOURCE_IDENTITY` activity rows, and lookup keys all need normalized matching. Name-only matches are risky and should not be treated as proof of identity.
+8. **Policy ambiguity.** `SUPPORT_MESSAGE` versus `SUPPORT_ATTACHMENT`, `PRODUCT_TELEMETRY`, legal holds, and tombstones require care. Some evidence does not expose a retention expiry (for example, `audit_record_7068`), so the implementation must use the policy condition that is evidenced and avoid inventing missing dates.
+9. **Active-flow and restore-risk detection.** `SYNC_RECORD`, `INDEX_RECORD`, `CREATE_EXPORT`, `CHECK_DATA_FLOW`, `CHECK_RESTORE_ACCESS`, and backup rows must be converted into risks only when the evidence shows an active path at `audit_at`. Remediation order must put `DISABLE_DATA_FLOW`/`BLOCK_RESTORE` before dependent record changes.
+10. **Output contract validation.** The final file needs exactly 518 rows, sorted `case_id`, valid JSON arrays, consecutive `step_no`, phase order `FINDING → REMEDIATION → VERIFICATION`, operation order inside each phase, empty `evidence_id` for future steps, and valid evidence IDs for findings/COMPLETE verification. This should be a deterministic validator, not an LLM check.
+11. **Cost and latency.** Sending every case plus all evidence to Gemini would be wasteful. Deterministic parsing/linking should narrow each case to a small evidence bundle; the model should be used only for ambiguous intent, conflicting evidence, or unstructured artifact interpretation. Token usage must be logged for `code/evaluation/usage_report.md`.
+12. **Dependency risk.** `better-sqlite3` is native and can complicate installs; PDF/OCR libraries vary in quality; `tesseract.js` is slower than a system binary. Add dependencies only after confirming they handle the actual evidence formats, and keep a deterministic fallback where possible.

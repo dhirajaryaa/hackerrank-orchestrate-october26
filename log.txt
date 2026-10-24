@@ -52,3 +52,86 @@ branch=main
 repo_root=/home/dhirajarya/Work/hackerrank-orchestrate-october26
 worktree=main
 parent_agent=none
+
+## [2026-10-24T19:49:15+05:30] Repository and dataset inspection; no implementation
+
+User Prompt (verbatim, secrets redacted):
+You are my coding partner for a 24-hour AI hackathon.
+
+## stack
+
+- Javascript
+- zod
+- css-parser
+- better sqlite3
+- pdf-parser
+- tesseract.js [only when need]
+- gemini api key
+- vitest [for testing/testcase]
+
+> keep keys in .env, all config in config folder all code in `code` folder inside
+
+## Project goal
+Build an AI-powered deletion audit tool for the provided challenge.
+
+This is a local CLI/data-processing project, NOT a web app. Do not create a frontend, backend server, authentication system, or database server unless the evidence clearly requires a local database.
+
+The tool must process the provided dataset, inspect relevant evidence, resolve historical user identities, apply deletion policies, determine the correct deletion status, generate ordered remediation or verification steps, and produce the required output.csv.
+
+## Working rules
+1. Read AGENTS.md and follow the repository instructions, including chat transcript logging.
+2. Inspect the existing repository and dataset before changing anything.
+3. Preserve the original input files. Never overwrite sample_output.csv.
+4. Use the provided sample answers to test our implementation.
+5. Use AI only when it helps interpret unstructured evidence. Use deterministic JavaScript for parsing, identity matching, policy decisions, step ordering, and output validation wherever possible.
+6. Never assume that a reported deletion status proves deletion. Use evidence and audit timestamps.
+7. Follow deletion_rules.csv, including retention, redaction, anonymization, sync risks, and restore risks.
+8. Do not invent evidence, identifiers, resource states, or API results.
+9. Keep API keys in environment variables. Never commit secrets.
+10. Track actual model usage and costs for evaluation/usage_report.md.
+11. Keep the implementation minimal. Avoid unnecessary dependencies and complicated architecture.
+12. Before adding a dependency or making a major design decision, explain briefly why it is needed.
+
+## How to work with me
+- Work in small, understandable steps.
+- First explain the problem and inspect the dataset.
+- Do not start implementing the complete solution immediately.
+- Tell me what you found, what you recommend, and why.
+- Then propose the smallest useful next step.
+- After each implementation step, explain how I can run and test it.
+- Ask before deleting files or making destructive changes.
+- Be honest about uncertainty and report failures instead of hiding them.
+
+## First task
+Do not implement the solution yet.
+
+Inspect AGENTS.md, the repository structure, all participant-facing CSV schemas and row counts, the evidence directory and its file types, and the sample input/output cases.
+
+Create a concise dataset_overview.md explaining:
+- What each file contains.
+- What types of evidence are available.
+- How the input, evidence, deletion policy, and expected output connect.
+- Three representative sample cases, if available.
+- Any uncertainties or risks that need investigation.
+
+Make sure transcript logging follows the repository instructions.
+
+After the inspection, stop and explain your findings in simple English. Wait for my approval before proceeding.
+
+Agent Response Summary:
+Re-inspected the repository and found an existing, committed Python implementation under code/ (CLI, parsers, identity linker, context builder, deterministic planner), but no package.json, config/, .env, JS/TS source, or test suite. Updated dataset_overview.md with the current repository state and a dedicated uncertainties/risks section covering the Python-versus-JavaScript stack decision, evidence extraction, temporal filtering, SQL replication drift, policy ambiguity, output validation, cost, and dependency risks. Did not run, modify, or delete the existing Python code, and did not implement any solution. Stopped for approval on the language/stack direction.
+
+Actions:
+* Read AGENTS.md and inspected current git state, tracked files, and repository commits
+* Inspected existing code/main.py and code/ghostdata modules statically
+* Verified absence of package.json, config/, .env, JS/TS files, and tests
+* Re-checked dataset CSV counts/schemas, evidence layout, and sample cases
+* Updated dataset_overview.md with repository state and risk analysis
+
+Context:
+tool=OpenCode
+model=deepseek-v4.1-flash-free
+branch=main
+repo_root=/home/dhirajarya/Work/hackerrank-orchestrate-october26
+worktree=main
+parent_agent=none
