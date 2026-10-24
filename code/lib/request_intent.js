@@ -32,7 +32,7 @@ const DELETION_TERMS = [
   /permanently removed?/i,
   /profile is gone/i,
   /nothing .* point back to me/i,
-  /elimina/i,
+  /elimin[ae]/i,
   /eliminaci[oó]n/i,
   /borrar/i,
   /borrado/i,
@@ -66,7 +66,7 @@ const NON_DELETION_ACTIONS = [
   [/reset(?:ting)? the login|can'?t access my profile/i, 'access_help'],
   [/stop the promotional emails|remove me from marketing lists/i, 'marketing_opt_out'],
   [
-    /download my account information|send me a copy of the information|copy of last year'?s invoices|what personal information you hold/i,
+    /download my account information|send me a copy of (?:the|my) (?:personal )?information|copy of my personal information|copy of last year'?s invoices|what personal information you hold|information you hold about me/i,
     'access',
   ],
 ];

@@ -1,0 +1,8 @@
+{
+  "provider": "google",
+  "model": "gemini-3.5-flash-lite",
+  "prompt": "code/prompts/intent_guard.txt",
+  "timeout_ms": 30000,
+  "max_input_chars": 4000,
+  "max_output_tokens": 300
+}
