@@ -49,12 +49,15 @@ function buildSteps(resources, status) {
         evidence_id: '',
       });
     }
+    const verificationEvidence = status === 'COMPLETE' && resource.evidence_kind === 'manifest'
+      ? (resource.evidence_id || '')
+      : '';
     planned.push({
       ...base,
       phase: 'VERIFICATION',
       operation: verification,
       state: stateForOperation(verification),
-      evidence_id: status === 'COMPLETE' ? (resource.evidence_id || '') : '',
+      evidence_id: verificationEvidence,
     });
   }
 

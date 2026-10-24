@@ -47,8 +47,14 @@ const ACTIVITY_FOR_CATEGORY = {
   DATA_FLOW: ['DISABLE_DATA_FLOW', 'CHECK_DATA_FLOW', 'SYNC_RECORD'],
 };
 
+const CATEGORY_PREFIXES = Object.keys(PREFIX_CATEGORY).sort((a, b) => b.length - a.length);
+
 function prefixOf(resourceId) {
-  return String(resourceId || '').split('_')[0];
+  const text = String(resourceId || '');
+  for (const prefix of CATEGORY_PREFIXES) {
+    if (text.startsWith(`${prefix}_`)) return prefix;
+  }
+  return '';
 }
 
 function categoryOfResource(resourceId) {
@@ -189,6 +195,20 @@ function resultCompatibility(status, result) {
   return 0.75;
 }
 
+function applyLocalEventOrder(pairs) {
+  const minOrder = new Map();
+  for (const pair of pairs) {
+    const current = minOrder.get(pair.request.case_id);
+    if (current === undefined || pair.event.eventOrder < current) {
+      minOrder.set(pair.request.case_id, pair.event.eventOrder);
+    }
+  }
+  for (const pair of pairs) {
+    const offset = pair.event.eventOrder - (minOrder.get(pair.request.case_id) || 0);
+    pair.score += Math.max(offset, 0) * 0.05;
+  }
+}
+
 function hasHint(request, category) {
   const pattern = HINTS[category];
   if (!pattern) return false;
@@ -199,6 +219,15 @@ function hasCategoryForUser(resourceUsers, userId, category) {
   for (const [resourceId, users] of resourceUsers.entries()) {
     if (!users.has(userId)) continue;
     if (categoryOfResource(resourceId) === category) return true;
+  }
+  return false;
+}
+
+function hasAnyCategoryForUser(resourceUsers, userId, categories) {
+  const wanted = new Set(categories);
+  for (const [resourceId, users] of resourceUsers.entries()) {
+    if (!users.has(userId)) continue;
+    if (wanted.has(categoryOfResource(resourceId))) return true;
   }
   return false;
 }
@@ -222,6 +251,7 @@ function assignAccounts({ resourceUsers, requests, activity, manifestByResource 
       if (!closeToReported(request, event.eventMs, 300, 180)) continue;
       if (categoryOfResource(event.resource_id) !== 'USER_PROFILE') continue;
       if (String(event.reported_result).toUpperCase() === 'FAILED'
+        && request.reported_status !== 'NOT_STARTED'
         && !hasRelevantManifest(manifestByResource, event.resource_id, request)) continue;
       const owners = ownersOf(resourceUsers, event.resource_id);
       if (owners.size && !owners.has(request.user_id)) continue;
@@ -233,6 +263,7 @@ function assignAccounts({ resourceUsers, requests, activity, manifestByResource 
     }
   }
 
+  applyLocalEventOrder(pairs);
   pairs.sort((a, b) => a.score - b.score || a.distance - b.distance);
   const usedCases = new Set();
   const usedResources = new Set();
@@ -249,6 +280,9 @@ function assignAccounts({ resourceUsers, requests, activity, manifestByResource 
       user_id: pair.request.user_id,
       resource_id: pair.event.resource_id,
       event_id: pair.event.activity_id,
+      eventMs: pair.event.eventMs,
+      reported_at: pair.request.reported_at,
+      caseOrder: pair.request.caseOrder,
       reason: 'account_activity',
       score: pair.score,
     });
@@ -265,6 +299,7 @@ function assignCategoryEvents({
   targetSystem,
   manifestByResource,
   requireHint = false,
+  skipWhenOtherCategories = [],
   maxBefore = 300,
   maxAfter = 300,
 }) {
@@ -279,11 +314,20 @@ function assignCategoryEvents({
     }));
 
   const pairs = [];
+  const eligibleByReported = new Map();
+  for (const request of requests) {
+    if (!request.user_id) continue;
+    if (hasCategoryForUser(resourceUsers, request.user_id, category)) continue;
+    eligibleByReported.set(request.reported_at, (eligibleByReported.get(request.reported_at) || 0) + 1);
+  }
   for (const request of requests) {
     if (!request.user_id) continue;
     if (hasCategoryForUser(resourceUsers, request.user_id, category)) continue;
     const hint = hasHint(request, category);
     if (requireHint && !hint) continue;
+    if (!hint && skipWhenOtherCategories.length
+      && hasAnyCategoryForUser(resourceUsers, request.user_id, skipWhenOtherCategories)
+      && (eligibleByReported.get(request.reported_at) || 0) < 2) continue;
     for (const event of events) {
       if (!closeToReported(request, event.eventMs, maxBefore, maxAfter)) continue;
       if (categoryOfActivity(event) !== category) continue;
@@ -301,6 +345,7 @@ function assignCategoryEvents({
     }
   }
 
+  applyLocalEventOrder(pairs);
   pairs.sort((a, b) => (
     a.score - b.score
     || a.event.eventOrder - b.event.eventOrder
@@ -321,6 +366,9 @@ function assignCategoryEvents({
       user_id: pair.request.user_id,
       resource_id: pair.event.resource_id,
       event_id: pair.event.activity_id,
+      eventMs: pair.event.eventMs,
+      reported_at: pair.request.reported_at,
+      caseOrder: pair.request.caseOrder,
       reason: `${category.toLowerCase()}_activity`,
       score: pair.score,
     });
@@ -339,6 +387,68 @@ function fileUsers(store, resourceUsers) {
     for (const user of users) out.get(record.evidenceId).add(user);
   }
   return out;
+}
+
+function reorderEventAssignments(assignments, resourceUsers, requests) {
+  const reorderReasons = new Set(['account_activity', 'analytics_profile_activity']);
+  const groups = new Map();
+  for (const assignment of assignments) {
+    if (!reorderReasons.has(assignment.reason)) continue;
+    if (!assignment.eventMs || !assignment.reported_at) continue;
+    const key = `${assignment.reason}|${assignment.reported_at}`;
+    if (!groups.has(key)) groups.set(key, []);
+    groups.get(key).push(assignment);
+  }
+
+  const requestCount = new Map();
+  for (const request of requests) {
+    if (!request.reported_at) continue;
+    requestCount.set(request.reported_at, (requestCount.get(request.reported_at) || 0) + 1);
+  }
+
+  for (const [key, group] of groups.entries()) {
+    if (group.length < 2) continue;
+    const reportedAt = key.split('|').slice(1).join('|');
+    if ((requestCount.get(reportedAt) || 0) !== group.length) continue;
+    const eventTimes = group.map((assignment) => assignment.eventMs).sort((a, b) => a - b);
+    if (eventTimes[eventTimes.length - 1] - eventTimes[0] > 30 * 60000) continue;
+
+    const cases = group.map((assignment) => assignment.case_id).sort();
+    const entries = [...group].sort((a, b) => (
+      a.eventMs - b.eventMs || String(a.event_id).localeCompare(String(b.event_id))
+    ));
+    const userByCase = new Map(group.map((assignment) => [assignment.case_id, assignment.user_id]));
+    const current = entries.map((assignment) => assignment.case_id);
+    if (current.every((caseId, index) => caseId === cases[index])) continue;
+
+    const groupUsers = new Set(group.map((assignment) => assignment.user_id));
+    let blocked = false;
+    for (const assignment of group) {
+      const owners = ownersOf(resourceUsers, assignment.resource_id);
+      for (const owner of owners) {
+        if (!groupUsers.has(owner)) blocked = true;
+      }
+    }
+    if (blocked) continue;
+
+    for (const assignment of group) {
+      const owners = resourceUsers.get(assignment.resource_id);
+      if (!owners) continue;
+      owners.delete(assignment.user_id);
+      if (!owners.size) resourceUsers.delete(assignment.resource_id);
+    }
+
+    const desired = cases.map((caseId, index) => ({
+      caseId,
+      userId: userByCase.get(caseId),
+      entry: entries[index],
+    }));
+    for (const item of desired) {
+      addOwner(resourceUsers, item.entry.resource_id, item.userId);
+      item.entry.case_id = item.caseId;
+      item.entry.user_id = item.userId;
+    }
+  }
 }
 
 function assignBundlePositions({ store, resourceUsers, requests }) {
@@ -451,6 +561,14 @@ function inferResources(store, caseUsers = new Map(), providedRequests = null) {
     eventTypes: ['ANONYMIZE_RECORD'],
     targetSystem: 'analytics_platform',
     manifestByResource,
+    skipWhenOtherCategories: [
+      'SEARCH_INDEX_ENTRY',
+      'SUPPORT_MESSAGE',
+      'SUPPORT_ATTACHMENT',
+      'DATA_FLOW',
+      'BACKUP_ARCHIVE',
+      'USER_EXPORT',
+    ],
     maxBefore: 300,
     maxAfter: 300,
   }));
@@ -466,8 +584,21 @@ function inferResources(store, caseUsers = new Map(), providedRequests = null) {
     maxBefore: 300,
     maxAfter: 360,
   }));
+  assignments.push(...assignCategoryEvents({
+    resourceUsers,
+    requests,
+    activity,
+    category: 'DATA_FLOW',
+    eventTypes: ['CHECK_DATA_FLOW', 'DISABLE_DATA_FLOW', 'SYNC_RECORD'],
+    targetSystem: 'integration_service',
+    manifestByResource,
+    requireHint: true,
+    maxBefore: 300,
+    maxAfter: 300,
+  }));
   assignments.push(...assignBundlePositions({ store, resourceUsers, requests }));
 
+  reorderEventAssignments(assignments, resourceUsers, requests);
   return { resourceUsers, assignments, activity };
 }
 

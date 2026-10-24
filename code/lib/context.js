@@ -1,4 +1,6 @@
+import fs from 'node:fs';
 import { parseTs } from './util.js';
+import { loadManifest } from './tables.js';
 import { directIdentifiers } from './model.js';
 import { categoryOfResource } from './inference.js';
 
@@ -151,6 +153,80 @@ function recordTime(record) {
   return parseTs(record.observedAt || record.capturedAt);
 }
 
+const EVIDENCE_ORIGIN_PRIORITY = {
+  service_readback_logs: 100,
+  service_resource_export: 95,
+  customer_data_inventory_capture: 90,
+  customer_account_service: 85,
+  customer_account_failover_replica_capture: 80,
+  customer_data_read_replica_capture: 80,
+  central_observability_export: 75,
+  records_assurance_snapshot_bundle: 20,
+};
+
+const PARSER_PRIORITY = {
+  sql_snapshot: 70,
+  pdf_doc: 65,
+  text_doc: 60,
+  image_doc: 55,
+  log_events: 50,
+  json_records: 40,
+};
+
+function citationPriority(record, auditMs) {
+  const capturedMs = parseTs(record.evidenceCapturedAt);
+  const preAudit = capturedMs !== null && auditMs !== null && capturedMs <= auditMs ? 1 : 0;
+  const originRank = EVIDENCE_ORIGIN_PRIORITY[record.evidenceOrigin] || 0;
+  const parserRank = PARSER_PRIORITY[record.parser] || 0;
+  return {
+    preAudit,
+    rank: Math.max(originRank, parserRank),
+    time: recordTime(record) || 0,
+  };
+}
+
+function sortCitations(records, auditMs) {
+  return [...records].sort((a, b) => {
+    const pa = citationPriority(a, auditMs);
+    const pb = citationPriority(b, auditMs);
+    if (pa.preAudit !== pb.preAudit) return pb.preAudit - pa.preAudit;
+    if (pa.rank !== pb.rank) return pb.rank - pa.rank;
+    return pb.time - pa.time;
+  });
+}
+
+let accountSnapshotCache = null;
+
+function accountSnapshots() {
+  if (accountSnapshotCache) return accountSnapshotCache;
+  const snapshots = [];
+  for (const evidence of loadManifest()) {
+    if (!['.sql', '.json'].includes(evidence.suffix)) continue;
+    let text = '';
+    try {
+      text = fs.readFileSync(evidence.absolute_path, 'utf8');
+    } catch {
+      continue;
+    }
+    if (!/customer_profiles|account_service/.test(text)) continue;
+    const capturedMs = parseTs(evidence.captured_at);
+    if (capturedMs === null) continue;
+    snapshots.push({ file_id: evidence.file_id, capturedMs, origin: evidence.origin });
+  }
+  accountSnapshotCache = snapshots;
+  return snapshots;
+}
+
+function latestAccountSnapshot(auditMs) {
+  if (auditMs === null) return '';
+  let best = null;
+  for (const snapshot of accountSnapshots()) {
+    if (snapshot.capturedMs > auditMs) continue;
+    if (!best || snapshot.capturedMs > best.capturedMs) best = snapshot;
+  }
+  return best?.file_id || '';
+}
+
 function isRetentionApplicable(record, category, auditMs) {
   if (category === 'SECURITY_AUDIT_LOG') {
     const until = record.payload?.retention_until || record.payload?.retain_until || record.identifiers?.retention_until;
@@ -206,11 +282,13 @@ function isRelevantRecord(record, request, auditMs) {
   return Math.abs(timestamp - request.reportedMs) <= 7 * 86400000;
 }
 
-function accountState(entries) {
-  const manifests = entries
-    .filter((entry) => entry.record.evidenceKind === 'manifest')
-    .sort((a, b) => (recordTime(b.record) || 0) - (recordTime(a.record) || 0));
-  const latestManifest = manifests[0]?.record || null;
+function accountState(entries, auditMs) {
+  const manifestRecords = entries
+    .map((entry) => entry.record)
+    .filter((record) => record.evidenceKind === 'manifest');
+  const manifests = [...manifestRecords]
+    .sort((a, b) => (recordTime(b) || 0) - (recordTime(a) || 0));
+  const latestManifest = manifests[0] || null;
   if (!latestManifest) return { state: 'ABSENT', citation: null };
   const latestManifestMs = recordTime(latestManifest);
 
@@ -227,7 +305,9 @@ function accountState(entries) {
     }
   }
   const manifestState = normalizeState(latestManifest, 'USER_PROFILE');
-  return { state: manifestState, citation: latestManifest };
+  const matching = manifestRecords.filter((record) => normalizeState(record, 'USER_PROFILE') === manifestState);
+  const citation = sortCitations(matching.length ? matching : manifestRecords, auditMs)[0] || latestManifest;
+  return { state: manifestState, citation };
 }
 
 function buildResourceStates({ store, resourceUsers, userId, request }) {
@@ -259,7 +339,7 @@ function buildResourceStates({ store, resourceUsers, userId, request }) {
     let state = normalizeState(latest, category);
     let citation = null;
     if (category === 'USER_PROFILE') {
-      const account = accountState(entries);
+      const account = accountState(entries, auditMs);
       state = account.state;
       if (account.citation) citation = account.citation;
     }
@@ -267,13 +347,19 @@ function buildResourceStates({ store, resourceUsers, userId, request }) {
 
     const candidates = entries.map((entry) => entry.record);
     if (!citation) {
-      const matchingManifest = candidates
-        .filter((record) => record.evidenceKind === 'manifest' && normalizeState(record, category) === state)
-        .sort((a, b) => (recordTime(b) || 0) - (recordTime(a) || 0))[0];
-      const anyManifest = candidates
-        .filter((record) => record.evidenceKind === 'manifest')
-        .sort((a, b) => (recordTime(b) || 0) - (recordTime(a) || 0))[0];
+      const matchingManifest = sortCitations(
+        candidates.filter((record) => record.evidenceKind === 'manifest' && normalizeState(record, category) === state),
+        auditMs,
+      )[0];
+      const anyManifest = sortCitations(
+        candidates.filter((record) => record.evidenceKind === 'manifest'),
+        auditMs,
+      )[0];
       citation = matchingManifest || anyManifest || latest;
+    }
+    if (category === 'USER_PROFILE' && state === 'ABSENT' && citation?.evidenceKind !== 'manifest') {
+      const snapshotId = latestAccountSnapshot(auditMs);
+      if (snapshotId) citation = { evidenceId: snapshotId, evidenceKind: 'manifest' };
     }
 
     resources.push({

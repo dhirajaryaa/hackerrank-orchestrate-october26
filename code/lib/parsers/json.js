@@ -1,6 +1,6 @@
 import fs from 'node:fs';
 import { makeRecord, guessRecordType, guessSystem } from '../model.js';
-import { readJson } from '../util.js';
+import { readJson, findEmails, findPhones } from '../util.js';
 
 const DIRECT_IDENTIFIER_KEYS = [
   'full_name', 'name', 'email', 'phone', 'email_hash', 'requester_name',
@@ -113,6 +113,13 @@ function identifiersOf(row) {
         }
       }
     }
+  }
+  const text = TEXT_KEYS.map((key) => row[key]).filter((value) => typeof value === 'string').join(' ');
+  if (text) {
+    const emails = findEmails(text);
+    const phones = findPhones(text);
+    if (emails.length) out.emails = emails;
+    if (phones.length) out.phones = phones;
   }
   return out;
 }

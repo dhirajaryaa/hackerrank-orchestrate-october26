@@ -38,7 +38,11 @@ async function buildEvidenceStore({ includeManifest = true } = {}) {
   if (includeManifest) {
     for (const evidence of manifest) {
       const result = await parseEvidenceFile(evidence);
-      for (const record of result.records) store.add(record);
+      for (const record of result.records) {
+        record.evidenceOrigin = evidence.origin;
+        record.evidenceCapturedAt = evidence.captured_at;
+        store.add(record);
+      }
       store.logFile(
         evidence.file_id,
         evidence.file_path,
