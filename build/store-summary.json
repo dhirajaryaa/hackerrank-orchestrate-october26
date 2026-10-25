@@ -1,0 +1,835 @@
+{
+  "stats": {
+    "records": 6923,
+    "distinct_resources": 4956,
+    "by_system": {
+      "search_service": 1419,
+      "support_platform": 491,
+      "account_service": 1610,
+      "security_service": 640,
+      "analytics_platform": 894,
+      "backup_service": 168,
+      "integration_service": 355,
+      "export_service": 85,
+      "evidence_screenshot": 11,
+      "evidence_document": 4,
+      "privacy_treatment_service": 42,
+      "legal_service": 21,
+      "support_storage_service": 39,
+      "backup_restore_service": 43,
+      "identity_service": 29,
+      "marketing_platform": 2,
+      "archive_service": 196,
+      "email_delivery_service": 368,
+      "cache_service": 284,
+      "object_store": 155,
+      "account_replication_cluster": 55,
+      "object_storage": 1,
+      "account_failover_replica": 1,
+      "privacy_case_management": 10
+    },
+    "by_record_type": {
+      "SEARCH_INDEX_ENTRY": 1440,
+      "SUPPORT_MESSAGE": 439,
+      "USER_PROFILE": 1710,
+      "SUPPORT_ATTACHMENT": 219,
+      "SECURITY_AUDIT_LOG": 670,
+      "ANALYTICS_PROFILE": 902,
+      "BACKUP_ARCHIVE": 369,
+      "DATA_FLOW": 366,
+      "USER_EXPORT": 87,
+      "CACHE_ENTRY": 286,
+      "SCREENSHOT": 11,
+      "DOCUMENT": 4,
+      "LEGAL_HOLD_RECORD": 21,
+      "ACCOUNT_TOMBSTONE": 29,
+      "MARKETING_PROFILE": 2,
+      "EMAIL_DELIVERY_LOG": 368
+    },
+    "by_state": {
+      "PRESENT": 4008,
+      "IDENTIFIABLE": 64,
+      "ABSENT": 547,
+      "ACTIVE": 1257,
+      "BLOCKED": 89,
+      "DISABLED": 89,
+      "REDACTED": 71,
+      "ANONYMIZED": 185,
+      "REFERENCED": 37,
+      "RETAINED": 200,
+      "UNCERTAIN": 376
+    },
+    "by_parser": {
+      "log_events": 1054,
+      "json_records": 890,
+      "text_report": 41,
+      "image_doc": 30,
+      "sql_snapshot": 891,
+      "pdf_doc": 6,
+      "activity": 4011
+    }
+  },
+  "parse_log": [
+    {
+      "file_id": "evidence_01",
+      "path": "evidence/logs/service_events_ap_south_20260915.log",
+      "parser": "service_events_ap_south_20260915.log",
+      "records": 36,
+      "status": "ok",
+      "detail": "lines=105 logfmt=104"
+    },
+    {
+      "file_id": "evidence_02",
+      "path": "evidence/records/customer_data_snapshot_bundle_20260917.json",
+      "parser": "customer_data_snapshot_bundle_20260917.json",
+      "records": 41,
+      "status": "ok",
+      "detail": "snapshots=11"
+    },
+    {
+      "file_id": "evidence_03",
+      "path": "evidence/records/customer_account_handover_20261001.txt",
+      "parser": "customer_account_handover_20261001.txt",
+      "records": 41,
+      "status": "ok",
+      "detail": "snapshot=2026-10-01T12:00:00Z rows=41"
+    },
+    {
+      "file_id": "evidence_04",
+      "path": "evidence/images/account_admin_console_20260926.png",
+      "parser": "account_admin_console_20260926.png",
+      "records": 2,
+      "status": "ok",
+      "detail": "engine=cache chars=782 resources=1 subjects=2"
+    },
+    {
+      "file_id": "evidence_05",
+      "path": "evidence/databases/customer_data_read_replica_20260921.sql",
+      "parser": "customer_data_read_replica_20260921.sql",
+      "records": 61,
+      "status": "ok",
+      "detail": "topology=read_replica tables=2"
+    },
+    {
+      "file_id": "evidence_06",
+      "path": "evidence/logs/structured_service_events_eu_west_20260918.log",
+      "parser": "structured_service_events_eu_west_20260918.log",
+      "records": 34,
+      "status": "ok",
+      "detail": "lines=113 json=112"
+    },
+    {
+      "file_id": "evidence_07",
+      "path": "evidence/records/customer_data_snapshot_bundle_20260913.json",
+      "parser": "customer_data_snapshot_bundle_20260913.json",
+      "records": 30,
+      "status": "ok",
+      "detail": "snapshots=9"
+    },
+    {
+      "file_id": "evidence_08",
+      "path": "evidence/logs/search_index_diagnostic_20260906.log",
+      "parser": "search_index_diagnostic_20260906.log",
+      "records": 36,
+      "status": "ok",
+      "detail": "lines=37 flat=36"
+    },
+    {
+      "file_id": "evidence_09",
+      "path": "evidence/images/search_index_inspector_20260901.png",
+      "parser": "search_index_inspector_20260901.png",
+      "records": 2,
+      "status": "ok",
+      "detail": "engine=cache chars=973 resources=1 subjects=4"
+    },
+    {
+      "file_id": "evidence_10",
+      "path": "evidence/databases/customer_data_read_replica_20260827.sql",
+      "parser": "customer_data_read_replica_20260827.sql",
+      "records": 59,
+      "status": "ok",
+      "detail": "topology=read_replica tables=2"
+    },
+    {
+      "file_id": "evidence_11",
+      "path": "evidence/logs/syslog_archive_us_east_20260824.log",
+      "parser": "syslog_archive_us_east_20260824.log",
+      "records": 36,
+      "status": "ok",
+      "detail": "lines=119 syslog=118"
+    },
+    {
+      "file_id": "evidence_12",
+      "path": "evidence/records/customer_data_snapshot_bundle_20260819.json",
+      "parser": "customer_data_snapshot_bundle_20260819.json",
+      "records": 29,
+      "status": "ok",
+      "detail": "snapshots=11"
+    },
+    {
+      "file_id": "evidence_13",
+      "path": "evidence/records/connector_configurations_20260812.json",
+      "parser": "connector_configurations_20260812.json",
+      "records": 39,
+      "status": "ok",
+      "detail": "records=39"
+    },
+    {
+      "file_id": "evidence_14",
+      "path": "evidence/images/connector_management_console_20260807.png",
+      "parser": "connector_management_console_20260807.png",
+      "records": 3,
+      "status": "ok",
+      "detail": "engine=cache chars=571 resources=2 subjects=1"
+    },
+    {
+      "file_id": "evidence_15",
+      "path": "evidence/databases/customer_data_read_replica_20260802.sql",
+      "parser": "customer_data_read_replica_20260802.sql",
+      "records": 49,
+      "status": "ok",
+      "detail": "topology=read_replica tables=2"
+    },
+    {
+      "file_id": "evidence_16",
+      "path": "evidence/logs/application_trace_ap_northeast_20260730.log",
+      "parser": "application_trace_ap_northeast_20260730.log",
+      "records": 36,
+      "status": "ok",
+      "detail": "lines=94 bracket=93"
+    },
+    {
+      "file_id": "evidence_17",
+      "path": "evidence/records/customer_data_snapshot_bundle_20260725.json",
+      "parser": "customer_data_snapshot_bundle_20260725.json",
+      "records": 36,
+      "status": "ok",
+      "detail": "snapshots=11"
+    },
+    {
+      "file_id": "evidence_18",
+      "path": "evidence/documents/account_history_report_20260718.pdf",
+      "parser": "account_history_report_20260718.pdf",
+      "records": 1,
+      "status": "ok",
+      "detail": "engine=pdftotext chars=1074 labels=2 resources=0 subjects=2"
+    },
+    {
+      "file_id": "evidence_19",
+      "path": "evidence/images/analytics_profile_view_20260713.png",
+      "parser": "analytics_profile_view_20260713.png",
+      "records": 2,
+      "status": "ok",
+      "detail": "engine=cache chars=913 resources=1 subjects=2"
+    },
+    {
+      "file_id": "evidence_20",
+      "path": "evidence/databases/customer_data_read_replica_20260708.sql",
+      "parser": "customer_data_read_replica_20260708.sql",
+      "records": 63,
+      "status": "ok",
+      "detail": "topology=read_replica tables=2"
+    },
+    {
+      "file_id": "evidence_21",
+      "path": "evidence/logs/operations_stream_eu_central_20260705.log",
+      "parser": "operations_stream_eu_central_20260705.log",
+      "records": 37,
+      "status": "ok",
+      "detail": "lines=129 pipe=128"
+    },
+    {
+      "file_id": "evidence_22",
+      "path": "evidence/records/customer_data_snapshot_bundle_20260630.json",
+      "parser": "customer_data_snapshot_bundle_20260630.json",
+      "records": 71,
+      "status": "ok",
+      "detail": "snapshots=11"
+    },
+    {
+      "file_id": "evidence_23",
+      "path": "evidence/images/customer_export_console_20260618.png",
+      "parser": "customer_export_console_20260618.png",
+      "records": 2,
+      "status": "ok",
+      "detail": "engine=cache chars=1178 resources=1 subjects=4"
+    },
+    {
+      "file_id": "evidence_24",
+      "path": "evidence/databases/customer_data_read_replica_20260613.sql",
+      "parser": "customer_data_read_replica_20260613.sql",
+      "records": 50,
+      "status": "ok",
+      "detail": "topology=read_replica tables=2"
+    },
+    {
+      "file_id": "evidence_25",
+      "path": "evidence/logs/cloud_runtime_export_us_west_20260608.log",
+      "parser": "cloud_runtime_export_us_west_20260608.log",
+      "records": 40,
+      "status": "ok",
+      "detail": "lines=129 cloudruntime=128"
+    },
+    {
+      "file_id": "evidence_26",
+      "path": "evidence/records/customer_data_snapshot_bundle_20260605.json",
+      "parser": "customer_data_snapshot_bundle_20260605.json",
+      "records": 32,
+      "status": "ok",
+      "detail": "snapshots=9"
+    },
+    {
+      "file_id": "evidence_27",
+      "path": "evidence/documents/legal_retention_register_20260529.pdf",
+      "parser": "legal_retention_register_20260529.pdf",
+      "records": 1,
+      "status": "ok",
+      "detail": "engine=pdftotext chars=1150 labels=1 resources=0 subjects=6"
+    },
+    {
+      "file_id": "evidence_28",
+      "path": "evidence/images/support_ticket_console_20260524.png",
+      "parser": "support_ticket_console_20260524.png",
+      "records": 2,
+      "status": "ok",
+      "detail": "engine=cache chars=642 resources=1 subjects=1"
+    },
+    {
+      "file_id": "evidence_29",
+      "path": "evidence/databases/customer_data_regional_replicas_20260519.sql",
+      "parser": "customer_data_regional_replicas_20260519.sql",
+      "records": 85,
+      "status": "ok",
+      "detail": "topology=regional_replicas tables=3"
+    },
+    {
+      "file_id": "evidence_30",
+      "path": "evidence/logs/service_events_sa_east_20260516.log",
+      "parser": "service_events_sa_east_20260516.log",
+      "records": 38,
+      "status": "ok",
+      "detail": "lines=111 logfmt=110"
+    },
+    {
+      "file_id": "evidence_31",
+      "path": "evidence/records/customer_data_snapshot_bundle_20260511.json",
+      "parser": "customer_data_snapshot_bundle_20260511.json",
+      "records": 74,
+      "status": "ok",
+      "detail": "snapshots=10"
+    },
+    {
+      "file_id": "evidence_32",
+      "path": "evidence/images/backup_restore_console_20260429.png",
+      "parser": "backup_restore_console_20260429.png",
+      "records": 6,
+      "status": "ok",
+      "detail": "engine=cache chars=1332 resources=5 subjects=1"
+    },
+    {
+      "file_id": "evidence_33",
+      "path": "evidence/databases/customer_data_regional_replicas_20260424.sql",
+      "parser": "customer_data_regional_replicas_20260424.sql",
+      "records": 89,
+      "status": "ok",
+      "detail": "topology=regional_replicas tables=3"
+    },
+    {
+      "file_id": "evidence_34",
+      "path": "evidence/logs/structured_service_events_ca_central_20260419.log",
+      "parser": "structured_service_events_ca_central_20260419.log",
+      "records": 44,
+      "status": "ok",
+      "detail": "lines=137 json=136"
+    },
+    {
+      "file_id": "evidence_35",
+      "path": "evidence/records/customer_data_snapshot_bundle_20260416.json",
+      "parser": "customer_data_snapshot_bundle_20260416.json",
+      "records": 28,
+      "status": "ok",
+      "detail": "snapshots=8"
+    },
+    {
+      "file_id": "evidence_36",
+      "path": "evidence/records/customer_export_manifest_20260409.json",
+      "parser": "customer_export_manifest_20260409.json",
+      "records": 46,
+      "status": "ok",
+      "detail": "records=46"
+    },
+    {
+      "file_id": "evidence_37",
+      "path": "evidence/images/security_audit_explorer_20260905.png",
+      "parser": "security_audit_explorer_20260905.png",
+      "records": 7,
+      "status": "ok",
+      "detail": "engine=cache chars=1266 resources=6 subjects=1"
+    },
+    {
+      "file_id": "evidence_38",
+      "path": "evidence/databases/customer_data_regional_replicas_20260330.sql",
+      "parser": "customer_data_regional_replicas_20260330.sql",
+      "records": 85,
+      "status": "ok",
+      "detail": "topology=regional_replicas tables=3"
+    },
+    {
+      "file_id": "evidence_39",
+      "path": "evidence/logs/syslog_archive_ap_southeast_20260325.log",
+      "parser": "syslog_archive_ap_southeast_20260325.log",
+      "records": 40,
+      "status": "ok",
+      "detail": "lines=115 syslog=114"
+    },
+    {
+      "file_id": "evidence_40",
+      "path": "evidence/records/customer_data_snapshot_bundle_20260322.json",
+      "parser": "customer_data_snapshot_bundle_20260322.json",
+      "records": 31,
+      "status": "ok",
+      "detail": "snapshots=12"
+    },
+    {
+      "file_id": "evidence_41",
+      "path": "evidence/logs/notification_delivery_20260315.log",
+      "parser": "notification_delivery_20260315.log",
+      "records": 39,
+      "status": "ok",
+      "detail": "lines=40 flat=39"
+    },
+    {
+      "file_id": "evidence_42",
+      "path": "evidence/images/deleted_account_reference_20260310.png",
+      "parser": "deleted_account_reference_20260310.png",
+      "records": 1,
+      "status": "ok",
+      "detail": "engine=cache chars=1207 resources=0 subjects=1"
+    },
+    {
+      "file_id": "evidence_43",
+      "path": "evidence/databases/customer_data_reporting_replica_20260305.sql",
+      "parser": "customer_data_reporting_replica_20260305.sql",
+      "records": 51,
+      "status": "ok",
+      "detail": "topology=reporting_replica tables=2"
+    },
+    {
+      "file_id": "evidence_44",
+      "path": "evidence/logs/application_trace_eu_north_20260302.log",
+      "parser": "application_trace_eu_north_20260302.log",
+      "records": 35,
+      "status": "ok",
+      "detail": "lines=126 bracket=125"
+    },
+    {
+      "file_id": "evidence_45",
+      "path": "evidence/records/customer_data_snapshot_bundle_20260223.json",
+      "parser": "customer_data_snapshot_bundle_20260223.json",
+      "records": 75,
+      "status": "ok",
+      "detail": "snapshots=11"
+    },
+    {
+      "file_id": "evidence_46",
+      "path": "evidence/images/object_storage_browser_20260213.png",
+      "parser": "object_storage_browser_20260213.png",
+      "records": 1,
+      "status": "ok",
+      "detail": "engine=cache chars=1188 resources=0 subjects=0"
+    },
+    {
+      "file_id": "evidence_47",
+      "path": "evidence/databases/customer_data_reporting_replica_20260208.sql",
+      "parser": "customer_data_reporting_replica_20260208.sql",
+      "records": 49,
+      "status": "ok",
+      "detail": "topology=reporting_replica tables=2"
+    },
+    {
+      "file_id": "evidence_48",
+      "path": "evidence/logs/operations_stream_me_central_20260203.log",
+      "parser": "operations_stream_me_central_20260203.log",
+      "records": 36,
+      "status": "ok",
+      "detail": "lines=104 pipe=103"
+    },
+    {
+      "file_id": "evidence_49",
+      "path": "evidence/records/customer_data_snapshot_bundle_20260131.json",
+      "parser": "customer_data_snapshot_bundle_20260131.json",
+      "records": 34,
+      "status": "ok",
+      "detail": "snapshots=10"
+    },
+    {
+      "file_id": "evidence_50",
+      "path": "evidence/records/security_audit_ledger_20261001.json",
+      "parser": "security_audit_ledger_20261001.json",
+      "records": 20,
+      "status": "ok",
+      "detail": "records=20"
+    },
+    {
+      "file_id": "evidence_51",
+      "path": "evidence/records/customer_data_snapshot_bundle_20260915.json",
+      "parser": "customer_data_snapshot_bundle_20260915.json",
+      "records": 4,
+      "status": "ok",
+      "detail": "snapshots=3"
+    },
+    {
+      "file_id": "evidence_52",
+      "path": "evidence/databases/customer_data_failover_replica_20260920.sql",
+      "parser": "customer_data_failover_replica_20260920.sql",
+      "records": 32,
+      "status": "ok",
+      "detail": "topology=failover_replica tables=2"
+    },
+    {
+      "file_id": "evidence_53",
+      "path": "evidence/logs/cloud_runtime_export_af_south_20260930.log",
+      "parser": "cloud_runtime_export_af_south_20260930.log",
+      "records": 300,
+      "status": "ok",
+      "detail": "lines=306 cloudruntime=305"
+    },
+    {
+      "file_id": "evidence_54",
+      "path": "evidence/databases/customer_accounts_failover_replica_20260902.sql",
+      "parser": "customer_accounts_failover_replica_20260902.sql",
+      "records": 7,
+      "status": "ok",
+      "detail": "topology=failover_replica tables=2"
+    },
+    {
+      "file_id": "evidence_55",
+      "path": "evidence/documents/security_retention_extract.pdf",
+      "parser": "security_retention_extract.pdf",
+      "records": 2,
+      "status": "ok",
+      "detail": "engine=pdftotext chars=943 labels=3 resources=1 subjects=1"
+    },
+    {
+      "file_id": "evidence_56",
+      "path": "evidence/records/customer_analytics_report_20260907.json",
+      "parser": "customer_analytics_report_20260907.json",
+      "records": 2,
+      "status": "ok",
+      "detail": "records=2"
+    },
+    {
+      "file_id": "evidence_57",
+      "path": "evidence/databases/customer_search_primary_20260910.sql",
+      "parser": "customer_search_primary_20260910.sql",
+      "records": 3,
+      "status": "ok",
+      "detail": "topology=primary_only tables=1"
+    },
+    {
+      "file_id": "evidence_58",
+      "path": "evidence/documents/delivery_correction_attachment.pdf",
+      "parser": "delivery_correction_attachment.pdf",
+      "records": 2,
+      "status": "ok",
+      "detail": "engine=pdftotext chars=1268 labels=2 resources=1 subjects=1"
+    },
+    {
+      "file_id": "evidence_59",
+      "path": "evidence/records/customer_export_jobs_20260914.json",
+      "parser": "customer_export_jobs_20260914.json",
+      "records": 2,
+      "status": "ok",
+      "detail": "records=2"
+    },
+    {
+      "file_id": "evidence_60",
+      "path": "evidence/images/marketing_profile_console.png",
+      "parser": "marketing_profile_console.png",
+      "records": 2,
+      "status": "ok",
+      "detail": "engine=cache chars=1072 resources=1 subjects=1"
+    },
+    {
+      "file_id": "evidence_61",
+      "path": "evidence/logs/support_replica.log",
+      "parser": "support_replica.log",
+      "records": 3,
+      "status": "ok",
+      "detail": "lines=11 logfmt=10"
+    },
+    {
+      "file_id": "evidence_62",
+      "path": "evidence/records/service_resource_export_20260129_114459.json",
+      "parser": "service_resource_export_20260129_114459.json",
+      "records": 29,
+      "status": "ok",
+      "detail": "services=8"
+    },
+    {
+      "file_id": "evidence_63",
+      "path": "evidence/databases/customer_data_inventory_20260213.sql",
+      "parser": "customer_data_inventory_20260213.sql",
+      "records": 17,
+      "status": "ok",
+      "detail": "topology=inventory tables=7"
+    },
+    {
+      "file_id": "evidence_64",
+      "path": "evidence/logs/resource_lookup_trace_20260218_083911.log",
+      "parser": "resource_lookup_trace_20260218_083911.log",
+      "records": 26,
+      "status": "ok",
+      "detail": "lines=55 logfmt=54"
+    },
+    {
+      "file_id": "evidence_65",
+      "path": "evidence/records/service_resource_export_20260228_103637.json",
+      "parser": "service_resource_export_20260228_103637.json",
+      "records": 27,
+      "status": "ok",
+      "detail": "services=8"
+    },
+    {
+      "file_id": "evidence_66",
+      "path": "evidence/databases/customer_data_inventory_20260310.sql",
+      "parser": "customer_data_inventory_20260310.sql",
+      "records": 23,
+      "status": "ok",
+      "detail": "topology=inventory tables=7"
+    },
+    {
+      "file_id": "evidence_67",
+      "path": "evidence/logs/resource_lookup_trace_20260310_061801.log",
+      "parser": "resource_lookup_trace_20260310_061801.log",
+      "records": 1,
+      "status": "ok",
+      "detail": "lines=5 logfmt=4"
+    },
+    {
+      "file_id": "evidence_68",
+      "path": "evidence/records/service_resource_export_20260320_072349.json",
+      "parser": "service_resource_export_20260320_072349.json",
+      "records": 25,
+      "status": "ok",
+      "detail": "services=7"
+    },
+    {
+      "file_id": "evidence_69",
+      "path": "evidence/databases/customer_data_inventory_20260404.sql",
+      "parser": "customer_data_inventory_20260404.sql",
+      "records": 18,
+      "status": "ok",
+      "detail": "topology=inventory tables=7"
+    },
+    {
+      "file_id": "evidence_70",
+      "path": "evidence/logs/resource_lookup_trace_20260414_054007.log",
+      "parser": "resource_lookup_trace_20260414_054007.log",
+      "records": 24,
+      "status": "ok",
+      "detail": "lines=51 logfmt=50"
+    },
+    {
+      "file_id": "evidence_71",
+      "path": "evidence/records/service_resource_export_20260429_083222.json",
+      "parser": "service_resource_export_20260429_083222.json",
+      "records": 28,
+      "status": "ok",
+      "detail": "services=8"
+    },
+    {
+      "file_id": "evidence_72",
+      "path": "evidence/databases/customer_data_inventory_20260504.sql",
+      "parser": "customer_data_inventory_20260504.sql",
+      "records": 21,
+      "status": "ok",
+      "detail": "topology=inventory tables=7"
+    },
+    {
+      "file_id": "evidence_73",
+      "path": "evidence/logs/resource_lookup_trace_20260509_104353.log",
+      "parser": "resource_lookup_trace_20260509_104353.log",
+      "records": 33,
+      "status": "ok",
+      "detail": "lines=69 logfmt=68"
+    },
+    {
+      "file_id": "evidence_74",
+      "path": "evidence/records/service_resource_export_20260514_114454.json",
+      "parser": "service_resource_export_20260514_114454.json",
+      "records": 25,
+      "status": "ok",
+      "detail": "services=7"
+    },
+    {
+      "file_id": "evidence_75",
+      "path": "evidence/databases/customer_data_inventory_20260524.sql",
+      "parser": "customer_data_inventory_20260524.sql",
+      "records": 24,
+      "status": "ok",
+      "detail": "topology=inventory tables=7"
+    },
+    {
+      "file_id": "evidence_76",
+      "path": "evidence/logs/resource_lookup_trace_20260529_074313.log",
+      "parser": "resource_lookup_trace_20260529_074313.log",
+      "records": 23,
+      "status": "ok",
+      "detail": "lines=49 logfmt=48"
+    },
+    {
+      "file_id": "evidence_77",
+      "path": "evidence/records/service_resource_export_20260603_083457.json",
+      "parser": "service_resource_export_20260603_083457.json",
+      "records": 27,
+      "status": "ok",
+      "detail": "services=7"
+    },
+    {
+      "file_id": "evidence_78",
+      "path": "evidence/databases/customer_data_inventory_20260618.sql",
+      "parser": "customer_data_inventory_20260618.sql",
+      "records": 19,
+      "status": "ok",
+      "detail": "topology=inventory tables=7"
+    },
+    {
+      "file_id": "evidence_79",
+      "path": "evidence/logs/resource_lookup_trace_20260623_053726.log",
+      "parser": "resource_lookup_trace_20260623_053726.log",
+      "records": 29,
+      "status": "ok",
+      "detail": "lines=61 logfmt=60"
+    },
+    {
+      "file_id": "evidence_80",
+      "path": "evidence/records/service_resource_export_20260628_062556.json",
+      "parser": "service_resource_export_20260628_062556.json",
+      "records": 24,
+      "status": "ok",
+      "detail": "services=8"
+    },
+    {
+      "file_id": "evidence_81",
+      "path": "evidence/databases/customer_data_inventory_20260703.sql",
+      "parser": "customer_data_inventory_20260703.sql",
+      "records": 24,
+      "status": "ok",
+      "detail": "topology=inventory tables=7"
+    },
+    {
+      "file_id": "evidence_82",
+      "path": "evidence/logs/resource_lookup_trace_20260713_093359.log",
+      "parser": "resource_lookup_trace_20260713_093359.log",
+      "records": 26,
+      "status": "ok",
+      "detail": "lines=55 logfmt=54"
+    },
+    {
+      "file_id": "evidence_83",
+      "path": "evidence/records/service_resource_export_20260718_104335.json",
+      "parser": "service_resource_export_20260718_104335.json",
+      "records": 29,
+      "status": "ok",
+      "detail": "services=8"
+    },
+    {
+      "file_id": "evidence_84",
+      "path": "evidence/databases/customer_data_inventory_20260723.sql",
+      "parser": "customer_data_inventory_20260723.sql",
+      "records": 26,
+      "status": "ok",
+      "detail": "topology=inventory tables=8"
+    },
+    {
+      "file_id": "evidence_85",
+      "path": "evidence/logs/resource_lookup_trace_20260728_054417.log",
+      "parser": "resource_lookup_trace_20260728_054417.log",
+      "records": 22,
+      "status": "ok",
+      "detail": "lines=47 logfmt=46"
+    },
+    {
+      "file_id": "evidence_86",
+      "path": "evidence/records/service_resource_export_20260807_074104.json",
+      "parser": "service_resource_export_20260807_074104.json",
+      "records": 23,
+      "status": "ok",
+      "detail": "services=8"
+    },
+    {
+      "file_id": "evidence_87",
+      "path": "evidence/databases/customer_data_inventory_20260817.sql",
+      "parser": "customer_data_inventory_20260817.sql",
+      "records": 19,
+      "status": "ok",
+      "detail": "topology=inventory tables=8"
+    },
+    {
+      "file_id": "evidence_88",
+      "path": "evidence/logs/resource_lookup_trace_20260822_103910.log",
+      "parser": "resource_lookup_trace_20260822_103910.log",
+      "records": 22,
+      "status": "ok",
+      "detail": "lines=47 logfmt=46"
+    },
+    {
+      "file_id": "evidence_89",
+      "path": "evidence/records/service_resource_export_20260901_053316.json",
+      "parser": "service_resource_export_20260901_053316.json",
+      "records": 23,
+      "status": "ok",
+      "detail": "services=8"
+    },
+    {
+      "file_id": "evidence_90",
+      "path": "evidence/databases/customer_data_inventory_20260905.sql",
+      "parser": "customer_data_inventory_20260905.sql",
+      "records": 0,
+      "status": "ok",
+      "detail": "topology=inventory tables=0"
+    },
+    {
+      "file_id": "evidence_91",
+      "path": "evidence/logs/resource_lookup_trace_20260911_074253.log",
+      "parser": "resource_lookup_trace_20260911_074253.log",
+      "records": 30,
+      "status": "ok",
+      "detail": "lines=63 logfmt=62"
+    },
+    {
+      "file_id": "evidence_92",
+      "path": "evidence/records/service_resource_export_20260915_114455.json",
+      "parser": "service_resource_export_20260915_114455.json",
+      "records": 36,
+      "status": "ok",
+      "detail": "services=8"
+    },
+    {
+      "file_id": "evidence_93",
+      "path": "evidence/databases/customer_data_inventory_20260916.sql",
+      "parser": "customer_data_inventory_20260916.sql",
+      "records": 17,
+      "status": "ok",
+      "detail": "topology=inventory tables=8"
+    },
+    {
+      "file_id": "evidence_94",
+      "path": "evidence/logs/resource_lookup_trace_20260926_103856.log",
+      "parser": "resource_lookup_trace_20260926_103856.log",
+      "records": 28,
+      "status": "ok",
+      "detail": "lines=59 logfmt=58"
+    },
+    {
+      "file_id": "system_activity.csv",
+      "path": "dataset/system_activity.csv",
+      "parser": "activity",
+      "records": 4011,
+      "status": "ok",
+      "detail": "events=4011"
+    }
+  ],
+  "assignments": 419
+}

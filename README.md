@@ -1,157 +1,548 @@
-# HackerRank Orchestrate - October 2026
+# Ghost Data Still Exists — Deletion-Audit Agent
 
-## Ghost Data Still Exists
+Submission for **HackerRank Orchestrate — October 2026**.
 
-Build an AI agent that audits whether a user's personal data was actually deleted.
+A deletion workflow can report **Complete** while personal data still exists in databases, replicas, logs, support attachments, exports, search indexes, analytics records, archives, or backups. This project is a deterministic, evidence-driven audit agent that:
 
-A deletion workflow may report **Complete** while data still exists in databases, logs, support attachments, exports, search indexes, archives, or backups. Sync and restore processes may also bring deleted data back.
+1. decides whether the request actually authorises deletion;
+2. resolves the person's current **and historical** identifiers;
+3. reconstructs the true state of every linked record at the case's `audit_at` time;
+4. applies `dataset/deletion_rules.csv`; and
+5. emits an ordered `FINDING` → `REMEDIATION` → `VERIFICATION` plan.
 
-For each request, the agent must first determine whether deletion was actually requested. It then returns `COMPLETE`, `INCOMPLETE`, or `NOT_APPLICABLE`, reports any remaining data or recreation risk, and produces the ordered remediation and verification steps required to finish an authorized deletion safely.
+The final answer is written to `output.csv` at the repository root.
 
-Read [`problem_statement.md`](./problem_statement.md) for the complete challenge contract.
+| Verified result | Value |
+|---|---|
+| Evaluation rows | **518 / 518** (one per request, sorted by `case_id`) |
+| Output contract (`bun run validate`) | **518 / 518 rows valid** |
+| Sample deletion-status accuracy | **32 / 32 (100%)** |
+| Sample exact-case accuracy | **29 / 32 (90.6%)** |
+| Sample step-position accuracy | **185 / 193 (95.9%)** |
+| Test suite | **20 / 20 passing** |
+| Final-run model calls / tokens / cost | **0 / 0 / $0.00** |
+| Reproducibility | Re-running `predict` produced a byte-identical `output.csv` |
 
 ---
 
-## Quick Start
+## 1. Quick start
 
-Clone the repository and move into the project directory:
-
-```bash
-git clone https://github.com/interviewstreet/hackerrank-orchestrate-october26.git
-cd hackerrank-orchestrate-october26
-```
-
-Start your AI coding tool from the **repository root** so it automatically reads [`AGENTS.md`](./AGENTS.md) and logs your session turns to `log.txt` in the root directory.
-
-Build your solution in `code/main.py`, or use another language and document its setup and run command clearly in your README.
-
-Your solution must:
-
-- Read the input files from `dataset/`
-- Generate one prediction row for every request in `dataset/deletion_requests.csv`
-- Write the final predictions to `output.csv` in the repository root
-
-Run the starter Python entry point with:
+These instructions assume the challenge's `dataset/` directory is present next to this README. `dataset/` is **not** bundled in `code.zip`; it is supplied by the challenge.
 
 ```bash
-python3 code/main.py
+# 1. Install dependencies (Bun uses the committed lockfile)
+bun install --frozen-lockfile
+
+# 2. Generate the submission output
+bun run predict
+
+# 3. Check the output contract
+bun run validate
+
+# 4. Reproduce the sample metrics and run the tests (optional)
+bun run score
+bun run test
 ```
 
-The blank template at `dataset/output.csv` is provided as a reference. Your final generated file for submission must be the root-level `output.csv`.
+Expected console output from `bun run predict`:
 
+```text
+Wrote 518 rows to /path/to/repository/output.csv
+Status counts: { COMPLETE: 178, INCOMPLETE: 330, NOT_APPLICABLE: 10 }
+Model calls: 0
+```
 
-## Dataset
+Expected console output from `bun run validate`:
 
-All participant-facing files are in `dataset/`:
+```text
+Validated 518 rows (518 unique cases).
+```
+
+If Bun is not installed, the same commands work with Node.js and npm — see [Setup](#3-setup).
+
+---
+
+## 2. What ships in `code.zip`
+
+```text
+README.md                       this document
+package.json                    scripts and dependencies
+bun.lock                        reproducible dependency lockfile
+config/agent.json               optional Gemini intent-fallback configuration
+code/
+├── main.js                     CLI entry point (build/predict/score/validate/ai-check/debug)
+├── env.example                 empty GEMINI_API_KEY placeholder
+├── prompts/intent_guard.txt    optional model prompt
+├── evaluation/
+│   ├── evaluation_report.md    measured case/step/field/sequence accuracy + custom cases
+│   └── usage_report.md         measured model calls, tokens, cost
+└── lib/
+    ├── identity.js             current + historical identifier resolution
+    ├── evidence.js             evidence manifest + parser dispatch
+    ├── linker.js               subject ↔ resource linking with audit-time cut-off
+    ├── activity.js             activity-stream interpretation
+    ├── inference.js            resource-state inference across systems
+    ├── context.js              per-case evidence context
+    ├── config.js               policy tables, operation ordering, system/category maps
+    ├── planner.js              finding/remediation/verification planning
+    ├── engine.js               decision + serialization
+    ├── request_intent.js       deterministic multilingual intent gate
+    ├── gemini.js               optional AI intent fallback
+    ├── usage.js                model-call / token / cost accounting
+    ├── tables.js               CSV loaders
+    ├── util.js                 CSV, timestamp, identifier helpers
+    └── parsers/                PDF, image/OCR, log, JSON, text, SQL parsers
+tests/                          20 Vitest unit + custom-evaluation tests
+evaluation/                     mirror of the two reports for archive-root graders
+```
+
+Not shipped: `dataset/`, `output.csv`, `build/`, `node_modules/`, `.env`, and any credentials. `output.csv` is regenerated by `predict`; `build/` is regenerated on demand; `dataset/` comes from the challenge.
+
+The agent searches upward from its own location for a directory containing `dataset/`, so extract `code.zip` into the repository root that already contains `dataset/`.
+
+---
+
+## 3. Setup
+
+### 3.1 Requirements
+
+| Requirement | Details |
+|---|---|
+| Node.js | **22.5 or newer** (`package.json` → `engines.node`). Verified with **v26.8.1**. Node executes the code; the npm scripts call `node code/main.js ...`. |
+| Bun (recommended) | Verified with **1.4.3**. Used for `bun install` (lockfile) and the `bun run ...` shortcuts. |
+| npm (alternative) | Any npm that supports the installed Node version. `npm install` reads `package.json`; a `package-lock.json` is generated locally and is not part of the submission. |
+| Dataset | `dataset/` from the challenge, containing `deletion_requests.csv`, `user_identities.csv`, `user_audit_log.csv`, `system_activity.csv`, `deletion_rules.csv`, `evidence_files.csv`, and `dataset/evidence/`. |
+| Network (first run only) | `tesseract.js` downloads the English OCR model (about **5 MB**, written as `eng.traineddata` in the working directory) the first time a screenshot is parsed. Later runs use the local file and the `build/ocr/` cache. If the download is unavailable, install the system `tesseract` CLI or copy `eng.traineddata` into the repository root. |
+| API key | **Not required.** The submitted run is fully deterministic. `GEMINI_API_KEY` is optional and only used with `--ai`. |
+
+### 3.2 Extract and install
+
+From the repository root (the directory that contains `dataset/`):
+
+```bash
+unzip -o code.zip -d .
+bun install --frozen-lockfile
+```
+
+Windows PowerShell:
+
+```powershell
+Expand-Archive -Path code.zip -DestinationPath . -Force
+bun install --frozen-lockfile
+```
+
+If Bun is unavailable:
+
+```bash
+npm install
+```
+
+The install adds `csv-parse`, `dotenv`, `pdf-parse`, `tesseract.js`, `zod`, and the `vitest` test runner. `node_modules/` is intentionally excluded from `code.zip`.
+
+### 3.3 Optional environment file
+
+No environment file is needed for the final answer. To enable the optional Gemini intent fallback:
+
+```bash
+cp code/env.example .env
+# edit .env and set GEMINI_API_KEY="..."
+```
+
+`code/main.js` loads `code/.env` first and then the root `.env`. The key is read from the environment only and is never committed or logged.
+
+---
+
+## 4. How to run
+
+All commands below are run from the repository root.
+
+### 4.1 Generate `output.csv` (the required run)
+
+```bash
+bun run predict
+```
+
+Equivalent direct invocation:
+
+```bash
+node code/main.js predict
+```
+
+This reads every request in `dataset/deletion_requests.csv`, runs the full pipeline, and writes:
 
 | File | Contents |
-| --- | --- |
-| `deletion_requests.csv` | 518 requests |
-| `sample_deletion_requests.csv` | 32 sample requests |
-| `sample_output.csv` | Correct sample answers |
-| `user_identities.csv` | Current user identities |
-| `user_audit_log.csv` | Historical identity changes |
-| `system_activity.csv` | Activity across services and data processes |
-| `deletion_rules.csv` | Required treatment for each data category |
-| `evidence_files.csv` | Manifest of supplied evidence files |
-| `output.csv` | Blank output template |
+|---|---|
+| `output.csv` | 518 data rows + header, sorted by `case_id` |
+| `build/predictions.json` | per-case status, intent, linked resources, steps |
+| `build/assignments.json` | evidence/subject linking summary |
+| `build/case-contexts.json` | per-case evidence context used by the decision engine |
+| `build/usage.json` | model calls, tokens, latency, estimated cost |
 
-Evidence is stored under `dataset/evidence/` and may include PDFs, images, logs, JSON, plain text, or SQL snapshot exports. SQL captures may contain a primary database, regional replicas, a reporting replica, or a failover replica so replication drift can be investigated directly. The `.sql` files are readable as text and executable with SQLite.
+Runtime on the verification machine:
 
-Only `deletion_requests.csv` requires answers. The other files provide evidence and context.
+| Scenario | Time |
+|---|---|
+| Warm OCR cache (`build/ocr/` present) | **3.0 s** |
+| Cold cache / clean extraction (first run downloads the OCR model) | **39.9 s** |
+
+Both runs produced the same `output.csv` (SHA-256 `c977b91a107b8b834b2eec5d766b89cffb164763d0f02fbd73ba9df81e15f72a`).
+
+### 4.2 Validate the output contract
+
+```bash
+bun run validate
+```
+
+Checks that:
+
+- the header is exactly `case_id,deletion_status,steps_json`;
+- there are 518 unique rows in the expected sorted order;
+- every status is `COMPLETE`, `INCOMPLETE`, or `NOT_APPLICABLE`;
+- every `steps_json` value is a valid JSON array;
+- `NOT_APPLICABLE` rows have `steps_json=[]`;
+- `step_no` is consecutive from `1`;
+- phases are ordered `FINDING` → `REMEDIATION` → `VERIFICATION`;
+- every operation/state pair is allowed;
+- findings and `COMPLETE` verification steps cite evidence;
+- remediation and future-verification steps use `evidence_id=""`.
+
+### 4.3 Score against the public sample answers
+
+```bash
+bun run score
+```
+
+This writes `build/sample-score.json` and prints the measured metrics against `dataset/sample_output.csv`. It never writes to the dataset.
+
+### 4.4 Run the tests
+
+```bash
+bun run test
+```
+
+Expected:
+
+```text
+Test Files  5 passed (5)
+Tests       20 passed (20)
+```
+
+The suite covers the intent gate, Gemini response handling (mocked client, no network), planner ordering, usage accounting, and four participant-created evaluation cases in `tests/custom_eval.test.js`.
+
+### 4.5 Rebuild intermediate artefacts
+
+```bash
+bun run build
+```
+
+This parses the evidence, prints store statistics, and writes `build/store-summary.json`, `build/contexts.json`, `build/decisions.json`, and `build/usage.json`. It does not overwrite `output.csv`.
+
+### 4.6 Inspect a single case
+
+```bash
+# Full evaluation set (518 cases):
+node code/main.js debug --case case_100 --eval
+
+# Public sample set (32 cases):
+node code/main.js debug --case case_04
+```
+
+The command prints the full decision (intent, linked resources, steps) as JSON.
+Single-case mode can assign resources differently from a full run, so use
+`bun run score` and `bun run predict` for authoritative aggregate results.
+
+### 4.7 Optional AI-assisted intent check
+
+```bash
+bun run predict --ai
+# or:
+node code/main.js predict --ai
+```
+
+The deterministic rule-based intent gate handles all 518 requests, so the final submitted run makes **zero** model calls. `--ai` only asks Gemini to classify requests the rules mark as `unclear`; if the key is missing or the call fails, the deterministic decision is kept. `build/usage.json` records provider, model, token counts, latency, and estimated cost for any call.
 
 ---
 
-## Output
+## 5. Output contract
 
-Create `output.csv` with these columns in this exact order:
+`output.csv` must contain exactly one header row and 518 data rows:
 
 ```text
 case_id,deletion_status,steps_json
 ```
 
-Produce exactly one row per request. `deletion_status` is `COMPLETE`, `INCOMPLETE`, or `NOT_APPLICABLE`. `steps_json` is an ordered JSON array containing findings, remediation actions, and verification checks. Use an empty array (`[]`) for `NOT_APPLICABLE`. Evidence references may be a `file_id`, `activity_id`, or `audit_id`. Determine the resource state at `audit_at` from the available evidence; reported workflow statuses and operation results are claims. Use `dataset/sample_output.csv` as the format reference.
+Example step array:
 
-The final file must contain 518 data rows sorted by `case_id` (plus the header row). The grader parses `steps_json` as JSON, so object-key order and whitespace do not matter; array order does. Order findings, remediation, and verification in that phase order. Within a phase, follow the operation order in the problem statement, then sort by `system_id` and `resource_id`.
+```json
+[
+  {
+    "step_no": 1,
+    "phase": "FINDING",
+    "system_id": "support_platform",
+    "resource_id": "support_1630",
+    "operation": "REPORT_EXPOSED_PII",
+    "state": "PRESENT",
+    "evidence_id": "evidence_89"
+  },
+  {
+    "step_no": 2,
+    "phase": "REMEDIATION",
+    "system_id": "support_platform",
+    "resource_id": "support_1630",
+    "operation": "REDACT_RECORD",
+    "state": "REDACTED",
+    "evidence_id": ""
+  },
+  {
+    "step_no": 3,
+    "phase": "VERIFICATION",
+    "system_id": "support_platform",
+    "resource_id": "support_1630",
+    "operation": "VERIFY_RECORD_REDACTED",
+    "state": "REDACTED",
+    "evidence_id": ""
+  }
+]
+```
+
+Rules applied by the serializer:
+
+- `COMPLETE`: verification-only steps, each citing evidence that proves the state at `audit_at`.
+- `INCOMPLETE`: all supported findings, the full ordered remediation plan, and the post-remediation verification checks.
+- `NOT_APPLICABLE`: `steps_json=[]`.
+- Findings cite a participant-visible `file_id`, `activity_id`, or `audit_id`.
+- Remediation and future verification for `INCOMPLETE` cases use `evidence_id=""`.
+- Steps are ordered by phase, then by the operation order from the problem statement, then by `system_id` and `resource_id`.
+- Object-key order and whitespace are irrelevant to the grader because `steps_json` is parsed as JSON; array order is preserved.
 
 ---
 
-## Evaluation
+## 6. How the agent works
 
-`output.csv` will be compared with hidden canonical answers. Scoring considers:
+### 6.1 Intent gate
 
-- deletion assessment accuracy;
-- current and historical identity resolution;
-- discovery of remaining data and recreation risks;
-- correct policy application and evidence references; and
-- completeness and ordering of remediation and verification steps.
+`code/lib/request_intent.js` classifies the request text deterministically. It recognises deletion verbs across the languages present in the dataset, explicit negations, and non-deletion intents. Access, correction, export, marketing opt-out, and negated requests become `NOT_APPLICABLE` even when records still exist. An optional Gemini fallback (`code/lib/gemini.js`) is available for genuinely ambiguous text but is not used by the submitted run.
 
-Your `code.zip` must include:
+### 6.2 Identity resolution
+
+`code/lib/identity.js` matches the request email against:
+
+- the current snapshot in `user_identities.csv`; and
+- historical identity changes in `user_audit_log.csv`.
+
+It recovers historical emails, phones, and email hashes that may still appear in older systems and evidence, and it resolves the stable internal `user_id` used to link records across current and historical snapshots.
+
+### 6.3 Evidence parsing and time scoping
+
+`code/lib/evidence.js` reads `evidence_files.csv` and dispatches each artefact to a parser:
+
+| Format | Parser |
+|---|---|
+| `.pdf` | `code/lib/parsers/pdf.js` |
+| Images (screenshots, scans) | `code/lib/parsers/image.js` with `tesseract.js`, cached in `build/ocr/` |
+| `.log` | `code/lib/parsers/log.js` |
+| `.json` | `code/lib/parsers/json.js` |
+| `.txt` / plain records | `code/lib/parsers/text.js` |
+| `.sql` (SQLite-compatible snapshots) | `code/lib/parsers/sql.js` |
+
+Every artefact carries its `captured_at` time. Anything captured **after** the case's `audit_at` is excluded from the decision. SQL snapshots can describe primary, regional, reporting, or failover replicas; the parser records each table's topology and snapshot time so replication drift can be represented instead of being hidden behind a single reported status.
+
+### 6.4 Linking
+
+`code/lib/linker.js` connects evidence to a subject through current and historical emails, phones, email hashes, stable user references, resource IDs, system IDs, and timestamps. Activity rows such as `LINK_RESOURCE_IDENTITY` are treated as claims, not proof of a surviving record. A record is only reported when participant-visible evidence supports its state at the audit cut-off.
+
+### 6.5 Policy
+
+`code/lib/config.js` maps each `(data category, observed state)` pair to the required finding, remediation, and verification operations. The categories and actions mirror `dataset/deletion_rules.csv`:
+
+- `USER_PROFILE`, `SECONDARY_IDENTIFIER`, `SEARCH_INDEX_ENTRY`, `CACHE_ENTRY`, `USER_EXPORT`, `MARKETING_PROFILE`, and subject-only `SUPPORT_ATTACHMENT` records are deleted;
+- `SUPPORT_MESSAGE` and `EMAIL_DELIVERY_LOG` records are redacted;
+- `ANALYTICS_PROFILE` and `PRODUCT_TELEMETRY` records are anonymised;
+- `SECURITY_AUDIT_LOG` and `LEGAL_HOLD_RECORD` records are retained and verified present;
+- `ACCOUNT_TOMBSTONE` is redacted, preserving only the stable `user_id` reference;
+- `BACKUP_ARCHIVE` restore access is blocked when required; and
+- `DATA_FLOW` records that can copy or recreate data are disabled before dependent records are changed.
+
+### 6.6 Decision and planning
+
+`code/lib/engine.js` emits:
+
+- `INCOMPLETE` when at least one supported finding remains;
+- `COMPLETE` when every relevant copy has the required treatment, required retained records remain, and no active sync or restore path can recreate prohibited data; or
+- `NOT_APPLICABLE` when the request does not authorise deletion.
+
+`code/lib/planner.js` builds findings, remediation, and verification in that order, with data flows and restores handled before dependent record changes. `code/lib/engine.js` serialises deterministic JSON with consecutive `step_no` values.
+
+---
+
+## 7. Measured results
+
+### 7.1 Full evaluation set (518 requests)
+
+| Metric | Value |
+|---|---|
+| Rows written | 518 |
+| Unique `case_id` values | 518 |
+| Validation result | 518/518 rows valid |
+| `INCOMPLETE` | 330 |
+| `COMPLETE` | 178 |
+| `NOT_APPLICABLE` | 10 |
+| Total steps | 2,964 |
+| Average steps per case | 5.72 |
+| Maximum steps in one case | 14 |
+
+The root `output.csv` produced by the final run has SHA-256:
 
 ```text
-code/evaluation/evaluation_report.md
-code/evaluation/usage_report.md
+c977b91a107b8b834b2eec5d766b89cffb164763d0f02fbd73ba9df81e15f72a
 ```
 
-- `evaluation_report.md` must cover case, row, field, and sequence accuracy, at least three additional evaluation cases created by you, failures found, and improvements made.
-- `usage_report.md` must cover the final full-dataset run, including model providers and names, model calls, input and output tokens, total and average tokens per request, and estimated total and per-request cost. Include per-model and overall totals when using multiple models.
+### 7.2 Public sample set (32 cases)
 
-**Important:** Place `evaluation_report.md` and `usage_report.md` inside `code/evaluation/` (matching `code/evaluation/main.py` in this starter layout), write your complete evaluation metrics, custom evaluation test cases, and token/cost breakdowns directly inside those Markdown files, and keep prompts in source code or Markdown files. Automated code evaluation ignores raw data files (`.csv`, `.tsv`, `.json`, `.jsonl`, `.sql`, `.log`), so content stored only in those formats will not be visible to the code judge or AI interviewer.
+| Metric | Result |
+|---|---|
+| Deletion-status accuracy | **32/32 (100.0%)** |
+| Exact case accuracy | 29/32 (90.6%) |
+| Sequence accuracy | 29/32 (90.6%) |
+| Step-position accuracy | 185/193 (95.9%) |
+| Field accuracy — `phase` | 190/193 (98.4%) |
+| Field accuracy — `system_id` | 185/193 (95.9%) |
+| Field accuracy — `resource_id` | 185/193 (95.9%) |
+| Field accuracy — `operation` | 185/193 (95.9%) |
+| Field accuracy — `state` | 185/193 (95.9%) |
+| Field accuracy — `evidence_id` | 189/193 (97.9%) |
+
+Three sample cases have the correct status but one missing verification step:
+
+- `case_04` lacks the expected canonical `account_004` absence check; no visible artefact names that account for the request's user.
+- `case_18` and `case_20` lack the expected retained security-audit verification (`audit_record_6645`, `audit_record_5569`), which does not appear in visible evidence for those users.
+
+The agent does not infer resource IDs from user numbers or fabricate citations. A step is emitted only when a parsed artefact captured at or before `audit_at` establishes the resource and its state. Details are in `code/evaluation/evaluation_report.md`.
+
+### 7.3 Participant-created evaluation cases
+
+`tests/custom_eval.test.js` adds four cases beyond the public samples:
+
+| Case | Scenario | Expected |
+|---|---|---|
+| `custom_01` | Access request while a profile still exists | `NOT_APPLICABLE`, `steps=[]` |
+| `custom_02` | Explicit negation ("do not delete my account") | `NOT_APPLICABLE`, `steps=[]` |
+| `custom_03` | Identifiable tombstone + retained audit log + active sync flow | `INCOMPLETE`, flow disabled before tombstone redaction |
+| `custom_04` | Fully compliant case | `COMPLETE`, five evidence-backed verification steps |
+
+All four pass.
+
+### 7.4 Test suite
+
+| File | Tests | Result |
+|---|---|---|
+| `tests/intent.test.js` | 5 | Pass |
+| `tests/gemini.test.js` | 4 | Pass |
+| `tests/planner.test.js` | 5 | Pass |
+| `tests/usage.test.js` | 2 | Pass |
+| `tests/custom_eval.test.js` | 4 | Pass |
+| **Total** | **20** | **20/20 pass** |
 
 ---
 
-## Chat Transcript
+## 8. Evaluation and usage reports
 
-This repository includes [`AGENTS.md`](./AGENTS.md), which instructs compatible AI coding tools to append conversation summaries to `log.txt` in the repository root:
+The submission reports are checked in at:
 
-| Platform | Path |
-| --- | --- |
-| macOS / Linux | `<repo root>/log.txt` |
-| Windows | `<repo root>\log.txt` |
+- `code/evaluation/evaluation_report.md` — case-level status accuracy, step-level and field-level accuracy, sequence accuracy, custom evaluation cases, failures found, and improvements made.
+- `code/evaluation/usage_report.md` — final full-dataset run details, model providers/names, call counts, input/output tokens, totals, per-request averages, and estimated cost.
 
-- Always launch your AI coding agent from the repository root (or explicitly ask it to read `./AGENTS.md` first) so every turn is logged to `log.txt` with the required `User Prompt`, `Agent Response Summary`, `Actions`, and `Context` sections.
-- Upload `log.txt` directly as your `chat_transcript` submission on HackerRank.
-- Do not include API keys, tokens, credentials, or secrets in prompts, code, configuration, or `log.txt`.
+The same two reports are also copied to top-level `evaluation/` in `code.zip` for graders that resolve the path from the archive root.
+
+### Final-run usage
+
+| Item | Value |
+|---|---|
+| Command | `bun run predict` |
+| Requests | 518 |
+| AI mode | Deterministic path (fallback disabled) |
+| Model calls | 0 |
+| Input tokens | 0 |
+| Output tokens | 0 |
+| Total tokens | 0 |
+| Estimated total cost | $0.00 |
+| Average tokens per request | 0 |
+| Estimated cost per request | $0.000000 |
 
 ---
 
-## Packaging `code.zip` and Submission
+## 9. Troubleshooting
 
-| Item | Description |
-| --- | --- |
-| `code.zip` | Runnable solution, prompts, configuration, `README.md`, and `evaluation/` reports |
-| `output.csv` | One answer row for each of the 518 requests in `dataset/deletion_requests.csv` |
-| `chat_transcript` | The root `log.txt` file generated by your coding agent |
-| AI interview | Live explanation of your architecture, approach, and evaluation |
+| Symptom | Fix |
+|---|---|
+| `Cannot find package ...` | Run `bun install --frozen-lockfile` (or `npm install`) from the repository root. |
+| `dataset` not found / empty output | Extract `code.zip` into the repository root that contains `dataset/`. The code searches upward for `dataset/`; it does not bundle it. |
+| OCR warning or missing image findings on the first run | Allow the one-time `tesseract.js` model download (about 5 MB), or install the system `tesseract` CLI, or copy `eng.traineddata` into the repository root. |
+| Run is slower than 3 seconds | The cold run parses and OCRs every image. `build/ocr/` is a safe cache; subsequent runs reuse it. |
+| Node version error | Use Node.js 22.5+ (`node --version`). |
+| Stale `output.csv` | Delete it and rerun `bun run predict`; the file is fully regenerated. |
+| Windows path issues | Run from the repository root and use the PowerShell commands in [Setup](#3-setup); all paths are resolved relative to the repository, not hardcoded. |
+| Permission denied writing `output.csv` | Ensure the repository root is writable; the agent writes both `output.csv` and `build/`. |
 
-You may use any programming language, model, framework, or retrieval approach. Include clear setup and execution instructions in `README.md` inside `code.zip`.
+`build/` is disposable. Deleting it removes the OCR cache, the intermediate reports, and `usage.json`; the next run recreates them.
 
-To package `code.zip` from the repository root without bundling the dataset:
+---
 
-**macOS / Linux:**
+## 10. Rebuilding `code.zip`
+
+From the repository root, package the runnable solution **without** the dataset, dependencies, build artefacts, environment files, or nested archives:
 
 ```bash
-zip -r code.zip README.md code -x "*/__pycache__/*" "*/.venv/*" "*/venv/*" "*/node_modules/*" "*/.git/*" "*/.DS_Store"
+rm -f code.zip
+zip -r code.zip README.md package.json bun.lock config code tests evaluation \
+  -x "*/node_modules/*" "*/__pycache__/*" "*/.env" "*/build/*" "*.zip" "*.tar" "*.gz" "*.tgz" "*.7z" "*.rar"
 ```
 
-**Windows (PowerShell):**
+Verify the archive:
 
-```powershell
-Compress-Archive -Path README.md, code -DestinationPath code.zip -Force
+```bash
+unzip -l code.zip
+unzip -Z1 code.zip | grep -E '(^|/)(dataset|node_modules|build)/|\.env$' \
+  || echo "clean: no dataset, node_modules, build, or .env"
 ```
 
-When packaging `code.zip`:
+The archive must contain:
 
-- Keep your evaluation reports in `code/evaluation/` so they are bundled automatically with `code` (or add `evaluation` to the archive command above if you placed them in a top-level `evaluation/` directory).
-- Do **not** include `dataset/`, virtual environments (`.venv`, `venv`, `node_modules`), or build caches (`__pycache__`). On Windows, keep `.venv` at the repository root (outside `code/`) and remove any `code/__pycache__` folders before running `Compress-Archive`.
-- Do **not** include nested archives (`.zip`, `.tar`, `.gz`, `.tgz`, `.7z`, `.rar`) inside `code.zip` — submissions containing nested archive files will be rejected.
+```text
+README.md
+package.json
+bun.lock
+config/agent.json
+code/main.js
+code/lib/**
+code/prompts/intent_guard.txt
+code/evaluation/evaluation_report.md
+code/evaluation/usage_report.md
+evaluation/evaluation_report.md
+evaluation/usage_report.md
+tests/**
+```
 
-Before submitting, confirm that:
+`output.csv` is submitted separately and is not part of `code.zip`.
 
-- `output.csv` has the exact header `case_id,deletion_status,steps_json` and contains all 518 data rows sorted by `case_id`;
-- every `steps_json` value is a valid JSON array with consecutive step numbers starting at `1`;
-- findings cite valid evidence IDs, and `COMPLETE` verification steps cite evidence proving the current state;
-- proposed remediation and future verification steps use an empty `evidence_id` (`""`);
-- `code.zip` includes your runnable code, `README.md`, `code/evaluation/evaluation_report.md`, and `code/evaluation/usage_report.md`;
-- `log.txt` follows the `AGENTS.md` turn format and is uploaded to the `chat_transcript` slot; and
-- no API keys, credentials, real personal data, or sensitive configuration values are included.
+---
+
+## 11. Submission checklist
+
+- [x] `output.csv` has the header `case_id,deletion_status,steps_json`.
+- [x] Exactly 518 data rows, one per request, sorted by `case_id`.
+- [x] Every `steps_json` value is a valid JSON array with consecutive `step_no` starting at `1`.
+- [x] Findings cite participant-visible evidence IDs.
+- [x] `COMPLETE` verification steps cite evidence.
+- [x] Remediation and future verification for `INCOMPLETE` cases use `evidence_id=""`.
+- [x] `NOT_APPLICABLE` cases use `steps_json=[]`.
+- [x] No organizer-only data, hidden answers, or hardcoded case labels are used.
+- [x] No API keys, credentials, secrets, or `dataset/` are included in `code.zip`.
+- [x] `code/evaluation/evaluation_report.md` and `code/evaluation/usage_report.md` are present.
+- [x] `log.txt` (chat transcript) follows the `AGENTS.md` turn format and is uploaded separately.
+
+---
+
+## 12. Reference
+
+Read `problem_statement.md` in the challenge repository for the full participant-facing specification. The dataset is participant-facing only; organizer-only truth is never used by this solution.
